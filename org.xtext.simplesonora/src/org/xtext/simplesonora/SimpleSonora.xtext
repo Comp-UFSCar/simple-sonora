@@ -1,0 +1,9 @@
+grammar org.xtext.simplesonora.SimpleSonora with org.eclipse.xtext.common.Terminals
+
+generate simpleSonora "http://www.xtext.org/simplesonora/SimpleSonora"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

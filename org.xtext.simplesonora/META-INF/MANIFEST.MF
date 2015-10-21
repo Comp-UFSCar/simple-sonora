@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.simplesonora
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.simplesonora; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.xtext.simplesonora,
+ org.xtext.simplesonora.services,
+ org.xtext.simplesonora.simpleSonora,
+ org.xtext.simplesonora.simpleSonora.impl,
+ org.xtext.simplesonora.simpleSonora.util,
+ org.xtext.simplesonora.serializer,
+ org.xtext.simplesonora.parser.antlr,
+ org.xtext.simplesonora.parser.antlr.internal,
+ org.xtext.simplesonora.validation,
+ org.xtext.simplesonora.scoping,
+ org.xtext.simplesonora.generator,
+ org.xtext.simplesonora.formatting
