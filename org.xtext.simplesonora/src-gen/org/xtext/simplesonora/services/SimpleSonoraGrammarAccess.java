@@ -18,53 +18,255 @@ import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
-	public class ModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Model");
-		private final Assignment cGreetingsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cGreetingsGreetingParserRuleCall_0 = (RuleCall)cGreetingsAssignment.eContents().get(0);
-		
-		//Model:
-		//	greetings+=Greeting*;
-		@Override public ParserRule getRule() { return rule; }
-
-		//greetings+=Greeting*
-		public Assignment getGreetingsAssignment() { return cGreetingsAssignment; }
-
-		//Greeting
-		public RuleCall getGreetingsGreetingParserRuleCall_0() { return cGreetingsGreetingParserRuleCall_0; }
-	}
-
-	public class GreetingElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Greeting");
+	public class FileElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "File");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cHelloKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cExclamationMarkKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cHeaderAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cHeaderHeaderParserRuleCall_0_0 = (RuleCall)cHeaderAssignment_0.eContents().get(0);
+		private final Assignment cMelodyAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cMelodyMelodyParserRuleCall_1_0 = (RuleCall)cMelodyAssignment_1.eContents().get(0);
 		
-		//Greeting:
-		//	"Hello" name=ID "!";
+		//File:
+		//	header=Header melody=Melody;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Hello" name=ID "!"
+		//header=Header melody=Melody
 		public Group getGroup() { return cGroup; }
 
-		//"Hello"
-		public Keyword getHelloKeyword_0() { return cHelloKeyword_0; }
+		//header=Header
+		public Assignment getHeaderAssignment_0() { return cHeaderAssignment_0; }
 
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//Header
+		public RuleCall getHeaderHeaderParserRuleCall_0_0() { return cHeaderHeaderParserRuleCall_0_0; }
 
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//melody=Melody
+		public Assignment getMelodyAssignment_1() { return cMelodyAssignment_1; }
 
-		//"!"
-		public Keyword getExclamationMarkKeyword_2() { return cExclamationMarkKeyword_2; }
+		//Melody
+		public RuleCall getMelodyMelodyParserRuleCall_1_0() { return cMelodyMelodyParserRuleCall_1_0; }
+	}
+
+	public class HeaderElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Header");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cTempoKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cTempoAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cTempoINTTerminalRuleCall_0_2_0 = (RuleCall)cTempoAssignment_0_2.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cTimeKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cTimeAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cTimeTIMETerminalRuleCall_1_2_0 = (RuleCall)cTimeAssignment_1_2.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cKeyKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cKeyAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cKeyKeyParserRuleCall_2_2_0 = (RuleCall)cKeyAssignment_2_2.eContents().get(0);
+		
+		/// * Header of the file containing the tempo, time and key of melody. * / Header:
+		//	("tempo" "=" tempo=INT) ("time" "=" time=TIME) ("key" "=" key=Key);
+		@Override public ParserRule getRule() { return rule; }
+
+		//("tempo" "=" tempo=INT) ("time" "=" time=TIME) ("key" "=" key=Key)
+		public Group getGroup() { return cGroup; }
+
+		//"tempo" "=" tempo=INT
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"tempo"
+		public Keyword getTempoKeyword_0_0() { return cTempoKeyword_0_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_0_1() { return cEqualsSignKeyword_0_1; }
+
+		//tempo=INT
+		public Assignment getTempoAssignment_0_2() { return cTempoAssignment_0_2; }
+
+		//INT
+		public RuleCall getTempoINTTerminalRuleCall_0_2_0() { return cTempoINTTerminalRuleCall_0_2_0; }
+
+		//"time" "=" time=TIME
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"time"
+		public Keyword getTimeKeyword_1_0() { return cTimeKeyword_1_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1_1() { return cEqualsSignKeyword_1_1; }
+
+		//time=TIME
+		public Assignment getTimeAssignment_1_2() { return cTimeAssignment_1_2; }
+
+		//TIME
+		public RuleCall getTimeTIMETerminalRuleCall_1_2_0() { return cTimeTIMETerminalRuleCall_1_2_0; }
+
+		//"key" "=" key=Key
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"key"
+		public Keyword getKeyKeyword_2_0() { return cKeyKeyword_2_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_2_1() { return cEqualsSignKeyword_2_1; }
+
+		//key=Key
+		public Assignment getKeyAssignment_2_2() { return cKeyAssignment_2_2; }
+
+		//Key
+		public RuleCall getKeyKeyParserRuleCall_2_2_0() { return cKeyKeyParserRuleCall_2_2_0; }
+	}
+
+	public class KeyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Key");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cNOTE_IDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cACCIDENTALTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		
+		//Key:
+		//	NOTE_ID ACCIDENTAL?;
+		@Override public ParserRule getRule() { return rule; }
+
+		//NOTE_ID ACCIDENTAL?
+		public Group getGroup() { return cGroup; }
+
+		//NOTE_ID
+		public RuleCall getNOTE_IDTerminalRuleCall_0() { return cNOTE_IDTerminalRuleCall_0; }
+
+		//ACCIDENTAL?
+		public RuleCall getACCIDENTALTerminalRuleCall_1() { return cACCIDENTALTerminalRuleCall_1; }
+	}
+
+	public class MelodyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Melody");
+		private final Assignment cSequencesAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cSequencesSequenceParserRuleCall_0 = (RuleCall)cSequencesAssignment.eContents().get(0);
+		
+		/// * The body of the file with melody. * / Melody:
+		//	sequences+=Sequence+;
+		@Override public ParserRule getRule() { return rule; }
+
+		//sequences+=Sequence+
+		public Assignment getSequencesAssignment() { return cSequencesAssignment; }
+
+		//Sequence
+		public RuleCall getSequencesSequenceParserRuleCall_0() { return cSequencesSequenceParserRuleCall_0; }
+	}
+
+	public class SequenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Sequence");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cOctaveAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cOctaveOCTAVETerminalRuleCall_0_0 = (RuleCall)cOctaveAssignment_0.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cNoteAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cNoteNoteParserRuleCall_1_0_0 = (RuleCall)cNoteAssignment_1_0.eContents().get(0);
+		private final Assignment cChordAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cChordChordParserRuleCall_1_1_0 = (RuleCall)cChordAssignment_1_1.eContents().get(0);
+		
+		//Sequence:
+		//	octave=OCTAVE? (note=Note | chord=Chord);
+		@Override public ParserRule getRule() { return rule; }
+
+		//octave=OCTAVE? (note=Note | chord=Chord)
+		public Group getGroup() { return cGroup; }
+
+		//octave=OCTAVE?
+		public Assignment getOctaveAssignment_0() { return cOctaveAssignment_0; }
+
+		//OCTAVE
+		public RuleCall getOctaveOCTAVETerminalRuleCall_0_0() { return cOctaveOCTAVETerminalRuleCall_0_0; }
+
+		//note=Note | chord=Chord
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+
+		//note=Note
+		public Assignment getNoteAssignment_1_0() { return cNoteAssignment_1_0; }
+
+		//Note
+		public RuleCall getNoteNoteParserRuleCall_1_0_0() { return cNoteNoteParserRuleCall_1_0_0; }
+
+		//chord=Chord
+		public Assignment getChordAssignment_1_1() { return cChordAssignment_1_1; }
+
+		//Chord
+		public RuleCall getChordChordParserRuleCall_1_1_0() { return cChordChordParserRuleCall_1_1_0; }
+	}
+
+	public class ChordElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Chord");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cChordNotesAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cChordNotesNoteParserRuleCall_0_0 = (RuleCall)cChordNotesAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cSolidusKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cChordNotesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cChordNotesNoteParserRuleCall_1_1_0 = (RuleCall)cChordNotesAssignment_1_1.eContents().get(0);
+		
+		//Chord:
+		//	chordNotes+=Note ("/" chordNotes+=Note)+;
+		@Override public ParserRule getRule() { return rule; }
+
+		//chordNotes+=Note ("/" chordNotes+=Note)+
+		public Group getGroup() { return cGroup; }
+
+		//chordNotes+=Note
+		public Assignment getChordNotesAssignment_0() { return cChordNotesAssignment_0; }
+
+		//Note
+		public RuleCall getChordNotesNoteParserRuleCall_0_0() { return cChordNotesNoteParserRuleCall_0_0; }
+
+		//("/" chordNotes+=Note)+
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"/"
+		public Keyword getSolidusKeyword_1_0() { return cSolidusKeyword_1_0; }
+
+		//chordNotes+=Note
+		public Assignment getChordNotesAssignment_1_1() { return cChordNotesAssignment_1_1; }
+
+		//Note
+		public RuleCall getChordNotesNoteParserRuleCall_1_1_0() { return cChordNotesNoteParserRuleCall_1_1_0; }
+	}
+
+	public class NoteElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Note");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cNOTE_IDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cACCIDENTALTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cDURATIONTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		
+		//Note:
+		//	NOTE_ID ACCIDENTAL? DURATION?;
+		@Override public ParserRule getRule() { return rule; }
+
+		//NOTE_ID ACCIDENTAL? DURATION?
+		public Group getGroup() { return cGroup; }
+
+		//NOTE_ID
+		public RuleCall getNOTE_IDTerminalRuleCall_0() { return cNOTE_IDTerminalRuleCall_0; }
+
+		//ACCIDENTAL?
+		public RuleCall getACCIDENTALTerminalRuleCall_1() { return cACCIDENTALTerminalRuleCall_1; }
+
+		//DURATION?
+		public RuleCall getDURATIONTerminalRuleCall_2() { return cDURATIONTerminalRuleCall_2; }
 	}
 	
 	
-	private final ModelElements pModel;
-	private final GreetingElements pGreeting;
+	private final FileElements pFile;
+	private final HeaderElements pHeader;
+	private final KeyElements pKey;
+	private final TerminalRule tTIME;
+	private final MelodyElements pMelody;
+	private final SequenceElements pSequence;
+	private final ChordElements pChord;
+	private final NoteElements pNote;
+	private final TerminalRule tOCTAVE;
+	private final TerminalRule tACCIDENTAL;
+	private final TerminalRule tNOTE_ID;
+	private final TerminalRule tDURATION;
 	
 	private final Grammar grammar;
 
@@ -75,8 +277,18 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pModel = new ModelElements();
-		this.pGreeting = new GreetingElements();
+		this.pFile = new FileElements();
+		this.pHeader = new HeaderElements();
+		this.pKey = new KeyElements();
+		this.tTIME = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TIME");
+		this.pMelody = new MelodyElements();
+		this.pSequence = new SequenceElements();
+		this.pChord = new ChordElements();
+		this.pNote = new NoteElements();
+		this.tOCTAVE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "OCTAVE");
+		this.tACCIDENTAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ACCIDENTAL");
+		this.tNOTE_ID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NOTE_ID");
+		this.tDURATION = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DURATION");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -106,25 +318,105 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Model:
-	//	greetings+=Greeting*;
-	public ModelElements getModelAccess() {
-		return pModel;
+	//File:
+	//	header=Header melody=Melody;
+	public FileElements getFileAccess() {
+		return pFile;
 	}
 	
-	public ParserRule getModelRule() {
-		return getModelAccess().getRule();
+	public ParserRule getFileRule() {
+		return getFileAccess().getRule();
 	}
 
-	//Greeting:
-	//	"Hello" name=ID "!";
-	public GreetingElements getGreetingAccess() {
-		return pGreeting;
+	/// * Header of the file containing the tempo, time and key of melody. * / Header:
+	//	("tempo" "=" tempo=INT) ("time" "=" time=TIME) ("key" "=" key=Key);
+	public HeaderElements getHeaderAccess() {
+		return pHeader;
 	}
 	
-	public ParserRule getGreetingRule() {
-		return getGreetingAccess().getRule();
+	public ParserRule getHeaderRule() {
+		return getHeaderAccess().getRule();
 	}
+
+	//Key:
+	//	NOTE_ID ACCIDENTAL?;
+	public KeyElements getKeyAccess() {
+		return pKey;
+	}
+	
+	public ParserRule getKeyRule() {
+		return getKeyAccess().getRule();
+	}
+
+	//terminal TIME:
+	//	"3/4" | "4/4";
+	public TerminalRule getTIMERule() {
+		return tTIME;
+	} 
+
+	/// * The body of the file with melody. * / Melody:
+	//	sequences+=Sequence+;
+	public MelodyElements getMelodyAccess() {
+		return pMelody;
+	}
+	
+	public ParserRule getMelodyRule() {
+		return getMelodyAccess().getRule();
+	}
+
+	//Sequence:
+	//	octave=OCTAVE? (note=Note | chord=Chord);
+	public SequenceElements getSequenceAccess() {
+		return pSequence;
+	}
+	
+	public ParserRule getSequenceRule() {
+		return getSequenceAccess().getRule();
+	}
+
+	//Chord:
+	//	chordNotes+=Note ("/" chordNotes+=Note)+;
+	public ChordElements getChordAccess() {
+		return pChord;
+	}
+	
+	public ParserRule getChordRule() {
+		return getChordAccess().getRule();
+	}
+
+	//Note:
+	//	NOTE_ID ACCIDENTAL? DURATION?;
+	public NoteElements getNoteAccess() {
+		return pNote;
+	}
+	
+	public ParserRule getNoteRule() {
+		return getNoteAccess().getRule();
+	}
+
+	//terminal OCTAVE:
+	//	"<"+ | "o" "0".."9" | ">"+;
+	public TerminalRule getOCTAVERule() {
+		return tOCTAVE;
+	} 
+
+	//terminal ACCIDENTAL:
+	//	"+" | "-";
+	public TerminalRule getACCIDENTALRule() {
+		return tACCIDENTAL;
+	} 
+
+	//terminal NOTE_ID:
+	//	"a".."g" | "A".."G";
+	public TerminalRule getNOTE_IDRule() {
+		return tNOTE_ID;
+	} 
+
+	//terminal DURATION:
+	//	":" ("1" | "2" | "4" | "8" | "16" | "32");
+	public TerminalRule getDURATIONRule() {
+		return tDURATION;
+	} 
 
 	//terminal ID:
 	//	"^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;

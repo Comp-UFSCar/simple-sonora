@@ -1,8 +1,10 @@
 eclipse.preferences.version=1
 repositories/file\:_G\:_Programming_Workspace_GitHub_simple-sonora_.metadata_.plugins_org.eclipse.pde.core_Launch%20Runtime%20Eclipse_.p2_org.eclipse.equinox.p2.core_cache/description=
+repositories/file\:_G\:_Programming_Workspace_GitHub_simple-sonora_.metadata_.plugins_org.eclipse.pde.core_Launch%20Runtime%20Eclipse_.p2_org.eclipse.equinox.p2.core_cache/enabled=true
 repositories/file\:_G\:_Programming_Workspace_GitHub_simple-sonora_.metadata_.plugins_org.eclipse.pde.core_Launch%20Runtime%20Eclipse_.p2_org.eclipse.equinox.p2.core_cache/isSystem=true
 repositories/file\:_G\:_Programming_Workspace_GitHub_simple-sonora_.metadata_.plugins_org.eclipse.pde.core_Launch%20Runtime%20Eclipse_.p2_org.eclipse.equinox.p2.core_cache/name=download cache
 repositories/file\:_G\:_Programming_Workspace_GitHub_simple-sonora_.metadata_.plugins_org.eclipse.pde.core_Launch%20Runtime%20Eclipse_.p2_org.eclipse.equinox.p2.core_cache/provider=
+repositories/file\:_G\:_Programming_Workspace_GitHub_simple-sonora_.metadata_.plugins_org.eclipse.pde.core_Launch%20Runtime%20Eclipse_.p2_org.eclipse.equinox.p2.core_cache/suffix=artifacts.xml
 repositories/file\:_G\:_Programming_Workspace_GitHub_simple-sonora_.metadata_.plugins_org.eclipse.pde.core_Launch%20Runtime%20Eclipse_.p2_org.eclipse.equinox.p2.core_cache/type=org.eclipse.equinox.p2.artifact.repository.simpleRepository
 repositories/file\:_G\:_Programming_Workspace_GitHub_simple-sonora_.metadata_.plugins_org.eclipse.pde.core_Launch%20Runtime%20Eclipse_.p2_org.eclipse.equinox.p2.core_cache/uri=file\:/G\:/Programming_Workspace/GitHub/simple-sonora/.metadata/.plugins/org.eclipse.pde.core/Launch%20Runtime%20Eclipse/.p2/org.eclipse.equinox.p2.core/cache/
-repositories/file\:_G\:_Programming_Workspace_GitHub_simple-sonora_.metadata_.plugins_org.eclipse.pde.core_Launch%20Runtime%20Eclipse_.p2_org.eclipse.equinox.p2.core_cache/version=1
+repositories/file\:_G\:_Programming_Workspace_GitHub_simple-sonora_.metadata_.plugins_org.eclipse.pde.core_Launch%20Runtime%20Eclipse_.p2_org.eclipse.equinox.p2.core_cache/version=1.0.0

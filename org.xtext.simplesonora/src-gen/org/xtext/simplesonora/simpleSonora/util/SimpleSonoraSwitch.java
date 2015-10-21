@@ -72,17 +72,38 @@ public class SimpleSonoraSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case SimpleSonoraPackage.MODEL:
+      case SimpleSonoraPackage.FILE:
       {
-        Model model = (Model)theEObject;
-        T result = caseModel(model);
+        File file = (File)theEObject;
+        T result = caseFile(file);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SimpleSonoraPackage.GREETING:
+      case SimpleSonoraPackage.HEADER:
       {
-        Greeting greeting = (Greeting)theEObject;
-        T result = caseGreeting(greeting);
+        Header header = (Header)theEObject;
+        T result = caseHeader(header);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SimpleSonoraPackage.MELODY:
+      {
+        Melody melody = (Melody)theEObject;
+        T result = caseMelody(melody);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SimpleSonoraPackage.SEQUENCE:
+      {
+        Sequence sequence = (Sequence)theEObject;
+        T result = caseSequence(sequence);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SimpleSonoraPackage.CHORD:
+      {
+        Chord chord = (Chord)theEObject;
+        T result = caseChord(chord);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -91,33 +112,81 @@ public class SimpleSonoraSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>File</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+   * @return the result of interpreting the object as an instance of '<em>File</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseModel(Model object)
+  public T caseFile(File object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Greeting</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Header</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Greeting</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Header</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseGreeting(Greeting object)
+  public T caseHeader(Header object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Melody</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Melody</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMelody(Melody object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Sequence</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sequence</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSequence(Sequence object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Chord</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Chord</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseChord(Chord object)
   {
     return null;
   }

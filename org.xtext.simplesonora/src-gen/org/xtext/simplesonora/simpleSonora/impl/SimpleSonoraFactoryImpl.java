@@ -64,8 +64,11 @@ public class SimpleSonoraFactoryImpl extends EFactoryImpl implements SimpleSonor
   {
     switch (eClass.getClassifierID())
     {
-      case SimpleSonoraPackage.MODEL: return createModel();
-      case SimpleSonoraPackage.GREETING: return createGreeting();
+      case SimpleSonoraPackage.FILE: return createFile();
+      case SimpleSonoraPackage.HEADER: return createHeader();
+      case SimpleSonoraPackage.MELODY: return createMelody();
+      case SimpleSonoraPackage.SEQUENCE: return createSequence();
+      case SimpleSonoraPackage.CHORD: return createChord();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -76,10 +79,10 @@ public class SimpleSonoraFactoryImpl extends EFactoryImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public Model createModel()
+  public File createFile()
   {
-    ModelImpl model = new ModelImpl();
-    return model;
+    FileImpl file = new FileImpl();
+    return file;
   }
 
   /**
@@ -87,10 +90,43 @@ public class SimpleSonoraFactoryImpl extends EFactoryImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public Greeting createGreeting()
+  public Header createHeader()
   {
-    GreetingImpl greeting = new GreetingImpl();
-    return greeting;
+    HeaderImpl header = new HeaderImpl();
+    return header;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Melody createMelody()
+  {
+    MelodyImpl melody = new MelodyImpl();
+    return melody;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Sequence createSequence()
+  {
+    SequenceImpl sequence = new SequenceImpl();
+    return sequence;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Chord createChord()
+  {
+    ChordImpl chord = new ChordImpl();
+    return chord;
   }
 
   /**

@@ -23,22 +23,49 @@ public interface SimpleSonoraFactory extends EFactory
   SimpleSonoraFactory eINSTANCE = org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>File</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>File</em>'.
    * @generated
    */
-  Model createModel();
+  File createFile();
 
   /**
-   * Returns a new object of class '<em>Greeting</em>'.
+   * Returns a new object of class '<em>Header</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Greeting</em>'.
+   * @return a new object of class '<em>Header</em>'.
    * @generated
    */
-  Greeting createGreeting();
+  Header createHeader();
+
+  /**
+   * Returns a new object of class '<em>Melody</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Melody</em>'.
+   * @generated
+   */
+  Melody createMelody();
+
+  /**
+   * Returns a new object of class '<em>Sequence</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sequence</em>'.
+   * @generated
+   */
+  Sequence createSequence();
+
+  /**
+   * Returns a new object of class '<em>Chord</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Chord</em>'.
+   * @generated
+   */
+  Chord createChord();
 
   /**
    * Returns the package supported by this factory.

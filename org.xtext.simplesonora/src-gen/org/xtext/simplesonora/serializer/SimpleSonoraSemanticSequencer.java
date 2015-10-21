@@ -17,8 +17,11 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.simplesonora.services.SimpleSonoraGrammarAccess;
-import org.xtext.simplesonora.simpleSonora.Greeting;
-import org.xtext.simplesonora.simpleSonora.Model;
+import org.xtext.simplesonora.simpleSonora.Chord;
+import org.xtext.simplesonora.simpleSonora.File;
+import org.xtext.simplesonora.simpleSonora.Header;
+import org.xtext.simplesonora.simpleSonora.Melody;
+import org.xtext.simplesonora.simpleSonora.Sequence;
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
 
 @SuppressWarnings("all")
@@ -30,11 +33,20 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == SimpleSonoraPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case SimpleSonoraPackage.GREETING:
-				sequence_Greeting(context, (Greeting) semanticObject); 
+			case SimpleSonoraPackage.CHORD:
+				sequence_Chord(context, (Chord) semanticObject); 
 				return; 
-			case SimpleSonoraPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
+			case SimpleSonoraPackage.FILE:
+				sequence_File(context, (File) semanticObject); 
+				return; 
+			case SimpleSonoraPackage.HEADER:
+				sequence_Header(context, (Header) semanticObject); 
+				return; 
+			case SimpleSonoraPackage.MELODY:
+				sequence_Melody(context, (Melody) semanticObject); 
+				return; 
+			case SimpleSonoraPackage.SEQUENCE:
+				sequence_Sequence(context, (Sequence) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -42,25 +54,68 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Constraint:
-	 *     name=ID
+	 *     (chordNotes+=Note chordNotes+=Note+)
 	 */
-	protected void sequence_Greeting(EObject context, Greeting semanticObject) {
+	protected void sequence_Chord(EObject context, Chord semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (header=Header melody=Melody)
+	 */
+	protected void sequence_File(EObject context, File semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, SimpleSonoraPackage.Literals.GREETING__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimpleSonoraPackage.Literals.GREETING__NAME));
+			if(transientValues.isValueTransient(semanticObject, SimpleSonoraPackage.Literals.FILE__HEADER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimpleSonoraPackage.Literals.FILE__HEADER));
+			if(transientValues.isValueTransient(semanticObject, SimpleSonoraPackage.Literals.FILE__MELODY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimpleSonoraPackage.Literals.FILE__MELODY));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getGreetingAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getFileAccess().getHeaderHeaderParserRuleCall_0_0(), semanticObject.getHeader());
+		feeder.accept(grammarAccess.getFileAccess().getMelodyMelodyParserRuleCall_1_0(), semanticObject.getMelody());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     greetings+=Greeting*
+	 *     (tempo=INT time=TIME key=Key)
 	 */
-	protected void sequence_Model(EObject context, Model semanticObject) {
+	protected void sequence_Header(EObject context, Header semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, SimpleSonoraPackage.Literals.HEADER__TEMPO) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimpleSonoraPackage.Literals.HEADER__TEMPO));
+			if(transientValues.isValueTransient(semanticObject, SimpleSonoraPackage.Literals.HEADER__TIME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimpleSonoraPackage.Literals.HEADER__TIME));
+			if(transientValues.isValueTransient(semanticObject, SimpleSonoraPackage.Literals.HEADER__KEY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimpleSonoraPackage.Literals.HEADER__KEY));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getHeaderAccess().getTempoINTTerminalRuleCall_0_2_0(), semanticObject.getTempo());
+		feeder.accept(grammarAccess.getHeaderAccess().getTimeTIMETerminalRuleCall_1_2_0(), semanticObject.getTime());
+		feeder.accept(grammarAccess.getHeaderAccess().getKeyKeyParserRuleCall_2_2_0(), semanticObject.getKey());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     sequences+=Sequence+
+	 */
+	protected void sequence_Melody(EObject context, Melody semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (octave=OCTAVE? (note=Note | chord=Chord))
+	 */
+	protected void sequence_Sequence(EObject context, Sequence semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

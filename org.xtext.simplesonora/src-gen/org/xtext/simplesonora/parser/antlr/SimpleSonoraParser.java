@@ -25,7 +25,7 @@ public class SimpleSonoraParser extends org.eclipse.xtext.parser.antlr.AbstractA
 	
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "File";
 	}
 	
 	public SimpleSonoraGrammarAccess getGrammarAccess() {

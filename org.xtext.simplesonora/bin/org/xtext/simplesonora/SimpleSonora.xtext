@@ -2,8 +2,55 @@ grammar org.xtext.simplesonora.SimpleSonora with org.eclipse.xtext.common.Termin
 
 generate simpleSonora "http://www.xtext.org/simplesonora/SimpleSonora"
 
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+File:
+	(header=Header)(melody=Melody)
+;
+
+/* Header of the file containing the tempo, time and key of melody. */
+Header:
+	('tempo' '=' tempo=INT)
+	('time' '=' time=TIME)
+	('key' '=' key=Key)
+;
+
+Key:
+	NOTE_ID ACCIDENTAL?
+;
+
+terminal TIME:
+	'3/4' | '4/4'
+;
+
+/* The body of the file with melody. */
+Melody:
+	(sequences += Sequence)+
+;
+
+Sequence:
+	(octave = OCTAVE)? (note = Note | chord = Chord)
+;
+
+Chord:
+	chordNotes+=Note ('/' chordNotes+= Note)+
+;
+
+Note:
+	NOTE_ID (ACCIDENTAL)? (DURATION)?
+;
+
+terminal OCTAVE:
+	('<')+ | 'o'('0'..'9') | ('>')+
+;
+
+terminal ACCIDENTAL:
+	'+' | '-'
+;
+
+terminal NOTE_ID:
+	 ('a'..'g')|('A'..'G')
+;
+
+/*TODO: remover o uso dos dois pontos nessa regra */
+terminal DURATION :
+	':'('1' | '2' | '4' | '8' | '16' | '32')
+;

@@ -16,41 +16,41 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.simplesonora.simpleSonora.Greeting;
-import org.xtext.simplesonora.simpleSonora.Model;
+import org.xtext.simplesonora.simpleSonora.Melody;
+import org.xtext.simplesonora.simpleSonora.Sequence;
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>Melody</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.ModelImpl#getGreetings <em>Greetings</em>}</li>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.MelodyImpl#getSequences <em>Sequences</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public class MelodyImpl extends MinimalEObjectImpl.Container implements Melody
 {
   /**
-   * The cached value of the '{@link #getGreetings() <em>Greetings</em>}' containment reference list.
+   * The cached value of the '{@link #getSequences() <em>Sequences</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGreetings()
+   * @see #getSequences()
    * @generated
    * @ordered
    */
-  protected EList<Greeting> greetings;
+  protected EList<Sequence> sequences;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModelImpl()
+  protected MelodyImpl()
   {
     super();
   }
@@ -63,7 +63,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return SimpleSonoraPackage.Literals.MODEL;
+    return SimpleSonoraPackage.Literals.MELODY;
   }
 
   /**
@@ -71,13 +71,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Greeting> getGreetings()
+  public EList<Sequence> getSequences()
   {
-    if (greetings == null)
+    if (sequences == null)
     {
-      greetings = new EObjectContainmentEList<Greeting>(Greeting.class, this, SimpleSonoraPackage.MODEL__GREETINGS);
+      sequences = new EObjectContainmentEList<Sequence>(Sequence.class, this, SimpleSonoraPackage.MELODY__SEQUENCES);
     }
-    return greetings;
+    return sequences;
   }
 
   /**
@@ -90,8 +90,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.MODEL__GREETINGS:
-        return ((InternalEList<?>)getGreetings()).basicRemove(otherEnd, msgs);
+      case SimpleSonoraPackage.MELODY__SEQUENCES:
+        return ((InternalEList<?>)getSequences()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -106,8 +106,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.MODEL__GREETINGS:
-        return getGreetings();
+      case SimpleSonoraPackage.MELODY__SEQUENCES:
+        return getSequences();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -123,9 +123,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.MODEL__GREETINGS:
-        getGreetings().clear();
-        getGreetings().addAll((Collection<? extends Greeting>)newValue);
+      case SimpleSonoraPackage.MELODY__SEQUENCES:
+        getSequences().clear();
+        getSequences().addAll((Collection<? extends Sequence>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,8 +141,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.MODEL__GREETINGS:
-        getGreetings().clear();
+      case SimpleSonoraPackage.MELODY__SEQUENCES:
+        getSequences().clear();
         return;
     }
     super.eUnset(featureID);
@@ -158,10 +158,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.MODEL__GREETINGS:
-        return greetings != null && !greetings.isEmpty();
+      case SimpleSonoraPackage.MELODY__SEQUENCES:
+        return sequences != null && !sequences.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ModelImpl
+} //MelodyImpl

@@ -37,9 +37,28 @@ public class SimpleSonoraParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getGreetingAccess().getGroup(), "rule__Greeting__Group__0");
-					put(grammarAccess.getModelAccess().getGreetingsAssignment(), "rule__Model__GreetingsAssignment");
-					put(grammarAccess.getGreetingAccess().getNameAssignment_1(), "rule__Greeting__NameAssignment_1");
+					put(grammarAccess.getSequenceAccess().getAlternatives_1(), "rule__Sequence__Alternatives_1");
+					put(grammarAccess.getFileAccess().getGroup(), "rule__File__Group__0");
+					put(grammarAccess.getHeaderAccess().getGroup(), "rule__Header__Group__0");
+					put(grammarAccess.getHeaderAccess().getGroup_0(), "rule__Header__Group_0__0");
+					put(grammarAccess.getHeaderAccess().getGroup_1(), "rule__Header__Group_1__0");
+					put(grammarAccess.getHeaderAccess().getGroup_2(), "rule__Header__Group_2__0");
+					put(grammarAccess.getKeyAccess().getGroup(), "rule__Key__Group__0");
+					put(grammarAccess.getSequenceAccess().getGroup(), "rule__Sequence__Group__0");
+					put(grammarAccess.getChordAccess().getGroup(), "rule__Chord__Group__0");
+					put(grammarAccess.getChordAccess().getGroup_1(), "rule__Chord__Group_1__0");
+					put(grammarAccess.getNoteAccess().getGroup(), "rule__Note__Group__0");
+					put(grammarAccess.getFileAccess().getHeaderAssignment_0(), "rule__File__HeaderAssignment_0");
+					put(grammarAccess.getFileAccess().getMelodyAssignment_1(), "rule__File__MelodyAssignment_1");
+					put(grammarAccess.getHeaderAccess().getTempoAssignment_0_2(), "rule__Header__TempoAssignment_0_2");
+					put(grammarAccess.getHeaderAccess().getTimeAssignment_1_2(), "rule__Header__TimeAssignment_1_2");
+					put(grammarAccess.getHeaderAccess().getKeyAssignment_2_2(), "rule__Header__KeyAssignment_2_2");
+					put(grammarAccess.getMelodyAccess().getSequencesAssignment(), "rule__Melody__SequencesAssignment");
+					put(grammarAccess.getSequenceAccess().getOctaveAssignment_0(), "rule__Sequence__OctaveAssignment_0");
+					put(grammarAccess.getSequenceAccess().getNoteAssignment_1_0(), "rule__Sequence__NoteAssignment_1_0");
+					put(grammarAccess.getSequenceAccess().getChordAssignment_1_1(), "rule__Sequence__ChordAssignment_1_1");
+					put(grammarAccess.getChordAccess().getChordNotesAssignment_0(), "rule__Chord__ChordNotesAssignment_0");
+					put(grammarAccess.getChordAccess().getChordNotesAssignment_1_1(), "rule__Chord__ChordNotesAssignment_1_1");
 				}
 			};
 		}
@@ -50,7 +69,7 @@ public class SimpleSonoraParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			org.xtext.simplesonora.ui.contentassist.antlr.internal.InternalSimpleSonoraParser typedParser = (org.xtext.simplesonora.ui.contentassist.antlr.internal.InternalSimpleSonoraParser) parser;
-			typedParser.entryRuleModel();
+			typedParser.entryRuleFile();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

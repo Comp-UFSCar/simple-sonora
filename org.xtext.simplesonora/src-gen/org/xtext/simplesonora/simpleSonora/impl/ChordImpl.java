@@ -2,57 +2,50 @@
  */
 package org.xtext.simplesonora.simpleSonora.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.simplesonora.simpleSonora.Greeting;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+
+import org.xtext.simplesonora.simpleSonora.Chord;
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Greeting</b></em>'.
+ * An implementation of the model object '<em><b>Chord</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.GreetingImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.ChordImpl#getChordNotes <em>Chord Notes</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeting
+public class ChordImpl extends MinimalEObjectImpl.Container implements Chord
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getChordNotes() <em>Chord Notes</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getChordNotes()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected EList<String> chordNotes;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected GreetingImpl()
+  protected ChordImpl()
   {
     super();
   }
@@ -65,7 +58,7 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   @Override
   protected EClass eStaticClass()
   {
-    return SimpleSonoraPackage.Literals.GREETING;
+    return SimpleSonoraPackage.Literals.CHORD;
   }
 
   /**
@@ -73,22 +66,13 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public EList<String> getChordNotes()
   {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.GREETING__NAME, oldName, name));
+    if (chordNotes == null)
+    {
+      chordNotes = new EDataTypeEList<String>(String.class, this, SimpleSonoraPackage.CHORD__CHORD_NOTES);
+    }
+    return chordNotes;
   }
 
   /**
@@ -101,8 +85,8 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.GREETING__NAME:
-        return getName();
+      case SimpleSonoraPackage.CHORD__CHORD_NOTES:
+        return getChordNotes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -112,13 +96,15 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.GREETING__NAME:
-        setName((String)newValue);
+      case SimpleSonoraPackage.CHORD__CHORD_NOTES:
+        getChordNotes().clear();
+        getChordNotes().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +120,8 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.GREETING__NAME:
-        setName(NAME_EDEFAULT);
+      case SimpleSonoraPackage.CHORD__CHORD_NOTES:
+        getChordNotes().clear();
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +137,8 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.GREETING__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case SimpleSonoraPackage.CHORD__CHORD_NOTES:
+        return chordNotes != null && !chordNotes.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -168,10 +154,10 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (chordNotes: ");
+    result.append(chordNotes);
     result.append(')');
     return result.toString();
   }
 
-} //GreetingImpl
+} //ChordImpl

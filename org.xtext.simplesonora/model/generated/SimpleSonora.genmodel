@@ -7,11 +7,25 @@
     editorPluginID="org.xtext.simplesonora.editor" runtimeVersion="2.11">
   <genPackages prefix="SimpleSonora" basePackage="org.xtext.simplesonora" disposableProviderFactory="true"
       fileExtensions="sonora" ecorePackage="SimpleSonora.ecore#/">
-    <genClasses ecoreClass="SimpleSonora.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Model/greetings"/>
+    <genClasses ecoreClass="SimpleSonora.ecore#//File">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//File/header"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//File/melody"/>
     </genClasses>
-    <genClasses ecoreClass="SimpleSonora.ecore#//Greeting">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Greeting/name"/>
+    <genClasses ecoreClass="SimpleSonora.ecore#//Header">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Header/tempo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Header/time"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Header/key"/>
+    </genClasses>
+    <genClasses ecoreClass="SimpleSonora.ecore#//Melody">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Melody/sequences"/>
+    </genClasses>
+    <genClasses ecoreClass="SimpleSonora.ecore#//Sequence">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Sequence/octave"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Sequence/note"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Sequence/chord"/>
+    </genClasses>
+    <genClasses ecoreClass="SimpleSonora.ecore#//Chord">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Chord/chordNotes"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

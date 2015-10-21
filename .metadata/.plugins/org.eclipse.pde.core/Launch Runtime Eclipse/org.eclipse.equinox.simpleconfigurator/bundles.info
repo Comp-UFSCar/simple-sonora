@@ -1,5 +1,6 @@
 #encoding=UTF-8
 #version=1
+code.satyagraha.gfm.viewer.plugin,1.9.3,file:/G:/Programming_Workspace/eclipse/plugins/code.satyagraha.gfm.viewer.plugin_1.9.3.jar,4,false
 com.github.eclipsecolortheme,1.0.0.201410260308,file:/G:/Programming_Workspace/eclipse/plugins/com.github.eclipsecolortheme_1.0.0.201410260308.jar,4,false
 com.github.eclipseuitheme.themes.moonrise-ui,0.8.9.201404052318,file:/G:/Programming_Workspace/eclipse/plugins/com.github.eclipseuitheme.themes.moonrise-ui_0.8.9.201404052318.jar,4,false
 com.google.gson,2.2.4.v201311231704,file:/G:/Programming_Workspace/eclipse/plugins/com.google.gson_2.2.4.v201311231704.jar,4,false

@@ -75,14 +75,29 @@ public class SimpleSonoraAdapterFactory extends AdapterFactoryImpl
     new SimpleSonoraSwitch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
+      public Adapter caseFile(File object)
       {
-        return createModelAdapter();
+        return createFileAdapter();
       }
       @Override
-      public Adapter caseGreeting(Greeting object)
+      public Adapter caseHeader(Header object)
       {
-        return createGreetingAdapter();
+        return createHeaderAdapter();
+      }
+      @Override
+      public Adapter caseMelody(Melody object)
+      {
+        return createMelodyAdapter();
+      }
+      @Override
+      public Adapter caseSequence(Sequence object)
+      {
+        return createSequenceAdapter();
+      }
+      @Override
+      public Adapter caseChord(Chord object)
+      {
+        return createChordAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -107,31 +122,76 @@ public class SimpleSonoraAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Model <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.File <em>File</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.simplesonora.simpleSonora.Model
+   * @see org.xtext.simplesonora.simpleSonora.File
    * @generated
    */
-  public Adapter createModelAdapter()
+  public Adapter createFileAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Greeting <em>Greeting</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Header <em>Header</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.simplesonora.simpleSonora.Greeting
+   * @see org.xtext.simplesonora.simpleSonora.Header
    * @generated
    */
-  public Adapter createGreetingAdapter()
+  public Adapter createHeaderAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Melody <em>Melody</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.simplesonora.simpleSonora.Melody
+   * @generated
+   */
+  public Adapter createMelodyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Sequence <em>Sequence</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.simplesonora.simpleSonora.Sequence
+   * @generated
+   */
+  public Adapter createSequenceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Chord <em>Chord</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.simplesonora.simpleSonora.Chord
+   * @generated
+   */
+  public Adapter createChordAdapter()
   {
     return null;
   }
