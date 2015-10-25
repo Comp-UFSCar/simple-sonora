@@ -69,6 +69,7 @@ public class SimpleSonoraFactoryImpl extends EFactoryImpl implements SimpleSonor
       case SimpleSonoraPackage.MELODY: return createMelody();
       case SimpleSonoraPackage.SEQUENCE: return createSequence();
       case SimpleSonoraPackage.CHORD: return createChord();
+      case SimpleSonoraPackage.NOTE: return createNote();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -127,6 +128,17 @@ public class SimpleSonoraFactoryImpl extends EFactoryImpl implements SimpleSonor
   {
     ChordImpl chord = new ChordImpl();
     return chord;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Note createNote()
+  {
+    NoteImpl note = new NoteImpl();
+    return note;
   }
 
   /**

@@ -21,6 +21,7 @@ import org.xtext.simplesonora.simpleSonora.Chord;
 import org.xtext.simplesonora.simpleSonora.File;
 import org.xtext.simplesonora.simpleSonora.Header;
 import org.xtext.simplesonora.simpleSonora.Melody;
+import org.xtext.simplesonora.simpleSonora.Note;
 import org.xtext.simplesonora.simpleSonora.Sequence;
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
 
@@ -44,6 +45,9 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 				return; 
 			case SimpleSonoraPackage.MELODY:
 				sequence_Melody(context, (Melody) semanticObject); 
+				return; 
+			case SimpleSonoraPackage.NOTE:
+				sequence_Note(context, (Note) semanticObject); 
 				return; 
 			case SimpleSonoraPackage.SEQUENCE:
 				sequence_Sequence(context, (Sequence) semanticObject); 
@@ -107,6 +111,15 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     sequences+=Sequence+
 	 */
 	protected void sequence_Melody(EObject context, Melody semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (note=NOTE_ID accidental=ACCIDENTAL? duration=DURATION?)
+	 */
+	protected void sequence_Note(EObject context, Note semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

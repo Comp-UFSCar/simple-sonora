@@ -3,9 +3,15 @@
  */
 package org.xtext.simplesonora.generator;
 
+import com.google.common.collect.Iterables;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.jfugue.player.Player;
+import org.xtext.simplesonora.simpleSonora.Note;
 
 /**
  * Generates code from your model files on save.
@@ -14,7 +20,19 @@ import org.eclipse.xtext.generator.IGenerator;
  */
 @SuppressWarnings("all")
 public class SimpleSonoraGenerator implements IGenerator {
+  private String finalProduct = new String();
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
+    final Player player = new Player();
+    TreeIterator<EObject> _allContents = resource.getAllContents();
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
+    Iterable<Note> _filter = Iterables.<Note>filter(_iterable, Note.class);
+    for (final Note n : _filter) {
+      String _note = n.getNote();
+      player.play(_note);
+    }
+    fsa.generateFile("../listaDeNotas.txt", this.finalProduct);
+    System.out.println(this.finalProduct);
   }
 }

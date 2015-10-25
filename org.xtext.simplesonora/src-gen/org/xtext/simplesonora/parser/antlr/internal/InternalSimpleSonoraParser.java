@@ -24,23 +24,23 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_TIME", "RULE_NOTE_ID", "RULE_ACCIDENTAL", "RULE_OCTAVE", "RULE_DURATION", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'tempo'", "'='", "'time'", "'key'", "'/'"
     };
     public static final int RULE_DURATION=9;
-    public static final int T__19=19;
-    public static final int RULE_ID=10;
     public static final int RULE_STRING=11;
-    public static final int T__16=16;
-    public static final int RULE_NOTE_ID=6;
-    public static final int T__18=18;
-    public static final int RULE_ACCIDENTAL=7;
-    public static final int T__17=17;
-    public static final int RULE_ANY_OTHER=15;
-    public static final int T__20=20;
-    public static final int RULE_TIME=5;
-    public static final int RULE_INT=4;
-    public static final int RULE_OCTAVE=8;
-    public static final int RULE_WS=14;
     public static final int RULE_SL_COMMENT=13;
+    public static final int T__19=19;
+    public static final int T__16=16;
+    public static final int T__17=17;
+    public static final int T__18=18;
+    public static final int RULE_TIME=5;
     public static final int EOF=-1;
+    public static final int RULE_NOTE_ID=6;
+    public static final int RULE_ID=10;
+    public static final int RULE_WS=14;
+    public static final int RULE_ANY_OTHER=15;
+    public static final int RULE_ACCIDENTAL=7;
+    public static final int RULE_OCTAVE=8;
+    public static final int RULE_INT=4;
     public static final int RULE_ML_COMMENT=12;
+    public static final int T__20=20;
 
     // delegates
     // delegators
@@ -690,7 +690,7 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
         EObject current = null;
 
         Token lv_octave_0_0=null;
-        AntlrDatatypeRuleToken lv_note_1_0 = null;
+        EObject lv_note_1_0 = null;
 
         EObject lv_chord_2_0 = null;
 
@@ -768,16 +768,16 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
                         }
                         }
                         break;
-                    case 20:
-                        {
-                        alt4=2;
-                        }
-                        break;
                     case EOF:
                     case RULE_NOTE_ID:
                     case RULE_OCTAVE:
                         {
                         alt4=1;
+                        }
+                        break;
+                    case 20:
+                        {
+                        alt4=2;
                         }
                         break;
                     default:
@@ -807,16 +807,16 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
                     }
                     }
                     break;
-                case 20:
-                    {
-                    alt4=2;
-                    }
-                    break;
                 case EOF:
                 case RULE_NOTE_ID:
                 case RULE_OCTAVE:
                     {
                     alt4=1;
+                    }
+                    break;
+                case 20:
+                    {
+                    alt4=2;
                     }
                     break;
                 default:
@@ -973,9 +973,9 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
         EObject current = null;
 
         Token otherlv_1=null;
-        AntlrDatatypeRuleToken lv_chordNotes_0_0 = null;
+        EObject lv_chordNotes_0_0 = null;
 
-        AntlrDatatypeRuleToken lv_chordNotes_2_0 = null;
+        EObject lv_chordNotes_2_0 = null;
 
 
          enterRule(); 
@@ -1103,11 +1103,11 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNote"
-    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:434:1: entryRuleNote returns [String current=null] : iv_ruleNote= ruleNote EOF ;
-    public final String entryRuleNote() throws RecognitionException {
-        String current = null;
+    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:434:1: entryRuleNote returns [EObject current=null] : iv_ruleNote= ruleNote EOF ;
+    public final EObject entryRuleNote() throws RecognitionException {
+        EObject current = null;
 
-        AntlrDatatypeRuleToken iv_ruleNote = null;
+        EObject iv_ruleNote = null;
 
 
         try {
@@ -1115,13 +1115,13 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
             // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:436:2: iv_ruleNote= ruleNote EOF
             {
              newCompositeNode(grammarAccess.getNoteRule()); 
-            pushFollow(FOLLOW_ruleNote_in_entryRuleNote886);
+            pushFollow(FOLLOW_ruleNote_in_entryRuleNote885);
             iv_ruleNote=ruleNote();
 
             state._fsp--;
 
-             current =iv_ruleNote.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNote897); 
+             current =iv_ruleNote; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNote895); 
 
             }
 
@@ -1139,31 +1139,50 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNote"
-    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:443:1: ruleNote returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_NOTE_ID_0= RULE_NOTE_ID (this_ACCIDENTAL_1= RULE_ACCIDENTAL )? (this_DURATION_2= RULE_DURATION )? ) ;
-    public final AntlrDatatypeRuleToken ruleNote() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:443:1: ruleNote returns [EObject current=null] : ( ( (lv_note_0_0= RULE_NOTE_ID ) ) ( (lv_accidental_1_0= RULE_ACCIDENTAL ) )? ( (lv_duration_2_0= RULE_DURATION ) )? ) ;
+    public final EObject ruleNote() throws RecognitionException {
+        EObject current = null;
 
-        Token this_NOTE_ID_0=null;
-        Token this_ACCIDENTAL_1=null;
-        Token this_DURATION_2=null;
+        Token lv_note_0_0=null;
+        Token lv_accidental_1_0=null;
+        Token lv_duration_2_0=null;
 
          enterRule(); 
             
         try {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:446:28: ( (this_NOTE_ID_0= RULE_NOTE_ID (this_ACCIDENTAL_1= RULE_ACCIDENTAL )? (this_DURATION_2= RULE_DURATION )? ) )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:447:1: (this_NOTE_ID_0= RULE_NOTE_ID (this_ACCIDENTAL_1= RULE_ACCIDENTAL )? (this_DURATION_2= RULE_DURATION )? )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:446:28: ( ( ( (lv_note_0_0= RULE_NOTE_ID ) ) ( (lv_accidental_1_0= RULE_ACCIDENTAL ) )? ( (lv_duration_2_0= RULE_DURATION ) )? ) )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:447:1: ( ( (lv_note_0_0= RULE_NOTE_ID ) ) ( (lv_accidental_1_0= RULE_ACCIDENTAL ) )? ( (lv_duration_2_0= RULE_DURATION ) )? )
             {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:447:1: (this_NOTE_ID_0= RULE_NOTE_ID (this_ACCIDENTAL_1= RULE_ACCIDENTAL )? (this_DURATION_2= RULE_DURATION )? )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:447:6: this_NOTE_ID_0= RULE_NOTE_ID (this_ACCIDENTAL_1= RULE_ACCIDENTAL )? (this_DURATION_2= RULE_DURATION )?
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:447:1: ( ( (lv_note_0_0= RULE_NOTE_ID ) ) ( (lv_accidental_1_0= RULE_ACCIDENTAL ) )? ( (lv_duration_2_0= RULE_DURATION ) )? )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:447:2: ( (lv_note_0_0= RULE_NOTE_ID ) ) ( (lv_accidental_1_0= RULE_ACCIDENTAL ) )? ( (lv_duration_2_0= RULE_DURATION ) )?
             {
-            this_NOTE_ID_0=(Token)match(input,RULE_NOTE_ID,FOLLOW_RULE_NOTE_ID_in_ruleNote937); 
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:447:2: ( (lv_note_0_0= RULE_NOTE_ID ) )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:448:1: (lv_note_0_0= RULE_NOTE_ID )
+            {
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:448:1: (lv_note_0_0= RULE_NOTE_ID )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:449:3: lv_note_0_0= RULE_NOTE_ID
+            {
+            lv_note_0_0=(Token)match(input,RULE_NOTE_ID,FOLLOW_RULE_NOTE_ID_in_ruleNote937); 
 
-            		current.merge(this_NOTE_ID_0);
-                
-             
-                newLeafNode(this_NOTE_ID_0, grammarAccess.getNoteAccess().getNOTE_IDTerminalRuleCall_0()); 
-                
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:454:1: (this_ACCIDENTAL_1= RULE_ACCIDENTAL )?
+            			newLeafNode(lv_note_0_0, grammarAccess.getNoteAccess().getNoteNOTE_IDTerminalRuleCall_0_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getNoteRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"note",
+                    		lv_note_0_0, 
+                    		"NOTE_ID");
+            	    
+
+            }
+
+
+            }
+
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:465:2: ( (lv_accidental_1_0= RULE_ACCIDENTAL ) )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1172,22 +1191,35 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
             }
             switch (alt6) {
                 case 1 :
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:454:6: this_ACCIDENTAL_1= RULE_ACCIDENTAL
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:466:1: (lv_accidental_1_0= RULE_ACCIDENTAL )
                     {
-                    this_ACCIDENTAL_1=(Token)match(input,RULE_ACCIDENTAL,FOLLOW_RULE_ACCIDENTAL_in_ruleNote958); 
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:466:1: (lv_accidental_1_0= RULE_ACCIDENTAL )
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:467:3: lv_accidental_1_0= RULE_ACCIDENTAL
+                    {
+                    lv_accidental_1_0=(Token)match(input,RULE_ACCIDENTAL,FOLLOW_RULE_ACCIDENTAL_in_ruleNote959); 
 
-                    		current.merge(this_ACCIDENTAL_1);
-                        
-                     
-                        newLeafNode(this_ACCIDENTAL_1, grammarAccess.getNoteAccess().getACCIDENTALTerminalRuleCall_1()); 
-                        
+                    			newLeafNode(lv_accidental_1_0, grammarAccess.getNoteAccess().getAccidentalACCIDENTALTerminalRuleCall_1_0()); 
+                    		
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getNoteRule());
+                    	        }
+                           		setWithLastConsumed(
+                           			current, 
+                           			"accidental",
+                            		lv_accidental_1_0, 
+                            		"ACCIDENTAL");
+                    	    
+
+                    }
+
 
                     }
                     break;
 
             }
 
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:461:3: (this_DURATION_2= RULE_DURATION )?
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:483:3: ( (lv_duration_2_0= RULE_DURATION ) )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1196,15 +1228,28 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:461:8: this_DURATION_2= RULE_DURATION
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:484:1: (lv_duration_2_0= RULE_DURATION )
                     {
-                    this_DURATION_2=(Token)match(input,RULE_DURATION,FOLLOW_RULE_DURATION_in_ruleNote981); 
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:484:1: (lv_duration_2_0= RULE_DURATION )
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:485:3: lv_duration_2_0= RULE_DURATION
+                    {
+                    lv_duration_2_0=(Token)match(input,RULE_DURATION,FOLLOW_RULE_DURATION_in_ruleNote982); 
 
-                    		current.merge(this_DURATION_2);
-                        
-                     
-                        newLeafNode(this_DURATION_2, grammarAccess.getNoteAccess().getDURATIONTerminalRuleCall_2()); 
-                        
+                    			newLeafNode(lv_duration_2_0, grammarAccess.getNoteAccess().getDurationDURATIONTerminalRuleCall_2_0()); 
+                    		
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getNoteRule());
+                    	        }
+                           		setWithLastConsumed(
+                           			current, 
+                           			"duration",
+                            		lv_duration_2_0, 
+                            		"DURATION");
+                    	    
+
+                    }
+
 
                     }
                     break;
@@ -1267,10 +1312,10 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleNote_in_ruleChord813 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_20_in_ruleChord826 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_ruleNote_in_ruleChord847 = new BitSet(new long[]{0x0000000000100002L});
-    public static final BitSet FOLLOW_ruleNote_in_entryRuleNote886 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNote897 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNote_in_entryRuleNote885 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNote895 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_NOTE_ID_in_ruleNote937 = new BitSet(new long[]{0x0000000000000282L});
-    public static final BitSet FOLLOW_RULE_ACCIDENTAL_in_ruleNote958 = new BitSet(new long[]{0x0000000000000202L});
-    public static final BitSet FOLLOW_RULE_DURATION_in_ruleNote981 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ACCIDENTAL_in_ruleNote959 = new BitSet(new long[]{0x0000000000000202L});
+    public static final BitSet FOLLOW_RULE_DURATION_in_ruleNote982 = new BitSet(new long[]{0x0000000000000002L});
 
 }

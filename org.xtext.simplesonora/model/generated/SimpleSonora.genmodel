@@ -21,11 +21,16 @@
     </genClasses>
     <genClasses ecoreClass="SimpleSonora.ecore#//Sequence">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Sequence/octave"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Sequence/note"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Sequence/note"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Sequence/chord"/>
     </genClasses>
     <genClasses ecoreClass="SimpleSonora.ecore#//Chord">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Chord/chordNotes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Chord/chordNotes"/>
+    </genClasses>
+    <genClasses ecoreClass="SimpleSonora.ecore#//Note">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Note/note"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Note/accidental"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Note/duration"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

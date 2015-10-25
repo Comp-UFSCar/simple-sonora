@@ -187,7 +187,7 @@ public interface SimpleSonoraPackage extends EPackage
   int SEQUENCE__OCTAVE = 0;
 
   /**
-   * The feature id for the '<em><b>Note</b></em>' attribute.
+   * The feature id for the '<em><b>Note</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -224,7 +224,7 @@ public interface SimpleSonoraPackage extends EPackage
   int CHORD = 4;
 
   /**
-   * The feature id for the '<em><b>Chord Notes</b></em>' attribute list.
+   * The feature id for the '<em><b>Chord Notes</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -240,6 +240,52 @@ public interface SimpleSonoraPackage extends EPackage
    * @ordered
    */
   int CHORD_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.simplesonora.simpleSonora.impl.NoteImpl <em>Note</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.simplesonora.simpleSonora.impl.NoteImpl
+   * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getNote()
+   * @generated
+   */
+  int NOTE = 5;
+
+  /**
+   * The feature id for the '<em><b>Note</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOTE__NOTE = 0;
+
+  /**
+   * The feature id for the '<em><b>Accidental</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOTE__ACCIDENTAL = 1;
+
+  /**
+   * The feature id for the '<em><b>Duration</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOTE__DURATION = 2;
+
+  /**
+   * The number of structural features of the '<em>Note</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOTE_FEATURE_COUNT = 3;
 
 
   /**
@@ -360,15 +406,15 @@ public interface SimpleSonoraPackage extends EPackage
   EAttribute getSequence_Octave();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Sequence#getNote <em>Note</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.simplesonora.simpleSonora.Sequence#getNote <em>Note</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Note</em>'.
+   * @return the meta object for the containment reference '<em>Note</em>'.
    * @see org.xtext.simplesonora.simpleSonora.Sequence#getNote()
    * @see #getSequence()
    * @generated
    */
-  EAttribute getSequence_Note();
+  EReference getSequence_Note();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.simplesonora.simpleSonora.Sequence#getChord <em>Chord</em>}'.
@@ -392,15 +438,58 @@ public interface SimpleSonoraPackage extends EPackage
   EClass getChord();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.simplesonora.simpleSonora.Chord#getChordNotes <em>Chord Notes</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.simplesonora.simpleSonora.Chord#getChordNotes <em>Chord Notes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Chord Notes</em>'.
+   * @return the meta object for the containment reference list '<em>Chord Notes</em>'.
    * @see org.xtext.simplesonora.simpleSonora.Chord#getChordNotes()
    * @see #getChord()
    * @generated
    */
-  EAttribute getChord_ChordNotes();
+  EReference getChord_ChordNotes();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.simplesonora.simpleSonora.Note <em>Note</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Note</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Note
+   * @generated
+   */
+  EClass getNote();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Note#getNote <em>Note</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Note</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Note#getNote()
+   * @see #getNote()
+   * @generated
+   */
+  EAttribute getNote_Note();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Note#getAccidental <em>Accidental</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Accidental</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Note#getAccidental()
+   * @see #getNote()
+   * @generated
+   */
+  EAttribute getNote_Accidental();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Note#getDuration <em>Duration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Duration</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Note#getDuration()
+   * @see #getNote()
+   * @generated
+   */
+  EAttribute getNote_Duration();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -522,12 +611,12 @@ public interface SimpleSonoraPackage extends EPackage
     EAttribute SEQUENCE__OCTAVE = eINSTANCE.getSequence_Octave();
 
     /**
-     * The meta object literal for the '<em><b>Note</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Note</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SEQUENCE__NOTE = eINSTANCE.getSequence_Note();
+    EReference SEQUENCE__NOTE = eINSTANCE.getSequence_Note();
 
     /**
      * The meta object literal for the '<em><b>Chord</b></em>' containment reference feature.
@@ -548,12 +637,46 @@ public interface SimpleSonoraPackage extends EPackage
     EClass CHORD = eINSTANCE.getChord();
 
     /**
-     * The meta object literal for the '<em><b>Chord Notes</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Chord Notes</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CHORD__CHORD_NOTES = eINSTANCE.getChord_ChordNotes();
+    EReference CHORD__CHORD_NOTES = eINSTANCE.getChord_ChordNotes();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.simplesonora.simpleSonora.impl.NoteImpl <em>Note</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.simplesonora.simpleSonora.impl.NoteImpl
+     * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getNote()
+     * @generated
+     */
+    EClass NOTE = eINSTANCE.getNote();
+
+    /**
+     * The meta object literal for the '<em><b>Note</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NOTE__NOTE = eINSTANCE.getNote_Note();
+
+    /**
+     * The meta object literal for the '<em><b>Accidental</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NOTE__ACCIDENTAL = eINSTANCE.getNote_Accidental();
+
+    /**
+     * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NOTE__DURATION = eINSTANCE.getNote_Duration();
 
   }
 

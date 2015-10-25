@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.simplesonora.simpleSonora.Chord;
+import org.xtext.simplesonora.simpleSonora.Note;
 import org.xtext.simplesonora.simpleSonora.Sequence;
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
 
@@ -53,24 +54,14 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
   protected String octave = OCTAVE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getNote() <em>Note</em>}' attribute.
+   * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getNote()
    * @generated
    * @ordered
    */
-  protected static final String NOTE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getNote() <em>Note</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNote()
-   * @generated
-   * @ordered
-   */
-  protected String note = NOTE_EDEFAULT;
+  protected Note note;
 
   /**
    * The cached value of the '{@link #getChord() <em>Chord</em>}' containment reference.
@@ -131,7 +122,7 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getNote()
+  public Note getNote()
   {
     return note;
   }
@@ -141,12 +132,37 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setNote(String newNote)
+  public NotificationChain basicSetNote(Note newNote, NotificationChain msgs)
   {
-    String oldNote = note;
+    Note oldNote = note;
     note = newNote;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.SEQUENCE__NOTE, oldNote, note));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.SEQUENCE__NOTE, oldNote, newNote);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNote(Note newNote)
+  {
+    if (newNote != note)
+    {
+      NotificationChain msgs = null;
+      if (note != null)
+        msgs = ((InternalEObject)note).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimpleSonoraPackage.SEQUENCE__NOTE, null, msgs);
+      if (newNote != null)
+        msgs = ((InternalEObject)newNote).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SimpleSonoraPackage.SEQUENCE__NOTE, null, msgs);
+      msgs = basicSetNote(newNote, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.SEQUENCE__NOTE, newNote, newNote));
   }
 
   /**
@@ -207,6 +223,8 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
   {
     switch (featureID)
     {
+      case SimpleSonoraPackage.SEQUENCE__NOTE:
+        return basicSetNote(null, msgs);
       case SimpleSonoraPackage.SEQUENCE__CHORD:
         return basicSetChord(null, msgs);
     }
@@ -247,7 +265,7 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
         setOctave((String)newValue);
         return;
       case SimpleSonoraPackage.SEQUENCE__NOTE:
-        setNote((String)newValue);
+        setNote((Note)newValue);
         return;
       case SimpleSonoraPackage.SEQUENCE__CHORD:
         setChord((Chord)newValue);
@@ -270,7 +288,7 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
         setOctave(OCTAVE_EDEFAULT);
         return;
       case SimpleSonoraPackage.SEQUENCE__NOTE:
-        setNote(NOTE_EDEFAULT);
+        setNote((Note)null);
         return;
       case SimpleSonoraPackage.SEQUENCE__CHORD:
         setChord((Chord)null);
@@ -292,7 +310,7 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
       case SimpleSonoraPackage.SEQUENCE__OCTAVE:
         return OCTAVE_EDEFAULT == null ? octave != null : !OCTAVE_EDEFAULT.equals(octave);
       case SimpleSonoraPackage.SEQUENCE__NOTE:
-        return NOTE_EDEFAULT == null ? note != null : !NOTE_EDEFAULT.equals(note);
+        return note != null;
       case SimpleSonoraPackage.SEQUENCE__CHORD:
         return chord != null;
     }
@@ -312,8 +330,6 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (octave: ");
     result.append(octave);
-    result.append(", note: ");
-    result.append(note);
     result.append(')');
     return result.toString();
   }

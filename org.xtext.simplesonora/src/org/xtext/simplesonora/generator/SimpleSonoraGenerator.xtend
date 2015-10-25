@@ -6,6 +6,8 @@ package org.xtext.simplesonora.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
+import org.xtext.simplesonora.simpleSonora.Note
+import org.jfugue.player.Player
 
 /**
  * Generates code from your model files on save.
@@ -13,12 +15,15 @@ import org.eclipse.xtext.generator.IFileSystemAccess
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class SimpleSonoraGenerator implements IGenerator {
-	
+	String finalProduct = new String();
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(typeof(Greeting))
-//				.map[name]
-//				.join(', '))
+		val player = new Player();
+		   
+		for(Note n :resource.allContents.toIterable.filter(Note)){
+			player.play(n.note);	
+		}
+		
+		fsa.generateFile("../listaDeNotas.txt", finalProduct);
+		System.out.println(finalProduct);
 	}
 }

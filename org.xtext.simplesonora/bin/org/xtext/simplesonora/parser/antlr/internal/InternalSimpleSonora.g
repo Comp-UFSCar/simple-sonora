@@ -431,42 +431,75 @@ ruleChord returns [EObject current=null]
 
 
 // Entry rule entryRuleNote
-entryRuleNote returns [String current=null] 
+entryRuleNote returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getNoteRule()); } 
+	{ newCompositeNode(grammarAccess.getNoteRule()); }
 	 iv_ruleNote=ruleNote 
-	 { $current=$iv_ruleNote.current.getText(); }  
+	 { $current=$iv_ruleNote.current; } 
 	 EOF 
 ;
 
 // Rule Note
-ruleNote returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+ruleNote returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(    this_NOTE_ID_0=RULE_NOTE_ID    {
-		$current.merge(this_NOTE_ID_0);
-    }
+((
+(
+		lv_note_0_0=RULE_NOTE_ID
+		{
+			newLeafNode(lv_note_0_0, grammarAccess.getNoteAccess().getNoteNOTE_IDTerminalRuleCall_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getNoteRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"note",
+        		lv_note_0_0, 
+        		"NOTE_ID");
+	    }
 
-    { 
-    newLeafNode(this_NOTE_ID_0, grammarAccess.getNoteAccess().getNOTE_IDTerminalRuleCall_0()); 
-    }
-(    this_ACCIDENTAL_1=RULE_ACCIDENTAL    {
-		$current.merge(this_ACCIDENTAL_1);
-    }
+)
+)(
+(
+		lv_accidental_1_0=RULE_ACCIDENTAL
+		{
+			newLeafNode(lv_accidental_1_0, grammarAccess.getNoteAccess().getAccidentalACCIDENTALTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getNoteRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"accidental",
+        		lv_accidental_1_0, 
+        		"ACCIDENTAL");
+	    }
 
-    { 
-    newLeafNode(this_ACCIDENTAL_1, grammarAccess.getNoteAccess().getACCIDENTALTerminalRuleCall_1()); 
-    }
-)?(    this_DURATION_2=RULE_DURATION    {
-		$current.merge(this_DURATION_2);
-    }
+)
+)?(
+(
+		lv_duration_2_0=RULE_DURATION
+		{
+			newLeafNode(lv_duration_2_0, grammarAccess.getNoteAccess().getDurationDURATIONTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getNoteRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"duration",
+        		lv_duration_2_0, 
+        		"DURATION");
+	    }
 
-    { 
-    newLeafNode(this_DURATION_2, grammarAccess.getNoteAccess().getDURATIONTerminalRuleCall_2()); 
-    }
+)
 )?)
-    ;
+;
 
 
 

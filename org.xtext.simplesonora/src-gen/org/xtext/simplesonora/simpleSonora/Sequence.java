@@ -51,30 +51,30 @@ public interface Sequence extends EObject
   void setOctave(String value);
 
   /**
-   * Returns the value of the '<em><b>Note</b></em>' attribute.
+   * Returns the value of the '<em><b>Note</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Note</em>' attribute isn't clear,
+   * If the meaning of the '<em>Note</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Note</em>' attribute.
-   * @see #setNote(String)
+   * @return the value of the '<em>Note</em>' containment reference.
+   * @see #setNote(Note)
    * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getSequence_Note()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getNote();
+  Note getNote();
 
   /**
-   * Sets the value of the '{@link org.xtext.simplesonora.simpleSonora.Sequence#getNote <em>Note</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.simplesonora.simpleSonora.Sequence#getNote <em>Note</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Note</em>' attribute.
+   * @param value the new value of the '<em>Note</em>' containment reference.
    * @see #getNote()
    * @generated
    */
-  void setNote(String value);
+  void setNote(Note value);
 
   /**
    * Returns the value of the '<em><b>Chord</b></em>' containment reference.

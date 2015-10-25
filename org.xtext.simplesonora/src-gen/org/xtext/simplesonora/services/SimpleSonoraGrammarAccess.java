@@ -233,25 +233,37 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	public class NoteElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Note");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cNOTE_IDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final RuleCall cACCIDENTALTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final RuleCall cDURATIONTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNoteAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNoteNOTE_IDTerminalRuleCall_0_0 = (RuleCall)cNoteAssignment_0.eContents().get(0);
+		private final Assignment cAccidentalAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cAccidentalACCIDENTALTerminalRuleCall_1_0 = (RuleCall)cAccidentalAssignment_1.eContents().get(0);
+		private final Assignment cDurationAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDurationDURATIONTerminalRuleCall_2_0 = (RuleCall)cDurationAssignment_2.eContents().get(0);
 		
 		//Note:
-		//	NOTE_ID ACCIDENTAL? DURATION?;
+		//	note=NOTE_ID accidental=ACCIDENTAL? duration=DURATION?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//NOTE_ID ACCIDENTAL? DURATION?
+		//note=NOTE_ID accidental=ACCIDENTAL? duration=DURATION?
 		public Group getGroup() { return cGroup; }
 
+		//note=NOTE_ID
+		public Assignment getNoteAssignment_0() { return cNoteAssignment_0; }
+
 		//NOTE_ID
-		public RuleCall getNOTE_IDTerminalRuleCall_0() { return cNOTE_IDTerminalRuleCall_0; }
+		public RuleCall getNoteNOTE_IDTerminalRuleCall_0_0() { return cNoteNOTE_IDTerminalRuleCall_0_0; }
 
-		//ACCIDENTAL?
-		public RuleCall getACCIDENTALTerminalRuleCall_1() { return cACCIDENTALTerminalRuleCall_1; }
+		//accidental=ACCIDENTAL?
+		public Assignment getAccidentalAssignment_1() { return cAccidentalAssignment_1; }
 
-		//DURATION?
-		public RuleCall getDURATIONTerminalRuleCall_2() { return cDURATIONTerminalRuleCall_2; }
+		//ACCIDENTAL
+		public RuleCall getAccidentalACCIDENTALTerminalRuleCall_1_0() { return cAccidentalACCIDENTALTerminalRuleCall_1_0; }
+
+		//duration=DURATION?
+		public Assignment getDurationAssignment_2() { return cDurationAssignment_2; }
+
+		//DURATION
+		public RuleCall getDurationDURATIONTerminalRuleCall_2_0() { return cDurationDURATIONTerminalRuleCall_2_0; }
 	}
 	
 	
@@ -385,7 +397,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Note:
-	//	NOTE_ID ACCIDENTAL? DURATION?;
+	//	note=NOTE_ID accidental=ACCIDENTAL? duration=DURATION?;
 	public NoteElements getNoteAccess() {
 		return pNote;
 	}
@@ -412,7 +424,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		return tNOTE_ID;
 	} 
 
-	//terminal DURATION:
+	/// *TODO: remover o uso dos dois pontos nessa regra * / terminal DURATION:
 	//	":" ("1" | "2" | "4" | "8" | "16" | "32");
 	public TerminalRule getDURATIONRule() {
 		return tDURATION;

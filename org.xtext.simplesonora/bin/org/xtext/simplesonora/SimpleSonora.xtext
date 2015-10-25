@@ -35,7 +35,7 @@ Chord:
 ;
 
 Note:
-	NOTE_ID (ACCIDENTAL)? (DURATION)?
+	note=NOTE_ID accidental=(ACCIDENTAL)? duration=(DURATION)?
 ;
 
 terminal OCTAVE:

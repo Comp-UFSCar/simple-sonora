@@ -25,19 +25,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface Chord extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Chord Notes</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Chord Notes</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.simplesonora.simpleSonora.Note}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Chord Notes</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Chord Notes</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Chord Notes</em>' attribute list.
+   * @return the value of the '<em>Chord Notes</em>' containment reference list.
    * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getChord_ChordNotes()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getChordNotes();
+  EList<Note> getChordNotes();
 
 } // Chord

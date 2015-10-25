@@ -28,3 +28,5 @@ Export-Package: org.xtext.simplesonora,
  org.xtext.simplesonora.scoping,
  org.xtext.simplesonora.generator,
  org.xtext.simplesonora.formatting
+Bundle-ClassPath: .jfugue-5.0.4.jar,
+ .

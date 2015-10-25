@@ -996,9 +996,9 @@ rule__Note__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getNoteAccess().getNOTE_IDTerminalRuleCall_0()); }
-	RULE_NOTE_ID
-{ after(grammarAccess.getNoteAccess().getNOTE_IDTerminalRuleCall_0()); }
+{ before(grammarAccess.getNoteAccess().getNoteAssignment_0()); }
+(rule__Note__NoteAssignment_0)
+{ after(grammarAccess.getNoteAccess().getNoteAssignment_0()); }
 )
 
 ;
@@ -1025,9 +1025,9 @@ rule__Note__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getNoteAccess().getACCIDENTALTerminalRuleCall_1()); }
-(	RULE_ACCIDENTAL)?
-{ after(grammarAccess.getNoteAccess().getACCIDENTALTerminalRuleCall_1()); }
+{ before(grammarAccess.getNoteAccess().getAccidentalAssignment_1()); }
+(rule__Note__AccidentalAssignment_1)?
+{ after(grammarAccess.getNoteAccess().getAccidentalAssignment_1()); }
 )
 
 ;
@@ -1053,9 +1053,9 @@ rule__Note__Group__2__Impl
     }
 :
 (
-{ before(grammarAccess.getNoteAccess().getDURATIONTerminalRuleCall_2()); }
-(	RULE_DURATION)?
-{ after(grammarAccess.getNoteAccess().getDURATIONTerminalRuleCall_2()); }
+{ before(grammarAccess.getNoteAccess().getDurationAssignment_2()); }
+(rule__Note__DurationAssignment_2)?
+{ after(grammarAccess.getNoteAccess().getDurationAssignment_2()); }
 )
 
 ;
@@ -1229,6 +1229,51 @@ rule__Chord__ChordNotesAssignment_1_1
 (
 { before(grammarAccess.getChordAccess().getChordNotesNoteParserRuleCall_1_1_0()); }
 	ruleNote{ after(grammarAccess.getChordAccess().getChordNotesNoteParserRuleCall_1_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Note__NoteAssignment_0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getNoteAccess().getNoteNOTE_IDTerminalRuleCall_0_0()); }
+	RULE_NOTE_ID{ after(grammarAccess.getNoteAccess().getNoteNOTE_IDTerminalRuleCall_0_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Note__AccidentalAssignment_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getNoteAccess().getAccidentalACCIDENTALTerminalRuleCall_1_0()); }
+	RULE_ACCIDENTAL{ after(grammarAccess.getNoteAccess().getAccidentalACCIDENTALTerminalRuleCall_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Note__DurationAssignment_2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getNoteAccess().getDurationDURATIONTerminalRuleCall_2_0()); }
+	RULE_DURATION{ after(grammarAccess.getNoteAccess().getDurationDURATIONTerminalRuleCall_2_0()); }
 )
 
 ;

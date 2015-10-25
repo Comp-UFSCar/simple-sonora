@@ -4,15 +4,20 @@ package org.xtext.simplesonora.simpleSonora.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.simplesonora.simpleSonora.Chord;
+import org.xtext.simplesonora.simpleSonora.Note;
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
 
 /**
@@ -31,14 +36,14 @@ import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
 public class ChordImpl extends MinimalEObjectImpl.Container implements Chord
 {
   /**
-   * The cached value of the '{@link #getChordNotes() <em>Chord Notes</em>}' attribute list.
+   * The cached value of the '{@link #getChordNotes() <em>Chord Notes</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getChordNotes()
    * @generated
    * @ordered
    */
-  protected EList<String> chordNotes;
+  protected EList<Note> chordNotes;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,13 +71,29 @@ public class ChordImpl extends MinimalEObjectImpl.Container implements Chord
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getChordNotes()
+  public EList<Note> getChordNotes()
   {
     if (chordNotes == null)
     {
-      chordNotes = new EDataTypeEList<String>(String.class, this, SimpleSonoraPackage.CHORD__CHORD_NOTES);
+      chordNotes = new EObjectContainmentEList<Note>(Note.class, this, SimpleSonoraPackage.CHORD__CHORD_NOTES);
     }
     return chordNotes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case SimpleSonoraPackage.CHORD__CHORD_NOTES:
+        return ((InternalEList<?>)getChordNotes()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -104,7 +125,7 @@ public class ChordImpl extends MinimalEObjectImpl.Container implements Chord
     {
       case SimpleSonoraPackage.CHORD__CHORD_NOTES:
         getChordNotes().clear();
-        getChordNotes().addAll((Collection<? extends String>)newValue);
+        getChordNotes().addAll((Collection<? extends Note>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,23 +162,6 @@ public class ChordImpl extends MinimalEObjectImpl.Container implements Chord
         return chordNotes != null && !chordNotes.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (chordNotes: ");
-    result.append(chordNotes);
-    result.append(')');
-    return result.toString();
   }
 
 } //ChordImpl

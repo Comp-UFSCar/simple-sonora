@@ -3,23 +3,23 @@
  */
 package org.xtext.simplesonora.validation
 
-//import org.eclipse.xtext.validation.Check
+import org.xtext.simplesonora.simpleSonora.Note
+import org.eclipse.xtext.validation.Check
+import org.jfugue.player.Player
 
+//import org.eclipse.xtext.validation.Check
 /**
  * This class contains custom validation rules. 
- *
+ * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
 
-//  public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					MyDslPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+	@Check
+	def void playNote(Note note) {
+		
+//		val Player player = new Player();
+//		player.play(note.note);
+		//System.out.println(note.note);
+	}
 }

@@ -59,6 +59,9 @@ public class SimpleSonoraParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSequenceAccess().getChordAssignment_1_1(), "rule__Sequence__ChordAssignment_1_1");
 					put(grammarAccess.getChordAccess().getChordNotesAssignment_0(), "rule__Chord__ChordNotesAssignment_0");
 					put(grammarAccess.getChordAccess().getChordNotesAssignment_1_1(), "rule__Chord__ChordNotesAssignment_1_1");
+					put(grammarAccess.getNoteAccess().getNoteAssignment_0(), "rule__Note__NoteAssignment_0");
+					put(grammarAccess.getNoteAccess().getAccidentalAssignment_1(), "rule__Note__AccidentalAssignment_1");
+					put(grammarAccess.getNoteAccess().getDurationAssignment_2(), "rule__Note__DurationAssignment_2");
 				}
 			};
 		}
