@@ -13,23 +13,23 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSimpleSonoraLexer extends Lexer {
     public static final int RULE_DURATION=9;
-    public static final int RULE_STRING=11;
-    public static final int RULE_SL_COMMENT=13;
-    public static final int T__19=19;
-    public static final int T__16=16;
-    public static final int T__17=17;
-    public static final int T__18=18;
-    public static final int RULE_TIME=5;
-    public static final int EOF=-1;
-    public static final int RULE_NOTE_ID=6;
     public static final int RULE_ID=10;
-    public static final int RULE_WS=14;
-    public static final int RULE_ANY_OTHER=15;
     public static final int RULE_ACCIDENTAL=7;
-    public static final int RULE_OCTAVE=8;
-    public static final int RULE_INT=4;
-    public static final int RULE_ML_COMMENT=12;
+    public static final int RULE_ANY_OTHER=15;
     public static final int T__20=20;
+    public static final int RULE_SL_COMMENT=13;
+    public static final int EOF=-1;
+    public static final int RULE_ML_COMMENT=12;
+    public static final int T__19=19;
+    public static final int RULE_STRING=11;
+    public static final int T__16=16;
+    public static final int RULE_NOTE_ID=6;
+    public static final int T__18=18;
+    public static final int T__17=17;
+    public static final int RULE_TIME=5;
+    public static final int RULE_INT=4;
+    public static final int RULE_OCTAVE=8;
+    public static final int RULE_WS=14;
 
     // delegates
     // delegators
@@ -1143,7 +1143,7 @@ public class InternalSimpleSonoraLexer extends Lexer {
         "\1\20\1\21\2\uffff\1\13\1\2\1\uffff\1\16\1\17\1\5\1\6\1\14\1\7\1"+
         "\uffff\1\10\1\11\1\12\1\15\1\20\5\uffff\1\4\1\uffff\1\3\1\1";
     static final String DFA17_specialS =
-        "\1\0\17\uffff\1\2\1\1\34\uffff}>";
+        "\1\2\17\uffff\1\1\1\0\34\uffff}>";
     static final String[] DFA17_transitionS = {
             "\11\23\2\22\2\23\1\22\22\23\1\22\1\23\1\20\4\23\1\21\3\23\1"+
             "\12\1\23\1\12\1\23\1\4\3\17\1\5\1\6\5\17\1\14\1\23\1\7\1\2\1"+
@@ -1233,6 +1233,26 @@ public class InternalSimpleSonoraLexer extends Lexer {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA17_17 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA17_17>='\u0000' && LA17_17<='\uFFFF')) ) {s = 35;}
+
+                        else s = 19;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA17_16 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA17_16>='\u0000' && LA17_16<='\uFFFF')) ) {s = 35;}
+
+                        else s = 19;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
                         int LA17_0 = input.LA(1);
 
                         s = -1;
@@ -1273,26 +1293,6 @@ public class InternalSimpleSonoraLexer extends Lexer {
                         else if ( ((LA17_0>='\t' && LA17_0<='\n')||LA17_0=='\r'||LA17_0==' ') ) {s = 18;}
 
                         else if ( ((LA17_0>='\u0000' && LA17_0<='\b')||(LA17_0>='\u000B' && LA17_0<='\f')||(LA17_0>='\u000E' && LA17_0<='\u001F')||LA17_0=='!'||(LA17_0>='#' && LA17_0<='&')||(LA17_0>='(' && LA17_0<='*')||LA17_0==','||LA17_0=='.'||LA17_0==';'||(LA17_0>='?' && LA17_0<='@')||(LA17_0>='[' && LA17_0<=']')||LA17_0=='`'||(LA17_0>='{' && LA17_0<='\uFFFF')) ) {s = 19;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA17_17 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA17_17>='\u0000' && LA17_17<='\uFFFF')) ) {s = 35;}
-
-                        else s = 19;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA17_16 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA17_16>='\u0000' && LA17_16<='\uFFFF')) ) {s = 35;}
-
-                        else s = 19;
 
                         if ( s>=0 ) return s;
                         break;
