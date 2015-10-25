@@ -21,7 +21,7 @@ import java.io.File
 class SimpleSonoraGenerator implements IGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		val player = new Player();		
-		val pattern=new Pattern();   
+		val pattern=new Pattern();
 		//adição de todas as notas ao pattern q sera tocado
 		for(Note n :resource.allContents.toIterable.filter(Note)){
 			pattern.add(n.note)
@@ -31,11 +31,14 @@ class SimpleSonoraGenerator implements IGenerator {
 		for(Header h :resource.allContents.toIterable.filter(Header)){
 			pattern.tempo = h.tempo;
 			
+			MidiFileManager.savePatternToMidi(pattern,new File(h.songName+".midi"));
+			
+			
 		}
 		
 		//toca o pattern criado nos loops anteriores
 		player.play(pattern);
-		MidiFileManager.savePatternToMidi(pattern,new File("musica.midi"));
+		
 		
 		
 		

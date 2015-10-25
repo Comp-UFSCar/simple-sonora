@@ -22,26 +22,27 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSimpleSonoraParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NOTE_ID", "RULE_ACCIDENTAL", "RULE_INT", "RULE_TIME", "RULE_OCTAVE", "RULE_DURATION", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'tempo'", "'='", "'time'", "'key'", "'/'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NOTE_ID", "RULE_ACCIDENTAL", "RULE_ID", "RULE_INT", "RULE_TIME", "RULE_OCTAVE", "RULE_DURATION", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'name'", "'='", "'tempo'", "'time'", "'key'", "'/'"
     };
-    public static final int RULE_DURATION=9;
-    public static final int T__19=19;
-    public static final int RULE_ID=10;
+    public static final int RULE_DURATION=10;
     public static final int RULE_STRING=11;
-    public static final int T__16=16;
-    public static final int RULE_NOTE_ID=4;
-    public static final int T__18=18;
-    public static final int RULE_ACCIDENTAL=5;
-    public static final int T__17=17;
-    public static final int RULE_ANY_OTHER=15;
-    public static final int T__20=20;
-    public static final int RULE_TIME=7;
-    public static final int RULE_INT=6;
-    public static final int RULE_OCTAVE=8;
-    public static final int RULE_WS=14;
     public static final int RULE_SL_COMMENT=13;
+    public static final int T__19=19;
+    public static final int T__16=16;
+    public static final int T__17=17;
+    public static final int T__18=18;
+    public static final int RULE_TIME=8;
     public static final int EOF=-1;
+    public static final int RULE_NOTE_ID=4;
+    public static final int RULE_ID=6;
+    public static final int RULE_WS=14;
+    public static final int RULE_ANY_OTHER=15;
+    public static final int RULE_ACCIDENTAL=5;
+    public static final int RULE_OCTAVE=9;
+    public static final int RULE_INT=7;
     public static final int RULE_ML_COMMENT=12;
+    public static final int T__20=20;
+    public static final int T__21=21;
 
     // delegates
     // delegators
@@ -682,11 +683,11 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
                         {
                         int LA2_3 = input.LA(4);
 
-                        if ( (LA2_3==20) ) {
-                            alt2=2;
-                        }
-                        else if ( (LA2_3==EOF||LA2_3==RULE_NOTE_ID||LA2_3==RULE_OCTAVE) ) {
+                        if ( (LA2_3==EOF||LA2_3==RULE_NOTE_ID||LA2_3==RULE_OCTAVE) ) {
                             alt2=1;
+                        }
+                        else if ( (LA2_3==21) ) {
+                            alt2=2;
                         }
                         else {
                             NoViableAltException nvae =
@@ -696,16 +697,16 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
                         }
                         }
                         break;
-                    case 20:
-                        {
-                        alt2=2;
-                        }
-                        break;
                     case EOF:
                     case RULE_NOTE_ID:
                     case RULE_OCTAVE:
                         {
                         alt2=1;
+                        }
+                        break;
+                    case 21:
+                        {
+                        alt2=2;
                         }
                         break;
                     default:
@@ -721,11 +722,11 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
                     {
                     int LA2_3 = input.LA(3);
 
-                    if ( (LA2_3==20) ) {
-                        alt2=2;
-                    }
-                    else if ( (LA2_3==EOF||LA2_3==RULE_NOTE_ID||LA2_3==RULE_OCTAVE) ) {
+                    if ( (LA2_3==EOF||LA2_3==RULE_NOTE_ID||LA2_3==RULE_OCTAVE) ) {
                         alt2=1;
+                    }
+                    else if ( (LA2_3==21) ) {
+                        alt2=2;
                     }
                     else {
                         NoViableAltException nvae =
@@ -742,7 +743,7 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
                     alt2=1;
                     }
                     break;
-                case 20:
+                case 21:
                     {
                     alt2=2;
                     }
@@ -1165,17 +1166,22 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group__2"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:406:1: rule__Header__Group__2 : rule__Header__Group__2__Impl ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:406:1: rule__Header__Group__2 : rule__Header__Group__2__Impl rule__Header__Group__3 ;
     public final void rule__Header__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:410:1: ( rule__Header__Group__2__Impl )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:411:2: rule__Header__Group__2__Impl
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:410:1: ( rule__Header__Group__2__Impl rule__Header__Group__3 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:411:2: rule__Header__Group__2__Impl rule__Header__Group__3
             {
             pushFollow(FOLLOW_rule__Header__Group__2__Impl_in_rule__Header__Group__2797);
             rule__Header__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_rule__Header__Group__3_in_rule__Header__Group__2800);
+            rule__Header__Group__3();
 
             state._fsp--;
 
@@ -1198,23 +1204,23 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group__2__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:417:1: rule__Header__Group__2__Impl : ( ( rule__Header__Group_2__0 ) ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:418:1: rule__Header__Group__2__Impl : ( ( rule__Header__Group_2__0 ) ) ;
     public final void rule__Header__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:421:1: ( ( ( rule__Header__Group_2__0 ) ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:422:1: ( ( rule__Header__Group_2__0 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:422:1: ( ( ( rule__Header__Group_2__0 ) ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:423:1: ( ( rule__Header__Group_2__0 ) )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:422:1: ( ( rule__Header__Group_2__0 ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:423:1: ( rule__Header__Group_2__0 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:423:1: ( ( rule__Header__Group_2__0 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:424:1: ( rule__Header__Group_2__0 )
             {
              before(grammarAccess.getHeaderAccess().getGroup_2()); 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:424:1: ( rule__Header__Group_2__0 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:424:2: rule__Header__Group_2__0
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:425:1: ( rule__Header__Group_2__0 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:425:2: rule__Header__Group_2__0
             {
-            pushFollow(FOLLOW_rule__Header__Group_2__0_in_rule__Header__Group__2__Impl824);
+            pushFollow(FOLLOW_rule__Header__Group_2__0_in_rule__Header__Group__2__Impl827);
             rule__Header__Group_2__0();
 
             state._fsp--;
@@ -1244,22 +1250,102 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
     // $ANTLR end "rule__Header__Group__2__Impl"
 
 
+    // $ANTLR start "rule__Header__Group__3"
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:435:1: rule__Header__Group__3 : rule__Header__Group__3__Impl ;
+    public final void rule__Header__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:439:1: ( rule__Header__Group__3__Impl )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:440:2: rule__Header__Group__3__Impl
+            {
+            pushFollow(FOLLOW_rule__Header__Group__3__Impl_in_rule__Header__Group__3857);
+            rule__Header__Group__3__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Header__Group__3"
+
+
+    // $ANTLR start "rule__Header__Group__3__Impl"
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:446:1: rule__Header__Group__3__Impl : ( ( rule__Header__Group_3__0 ) ) ;
+    public final void rule__Header__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:450:1: ( ( ( rule__Header__Group_3__0 ) ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:451:1: ( ( rule__Header__Group_3__0 ) )
+            {
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:451:1: ( ( rule__Header__Group_3__0 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:452:1: ( rule__Header__Group_3__0 )
+            {
+             before(grammarAccess.getHeaderAccess().getGroup_3()); 
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:453:1: ( rule__Header__Group_3__0 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:453:2: rule__Header__Group_3__0
+            {
+            pushFollow(FOLLOW_rule__Header__Group_3__0_in_rule__Header__Group__3__Impl884);
+            rule__Header__Group_3__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getHeaderAccess().getGroup_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Header__Group__3__Impl"
+
+
     // $ANTLR start "rule__Header__Group_0__0"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:440:1: rule__Header__Group_0__0 : rule__Header__Group_0__0__Impl rule__Header__Group_0__1 ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:471:1: rule__Header__Group_0__0 : rule__Header__Group_0__0__Impl rule__Header__Group_0__1 ;
     public final void rule__Header__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:444:1: ( rule__Header__Group_0__0__Impl rule__Header__Group_0__1 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:445:2: rule__Header__Group_0__0__Impl rule__Header__Group_0__1
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:475:1: ( rule__Header__Group_0__0__Impl rule__Header__Group_0__1 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:476:2: rule__Header__Group_0__0__Impl rule__Header__Group_0__1
             {
-            pushFollow(FOLLOW_rule__Header__Group_0__0__Impl_in_rule__Header__Group_0__0860);
+            pushFollow(FOLLOW_rule__Header__Group_0__0__Impl_in_rule__Header__Group_0__0922);
             rule__Header__Group_0__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Header__Group_0__1_in_rule__Header__Group_0__0863);
+            pushFollow(FOLLOW_rule__Header__Group_0__1_in_rule__Header__Group_0__0925);
             rule__Header__Group_0__1();
 
             state._fsp--;
@@ -1283,21 +1369,21 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_0__0__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:452:1: rule__Header__Group_0__0__Impl : ( 'tempo' ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:483:1: rule__Header__Group_0__0__Impl : ( 'name' ) ;
     public final void rule__Header__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:456:1: ( ( 'tempo' ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:457:1: ( 'tempo' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:487:1: ( ( 'name' ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:488:1: ( 'name' )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:457:1: ( 'tempo' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:458:1: 'tempo'
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:488:1: ( 'name' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:489:1: 'name'
             {
-             before(grammarAccess.getHeaderAccess().getTempoKeyword_0_0()); 
-            match(input,16,FOLLOW_16_in_rule__Header__Group_0__0__Impl891); 
-             after(grammarAccess.getHeaderAccess().getTempoKeyword_0_0()); 
+             before(grammarAccess.getHeaderAccess().getNameKeyword_0_0()); 
+            match(input,16,FOLLOW_16_in_rule__Header__Group_0__0__Impl953); 
+             after(grammarAccess.getHeaderAccess().getNameKeyword_0_0()); 
 
             }
 
@@ -1320,21 +1406,21 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_0__1"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:471:1: rule__Header__Group_0__1 : rule__Header__Group_0__1__Impl rule__Header__Group_0__2 ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:502:1: rule__Header__Group_0__1 : rule__Header__Group_0__1__Impl rule__Header__Group_0__2 ;
     public final void rule__Header__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:475:1: ( rule__Header__Group_0__1__Impl rule__Header__Group_0__2 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:476:2: rule__Header__Group_0__1__Impl rule__Header__Group_0__2
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:506:1: ( rule__Header__Group_0__1__Impl rule__Header__Group_0__2 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:507:2: rule__Header__Group_0__1__Impl rule__Header__Group_0__2
             {
-            pushFollow(FOLLOW_rule__Header__Group_0__1__Impl_in_rule__Header__Group_0__1922);
+            pushFollow(FOLLOW_rule__Header__Group_0__1__Impl_in_rule__Header__Group_0__1984);
             rule__Header__Group_0__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Header__Group_0__2_in_rule__Header__Group_0__1925);
+            pushFollow(FOLLOW_rule__Header__Group_0__2_in_rule__Header__Group_0__1987);
             rule__Header__Group_0__2();
 
             state._fsp--;
@@ -1358,20 +1444,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_0__1__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:483:1: rule__Header__Group_0__1__Impl : ( '=' ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:514:1: rule__Header__Group_0__1__Impl : ( '=' ) ;
     public final void rule__Header__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:487:1: ( ( '=' ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:488:1: ( '=' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:518:1: ( ( '=' ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:519:1: ( '=' )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:488:1: ( '=' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:489:1: '='
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:519:1: ( '=' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:520:1: '='
             {
              before(grammarAccess.getHeaderAccess().getEqualsSignKeyword_0_1()); 
-            match(input,17,FOLLOW_17_in_rule__Header__Group_0__1__Impl953); 
+            match(input,17,FOLLOW_17_in_rule__Header__Group_0__1__Impl1015); 
              after(grammarAccess.getHeaderAccess().getEqualsSignKeyword_0_1()); 
 
             }
@@ -1395,16 +1481,16 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_0__2"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:502:1: rule__Header__Group_0__2 : rule__Header__Group_0__2__Impl ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:533:1: rule__Header__Group_0__2 : rule__Header__Group_0__2__Impl ;
     public final void rule__Header__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:506:1: ( rule__Header__Group_0__2__Impl )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:507:2: rule__Header__Group_0__2__Impl
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:537:1: ( rule__Header__Group_0__2__Impl )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:538:2: rule__Header__Group_0__2__Impl
             {
-            pushFollow(FOLLOW_rule__Header__Group_0__2__Impl_in_rule__Header__Group_0__2984);
+            pushFollow(FOLLOW_rule__Header__Group_0__2__Impl_in_rule__Header__Group_0__21046);
             rule__Header__Group_0__2__Impl();
 
             state._fsp--;
@@ -1428,31 +1514,31 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_0__2__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:513:1: rule__Header__Group_0__2__Impl : ( ( rule__Header__TempoAssignment_0_2 ) ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:544:1: rule__Header__Group_0__2__Impl : ( ( rule__Header__SongNameAssignment_0_2 ) ) ;
     public final void rule__Header__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:517:1: ( ( ( rule__Header__TempoAssignment_0_2 ) ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:518:1: ( ( rule__Header__TempoAssignment_0_2 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:548:1: ( ( ( rule__Header__SongNameAssignment_0_2 ) ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:549:1: ( ( rule__Header__SongNameAssignment_0_2 ) )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:518:1: ( ( rule__Header__TempoAssignment_0_2 ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:519:1: ( rule__Header__TempoAssignment_0_2 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:549:1: ( ( rule__Header__SongNameAssignment_0_2 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:550:1: ( rule__Header__SongNameAssignment_0_2 )
             {
-             before(grammarAccess.getHeaderAccess().getTempoAssignment_0_2()); 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:520:1: ( rule__Header__TempoAssignment_0_2 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:520:2: rule__Header__TempoAssignment_0_2
+             before(grammarAccess.getHeaderAccess().getSongNameAssignment_0_2()); 
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:551:1: ( rule__Header__SongNameAssignment_0_2 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:551:2: rule__Header__SongNameAssignment_0_2
             {
-            pushFollow(FOLLOW_rule__Header__TempoAssignment_0_2_in_rule__Header__Group_0__2__Impl1011);
-            rule__Header__TempoAssignment_0_2();
+            pushFollow(FOLLOW_rule__Header__SongNameAssignment_0_2_in_rule__Header__Group_0__2__Impl1073);
+            rule__Header__SongNameAssignment_0_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getHeaderAccess().getTempoAssignment_0_2()); 
+             after(grammarAccess.getHeaderAccess().getSongNameAssignment_0_2()); 
 
             }
 
@@ -1475,21 +1561,21 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_1__0"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:536:1: rule__Header__Group_1__0 : rule__Header__Group_1__0__Impl rule__Header__Group_1__1 ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:567:1: rule__Header__Group_1__0 : rule__Header__Group_1__0__Impl rule__Header__Group_1__1 ;
     public final void rule__Header__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:540:1: ( rule__Header__Group_1__0__Impl rule__Header__Group_1__1 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:541:2: rule__Header__Group_1__0__Impl rule__Header__Group_1__1
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:571:1: ( rule__Header__Group_1__0__Impl rule__Header__Group_1__1 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:572:2: rule__Header__Group_1__0__Impl rule__Header__Group_1__1
             {
-            pushFollow(FOLLOW_rule__Header__Group_1__0__Impl_in_rule__Header__Group_1__01047);
+            pushFollow(FOLLOW_rule__Header__Group_1__0__Impl_in_rule__Header__Group_1__01109);
             rule__Header__Group_1__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Header__Group_1__1_in_rule__Header__Group_1__01050);
+            pushFollow(FOLLOW_rule__Header__Group_1__1_in_rule__Header__Group_1__01112);
             rule__Header__Group_1__1();
 
             state._fsp--;
@@ -1513,21 +1599,21 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_1__0__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:548:1: rule__Header__Group_1__0__Impl : ( 'time' ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:579:1: rule__Header__Group_1__0__Impl : ( 'tempo' ) ;
     public final void rule__Header__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:552:1: ( ( 'time' ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:553:1: ( 'time' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:583:1: ( ( 'tempo' ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:584:1: ( 'tempo' )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:553:1: ( 'time' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:554:1: 'time'
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:584:1: ( 'tempo' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:585:1: 'tempo'
             {
-             before(grammarAccess.getHeaderAccess().getTimeKeyword_1_0()); 
-            match(input,18,FOLLOW_18_in_rule__Header__Group_1__0__Impl1078); 
-             after(grammarAccess.getHeaderAccess().getTimeKeyword_1_0()); 
+             before(grammarAccess.getHeaderAccess().getTempoKeyword_1_0()); 
+            match(input,18,FOLLOW_18_in_rule__Header__Group_1__0__Impl1140); 
+             after(grammarAccess.getHeaderAccess().getTempoKeyword_1_0()); 
 
             }
 
@@ -1550,21 +1636,21 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_1__1"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:567:1: rule__Header__Group_1__1 : rule__Header__Group_1__1__Impl rule__Header__Group_1__2 ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:598:1: rule__Header__Group_1__1 : rule__Header__Group_1__1__Impl rule__Header__Group_1__2 ;
     public final void rule__Header__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:571:1: ( rule__Header__Group_1__1__Impl rule__Header__Group_1__2 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:572:2: rule__Header__Group_1__1__Impl rule__Header__Group_1__2
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:602:1: ( rule__Header__Group_1__1__Impl rule__Header__Group_1__2 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:603:2: rule__Header__Group_1__1__Impl rule__Header__Group_1__2
             {
-            pushFollow(FOLLOW_rule__Header__Group_1__1__Impl_in_rule__Header__Group_1__11109);
+            pushFollow(FOLLOW_rule__Header__Group_1__1__Impl_in_rule__Header__Group_1__11171);
             rule__Header__Group_1__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Header__Group_1__2_in_rule__Header__Group_1__11112);
+            pushFollow(FOLLOW_rule__Header__Group_1__2_in_rule__Header__Group_1__11174);
             rule__Header__Group_1__2();
 
             state._fsp--;
@@ -1588,20 +1674,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_1__1__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:579:1: rule__Header__Group_1__1__Impl : ( '=' ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:610:1: rule__Header__Group_1__1__Impl : ( '=' ) ;
     public final void rule__Header__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:583:1: ( ( '=' ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:584:1: ( '=' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:614:1: ( ( '=' ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:615:1: ( '=' )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:584:1: ( '=' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:585:1: '='
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:615:1: ( '=' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:616:1: '='
             {
              before(grammarAccess.getHeaderAccess().getEqualsSignKeyword_1_1()); 
-            match(input,17,FOLLOW_17_in_rule__Header__Group_1__1__Impl1140); 
+            match(input,17,FOLLOW_17_in_rule__Header__Group_1__1__Impl1202); 
              after(grammarAccess.getHeaderAccess().getEqualsSignKeyword_1_1()); 
 
             }
@@ -1625,16 +1711,16 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_1__2"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:598:1: rule__Header__Group_1__2 : rule__Header__Group_1__2__Impl ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:629:1: rule__Header__Group_1__2 : rule__Header__Group_1__2__Impl ;
     public final void rule__Header__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:602:1: ( rule__Header__Group_1__2__Impl )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:603:2: rule__Header__Group_1__2__Impl
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:633:1: ( rule__Header__Group_1__2__Impl )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:634:2: rule__Header__Group_1__2__Impl
             {
-            pushFollow(FOLLOW_rule__Header__Group_1__2__Impl_in_rule__Header__Group_1__21171);
+            pushFollow(FOLLOW_rule__Header__Group_1__2__Impl_in_rule__Header__Group_1__21233);
             rule__Header__Group_1__2__Impl();
 
             state._fsp--;
@@ -1658,31 +1744,31 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_1__2__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:609:1: rule__Header__Group_1__2__Impl : ( ( rule__Header__TimeAssignment_1_2 ) ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:640:1: rule__Header__Group_1__2__Impl : ( ( rule__Header__TempoAssignment_1_2 ) ) ;
     public final void rule__Header__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:613:1: ( ( ( rule__Header__TimeAssignment_1_2 ) ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:614:1: ( ( rule__Header__TimeAssignment_1_2 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:644:1: ( ( ( rule__Header__TempoAssignment_1_2 ) ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:645:1: ( ( rule__Header__TempoAssignment_1_2 ) )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:614:1: ( ( rule__Header__TimeAssignment_1_2 ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:615:1: ( rule__Header__TimeAssignment_1_2 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:645:1: ( ( rule__Header__TempoAssignment_1_2 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:646:1: ( rule__Header__TempoAssignment_1_2 )
             {
-             before(grammarAccess.getHeaderAccess().getTimeAssignment_1_2()); 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:616:1: ( rule__Header__TimeAssignment_1_2 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:616:2: rule__Header__TimeAssignment_1_2
+             before(grammarAccess.getHeaderAccess().getTempoAssignment_1_2()); 
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:647:1: ( rule__Header__TempoAssignment_1_2 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:647:2: rule__Header__TempoAssignment_1_2
             {
-            pushFollow(FOLLOW_rule__Header__TimeAssignment_1_2_in_rule__Header__Group_1__2__Impl1198);
-            rule__Header__TimeAssignment_1_2();
+            pushFollow(FOLLOW_rule__Header__TempoAssignment_1_2_in_rule__Header__Group_1__2__Impl1260);
+            rule__Header__TempoAssignment_1_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getHeaderAccess().getTimeAssignment_1_2()); 
+             after(grammarAccess.getHeaderAccess().getTempoAssignment_1_2()); 
 
             }
 
@@ -1705,21 +1791,21 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_2__0"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:632:1: rule__Header__Group_2__0 : rule__Header__Group_2__0__Impl rule__Header__Group_2__1 ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:663:1: rule__Header__Group_2__0 : rule__Header__Group_2__0__Impl rule__Header__Group_2__1 ;
     public final void rule__Header__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:636:1: ( rule__Header__Group_2__0__Impl rule__Header__Group_2__1 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:637:2: rule__Header__Group_2__0__Impl rule__Header__Group_2__1
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:667:1: ( rule__Header__Group_2__0__Impl rule__Header__Group_2__1 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:668:2: rule__Header__Group_2__0__Impl rule__Header__Group_2__1
             {
-            pushFollow(FOLLOW_rule__Header__Group_2__0__Impl_in_rule__Header__Group_2__01234);
+            pushFollow(FOLLOW_rule__Header__Group_2__0__Impl_in_rule__Header__Group_2__01296);
             rule__Header__Group_2__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Header__Group_2__1_in_rule__Header__Group_2__01237);
+            pushFollow(FOLLOW_rule__Header__Group_2__1_in_rule__Header__Group_2__01299);
             rule__Header__Group_2__1();
 
             state._fsp--;
@@ -1743,21 +1829,21 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_2__0__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:644:1: rule__Header__Group_2__0__Impl : ( 'key' ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:675:1: rule__Header__Group_2__0__Impl : ( 'time' ) ;
     public final void rule__Header__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:648:1: ( ( 'key' ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:649:1: ( 'key' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:679:1: ( ( 'time' ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:680:1: ( 'time' )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:649:1: ( 'key' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:650:1: 'key'
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:680:1: ( 'time' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:681:1: 'time'
             {
-             before(grammarAccess.getHeaderAccess().getKeyKeyword_2_0()); 
-            match(input,19,FOLLOW_19_in_rule__Header__Group_2__0__Impl1265); 
-             after(grammarAccess.getHeaderAccess().getKeyKeyword_2_0()); 
+             before(grammarAccess.getHeaderAccess().getTimeKeyword_2_0()); 
+            match(input,19,FOLLOW_19_in_rule__Header__Group_2__0__Impl1327); 
+             after(grammarAccess.getHeaderAccess().getTimeKeyword_2_0()); 
 
             }
 
@@ -1780,21 +1866,21 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_2__1"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:663:1: rule__Header__Group_2__1 : rule__Header__Group_2__1__Impl rule__Header__Group_2__2 ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:694:1: rule__Header__Group_2__1 : rule__Header__Group_2__1__Impl rule__Header__Group_2__2 ;
     public final void rule__Header__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:667:1: ( rule__Header__Group_2__1__Impl rule__Header__Group_2__2 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:668:2: rule__Header__Group_2__1__Impl rule__Header__Group_2__2
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:698:1: ( rule__Header__Group_2__1__Impl rule__Header__Group_2__2 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:699:2: rule__Header__Group_2__1__Impl rule__Header__Group_2__2
             {
-            pushFollow(FOLLOW_rule__Header__Group_2__1__Impl_in_rule__Header__Group_2__11296);
+            pushFollow(FOLLOW_rule__Header__Group_2__1__Impl_in_rule__Header__Group_2__11358);
             rule__Header__Group_2__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Header__Group_2__2_in_rule__Header__Group_2__11299);
+            pushFollow(FOLLOW_rule__Header__Group_2__2_in_rule__Header__Group_2__11361);
             rule__Header__Group_2__2();
 
             state._fsp--;
@@ -1818,20 +1904,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_2__1__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:675:1: rule__Header__Group_2__1__Impl : ( '=' ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:706:1: rule__Header__Group_2__1__Impl : ( '=' ) ;
     public final void rule__Header__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:679:1: ( ( '=' ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:680:1: ( '=' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:710:1: ( ( '=' ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:711:1: ( '=' )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:680:1: ( '=' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:681:1: '='
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:711:1: ( '=' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:712:1: '='
             {
              before(grammarAccess.getHeaderAccess().getEqualsSignKeyword_2_1()); 
-            match(input,17,FOLLOW_17_in_rule__Header__Group_2__1__Impl1327); 
+            match(input,17,FOLLOW_17_in_rule__Header__Group_2__1__Impl1389); 
              after(grammarAccess.getHeaderAccess().getEqualsSignKeyword_2_1()); 
 
             }
@@ -1855,16 +1941,16 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_2__2"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:694:1: rule__Header__Group_2__2 : rule__Header__Group_2__2__Impl ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:725:1: rule__Header__Group_2__2 : rule__Header__Group_2__2__Impl ;
     public final void rule__Header__Group_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:698:1: ( rule__Header__Group_2__2__Impl )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:699:2: rule__Header__Group_2__2__Impl
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:729:1: ( rule__Header__Group_2__2__Impl )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:730:2: rule__Header__Group_2__2__Impl
             {
-            pushFollow(FOLLOW_rule__Header__Group_2__2__Impl_in_rule__Header__Group_2__21358);
+            pushFollow(FOLLOW_rule__Header__Group_2__2__Impl_in_rule__Header__Group_2__21420);
             rule__Header__Group_2__2__Impl();
 
             state._fsp--;
@@ -1888,31 +1974,31 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Header__Group_2__2__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:705:1: rule__Header__Group_2__2__Impl : ( ( rule__Header__KeyAssignment_2_2 ) ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:736:1: rule__Header__Group_2__2__Impl : ( ( rule__Header__TimeAssignment_2_2 ) ) ;
     public final void rule__Header__Group_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:709:1: ( ( ( rule__Header__KeyAssignment_2_2 ) ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:710:1: ( ( rule__Header__KeyAssignment_2_2 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:740:1: ( ( ( rule__Header__TimeAssignment_2_2 ) ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:741:1: ( ( rule__Header__TimeAssignment_2_2 ) )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:710:1: ( ( rule__Header__KeyAssignment_2_2 ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:711:1: ( rule__Header__KeyAssignment_2_2 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:741:1: ( ( rule__Header__TimeAssignment_2_2 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:742:1: ( rule__Header__TimeAssignment_2_2 )
             {
-             before(grammarAccess.getHeaderAccess().getKeyAssignment_2_2()); 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:712:1: ( rule__Header__KeyAssignment_2_2 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:712:2: rule__Header__KeyAssignment_2_2
+             before(grammarAccess.getHeaderAccess().getTimeAssignment_2_2()); 
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:743:1: ( rule__Header__TimeAssignment_2_2 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:743:2: rule__Header__TimeAssignment_2_2
             {
-            pushFollow(FOLLOW_rule__Header__KeyAssignment_2_2_in_rule__Header__Group_2__2__Impl1385);
-            rule__Header__KeyAssignment_2_2();
+            pushFollow(FOLLOW_rule__Header__TimeAssignment_2_2_in_rule__Header__Group_2__2__Impl1447);
+            rule__Header__TimeAssignment_2_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getHeaderAccess().getKeyAssignment_2_2()); 
+             after(grammarAccess.getHeaderAccess().getTimeAssignment_2_2()); 
 
             }
 
@@ -1934,22 +2020,252 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
     // $ANTLR end "rule__Header__Group_2__2__Impl"
 
 
+    // $ANTLR start "rule__Header__Group_3__0"
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:759:1: rule__Header__Group_3__0 : rule__Header__Group_3__0__Impl rule__Header__Group_3__1 ;
+    public final void rule__Header__Group_3__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:763:1: ( rule__Header__Group_3__0__Impl rule__Header__Group_3__1 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:764:2: rule__Header__Group_3__0__Impl rule__Header__Group_3__1
+            {
+            pushFollow(FOLLOW_rule__Header__Group_3__0__Impl_in_rule__Header__Group_3__01483);
+            rule__Header__Group_3__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_rule__Header__Group_3__1_in_rule__Header__Group_3__01486);
+            rule__Header__Group_3__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Header__Group_3__0"
+
+
+    // $ANTLR start "rule__Header__Group_3__0__Impl"
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:771:1: rule__Header__Group_3__0__Impl : ( 'key' ) ;
+    public final void rule__Header__Group_3__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:775:1: ( ( 'key' ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:776:1: ( 'key' )
+            {
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:776:1: ( 'key' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:777:1: 'key'
+            {
+             before(grammarAccess.getHeaderAccess().getKeyKeyword_3_0()); 
+            match(input,20,FOLLOW_20_in_rule__Header__Group_3__0__Impl1514); 
+             after(grammarAccess.getHeaderAccess().getKeyKeyword_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Header__Group_3__0__Impl"
+
+
+    // $ANTLR start "rule__Header__Group_3__1"
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:790:1: rule__Header__Group_3__1 : rule__Header__Group_3__1__Impl rule__Header__Group_3__2 ;
+    public final void rule__Header__Group_3__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:794:1: ( rule__Header__Group_3__1__Impl rule__Header__Group_3__2 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:795:2: rule__Header__Group_3__1__Impl rule__Header__Group_3__2
+            {
+            pushFollow(FOLLOW_rule__Header__Group_3__1__Impl_in_rule__Header__Group_3__11545);
+            rule__Header__Group_3__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_rule__Header__Group_3__2_in_rule__Header__Group_3__11548);
+            rule__Header__Group_3__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Header__Group_3__1"
+
+
+    // $ANTLR start "rule__Header__Group_3__1__Impl"
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:802:1: rule__Header__Group_3__1__Impl : ( '=' ) ;
+    public final void rule__Header__Group_3__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:806:1: ( ( '=' ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:807:1: ( '=' )
+            {
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:807:1: ( '=' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:808:1: '='
+            {
+             before(grammarAccess.getHeaderAccess().getEqualsSignKeyword_3_1()); 
+            match(input,17,FOLLOW_17_in_rule__Header__Group_3__1__Impl1576); 
+             after(grammarAccess.getHeaderAccess().getEqualsSignKeyword_3_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Header__Group_3__1__Impl"
+
+
+    // $ANTLR start "rule__Header__Group_3__2"
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:821:1: rule__Header__Group_3__2 : rule__Header__Group_3__2__Impl ;
+    public final void rule__Header__Group_3__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:825:1: ( rule__Header__Group_3__2__Impl )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:826:2: rule__Header__Group_3__2__Impl
+            {
+            pushFollow(FOLLOW_rule__Header__Group_3__2__Impl_in_rule__Header__Group_3__21607);
+            rule__Header__Group_3__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Header__Group_3__2"
+
+
+    // $ANTLR start "rule__Header__Group_3__2__Impl"
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:832:1: rule__Header__Group_3__2__Impl : ( ( rule__Header__KeyAssignment_3_2 ) ) ;
+    public final void rule__Header__Group_3__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:836:1: ( ( ( rule__Header__KeyAssignment_3_2 ) ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:837:1: ( ( rule__Header__KeyAssignment_3_2 ) )
+            {
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:837:1: ( ( rule__Header__KeyAssignment_3_2 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:838:1: ( rule__Header__KeyAssignment_3_2 )
+            {
+             before(grammarAccess.getHeaderAccess().getKeyAssignment_3_2()); 
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:839:1: ( rule__Header__KeyAssignment_3_2 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:839:2: rule__Header__KeyAssignment_3_2
+            {
+            pushFollow(FOLLOW_rule__Header__KeyAssignment_3_2_in_rule__Header__Group_3__2__Impl1634);
+            rule__Header__KeyAssignment_3_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getHeaderAccess().getKeyAssignment_3_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Header__Group_3__2__Impl"
+
+
     // $ANTLR start "rule__Key__Group__0"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:728:1: rule__Key__Group__0 : rule__Key__Group__0__Impl rule__Key__Group__1 ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:855:1: rule__Key__Group__0 : rule__Key__Group__0__Impl rule__Key__Group__1 ;
     public final void rule__Key__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:732:1: ( rule__Key__Group__0__Impl rule__Key__Group__1 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:733:2: rule__Key__Group__0__Impl rule__Key__Group__1
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:859:1: ( rule__Key__Group__0__Impl rule__Key__Group__1 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:860:2: rule__Key__Group__0__Impl rule__Key__Group__1
             {
-            pushFollow(FOLLOW_rule__Key__Group__0__Impl_in_rule__Key__Group__01421);
+            pushFollow(FOLLOW_rule__Key__Group__0__Impl_in_rule__Key__Group__01670);
             rule__Key__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Key__Group__1_in_rule__Key__Group__01424);
+            pushFollow(FOLLOW_rule__Key__Group__1_in_rule__Key__Group__01673);
             rule__Key__Group__1();
 
             state._fsp--;
@@ -1973,20 +2289,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Key__Group__0__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:740:1: rule__Key__Group__0__Impl : ( RULE_NOTE_ID ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:867:1: rule__Key__Group__0__Impl : ( RULE_NOTE_ID ) ;
     public final void rule__Key__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:744:1: ( ( RULE_NOTE_ID ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:745:1: ( RULE_NOTE_ID )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:871:1: ( ( RULE_NOTE_ID ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:872:1: ( RULE_NOTE_ID )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:745:1: ( RULE_NOTE_ID )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:746:1: RULE_NOTE_ID
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:872:1: ( RULE_NOTE_ID )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:873:1: RULE_NOTE_ID
             {
              before(grammarAccess.getKeyAccess().getNOTE_IDTerminalRuleCall_0()); 
-            match(input,RULE_NOTE_ID,FOLLOW_RULE_NOTE_ID_in_rule__Key__Group__0__Impl1451); 
+            match(input,RULE_NOTE_ID,FOLLOW_RULE_NOTE_ID_in_rule__Key__Group__0__Impl1700); 
              after(grammarAccess.getKeyAccess().getNOTE_IDTerminalRuleCall_0()); 
 
             }
@@ -2010,16 +2326,16 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Key__Group__1"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:757:1: rule__Key__Group__1 : rule__Key__Group__1__Impl ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:884:1: rule__Key__Group__1 : rule__Key__Group__1__Impl ;
     public final void rule__Key__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:761:1: ( rule__Key__Group__1__Impl )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:762:2: rule__Key__Group__1__Impl
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:888:1: ( rule__Key__Group__1__Impl )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:889:2: rule__Key__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__Key__Group__1__Impl_in_rule__Key__Group__11480);
+            pushFollow(FOLLOW_rule__Key__Group__1__Impl_in_rule__Key__Group__11729);
             rule__Key__Group__1__Impl();
 
             state._fsp--;
@@ -2043,20 +2359,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Key__Group__1__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:768:1: rule__Key__Group__1__Impl : ( ( RULE_ACCIDENTAL )? ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:895:1: rule__Key__Group__1__Impl : ( ( RULE_ACCIDENTAL )? ) ;
     public final void rule__Key__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:772:1: ( ( ( RULE_ACCIDENTAL )? ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:773:1: ( ( RULE_ACCIDENTAL )? )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:899:1: ( ( ( RULE_ACCIDENTAL )? ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:900:1: ( ( RULE_ACCIDENTAL )? )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:773:1: ( ( RULE_ACCIDENTAL )? )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:774:1: ( RULE_ACCIDENTAL )?
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:900:1: ( ( RULE_ACCIDENTAL )? )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:901:1: ( RULE_ACCIDENTAL )?
             {
              before(grammarAccess.getKeyAccess().getACCIDENTALTerminalRuleCall_1()); 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:775:1: ( RULE_ACCIDENTAL )?
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:902:1: ( RULE_ACCIDENTAL )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -2065,9 +2381,9 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
             }
             switch (alt3) {
                 case 1 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:775:3: RULE_ACCIDENTAL
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:902:3: RULE_ACCIDENTAL
                     {
-                    match(input,RULE_ACCIDENTAL,FOLLOW_RULE_ACCIDENTAL_in_rule__Key__Group__1__Impl1508); 
+                    match(input,RULE_ACCIDENTAL,FOLLOW_RULE_ACCIDENTAL_in_rule__Key__Group__1__Impl1757); 
 
                     }
                     break;
@@ -2097,21 +2413,21 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Sequence__Group__0"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:789:1: rule__Sequence__Group__0 : rule__Sequence__Group__0__Impl rule__Sequence__Group__1 ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:916:1: rule__Sequence__Group__0 : rule__Sequence__Group__0__Impl rule__Sequence__Group__1 ;
     public final void rule__Sequence__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:793:1: ( rule__Sequence__Group__0__Impl rule__Sequence__Group__1 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:794:2: rule__Sequence__Group__0__Impl rule__Sequence__Group__1
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:920:1: ( rule__Sequence__Group__0__Impl rule__Sequence__Group__1 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:921:2: rule__Sequence__Group__0__Impl rule__Sequence__Group__1
             {
-            pushFollow(FOLLOW_rule__Sequence__Group__0__Impl_in_rule__Sequence__Group__01543);
+            pushFollow(FOLLOW_rule__Sequence__Group__0__Impl_in_rule__Sequence__Group__01792);
             rule__Sequence__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Sequence__Group__1_in_rule__Sequence__Group__01546);
+            pushFollow(FOLLOW_rule__Sequence__Group__1_in_rule__Sequence__Group__01795);
             rule__Sequence__Group__1();
 
             state._fsp--;
@@ -2135,20 +2451,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Sequence__Group__0__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:801:1: rule__Sequence__Group__0__Impl : ( ( rule__Sequence__OctaveAssignment_0 )? ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:928:1: rule__Sequence__Group__0__Impl : ( ( rule__Sequence__OctaveAssignment_0 )? ) ;
     public final void rule__Sequence__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:805:1: ( ( ( rule__Sequence__OctaveAssignment_0 )? ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:806:1: ( ( rule__Sequence__OctaveAssignment_0 )? )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:932:1: ( ( ( rule__Sequence__OctaveAssignment_0 )? ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:933:1: ( ( rule__Sequence__OctaveAssignment_0 )? )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:806:1: ( ( rule__Sequence__OctaveAssignment_0 )? )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:807:1: ( rule__Sequence__OctaveAssignment_0 )?
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:933:1: ( ( rule__Sequence__OctaveAssignment_0 )? )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:934:1: ( rule__Sequence__OctaveAssignment_0 )?
             {
              before(grammarAccess.getSequenceAccess().getOctaveAssignment_0()); 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:808:1: ( rule__Sequence__OctaveAssignment_0 )?
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:935:1: ( rule__Sequence__OctaveAssignment_0 )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -2157,9 +2473,9 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
             }
             switch (alt4) {
                 case 1 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:808:2: rule__Sequence__OctaveAssignment_0
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:935:2: rule__Sequence__OctaveAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__Sequence__OctaveAssignment_0_in_rule__Sequence__Group__0__Impl1573);
+                    pushFollow(FOLLOW_rule__Sequence__OctaveAssignment_0_in_rule__Sequence__Group__0__Impl1822);
                     rule__Sequence__OctaveAssignment_0();
 
                     state._fsp--;
@@ -2193,16 +2509,16 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Sequence__Group__1"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:818:1: rule__Sequence__Group__1 : rule__Sequence__Group__1__Impl ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:945:1: rule__Sequence__Group__1 : rule__Sequence__Group__1__Impl ;
     public final void rule__Sequence__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:822:1: ( rule__Sequence__Group__1__Impl )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:823:2: rule__Sequence__Group__1__Impl
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:949:1: ( rule__Sequence__Group__1__Impl )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:950:2: rule__Sequence__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__Sequence__Group__1__Impl_in_rule__Sequence__Group__11604);
+            pushFollow(FOLLOW_rule__Sequence__Group__1__Impl_in_rule__Sequence__Group__11853);
             rule__Sequence__Group__1__Impl();
 
             state._fsp--;
@@ -2226,23 +2542,23 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Sequence__Group__1__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:829:1: rule__Sequence__Group__1__Impl : ( ( rule__Sequence__Alternatives_1 ) ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:956:1: rule__Sequence__Group__1__Impl : ( ( rule__Sequence__Alternatives_1 ) ) ;
     public final void rule__Sequence__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:833:1: ( ( ( rule__Sequence__Alternatives_1 ) ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:834:1: ( ( rule__Sequence__Alternatives_1 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:960:1: ( ( ( rule__Sequence__Alternatives_1 ) ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:961:1: ( ( rule__Sequence__Alternatives_1 ) )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:834:1: ( ( rule__Sequence__Alternatives_1 ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:835:1: ( rule__Sequence__Alternatives_1 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:961:1: ( ( rule__Sequence__Alternatives_1 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:962:1: ( rule__Sequence__Alternatives_1 )
             {
              before(grammarAccess.getSequenceAccess().getAlternatives_1()); 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:836:1: ( rule__Sequence__Alternatives_1 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:836:2: rule__Sequence__Alternatives_1
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:963:1: ( rule__Sequence__Alternatives_1 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:963:2: rule__Sequence__Alternatives_1
             {
-            pushFollow(FOLLOW_rule__Sequence__Alternatives_1_in_rule__Sequence__Group__1__Impl1631);
+            pushFollow(FOLLOW_rule__Sequence__Alternatives_1_in_rule__Sequence__Group__1__Impl1880);
             rule__Sequence__Alternatives_1();
 
             state._fsp--;
@@ -2273,21 +2589,21 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Chord__Group__0"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:850:1: rule__Chord__Group__0 : rule__Chord__Group__0__Impl rule__Chord__Group__1 ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:977:1: rule__Chord__Group__0 : rule__Chord__Group__0__Impl rule__Chord__Group__1 ;
     public final void rule__Chord__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:854:1: ( rule__Chord__Group__0__Impl rule__Chord__Group__1 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:855:2: rule__Chord__Group__0__Impl rule__Chord__Group__1
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:981:1: ( rule__Chord__Group__0__Impl rule__Chord__Group__1 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:982:2: rule__Chord__Group__0__Impl rule__Chord__Group__1
             {
-            pushFollow(FOLLOW_rule__Chord__Group__0__Impl_in_rule__Chord__Group__01665);
+            pushFollow(FOLLOW_rule__Chord__Group__0__Impl_in_rule__Chord__Group__01914);
             rule__Chord__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Chord__Group__1_in_rule__Chord__Group__01668);
+            pushFollow(FOLLOW_rule__Chord__Group__1_in_rule__Chord__Group__01917);
             rule__Chord__Group__1();
 
             state._fsp--;
@@ -2311,23 +2627,23 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Chord__Group__0__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:862:1: rule__Chord__Group__0__Impl : ( ( rule__Chord__ChordNotesAssignment_0 ) ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:989:1: rule__Chord__Group__0__Impl : ( ( rule__Chord__ChordNotesAssignment_0 ) ) ;
     public final void rule__Chord__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:866:1: ( ( ( rule__Chord__ChordNotesAssignment_0 ) ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:867:1: ( ( rule__Chord__ChordNotesAssignment_0 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:993:1: ( ( ( rule__Chord__ChordNotesAssignment_0 ) ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:994:1: ( ( rule__Chord__ChordNotesAssignment_0 ) )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:867:1: ( ( rule__Chord__ChordNotesAssignment_0 ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:868:1: ( rule__Chord__ChordNotesAssignment_0 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:994:1: ( ( rule__Chord__ChordNotesAssignment_0 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:995:1: ( rule__Chord__ChordNotesAssignment_0 )
             {
              before(grammarAccess.getChordAccess().getChordNotesAssignment_0()); 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:869:1: ( rule__Chord__ChordNotesAssignment_0 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:869:2: rule__Chord__ChordNotesAssignment_0
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:996:1: ( rule__Chord__ChordNotesAssignment_0 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:996:2: rule__Chord__ChordNotesAssignment_0
             {
-            pushFollow(FOLLOW_rule__Chord__ChordNotesAssignment_0_in_rule__Chord__Group__0__Impl1695);
+            pushFollow(FOLLOW_rule__Chord__ChordNotesAssignment_0_in_rule__Chord__Group__0__Impl1944);
             rule__Chord__ChordNotesAssignment_0();
 
             state._fsp--;
@@ -2358,16 +2674,16 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Chord__Group__1"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:879:1: rule__Chord__Group__1 : rule__Chord__Group__1__Impl ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1006:1: rule__Chord__Group__1 : rule__Chord__Group__1__Impl ;
     public final void rule__Chord__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:883:1: ( rule__Chord__Group__1__Impl )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:884:2: rule__Chord__Group__1__Impl
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1010:1: ( rule__Chord__Group__1__Impl )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1011:2: rule__Chord__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__Chord__Group__1__Impl_in_rule__Chord__Group__11725);
+            pushFollow(FOLLOW_rule__Chord__Group__1__Impl_in_rule__Chord__Group__11974);
             rule__Chord__Group__1__Impl();
 
             state._fsp--;
@@ -2391,26 +2707,26 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Chord__Group__1__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:890:1: rule__Chord__Group__1__Impl : ( ( ( rule__Chord__Group_1__0 ) ) ( ( rule__Chord__Group_1__0 )* ) ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1017:1: rule__Chord__Group__1__Impl : ( ( ( rule__Chord__Group_1__0 ) ) ( ( rule__Chord__Group_1__0 )* ) ) ;
     public final void rule__Chord__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:894:1: ( ( ( ( rule__Chord__Group_1__0 ) ) ( ( rule__Chord__Group_1__0 )* ) ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:895:1: ( ( ( rule__Chord__Group_1__0 ) ) ( ( rule__Chord__Group_1__0 )* ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1021:1: ( ( ( ( rule__Chord__Group_1__0 ) ) ( ( rule__Chord__Group_1__0 )* ) ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1022:1: ( ( ( rule__Chord__Group_1__0 ) ) ( ( rule__Chord__Group_1__0 )* ) )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:895:1: ( ( ( rule__Chord__Group_1__0 ) ) ( ( rule__Chord__Group_1__0 )* ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:896:1: ( ( rule__Chord__Group_1__0 ) ) ( ( rule__Chord__Group_1__0 )* )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1022:1: ( ( ( rule__Chord__Group_1__0 ) ) ( ( rule__Chord__Group_1__0 )* ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1023:1: ( ( rule__Chord__Group_1__0 ) ) ( ( rule__Chord__Group_1__0 )* )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:896:1: ( ( rule__Chord__Group_1__0 ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:897:1: ( rule__Chord__Group_1__0 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1023:1: ( ( rule__Chord__Group_1__0 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1024:1: ( rule__Chord__Group_1__0 )
             {
              before(grammarAccess.getChordAccess().getGroup_1()); 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:898:1: ( rule__Chord__Group_1__0 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:898:2: rule__Chord__Group_1__0
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1025:1: ( rule__Chord__Group_1__0 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1025:2: rule__Chord__Group_1__0
             {
-            pushFollow(FOLLOW_rule__Chord__Group_1__0_in_rule__Chord__Group__1__Impl1754);
+            pushFollow(FOLLOW_rule__Chord__Group_1__0_in_rule__Chord__Group__1__Impl2003);
             rule__Chord__Group_1__0();
 
             state._fsp--;
@@ -2422,26 +2738,26 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
             }
 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:901:1: ( ( rule__Chord__Group_1__0 )* )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:902:1: ( rule__Chord__Group_1__0 )*
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1028:1: ( ( rule__Chord__Group_1__0 )* )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1029:1: ( rule__Chord__Group_1__0 )*
             {
              before(grammarAccess.getChordAccess().getGroup_1()); 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:903:1: ( rule__Chord__Group_1__0 )*
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1030:1: ( rule__Chord__Group_1__0 )*
             loop5:
             do {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( (LA5_0==20) ) {
+                if ( (LA5_0==21) ) {
                     alt5=1;
                 }
 
 
                 switch (alt5) {
             	case 1 :
-            	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:903:2: rule__Chord__Group_1__0
+            	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1030:2: rule__Chord__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_rule__Chord__Group_1__0_in_rule__Chord__Group__1__Impl1766);
+            	    pushFollow(FOLLOW_rule__Chord__Group_1__0_in_rule__Chord__Group__1__Impl2015);
             	    rule__Chord__Group_1__0();
 
             	    state._fsp--;
@@ -2481,21 +2797,21 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Chord__Group_1__0"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:918:1: rule__Chord__Group_1__0 : rule__Chord__Group_1__0__Impl rule__Chord__Group_1__1 ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1045:1: rule__Chord__Group_1__0 : rule__Chord__Group_1__0__Impl rule__Chord__Group_1__1 ;
     public final void rule__Chord__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:922:1: ( rule__Chord__Group_1__0__Impl rule__Chord__Group_1__1 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:923:2: rule__Chord__Group_1__0__Impl rule__Chord__Group_1__1
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1049:1: ( rule__Chord__Group_1__0__Impl rule__Chord__Group_1__1 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1050:2: rule__Chord__Group_1__0__Impl rule__Chord__Group_1__1
             {
-            pushFollow(FOLLOW_rule__Chord__Group_1__0__Impl_in_rule__Chord__Group_1__01803);
+            pushFollow(FOLLOW_rule__Chord__Group_1__0__Impl_in_rule__Chord__Group_1__02052);
             rule__Chord__Group_1__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Chord__Group_1__1_in_rule__Chord__Group_1__01806);
+            pushFollow(FOLLOW_rule__Chord__Group_1__1_in_rule__Chord__Group_1__02055);
             rule__Chord__Group_1__1();
 
             state._fsp--;
@@ -2519,20 +2835,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Chord__Group_1__0__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:930:1: rule__Chord__Group_1__0__Impl : ( '/' ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1057:1: rule__Chord__Group_1__0__Impl : ( '/' ) ;
     public final void rule__Chord__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:934:1: ( ( '/' ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:935:1: ( '/' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1061:1: ( ( '/' ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1062:1: ( '/' )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:935:1: ( '/' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:936:1: '/'
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1062:1: ( '/' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1063:1: '/'
             {
              before(grammarAccess.getChordAccess().getSolidusKeyword_1_0()); 
-            match(input,20,FOLLOW_20_in_rule__Chord__Group_1__0__Impl1834); 
+            match(input,21,FOLLOW_21_in_rule__Chord__Group_1__0__Impl2083); 
              after(grammarAccess.getChordAccess().getSolidusKeyword_1_0()); 
 
             }
@@ -2556,16 +2872,16 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Chord__Group_1__1"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:949:1: rule__Chord__Group_1__1 : rule__Chord__Group_1__1__Impl ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1076:1: rule__Chord__Group_1__1 : rule__Chord__Group_1__1__Impl ;
     public final void rule__Chord__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:953:1: ( rule__Chord__Group_1__1__Impl )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:954:2: rule__Chord__Group_1__1__Impl
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1080:1: ( rule__Chord__Group_1__1__Impl )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1081:2: rule__Chord__Group_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__Chord__Group_1__1__Impl_in_rule__Chord__Group_1__11865);
+            pushFollow(FOLLOW_rule__Chord__Group_1__1__Impl_in_rule__Chord__Group_1__12114);
             rule__Chord__Group_1__1__Impl();
 
             state._fsp--;
@@ -2589,23 +2905,23 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Chord__Group_1__1__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:960:1: rule__Chord__Group_1__1__Impl : ( ( rule__Chord__ChordNotesAssignment_1_1 ) ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1087:1: rule__Chord__Group_1__1__Impl : ( ( rule__Chord__ChordNotesAssignment_1_1 ) ) ;
     public final void rule__Chord__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:964:1: ( ( ( rule__Chord__ChordNotesAssignment_1_1 ) ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:965:1: ( ( rule__Chord__ChordNotesAssignment_1_1 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1091:1: ( ( ( rule__Chord__ChordNotesAssignment_1_1 ) ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1092:1: ( ( rule__Chord__ChordNotesAssignment_1_1 ) )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:965:1: ( ( rule__Chord__ChordNotesAssignment_1_1 ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:966:1: ( rule__Chord__ChordNotesAssignment_1_1 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1092:1: ( ( rule__Chord__ChordNotesAssignment_1_1 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1093:1: ( rule__Chord__ChordNotesAssignment_1_1 )
             {
              before(grammarAccess.getChordAccess().getChordNotesAssignment_1_1()); 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:967:1: ( rule__Chord__ChordNotesAssignment_1_1 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:967:2: rule__Chord__ChordNotesAssignment_1_1
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1094:1: ( rule__Chord__ChordNotesAssignment_1_1 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1094:2: rule__Chord__ChordNotesAssignment_1_1
             {
-            pushFollow(FOLLOW_rule__Chord__ChordNotesAssignment_1_1_in_rule__Chord__Group_1__1__Impl1892);
+            pushFollow(FOLLOW_rule__Chord__ChordNotesAssignment_1_1_in_rule__Chord__Group_1__1__Impl2141);
             rule__Chord__ChordNotesAssignment_1_1();
 
             state._fsp--;
@@ -2636,21 +2952,21 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Note__Group__0"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:981:1: rule__Note__Group__0 : rule__Note__Group__0__Impl rule__Note__Group__1 ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1108:1: rule__Note__Group__0 : rule__Note__Group__0__Impl rule__Note__Group__1 ;
     public final void rule__Note__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:985:1: ( rule__Note__Group__0__Impl rule__Note__Group__1 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:986:2: rule__Note__Group__0__Impl rule__Note__Group__1
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1112:1: ( rule__Note__Group__0__Impl rule__Note__Group__1 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1113:2: rule__Note__Group__0__Impl rule__Note__Group__1
             {
-            pushFollow(FOLLOW_rule__Note__Group__0__Impl_in_rule__Note__Group__01926);
+            pushFollow(FOLLOW_rule__Note__Group__0__Impl_in_rule__Note__Group__02175);
             rule__Note__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Note__Group__1_in_rule__Note__Group__01929);
+            pushFollow(FOLLOW_rule__Note__Group__1_in_rule__Note__Group__02178);
             rule__Note__Group__1();
 
             state._fsp--;
@@ -2674,23 +2990,23 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Note__Group__0__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:993:1: rule__Note__Group__0__Impl : ( ( rule__Note__NoteAssignment_0 ) ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1120:1: rule__Note__Group__0__Impl : ( ( rule__Note__NoteAssignment_0 ) ) ;
     public final void rule__Note__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:997:1: ( ( ( rule__Note__NoteAssignment_0 ) ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:998:1: ( ( rule__Note__NoteAssignment_0 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1124:1: ( ( ( rule__Note__NoteAssignment_0 ) ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1125:1: ( ( rule__Note__NoteAssignment_0 ) )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:998:1: ( ( rule__Note__NoteAssignment_0 ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:999:1: ( rule__Note__NoteAssignment_0 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1125:1: ( ( rule__Note__NoteAssignment_0 ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1126:1: ( rule__Note__NoteAssignment_0 )
             {
              before(grammarAccess.getNoteAccess().getNoteAssignment_0()); 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1000:1: ( rule__Note__NoteAssignment_0 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1000:2: rule__Note__NoteAssignment_0
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1127:1: ( rule__Note__NoteAssignment_0 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1127:2: rule__Note__NoteAssignment_0
             {
-            pushFollow(FOLLOW_rule__Note__NoteAssignment_0_in_rule__Note__Group__0__Impl1956);
+            pushFollow(FOLLOW_rule__Note__NoteAssignment_0_in_rule__Note__Group__0__Impl2205);
             rule__Note__NoteAssignment_0();
 
             state._fsp--;
@@ -2721,21 +3037,21 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Note__Group__1"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1010:1: rule__Note__Group__1 : rule__Note__Group__1__Impl rule__Note__Group__2 ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1137:1: rule__Note__Group__1 : rule__Note__Group__1__Impl rule__Note__Group__2 ;
     public final void rule__Note__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1014:1: ( rule__Note__Group__1__Impl rule__Note__Group__2 )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1015:2: rule__Note__Group__1__Impl rule__Note__Group__2
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1141:1: ( rule__Note__Group__1__Impl rule__Note__Group__2 )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1142:2: rule__Note__Group__1__Impl rule__Note__Group__2
             {
-            pushFollow(FOLLOW_rule__Note__Group__1__Impl_in_rule__Note__Group__11986);
+            pushFollow(FOLLOW_rule__Note__Group__1__Impl_in_rule__Note__Group__12235);
             rule__Note__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Note__Group__2_in_rule__Note__Group__11989);
+            pushFollow(FOLLOW_rule__Note__Group__2_in_rule__Note__Group__12238);
             rule__Note__Group__2();
 
             state._fsp--;
@@ -2759,20 +3075,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Note__Group__1__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1022:1: rule__Note__Group__1__Impl : ( ( rule__Note__AccidentalAssignment_1 )? ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1149:1: rule__Note__Group__1__Impl : ( ( rule__Note__AccidentalAssignment_1 )? ) ;
     public final void rule__Note__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1026:1: ( ( ( rule__Note__AccidentalAssignment_1 )? ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1027:1: ( ( rule__Note__AccidentalAssignment_1 )? )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1153:1: ( ( ( rule__Note__AccidentalAssignment_1 )? ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1154:1: ( ( rule__Note__AccidentalAssignment_1 )? )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1027:1: ( ( rule__Note__AccidentalAssignment_1 )? )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1028:1: ( rule__Note__AccidentalAssignment_1 )?
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1154:1: ( ( rule__Note__AccidentalAssignment_1 )? )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1155:1: ( rule__Note__AccidentalAssignment_1 )?
             {
              before(grammarAccess.getNoteAccess().getAccidentalAssignment_1()); 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1029:1: ( rule__Note__AccidentalAssignment_1 )?
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1156:1: ( rule__Note__AccidentalAssignment_1 )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -2781,9 +3097,9 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
             }
             switch (alt6) {
                 case 1 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1029:2: rule__Note__AccidentalAssignment_1
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1156:2: rule__Note__AccidentalAssignment_1
                     {
-                    pushFollow(FOLLOW_rule__Note__AccidentalAssignment_1_in_rule__Note__Group__1__Impl2016);
+                    pushFollow(FOLLOW_rule__Note__AccidentalAssignment_1_in_rule__Note__Group__1__Impl2265);
                     rule__Note__AccidentalAssignment_1();
 
                     state._fsp--;
@@ -2817,16 +3133,16 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Note__Group__2"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1039:1: rule__Note__Group__2 : rule__Note__Group__2__Impl ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1166:1: rule__Note__Group__2 : rule__Note__Group__2__Impl ;
     public final void rule__Note__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1043:1: ( rule__Note__Group__2__Impl )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1044:2: rule__Note__Group__2__Impl
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1170:1: ( rule__Note__Group__2__Impl )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1171:2: rule__Note__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__Note__Group__2__Impl_in_rule__Note__Group__22047);
+            pushFollow(FOLLOW_rule__Note__Group__2__Impl_in_rule__Note__Group__22296);
             rule__Note__Group__2__Impl();
 
             state._fsp--;
@@ -2850,20 +3166,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Note__Group__2__Impl"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1050:1: rule__Note__Group__2__Impl : ( ( rule__Note__DurationAssignment_2 )? ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1177:1: rule__Note__Group__2__Impl : ( ( rule__Note__DurationAssignment_2 )? ) ;
     public final void rule__Note__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1054:1: ( ( ( rule__Note__DurationAssignment_2 )? ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1055:1: ( ( rule__Note__DurationAssignment_2 )? )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1181:1: ( ( ( rule__Note__DurationAssignment_2 )? ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1182:1: ( ( rule__Note__DurationAssignment_2 )? )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1055:1: ( ( rule__Note__DurationAssignment_2 )? )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1056:1: ( rule__Note__DurationAssignment_2 )?
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1182:1: ( ( rule__Note__DurationAssignment_2 )? )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1183:1: ( rule__Note__DurationAssignment_2 )?
             {
              before(grammarAccess.getNoteAccess().getDurationAssignment_2()); 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1057:1: ( rule__Note__DurationAssignment_2 )?
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1184:1: ( rule__Note__DurationAssignment_2 )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2872,9 +3188,9 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1057:2: rule__Note__DurationAssignment_2
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1184:2: rule__Note__DurationAssignment_2
                     {
-                    pushFollow(FOLLOW_rule__Note__DurationAssignment_2_in_rule__Note__Group__2__Impl2074);
+                    pushFollow(FOLLOW_rule__Note__DurationAssignment_2_in_rule__Note__Group__2__Impl2323);
                     rule__Note__DurationAssignment_2();
 
                     state._fsp--;
@@ -2908,20 +3224,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Document__HeaderAssignment_0"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1074:1: rule__Document__HeaderAssignment_0 : ( ruleHeader ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1201:1: rule__Document__HeaderAssignment_0 : ( ruleHeader ) ;
     public final void rule__Document__HeaderAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1078:1: ( ( ruleHeader ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1079:1: ( ruleHeader )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1205:1: ( ( ruleHeader ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1206:1: ( ruleHeader )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1079:1: ( ruleHeader )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1080:1: ruleHeader
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1206:1: ( ruleHeader )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1207:1: ruleHeader
             {
              before(grammarAccess.getDocumentAccess().getHeaderHeaderParserRuleCall_0_0()); 
-            pushFollow(FOLLOW_ruleHeader_in_rule__Document__HeaderAssignment_02116);
+            pushFollow(FOLLOW_ruleHeader_in_rule__Document__HeaderAssignment_02365);
             ruleHeader();
 
             state._fsp--;
@@ -2949,20 +3265,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Document__MelodyAssignment_1"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1089:1: rule__Document__MelodyAssignment_1 : ( ruleMelody ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1216:1: rule__Document__MelodyAssignment_1 : ( ruleMelody ) ;
     public final void rule__Document__MelodyAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1093:1: ( ( ruleMelody ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1094:1: ( ruleMelody )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1220:1: ( ( ruleMelody ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1221:1: ( ruleMelody )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1094:1: ( ruleMelody )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1095:1: ruleMelody
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1221:1: ( ruleMelody )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1222:1: ruleMelody
             {
              before(grammarAccess.getDocumentAccess().getMelodyMelodyParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleMelody_in_rule__Document__MelodyAssignment_12147);
+            pushFollow(FOLLOW_ruleMelody_in_rule__Document__MelodyAssignment_12396);
             ruleMelody();
 
             state._fsp--;
@@ -2989,22 +3305,22 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
     // $ANTLR end "rule__Document__MelodyAssignment_1"
 
 
-    // $ANTLR start "rule__Header__TempoAssignment_0_2"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1104:1: rule__Header__TempoAssignment_0_2 : ( RULE_INT ) ;
-    public final void rule__Header__TempoAssignment_0_2() throws RecognitionException {
+    // $ANTLR start "rule__Header__SongNameAssignment_0_2"
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1231:1: rule__Header__SongNameAssignment_0_2 : ( RULE_ID ) ;
+    public final void rule__Header__SongNameAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1108:1: ( ( RULE_INT ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1109:1: ( RULE_INT )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1235:1: ( ( RULE_ID ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1236:1: ( RULE_ID )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1109:1: ( RULE_INT )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1110:1: RULE_INT
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1236:1: ( RULE_ID )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1237:1: RULE_ID
             {
-             before(grammarAccess.getHeaderAccess().getTempoINTTerminalRuleCall_0_2_0()); 
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__Header__TempoAssignment_0_22178); 
-             after(grammarAccess.getHeaderAccess().getTempoINTTerminalRuleCall_0_2_0()); 
+             before(grammarAccess.getHeaderAccess().getSongNameIDTerminalRuleCall_0_2_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Header__SongNameAssignment_0_22427); 
+             after(grammarAccess.getHeaderAccess().getSongNameIDTerminalRuleCall_0_2_0()); 
 
             }
 
@@ -3023,25 +3339,25 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end "rule__Header__TempoAssignment_0_2"
+    // $ANTLR end "rule__Header__SongNameAssignment_0_2"
 
 
-    // $ANTLR start "rule__Header__TimeAssignment_1_2"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1119:1: rule__Header__TimeAssignment_1_2 : ( RULE_TIME ) ;
-    public final void rule__Header__TimeAssignment_1_2() throws RecognitionException {
+    // $ANTLR start "rule__Header__TempoAssignment_1_2"
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1246:1: rule__Header__TempoAssignment_1_2 : ( RULE_INT ) ;
+    public final void rule__Header__TempoAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1123:1: ( ( RULE_TIME ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1124:1: ( RULE_TIME )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1250:1: ( ( RULE_INT ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1251:1: ( RULE_INT )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1124:1: ( RULE_TIME )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1125:1: RULE_TIME
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1251:1: ( RULE_INT )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1252:1: RULE_INT
             {
-             before(grammarAccess.getHeaderAccess().getTimeTIMETerminalRuleCall_1_2_0()); 
-            match(input,RULE_TIME,FOLLOW_RULE_TIME_in_rule__Header__TimeAssignment_1_22209); 
-             after(grammarAccess.getHeaderAccess().getTimeTIMETerminalRuleCall_1_2_0()); 
+             before(grammarAccess.getHeaderAccess().getTempoINTTerminalRuleCall_1_2_0()); 
+            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__Header__TempoAssignment_1_22458); 
+             after(grammarAccess.getHeaderAccess().getTempoINTTerminalRuleCall_1_2_0()); 
 
             }
 
@@ -3060,29 +3376,66 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end "rule__Header__TimeAssignment_1_2"
+    // $ANTLR end "rule__Header__TempoAssignment_1_2"
 
 
-    // $ANTLR start "rule__Header__KeyAssignment_2_2"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1134:1: rule__Header__KeyAssignment_2_2 : ( ruleKey ) ;
-    public final void rule__Header__KeyAssignment_2_2() throws RecognitionException {
+    // $ANTLR start "rule__Header__TimeAssignment_2_2"
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1261:1: rule__Header__TimeAssignment_2_2 : ( RULE_TIME ) ;
+    public final void rule__Header__TimeAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1138:1: ( ( ruleKey ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1139:1: ( ruleKey )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1265:1: ( ( RULE_TIME ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1266:1: ( RULE_TIME )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1139:1: ( ruleKey )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1140:1: ruleKey
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1266:1: ( RULE_TIME )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1267:1: RULE_TIME
             {
-             before(grammarAccess.getHeaderAccess().getKeyKeyParserRuleCall_2_2_0()); 
-            pushFollow(FOLLOW_ruleKey_in_rule__Header__KeyAssignment_2_22240);
+             before(grammarAccess.getHeaderAccess().getTimeTIMETerminalRuleCall_2_2_0()); 
+            match(input,RULE_TIME,FOLLOW_RULE_TIME_in_rule__Header__TimeAssignment_2_22489); 
+             after(grammarAccess.getHeaderAccess().getTimeTIMETerminalRuleCall_2_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Header__TimeAssignment_2_2"
+
+
+    // $ANTLR start "rule__Header__KeyAssignment_3_2"
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1276:1: rule__Header__KeyAssignment_3_2 : ( ruleKey ) ;
+    public final void rule__Header__KeyAssignment_3_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1280:1: ( ( ruleKey ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1281:1: ( ruleKey )
+            {
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1281:1: ( ruleKey )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1282:1: ruleKey
+            {
+             before(grammarAccess.getHeaderAccess().getKeyKeyParserRuleCall_3_2_0()); 
+            pushFollow(FOLLOW_ruleKey_in_rule__Header__KeyAssignment_3_22520);
             ruleKey();
 
             state._fsp--;
 
-             after(grammarAccess.getHeaderAccess().getKeyKeyParserRuleCall_2_2_0()); 
+             after(grammarAccess.getHeaderAccess().getKeyKeyParserRuleCall_3_2_0()); 
 
             }
 
@@ -3101,24 +3454,24 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end "rule__Header__KeyAssignment_2_2"
+    // $ANTLR end "rule__Header__KeyAssignment_3_2"
 
 
     // $ANTLR start "rule__Melody__SequencesAssignment"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1149:1: rule__Melody__SequencesAssignment : ( ruleSequence ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1291:1: rule__Melody__SequencesAssignment : ( ruleSequence ) ;
     public final void rule__Melody__SequencesAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1153:1: ( ( ruleSequence ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1154:1: ( ruleSequence )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1295:1: ( ( ruleSequence ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1296:1: ( ruleSequence )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1154:1: ( ruleSequence )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1155:1: ruleSequence
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1296:1: ( ruleSequence )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1297:1: ruleSequence
             {
              before(grammarAccess.getMelodyAccess().getSequencesSequenceParserRuleCall_0()); 
-            pushFollow(FOLLOW_ruleSequence_in_rule__Melody__SequencesAssignment2271);
+            pushFollow(FOLLOW_ruleSequence_in_rule__Melody__SequencesAssignment2551);
             ruleSequence();
 
             state._fsp--;
@@ -3146,20 +3499,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Sequence__OctaveAssignment_0"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1164:1: rule__Sequence__OctaveAssignment_0 : ( RULE_OCTAVE ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1306:1: rule__Sequence__OctaveAssignment_0 : ( RULE_OCTAVE ) ;
     public final void rule__Sequence__OctaveAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1168:1: ( ( RULE_OCTAVE ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1169:1: ( RULE_OCTAVE )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1310:1: ( ( RULE_OCTAVE ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1311:1: ( RULE_OCTAVE )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1169:1: ( RULE_OCTAVE )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1170:1: RULE_OCTAVE
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1311:1: ( RULE_OCTAVE )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1312:1: RULE_OCTAVE
             {
              before(grammarAccess.getSequenceAccess().getOctaveOCTAVETerminalRuleCall_0_0()); 
-            match(input,RULE_OCTAVE,FOLLOW_RULE_OCTAVE_in_rule__Sequence__OctaveAssignment_02302); 
+            match(input,RULE_OCTAVE,FOLLOW_RULE_OCTAVE_in_rule__Sequence__OctaveAssignment_02582); 
              after(grammarAccess.getSequenceAccess().getOctaveOCTAVETerminalRuleCall_0_0()); 
 
             }
@@ -3183,20 +3536,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Sequence__NoteAssignment_1_0"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1179:1: rule__Sequence__NoteAssignment_1_0 : ( ruleNote ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1321:1: rule__Sequence__NoteAssignment_1_0 : ( ruleNote ) ;
     public final void rule__Sequence__NoteAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1183:1: ( ( ruleNote ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1184:1: ( ruleNote )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1325:1: ( ( ruleNote ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1326:1: ( ruleNote )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1184:1: ( ruleNote )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1185:1: ruleNote
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1326:1: ( ruleNote )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1327:1: ruleNote
             {
              before(grammarAccess.getSequenceAccess().getNoteNoteParserRuleCall_1_0_0()); 
-            pushFollow(FOLLOW_ruleNote_in_rule__Sequence__NoteAssignment_1_02333);
+            pushFollow(FOLLOW_ruleNote_in_rule__Sequence__NoteAssignment_1_02613);
             ruleNote();
 
             state._fsp--;
@@ -3224,20 +3577,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Sequence__ChordAssignment_1_1"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1194:1: rule__Sequence__ChordAssignment_1_1 : ( ruleChord ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1336:1: rule__Sequence__ChordAssignment_1_1 : ( ruleChord ) ;
     public final void rule__Sequence__ChordAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1198:1: ( ( ruleChord ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1199:1: ( ruleChord )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1340:1: ( ( ruleChord ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1341:1: ( ruleChord )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1199:1: ( ruleChord )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1200:1: ruleChord
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1341:1: ( ruleChord )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1342:1: ruleChord
             {
              before(grammarAccess.getSequenceAccess().getChordChordParserRuleCall_1_1_0()); 
-            pushFollow(FOLLOW_ruleChord_in_rule__Sequence__ChordAssignment_1_12364);
+            pushFollow(FOLLOW_ruleChord_in_rule__Sequence__ChordAssignment_1_12644);
             ruleChord();
 
             state._fsp--;
@@ -3265,20 +3618,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Chord__ChordNotesAssignment_0"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1209:1: rule__Chord__ChordNotesAssignment_0 : ( ruleNote ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1351:1: rule__Chord__ChordNotesAssignment_0 : ( ruleNote ) ;
     public final void rule__Chord__ChordNotesAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1213:1: ( ( ruleNote ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1214:1: ( ruleNote )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1355:1: ( ( ruleNote ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1356:1: ( ruleNote )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1214:1: ( ruleNote )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1215:1: ruleNote
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1356:1: ( ruleNote )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1357:1: ruleNote
             {
              before(grammarAccess.getChordAccess().getChordNotesNoteParserRuleCall_0_0()); 
-            pushFollow(FOLLOW_ruleNote_in_rule__Chord__ChordNotesAssignment_02395);
+            pushFollow(FOLLOW_ruleNote_in_rule__Chord__ChordNotesAssignment_02675);
             ruleNote();
 
             state._fsp--;
@@ -3306,20 +3659,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Chord__ChordNotesAssignment_1_1"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1224:1: rule__Chord__ChordNotesAssignment_1_1 : ( ruleNote ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1366:1: rule__Chord__ChordNotesAssignment_1_1 : ( ruleNote ) ;
     public final void rule__Chord__ChordNotesAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1228:1: ( ( ruleNote ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1229:1: ( ruleNote )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1370:1: ( ( ruleNote ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1371:1: ( ruleNote )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1229:1: ( ruleNote )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1230:1: ruleNote
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1371:1: ( ruleNote )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1372:1: ruleNote
             {
              before(grammarAccess.getChordAccess().getChordNotesNoteParserRuleCall_1_1_0()); 
-            pushFollow(FOLLOW_ruleNote_in_rule__Chord__ChordNotesAssignment_1_12426);
+            pushFollow(FOLLOW_ruleNote_in_rule__Chord__ChordNotesAssignment_1_12706);
             ruleNote();
 
             state._fsp--;
@@ -3347,20 +3700,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Note__NoteAssignment_0"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1239:1: rule__Note__NoteAssignment_0 : ( RULE_NOTE_ID ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1381:1: rule__Note__NoteAssignment_0 : ( RULE_NOTE_ID ) ;
     public final void rule__Note__NoteAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1243:1: ( ( RULE_NOTE_ID ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1244:1: ( RULE_NOTE_ID )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1385:1: ( ( RULE_NOTE_ID ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1386:1: ( RULE_NOTE_ID )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1244:1: ( RULE_NOTE_ID )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1245:1: RULE_NOTE_ID
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1386:1: ( RULE_NOTE_ID )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1387:1: RULE_NOTE_ID
             {
              before(grammarAccess.getNoteAccess().getNoteNOTE_IDTerminalRuleCall_0_0()); 
-            match(input,RULE_NOTE_ID,FOLLOW_RULE_NOTE_ID_in_rule__Note__NoteAssignment_02457); 
+            match(input,RULE_NOTE_ID,FOLLOW_RULE_NOTE_ID_in_rule__Note__NoteAssignment_02737); 
              after(grammarAccess.getNoteAccess().getNoteNOTE_IDTerminalRuleCall_0_0()); 
 
             }
@@ -3384,20 +3737,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Note__AccidentalAssignment_1"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1254:1: rule__Note__AccidentalAssignment_1 : ( RULE_ACCIDENTAL ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1396:1: rule__Note__AccidentalAssignment_1 : ( RULE_ACCIDENTAL ) ;
     public final void rule__Note__AccidentalAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1258:1: ( ( RULE_ACCIDENTAL ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1259:1: ( RULE_ACCIDENTAL )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1400:1: ( ( RULE_ACCIDENTAL ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1401:1: ( RULE_ACCIDENTAL )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1259:1: ( RULE_ACCIDENTAL )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1260:1: RULE_ACCIDENTAL
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1401:1: ( RULE_ACCIDENTAL )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1402:1: RULE_ACCIDENTAL
             {
              before(grammarAccess.getNoteAccess().getAccidentalACCIDENTALTerminalRuleCall_1_0()); 
-            match(input,RULE_ACCIDENTAL,FOLLOW_RULE_ACCIDENTAL_in_rule__Note__AccidentalAssignment_12488); 
+            match(input,RULE_ACCIDENTAL,FOLLOW_RULE_ACCIDENTAL_in_rule__Note__AccidentalAssignment_12768); 
              after(grammarAccess.getNoteAccess().getAccidentalACCIDENTALTerminalRuleCall_1_0()); 
 
             }
@@ -3421,20 +3774,20 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Note__DurationAssignment_2"
-    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1269:1: rule__Note__DurationAssignment_2 : ( RULE_DURATION ) ;
+    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1411:1: rule__Note__DurationAssignment_2 : ( RULE_DURATION ) ;
     public final void rule__Note__DurationAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1273:1: ( ( RULE_DURATION ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1274:1: ( RULE_DURATION )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1415:1: ( ( RULE_DURATION ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1416:1: ( RULE_DURATION )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1274:1: ( RULE_DURATION )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1275:1: RULE_DURATION
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1416:1: ( RULE_DURATION )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1417:1: RULE_DURATION
             {
              before(grammarAccess.getNoteAccess().getDurationDURATIONTerminalRuleCall_2_0()); 
-            match(input,RULE_DURATION,FOLLOW_RULE_DURATION_in_rule__Note__DurationAssignment_22519); 
+            match(input,RULE_DURATION,FOLLOW_RULE_DURATION_in_rule__Note__DurationAssignment_22799); 
              after(grammarAccess.getNoteAccess().getDurationDURATIONTerminalRuleCall_2_0()); 
 
             }
@@ -3472,8 +3825,8 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
     public static final BitSet FOLLOW_rule__Key__Group__0_in_ruleKey214 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMelody_in_entryRuleMelody241 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMelody248 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Melody__SequencesAssignment_in_ruleMelody276 = new BitSet(new long[]{0x0000000000000112L});
-    public static final BitSet FOLLOW_rule__Melody__SequencesAssignment_in_ruleMelody288 = new BitSet(new long[]{0x0000000000000112L});
+    public static final BitSet FOLLOW_rule__Melody__SequencesAssignment_in_ruleMelody276 = new BitSet(new long[]{0x0000000000000212L});
+    public static final BitSet FOLLOW_rule__Melody__SequencesAssignment_in_ruleMelody288 = new BitSet(new long[]{0x0000000000000212L});
     public static final BitSet FOLLOW_ruleSequence_in_entryRuleSequence318 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSequence325 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Sequence__Group__0_in_ruleSequence351 = new BitSet(new long[]{0x0000000000000002L});
@@ -3485,7 +3838,7 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
     public static final BitSet FOLLOW_rule__Note__Group__0_in_ruleNote471 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Sequence__NoteAssignment_1_0_in_rule__Sequence__Alternatives_1507 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Sequence__ChordAssignment_1_1_in_rule__Sequence__Alternatives_1525 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Document__Group__0__Impl_in_rule__Document__Group__0556 = new BitSet(new long[]{0x0000000000000110L});
+    public static final BitSet FOLLOW_rule__Document__Group__0__Impl_in_rule__Document__Group__0556 = new BitSet(new long[]{0x0000000000000210L});
     public static final BitSet FOLLOW_rule__Document__Group__1_in_rule__Document__Group__0559 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Document__HeaderAssignment_0_in_rule__Document__Group__0__Impl586 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Document__Group__1__Impl_in_rule__Document__Group__1616 = new BitSet(new long[]{0x0000000000000002L});
@@ -3496,74 +3849,86 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
     public static final BitSet FOLLOW_rule__Header__Group__1__Impl_in_rule__Header__Group__1737 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_rule__Header__Group__2_in_rule__Header__Group__1740 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Header__Group_1__0_in_rule__Header__Group__1__Impl767 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header__Group__2__Impl_in_rule__Header__Group__2797 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header__Group_2__0_in_rule__Header__Group__2__Impl824 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header__Group_0__0__Impl_in_rule__Header__Group_0__0860 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_rule__Header__Group_0__1_in_rule__Header__Group_0__0863 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__Header__Group_0__0__Impl891 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header__Group_0__1__Impl_in_rule__Header__Group_0__1922 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_rule__Header__Group_0__2_in_rule__Header__Group_0__1925 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__Header__Group_0__1__Impl953 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header__Group_0__2__Impl_in_rule__Header__Group_0__2984 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header__TempoAssignment_0_2_in_rule__Header__Group_0__2__Impl1011 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header__Group_1__0__Impl_in_rule__Header__Group_1__01047 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_rule__Header__Group_1__1_in_rule__Header__Group_1__01050 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__Header__Group_1__0__Impl1078 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header__Group_1__1__Impl_in_rule__Header__Group_1__11109 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_rule__Header__Group_1__2_in_rule__Header__Group_1__11112 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__Header__Group_1__1__Impl1140 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header__Group_1__2__Impl_in_rule__Header__Group_1__21171 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header__TimeAssignment_1_2_in_rule__Header__Group_1__2__Impl1198 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header__Group_2__0__Impl_in_rule__Header__Group_2__01234 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_rule__Header__Group_2__1_in_rule__Header__Group_2__01237 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__Header__Group_2__0__Impl1265 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header__Group_2__1__Impl_in_rule__Header__Group_2__11296 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Header__Group_2__2_in_rule__Header__Group_2__11299 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__Header__Group_2__1__Impl1327 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header__Group_2__2__Impl_in_rule__Header__Group_2__21358 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header__KeyAssignment_2_2_in_rule__Header__Group_2__2__Impl1385 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Key__Group__0__Impl_in_rule__Key__Group__01421 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__Key__Group__1_in_rule__Key__Group__01424 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NOTE_ID_in_rule__Key__Group__0__Impl1451 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Key__Group__1__Impl_in_rule__Key__Group__11480 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ACCIDENTAL_in_rule__Key__Group__1__Impl1508 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sequence__Group__0__Impl_in_rule__Sequence__Group__01543 = new BitSet(new long[]{0x0000000000000110L});
-    public static final BitSet FOLLOW_rule__Sequence__Group__1_in_rule__Sequence__Group__01546 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sequence__OctaveAssignment_0_in_rule__Sequence__Group__0__Impl1573 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sequence__Group__1__Impl_in_rule__Sequence__Group__11604 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sequence__Alternatives_1_in_rule__Sequence__Group__1__Impl1631 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chord__Group__0__Impl_in_rule__Chord__Group__01665 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_rule__Chord__Group__1_in_rule__Chord__Group__01668 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chord__ChordNotesAssignment_0_in_rule__Chord__Group__0__Impl1695 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chord__Group__1__Impl_in_rule__Chord__Group__11725 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chord__Group_1__0_in_rule__Chord__Group__1__Impl1754 = new BitSet(new long[]{0x0000000000100002L});
-    public static final BitSet FOLLOW_rule__Chord__Group_1__0_in_rule__Chord__Group__1__Impl1766 = new BitSet(new long[]{0x0000000000100002L});
-    public static final BitSet FOLLOW_rule__Chord__Group_1__0__Impl_in_rule__Chord__Group_1__01803 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Chord__Group_1__1_in_rule__Chord__Group_1__01806 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__Chord__Group_1__0__Impl1834 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chord__Group_1__1__Impl_in_rule__Chord__Group_1__11865 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chord__ChordNotesAssignment_1_1_in_rule__Chord__Group_1__1__Impl1892 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Note__Group__0__Impl_in_rule__Note__Group__01926 = new BitSet(new long[]{0x0000000000000220L});
-    public static final BitSet FOLLOW_rule__Note__Group__1_in_rule__Note__Group__01929 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Note__NoteAssignment_0_in_rule__Note__Group__0__Impl1956 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Note__Group__1__Impl_in_rule__Note__Group__11986 = new BitSet(new long[]{0x0000000000000220L});
-    public static final BitSet FOLLOW_rule__Note__Group__2_in_rule__Note__Group__11989 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Note__AccidentalAssignment_1_in_rule__Note__Group__1__Impl2016 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Note__Group__2__Impl_in_rule__Note__Group__22047 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Note__DurationAssignment_2_in_rule__Note__Group__2__Impl2074 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleHeader_in_rule__Document__HeaderAssignment_02116 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMelody_in_rule__Document__MelodyAssignment_12147 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_rule__Header__TempoAssignment_0_22178 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_TIME_in_rule__Header__TimeAssignment_1_22209 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleKey_in_rule__Header__KeyAssignment_2_22240 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSequence_in_rule__Melody__SequencesAssignment2271 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_OCTAVE_in_rule__Sequence__OctaveAssignment_02302 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNote_in_rule__Sequence__NoteAssignment_1_02333 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleChord_in_rule__Sequence__ChordAssignment_1_12364 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNote_in_rule__Chord__ChordNotesAssignment_02395 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNote_in_rule__Chord__ChordNotesAssignment_1_12426 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NOTE_ID_in_rule__Note__NoteAssignment_02457 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ACCIDENTAL_in_rule__Note__AccidentalAssignment_12488 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_DURATION_in_rule__Note__DurationAssignment_22519 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__Group__2__Impl_in_rule__Header__Group__2797 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_rule__Header__Group__3_in_rule__Header__Group__2800 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__Group_2__0_in_rule__Header__Group__2__Impl827 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__Group__3__Impl_in_rule__Header__Group__3857 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__Group_3__0_in_rule__Header__Group__3__Impl884 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__Group_0__0__Impl_in_rule__Header__Group_0__0922 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__Header__Group_0__1_in_rule__Header__Group_0__0925 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_rule__Header__Group_0__0__Impl953 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__Group_0__1__Impl_in_rule__Header__Group_0__1984 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_rule__Header__Group_0__2_in_rule__Header__Group_0__1987 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__Header__Group_0__1__Impl1015 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__Group_0__2__Impl_in_rule__Header__Group_0__21046 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__SongNameAssignment_0_2_in_rule__Header__Group_0__2__Impl1073 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__Group_1__0__Impl_in_rule__Header__Group_1__01109 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__Header__Group_1__1_in_rule__Header__Group_1__01112 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__Header__Group_1__0__Impl1140 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__Group_1__1__Impl_in_rule__Header__Group_1__11171 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_rule__Header__Group_1__2_in_rule__Header__Group_1__11174 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__Header__Group_1__1__Impl1202 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__Group_1__2__Impl_in_rule__Header__Group_1__21233 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__TempoAssignment_1_2_in_rule__Header__Group_1__2__Impl1260 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__Group_2__0__Impl_in_rule__Header__Group_2__01296 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__Header__Group_2__1_in_rule__Header__Group_2__01299 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__Header__Group_2__0__Impl1327 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__Group_2__1__Impl_in_rule__Header__Group_2__11358 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_rule__Header__Group_2__2_in_rule__Header__Group_2__11361 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__Header__Group_2__1__Impl1389 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__Group_2__2__Impl_in_rule__Header__Group_2__21420 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__TimeAssignment_2_2_in_rule__Header__Group_2__2__Impl1447 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__Group_3__0__Impl_in_rule__Header__Group_3__01483 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__Header__Group_3__1_in_rule__Header__Group_3__01486 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rule__Header__Group_3__0__Impl1514 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__Group_3__1__Impl_in_rule__Header__Group_3__11545 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Header__Group_3__2_in_rule__Header__Group_3__11548 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__Header__Group_3__1__Impl1576 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__Group_3__2__Impl_in_rule__Header__Group_3__21607 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header__KeyAssignment_3_2_in_rule__Header__Group_3__2__Impl1634 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Key__Group__0__Impl_in_rule__Key__Group__01670 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__Key__Group__1_in_rule__Key__Group__01673 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NOTE_ID_in_rule__Key__Group__0__Impl1700 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Key__Group__1__Impl_in_rule__Key__Group__11729 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ACCIDENTAL_in_rule__Key__Group__1__Impl1757 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Sequence__Group__0__Impl_in_rule__Sequence__Group__01792 = new BitSet(new long[]{0x0000000000000210L});
+    public static final BitSet FOLLOW_rule__Sequence__Group__1_in_rule__Sequence__Group__01795 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Sequence__OctaveAssignment_0_in_rule__Sequence__Group__0__Impl1822 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Sequence__Group__1__Impl_in_rule__Sequence__Group__11853 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Sequence__Alternatives_1_in_rule__Sequence__Group__1__Impl1880 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chord__Group__0__Impl_in_rule__Chord__Group__01914 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_rule__Chord__Group__1_in_rule__Chord__Group__01917 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chord__ChordNotesAssignment_0_in_rule__Chord__Group__0__Impl1944 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chord__Group__1__Impl_in_rule__Chord__Group__11974 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chord__Group_1__0_in_rule__Chord__Group__1__Impl2003 = new BitSet(new long[]{0x0000000000200002L});
+    public static final BitSet FOLLOW_rule__Chord__Group_1__0_in_rule__Chord__Group__1__Impl2015 = new BitSet(new long[]{0x0000000000200002L});
+    public static final BitSet FOLLOW_rule__Chord__Group_1__0__Impl_in_rule__Chord__Group_1__02052 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Chord__Group_1__1_in_rule__Chord__Group_1__02055 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_rule__Chord__Group_1__0__Impl2083 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chord__Group_1__1__Impl_in_rule__Chord__Group_1__12114 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chord__ChordNotesAssignment_1_1_in_rule__Chord__Group_1__1__Impl2141 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Note__Group__0__Impl_in_rule__Note__Group__02175 = new BitSet(new long[]{0x0000000000000420L});
+    public static final BitSet FOLLOW_rule__Note__Group__1_in_rule__Note__Group__02178 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Note__NoteAssignment_0_in_rule__Note__Group__0__Impl2205 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Note__Group__1__Impl_in_rule__Note__Group__12235 = new BitSet(new long[]{0x0000000000000420L});
+    public static final BitSet FOLLOW_rule__Note__Group__2_in_rule__Note__Group__12238 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Note__AccidentalAssignment_1_in_rule__Note__Group__1__Impl2265 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Note__Group__2__Impl_in_rule__Note__Group__22296 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Note__DurationAssignment_2_in_rule__Note__Group__2__Impl2323 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleHeader_in_rule__Document__HeaderAssignment_02365 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMelody_in_rule__Document__MelodyAssignment_12396 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Header__SongNameAssignment_0_22427 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_rule__Header__TempoAssignment_1_22458 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_TIME_in_rule__Header__TimeAssignment_2_22489 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleKey_in_rule__Header__KeyAssignment_3_22520 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSequence_in_rule__Melody__SequencesAssignment2551 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_OCTAVE_in_rule__Sequence__OctaveAssignment_02582 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNote_in_rule__Sequence__NoteAssignment_1_02613 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleChord_in_rule__Sequence__ChordAssignment_1_12644 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNote_in_rule__Chord__ChordNotesAssignment_02675 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNote_in_rule__Chord__ChordNotesAssignment_1_12706 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NOTE_ID_in_rule__Note__NoteAssignment_02737 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ACCIDENTAL_in_rule__Note__AccidentalAssignment_12768 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_DURATION_in_rule__Note__DurationAssignment_22799 = new BitSet(new long[]{0x0000000000000002L});
 
 }

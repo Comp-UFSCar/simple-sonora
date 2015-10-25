@@ -50,72 +50,92 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Header");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Keyword cTempoKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cNameKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Assignment cTempoAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
-		private final RuleCall cTempoINTTerminalRuleCall_0_2_0 = (RuleCall)cTempoAssignment_0_2.eContents().get(0);
+		private final Assignment cSongNameAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cSongNameIDTerminalRuleCall_0_2_0 = (RuleCall)cSongNameAssignment_0_2.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cTimeKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cTempoKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cTimeAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cTimeTIMETerminalRuleCall_1_2_0 = (RuleCall)cTimeAssignment_1_2.eContents().get(0);
+		private final Assignment cTempoAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cTempoINTTerminalRuleCall_1_2_0 = (RuleCall)cTempoAssignment_1_2.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cKeyKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cTimeKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cKeyAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cKeyKeyParserRuleCall_2_2_0 = (RuleCall)cKeyAssignment_2_2.eContents().get(0);
+		private final Assignment cTimeAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cTimeTIMETerminalRuleCall_2_2_0 = (RuleCall)cTimeAssignment_2_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cKeyKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cKeyAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cKeyKeyParserRuleCall_3_2_0 = (RuleCall)cKeyAssignment_3_2.eContents().get(0);
 		
 		/// * Header of the file containing the tempo, time and key of melody. * / Header:
-		//	("tempo" "=" tempo=INT) ("time" "=" time=TIME) ("key" "=" key=Key);
+		//	("name" "=" songName=ID) ("tempo" "=" tempo=INT) ("time" "=" time=TIME) ("key" "=" key=Key);
 		@Override public ParserRule getRule() { return rule; }
 
-		//("tempo" "=" tempo=INT) ("time" "=" time=TIME) ("key" "=" key=Key)
+		//("name" "=" songName=ID) ("tempo" "=" tempo=INT) ("time" "=" time=TIME) ("key" "=" key=Key)
 		public Group getGroup() { return cGroup; }
 
-		//"tempo" "=" tempo=INT
+		//"name" "=" songName=ID
 		public Group getGroup_0() { return cGroup_0; }
 
-		//"tempo"
-		public Keyword getTempoKeyword_0_0() { return cTempoKeyword_0_0; }
+		//"name"
+		public Keyword getNameKeyword_0_0() { return cNameKeyword_0_0; }
 
 		//"="
 		public Keyword getEqualsSignKeyword_0_1() { return cEqualsSignKeyword_0_1; }
 
-		//tempo=INT
-		public Assignment getTempoAssignment_0_2() { return cTempoAssignment_0_2; }
+		//songName=ID
+		public Assignment getSongNameAssignment_0_2() { return cSongNameAssignment_0_2; }
 
-		//INT
-		public RuleCall getTempoINTTerminalRuleCall_0_2_0() { return cTempoINTTerminalRuleCall_0_2_0; }
+		//ID
+		public RuleCall getSongNameIDTerminalRuleCall_0_2_0() { return cSongNameIDTerminalRuleCall_0_2_0; }
 
-		//"time" "=" time=TIME
+		//"tempo" "=" tempo=INT
 		public Group getGroup_1() { return cGroup_1; }
 
-		//"time"
-		public Keyword getTimeKeyword_1_0() { return cTimeKeyword_1_0; }
+		//"tempo"
+		public Keyword getTempoKeyword_1_0() { return cTempoKeyword_1_0; }
 
 		//"="
 		public Keyword getEqualsSignKeyword_1_1() { return cEqualsSignKeyword_1_1; }
 
-		//time=TIME
-		public Assignment getTimeAssignment_1_2() { return cTimeAssignment_1_2; }
+		//tempo=INT
+		public Assignment getTempoAssignment_1_2() { return cTempoAssignment_1_2; }
 
-		//TIME
-		public RuleCall getTimeTIMETerminalRuleCall_1_2_0() { return cTimeTIMETerminalRuleCall_1_2_0; }
+		//INT
+		public RuleCall getTempoINTTerminalRuleCall_1_2_0() { return cTempoINTTerminalRuleCall_1_2_0; }
 
-		//"key" "=" key=Key
+		//"time" "=" time=TIME
 		public Group getGroup_2() { return cGroup_2; }
 
-		//"key"
-		public Keyword getKeyKeyword_2_0() { return cKeyKeyword_2_0; }
+		//"time"
+		public Keyword getTimeKeyword_2_0() { return cTimeKeyword_2_0; }
 
 		//"="
 		public Keyword getEqualsSignKeyword_2_1() { return cEqualsSignKeyword_2_1; }
 
+		//time=TIME
+		public Assignment getTimeAssignment_2_2() { return cTimeAssignment_2_2; }
+
+		//TIME
+		public RuleCall getTimeTIMETerminalRuleCall_2_2_0() { return cTimeTIMETerminalRuleCall_2_2_0; }
+
+		//"key" "=" key=Key
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"key"
+		public Keyword getKeyKeyword_3_0() { return cKeyKeyword_3_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_3_1() { return cEqualsSignKeyword_3_1; }
+
 		//key=Key
-		public Assignment getKeyAssignment_2_2() { return cKeyAssignment_2_2; }
+		public Assignment getKeyAssignment_3_2() { return cKeyAssignment_3_2; }
 
 		//Key
-		public RuleCall getKeyKeyParserRuleCall_2_2_0() { return cKeyKeyParserRuleCall_2_2_0; }
+		public RuleCall getKeyKeyParserRuleCall_3_2_0() { return cKeyKeyParserRuleCall_3_2_0; }
 	}
 
 	public class KeyElements extends AbstractParserRuleElementFinder {
@@ -341,7 +361,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// * Header of the file containing the tempo, time and key of melody. * / Header:
-	//	("tempo" "=" tempo=INT) ("time" "=" time=TIME) ("key" "=" key=Key);
+	//	("name" "=" songName=ID) ("tempo" "=" tempo=INT) ("time" "=" time=TIME) ("key" "=" key=Key);
 	public HeaderElements getHeaderAccess() {
 		return pHeader;
 	}

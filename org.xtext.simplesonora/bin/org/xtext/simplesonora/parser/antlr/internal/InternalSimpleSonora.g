@@ -134,9 +134,9 @@ ruleHeader returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((	otherlv_0='tempo' 
+((	otherlv_0='name' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getHeaderAccess().getTempoKeyword_0_0());
+    	newLeafNode(otherlv_0, grammarAccess.getHeaderAccess().getNameKeyword_0_0());
     }
 	otherlv_1='=' 
     {
@@ -144,9 +144,35 @@ ruleHeader returns [EObject current=null]
     }
 (
 (
-		lv_tempo_2_0=RULE_INT
+		lv_songName_2_0=RULE_ID
 		{
-			newLeafNode(lv_tempo_2_0, grammarAccess.getHeaderAccess().getTempoINTTerminalRuleCall_0_2_0()); 
+			newLeafNode(lv_songName_2_0, grammarAccess.getHeaderAccess().getSongNameIDTerminalRuleCall_0_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getHeaderRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"songName",
+        		lv_songName_2_0, 
+        		"ID");
+	    }
+
+)
+))(	otherlv_3='tempo' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getHeaderAccess().getTempoKeyword_1_0());
+    }
+	otherlv_4='=' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getHeaderAccess().getEqualsSignKeyword_1_1());
+    }
+(
+(
+		lv_tempo_5_0=RULE_INT
+		{
+			newLeafNode(lv_tempo_5_0, grammarAccess.getHeaderAccess().getTempoINTTerminalRuleCall_1_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -155,24 +181,24 @@ ruleHeader returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"tempo",
-        		lv_tempo_2_0, 
+        		lv_tempo_5_0, 
         		"INT");
 	    }
 
 )
-))(	otherlv_3='time' 
+))(	otherlv_6='time' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getHeaderAccess().getTimeKeyword_1_0());
+    	newLeafNode(otherlv_6, grammarAccess.getHeaderAccess().getTimeKeyword_2_0());
     }
-	otherlv_4='=' 
+	otherlv_7='=' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getHeaderAccess().getEqualsSignKeyword_1_1());
+    	newLeafNode(otherlv_7, grammarAccess.getHeaderAccess().getEqualsSignKeyword_2_1());
     }
 (
 (
-		lv_time_5_0=RULE_TIME
+		lv_time_8_0=RULE_TIME
 		{
-			newLeafNode(lv_time_5_0, grammarAccess.getHeaderAccess().getTimeTIMETerminalRuleCall_1_2_0()); 
+			newLeafNode(lv_time_8_0, grammarAccess.getHeaderAccess().getTimeTIMETerminalRuleCall_2_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -181,32 +207,32 @@ ruleHeader returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"time",
-        		lv_time_5_0, 
+        		lv_time_8_0, 
         		"TIME");
 	    }
 
 )
-))(	otherlv_6='key' 
+))(	otherlv_9='key' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getHeaderAccess().getKeyKeyword_2_0());
+    	newLeafNode(otherlv_9, grammarAccess.getHeaderAccess().getKeyKeyword_3_0());
     }
-	otherlv_7='=' 
+	otherlv_10='=' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getHeaderAccess().getEqualsSignKeyword_2_1());
+    	newLeafNode(otherlv_10, grammarAccess.getHeaderAccess().getEqualsSignKeyword_3_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getHeaderAccess().getKeyKeyParserRuleCall_2_2_0()); 
+	        newCompositeNode(grammarAccess.getHeaderAccess().getKeyKeyParserRuleCall_3_2_0()); 
 	    }
-		lv_key_8_0=ruleKey		{
+		lv_key_11_0=ruleKey		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getHeaderRule());
 	        }
        		set(
        			$current, 
        			"key",
-        		lv_key_8_0, 
+        		lv_key_11_0, 
         		"Key");
 	        afterParserOrEnumRuleCall();
 	    }

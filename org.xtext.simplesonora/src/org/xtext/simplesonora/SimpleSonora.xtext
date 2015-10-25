@@ -8,6 +8,7 @@ Document:
 
 /* Header of the file containing the tempo, time and key of melody. */
 Header:
+	('name' '=' songName=ID)
 	('tempo' '=' tempo=INT)
 	('time' '=' time=TIME)
 	('key' '=' key=Key)

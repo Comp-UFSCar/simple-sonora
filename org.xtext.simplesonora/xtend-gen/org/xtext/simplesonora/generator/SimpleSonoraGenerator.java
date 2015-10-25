@@ -41,12 +41,16 @@ public class SimpleSonoraGenerator implements IGenerator {
       Iterable<EObject> _iterable_1 = IteratorExtensions.<EObject>toIterable(_allContents_1);
       Iterable<Header> _filter_1 = Iterables.<Header>filter(_iterable_1, Header.class);
       for (final Header h : _filter_1) {
-        int _tempo = h.getTempo();
-        pattern.setTempo(_tempo);
+        {
+          int _tempo = h.getTempo();
+          pattern.setTempo(_tempo);
+          String _songName = h.getSongName();
+          String _plus = (_songName + ".midi");
+          File _file = new File(_plus);
+          MidiFileManager.savePatternToMidi(pattern, _file);
+        }
       }
       player.play(pattern);
-      File _file = new File("musica.midi");
-      MidiFileManager.savePatternToMidi(pattern, _file);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
