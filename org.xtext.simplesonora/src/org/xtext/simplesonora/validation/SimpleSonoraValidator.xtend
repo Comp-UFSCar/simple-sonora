@@ -3,7 +3,6 @@
  */
 package org.xtext.simplesonora.validation
 
-import org.xtext.simplesonora.simpleSonora.Note
 import org.eclipse.xtext.validation.Check
 import org.jfugue.player.Player
 
@@ -15,11 +14,11 @@ import org.jfugue.player.Player
  */
 class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
 
-	@Check
-	def void playNote(Note note) {
-		
-//		val Player player = new Player();
-//		player.play(note.note);
-		//System.out.println(note.note);
-	}
+//	@Check
+//	def void playNote(Note note) {
+//		
+////		val Player player = new Player();
+////		player.play(note.note);
+//		//System.out.println(note.note);
+//	}
 }

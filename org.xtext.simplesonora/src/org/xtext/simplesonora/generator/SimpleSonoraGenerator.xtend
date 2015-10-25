@@ -6,8 +6,8 @@ package org.xtext.simplesonora.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
-import org.xtext.simplesonora.simpleSonora.Note
 import org.jfugue.player.Player
+import org.xtext.simplesonora.simpleSonora.Note
 
 /**
  * Generates code from your model files on save.

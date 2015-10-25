@@ -3,8 +3,6 @@
  */
 package org.xtext.simplesonora.validation;
 
-import org.eclipse.xtext.validation.Check;
-import org.xtext.simplesonora.simpleSonora.Note;
 import org.xtext.simplesonora.validation.AbstractSimpleSonoraValidator;
 
 /**
@@ -14,7 +12,4 @@ import org.xtext.simplesonora.validation.AbstractSimpleSonoraValidator;
  */
 @SuppressWarnings("all")
 public class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
-  @Check
-  public void playNote(final Note note) {
-  }
 }
