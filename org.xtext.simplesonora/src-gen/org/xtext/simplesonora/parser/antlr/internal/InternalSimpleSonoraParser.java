@@ -70,7 +70,7 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
         
         @Override
         protected String getFirstRuleName() {
-        	return "File";	
+        	return "Document";	
        	}
        	
        	@Override
@@ -80,26 +80,26 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
 
 
-    // $ANTLR start "entryRuleFile"
-    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:67:1: entryRuleFile returns [EObject current=null] : iv_ruleFile= ruleFile EOF ;
-    public final EObject entryRuleFile() throws RecognitionException {
+    // $ANTLR start "entryRuleDocument"
+    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:67:1: entryRuleDocument returns [EObject current=null] : iv_ruleDocument= ruleDocument EOF ;
+    public final EObject entryRuleDocument() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleFile = null;
+        EObject iv_ruleDocument = null;
 
 
         try {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:68:2: (iv_ruleFile= ruleFile EOF )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:69:2: iv_ruleFile= ruleFile EOF
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:68:2: (iv_ruleDocument= ruleDocument EOF )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:69:2: iv_ruleDocument= ruleDocument EOF
             {
-             newCompositeNode(grammarAccess.getFileRule()); 
-            pushFollow(FOLLOW_ruleFile_in_entryRuleFile75);
-            iv_ruleFile=ruleFile();
+             newCompositeNode(grammarAccess.getDocumentRule()); 
+            pushFollow(FOLLOW_ruleDocument_in_entryRuleDocument75);
+            iv_ruleDocument=ruleDocument();
 
             state._fsp--;
 
-             current =iv_ruleFile; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFile85); 
+             current =iv_ruleDocument; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDocument85); 
 
             }
 
@@ -113,12 +113,12 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleFile"
+    // $ANTLR end "entryRuleDocument"
 
 
-    // $ANTLR start "ruleFile"
-    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:76:1: ruleFile returns [EObject current=null] : ( ( (lv_header_0_0= ruleHeader ) ) ( (lv_melody_1_0= ruleMelody ) ) ) ;
-    public final EObject ruleFile() throws RecognitionException {
+    // $ANTLR start "ruleDocument"
+    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:76:1: ruleDocument returns [EObject current=null] : ( ( (lv_header_0_0= ruleHeader ) ) ( (lv_melody_1_0= ruleMelody ) ) ) ;
+    public final EObject ruleDocument() throws RecognitionException {
         EObject current = null;
 
         EObject lv_header_0_0 = null;
@@ -142,16 +142,16 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
             // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:82:3: lv_header_0_0= ruleHeader
             {
              
-            	        newCompositeNode(grammarAccess.getFileAccess().getHeaderHeaderParserRuleCall_0_0()); 
+            	        newCompositeNode(grammarAccess.getDocumentAccess().getHeaderHeaderParserRuleCall_0_0()); 
             	    
-            pushFollow(FOLLOW_ruleHeader_in_ruleFile131);
+            pushFollow(FOLLOW_ruleHeader_in_ruleDocument131);
             lv_header_0_0=ruleHeader();
 
             state._fsp--;
 
 
             	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getFileRule());
+            	            current = createModelElementForParent(grammarAccess.getDocumentRule());
             	        }
                    		set(
                    			current, 
@@ -173,16 +173,16 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
             // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:100:3: lv_melody_1_0= ruleMelody
             {
              
-            	        newCompositeNode(grammarAccess.getFileAccess().getMelodyMelodyParserRuleCall_1_0()); 
+            	        newCompositeNode(grammarAccess.getDocumentAccess().getMelodyMelodyParserRuleCall_1_0()); 
             	    
-            pushFollow(FOLLOW_ruleMelody_in_ruleFile152);
+            pushFollow(FOLLOW_ruleMelody_in_ruleDocument152);
             lv_melody_1_0=ruleMelody();
 
             state._fsp--;
 
 
             	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getFileRule());
+            	            current = createModelElementForParent(grammarAccess.getDocumentRule());
             	        }
                    		set(
                    			current, 
@@ -214,7 +214,7 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleFile"
+    // $ANTLR end "ruleDocument"
 
 
     // $ANTLR start "entryRuleHeader"
@@ -1280,10 +1280,10 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
  
 
-    public static final BitSet FOLLOW_ruleFile_in_entryRuleFile75 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFile85 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleHeader_in_ruleFile131 = new BitSet(new long[]{0x0000000000000140L});
-    public static final BitSet FOLLOW_ruleMelody_in_ruleFile152 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDocument_in_entryRuleDocument75 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDocument85 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleHeader_in_ruleDocument131 = new BitSet(new long[]{0x0000000000000140L});
+    public static final BitSet FOLLOW_ruleMelody_in_ruleDocument152 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleHeader_in_entryRuleHeader188 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleHeader198 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_16_in_ruleHeader236 = new BitSet(new long[]{0x0000000000020000L});

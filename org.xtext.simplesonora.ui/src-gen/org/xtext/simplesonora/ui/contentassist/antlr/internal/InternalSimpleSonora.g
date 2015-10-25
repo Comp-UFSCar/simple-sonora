@@ -56,25 +56,25 @@ import org.xtext.simplesonora.services.SimpleSonoraGrammarAccess;
 
 
 
-// Entry rule entryRuleFile
-entryRuleFile 
+// Entry rule entryRuleDocument
+entryRuleDocument 
 :
-{ before(grammarAccess.getFileRule()); }
-	 ruleFile
-{ after(grammarAccess.getFileRule()); } 
+{ before(grammarAccess.getDocumentRule()); }
+	 ruleDocument
+{ after(grammarAccess.getDocumentRule()); } 
 	 EOF 
 ;
 
-// Rule File
-ruleFile
+// Rule Document
+ruleDocument
     @init {
 		int stackSize = keepStackSize();
     }
 	:
 (
-{ before(grammarAccess.getFileAccess().getGroup()); }
-(rule__File__Group__0)
-{ after(grammarAccess.getFileAccess().getGroup()); }
+{ before(grammarAccess.getDocumentAccess().getGroup()); }
+(rule__Document__Group__0)
+{ after(grammarAccess.getDocumentAccess().getGroup()); }
 )
 
 ;
@@ -284,27 +284,27 @@ finally {
 
 
 
-rule__File__Group__0
+rule__Document__Group__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__File__Group__0__Impl
-	rule__File__Group__1
+	rule__Document__Group__0__Impl
+	rule__Document__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__File__Group__0__Impl
+rule__Document__Group__0__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFileAccess().getHeaderAssignment_0()); }
-(rule__File__HeaderAssignment_0)
-{ after(grammarAccess.getFileAccess().getHeaderAssignment_0()); }
+{ before(grammarAccess.getDocumentAccess().getHeaderAssignment_0()); }
+(rule__Document__HeaderAssignment_0)
+{ after(grammarAccess.getDocumentAccess().getHeaderAssignment_0()); }
 )
 
 ;
@@ -313,26 +313,26 @@ finally {
 }
 
 
-rule__File__Group__1
+rule__Document__Group__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__File__Group__1__Impl
+	rule__Document__Group__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__File__Group__1__Impl
+rule__Document__Group__1__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFileAccess().getMelodyAssignment_1()); }
-(rule__File__MelodyAssignment_1)
-{ after(grammarAccess.getFileAccess().getMelodyAssignment_1()); }
+{ before(grammarAccess.getDocumentAccess().getMelodyAssignment_1()); }
+(rule__Document__MelodyAssignment_1)
+{ after(grammarAccess.getDocumentAccess().getMelodyAssignment_1()); }
 )
 
 ;
@@ -1071,14 +1071,14 @@ finally {
 
 
 
-rule__File__HeaderAssignment_0
+rule__Document__HeaderAssignment_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFileAccess().getHeaderHeaderParserRuleCall_0_0()); }
-	ruleHeader{ after(grammarAccess.getFileAccess().getHeaderHeaderParserRuleCall_0_0()); }
+{ before(grammarAccess.getDocumentAccess().getHeaderHeaderParserRuleCall_0_0()); }
+	ruleHeader{ after(grammarAccess.getDocumentAccess().getHeaderHeaderParserRuleCall_0_0()); }
 )
 
 ;
@@ -1086,14 +1086,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__File__MelodyAssignment_1
+rule__Document__MelodyAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFileAccess().getMelodyMelodyParserRuleCall_1_0()); }
-	ruleMelody{ after(grammarAccess.getFileAccess().getMelodyMelodyParserRuleCall_1_0()); }
+{ before(grammarAccess.getDocumentAccess().getMelodyMelodyParserRuleCall_1_0()); }
+	ruleMelody{ after(grammarAccess.getDocumentAccess().getMelodyMelodyParserRuleCall_1_0()); }
 )
 
 ;

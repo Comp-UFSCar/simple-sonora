@@ -75,9 +75,9 @@ public class SimpleSonoraAdapterFactory extends AdapterFactoryImpl
     new SimpleSonoraSwitch<Adapter>()
     {
       @Override
-      public Adapter caseFile(File object)
+      public Adapter caseDocument(Document object)
       {
-        return createFileAdapter();
+        return createDocumentAdapter();
       }
       @Override
       public Adapter caseHeader(Header object)
@@ -127,16 +127,16 @@ public class SimpleSonoraAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.File <em>File</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Document <em>Document</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.simplesonora.simpleSonora.File
+   * @see org.xtext.simplesonora.simpleSonora.Document
    * @generated
    */
-  public Adapter createFileAdapter()
+  public Adapter createDocumentAdapter()
   {
     return null;
   }

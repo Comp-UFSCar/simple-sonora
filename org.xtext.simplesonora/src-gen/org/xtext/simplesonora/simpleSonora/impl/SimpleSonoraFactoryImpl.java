@@ -64,7 +64,7 @@ public class SimpleSonoraFactoryImpl extends EFactoryImpl implements SimpleSonor
   {
     switch (eClass.getClassifierID())
     {
-      case SimpleSonoraPackage.FILE: return createFile();
+      case SimpleSonoraPackage.DOCUMENT: return createDocument();
       case SimpleSonoraPackage.HEADER: return createHeader();
       case SimpleSonoraPackage.MELODY: return createMelody();
       case SimpleSonoraPackage.SEQUENCE: return createSequence();
@@ -80,10 +80,10 @@ public class SimpleSonoraFactoryImpl extends EFactoryImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public File createFile()
+  public Document createDocument()
   {
-    FileImpl file = new FileImpl();
-    return file;
+    DocumentImpl document = new DocumentImpl();
+    return document;
   }
 
   /**

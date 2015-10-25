@@ -4,13 +4,18 @@
 package org.xtext.simplesonora.generator;
 
 import com.google.common.collect.Iterables;
+import java.io.File;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.jfugue.midi.MidiFileManager;
+import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
+import org.xtext.simplesonora.simpleSonora.Header;
 import org.xtext.simplesonora.simpleSonora.Note;
 
 /**
@@ -20,19 +25,30 @@ import org.xtext.simplesonora.simpleSonora.Note;
  */
 @SuppressWarnings("all")
 public class SimpleSonoraGenerator implements IGenerator {
-  private String finalProduct = new String();
-  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
-    final Player player = new Player();
-    TreeIterator<EObject> _allContents = resource.getAllContents();
-    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
-    Iterable<Note> _filter = Iterables.<Note>filter(_iterable, Note.class);
-    for (final Note n : _filter) {
-      String _note = n.getNote();
-      player.play(_note);
+    try {
+      final Player player = new Player();
+      final Pattern pattern = new Pattern();
+      TreeIterator<EObject> _allContents = resource.getAllContents();
+      Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
+      Iterable<Note> _filter = Iterables.<Note>filter(_iterable, Note.class);
+      for (final Note n : _filter) {
+        String _note = n.getNote();
+        pattern.add(_note);
+      }
+      TreeIterator<EObject> _allContents_1 = resource.getAllContents();
+      Iterable<EObject> _iterable_1 = IteratorExtensions.<EObject>toIterable(_allContents_1);
+      Iterable<Header> _filter_1 = Iterables.<Header>filter(_iterable_1, Header.class);
+      for (final Header h : _filter_1) {
+        int _tempo = h.getTempo();
+        pattern.setTempo(_tempo);
+      }
+      player.play(pattern);
+      File _file = new File("musica.midi");
+      MidiFileManager.savePatternToMidi(pattern, _file);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
     }
-    fsa.generateFile("../listaDeNotas.txt", this.finalProduct);
-    System.out.println(this.finalProduct);
   }
 }

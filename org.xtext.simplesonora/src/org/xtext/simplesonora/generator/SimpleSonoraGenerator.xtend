@@ -8,6 +8,10 @@ import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.jfugue.player.Player
 import org.xtext.simplesonora.simpleSonora.Note
+import org.xtext.simplesonora.simpleSonora.Header
+import org.jfugue.pattern.Pattern
+import org.jfugue.midi.MidiFileManager
+import java.io.File
 
 /**
  * Generates code from your model files on save.
@@ -15,15 +19,25 @@ import org.xtext.simplesonora.simpleSonora.Note
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class SimpleSonoraGenerator implements IGenerator {
-	String finalProduct = new String();
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		val player = new Player();
-		   
+		val player = new Player();		
+		val pattern=new Pattern();   
+		//adição de todas as notas ao pattern q sera tocado
 		for(Note n :resource.allContents.toIterable.filter(Note)){
-			player.play(n.note);	
+			pattern.add(n.note)
+		}		
+		
+		//busca informações do header para personalizar o player
+		for(Header h :resource.allContents.toIterable.filter(Header)){
+			pattern.tempo = h.tempo;
+			
 		}
 		
-		fsa.generateFile("../listaDeNotas.txt", finalProduct);
-		System.out.println(finalProduct);
+		//toca o pattern criado nos loops anteriores
+		player.play(pattern);
+		MidiFileManager.savePatternToMidi(pattern,new File("musica.midi"));
+		
+		
+		
 	}
 }

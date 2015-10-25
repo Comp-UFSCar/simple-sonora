@@ -2,7 +2,7 @@ grammar org.xtext.simplesonora.SimpleSonora with org.eclipse.xtext.common.Termin
 
 generate simpleSonora "http://www.xtext.org/simplesonora/SimpleSonora"
 
-File:
+Document:
 	(header=Header)(melody=Melody)
 ;
 

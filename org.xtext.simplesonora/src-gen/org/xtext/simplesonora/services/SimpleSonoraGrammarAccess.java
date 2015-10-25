@@ -18,15 +18,15 @@ import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
-	public class FileElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "File");
+	public class DocumentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Document");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cHeaderAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cHeaderHeaderParserRuleCall_0_0 = (RuleCall)cHeaderAssignment_0.eContents().get(0);
 		private final Assignment cMelodyAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cMelodyMelodyParserRuleCall_1_0 = (RuleCall)cMelodyAssignment_1.eContents().get(0);
 		
-		//File:
+		//Document:
 		//	header=Header melody=Melody;
 		@Override public ParserRule getRule() { return rule; }
 
@@ -267,7 +267,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private final FileElements pFile;
+	private final DocumentElements pDocument;
 	private final HeaderElements pHeader;
 	private final KeyElements pKey;
 	private final TerminalRule tTIME;
@@ -289,7 +289,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pFile = new FileElements();
+		this.pDocument = new DocumentElements();
 		this.pHeader = new HeaderElements();
 		this.pKey = new KeyElements();
 		this.tTIME = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TIME");
@@ -330,14 +330,14 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//File:
+	//Document:
 	//	header=Header melody=Melody;
-	public FileElements getFileAccess() {
-		return pFile;
+	public DocumentElements getDocumentAccess() {
+		return pDocument;
 	}
 	
-	public ParserRule getFileRule() {
-		return getFileAccess().getRule();
+	public ParserRule getDocumentRule() {
+		return getDocumentAccess().getRule();
 	}
 
 	/// * Header of the file containing the tempo, time and key of melody. * / Header:

@@ -23,13 +23,13 @@ public interface SimpleSonoraFactory extends EFactory
   SimpleSonoraFactory eINSTANCE = org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>File</em>'.
+   * Returns a new object of class '<em>Document</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>File</em>'.
+   * @return a new object of class '<em>Document</em>'.
    * @generated
    */
-  File createFile();
+  Document createDocument();
 
   /**
    * Returns a new object of class '<em>Header</em>'.

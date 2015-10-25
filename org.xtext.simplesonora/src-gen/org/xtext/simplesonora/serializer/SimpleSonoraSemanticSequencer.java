@@ -18,7 +18,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.simplesonora.services.SimpleSonoraGrammarAccess;
 import org.xtext.simplesonora.simpleSonora.Chord;
-import org.xtext.simplesonora.simpleSonora.File;
+import org.xtext.simplesonora.simpleSonora.Document;
 import org.xtext.simplesonora.simpleSonora.Header;
 import org.xtext.simplesonora.simpleSonora.Melody;
 import org.xtext.simplesonora.simpleSonora.Note;
@@ -37,8 +37,8 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 			case SimpleSonoraPackage.CHORD:
 				sequence_Chord(context, (Chord) semanticObject); 
 				return; 
-			case SimpleSonoraPackage.FILE:
-				sequence_File(context, (File) semanticObject); 
+			case SimpleSonoraPackage.DOCUMENT:
+				sequence_Document(context, (Document) semanticObject); 
 				return; 
 			case SimpleSonoraPackage.HEADER:
 				sequence_Header(context, (Header) semanticObject); 
@@ -69,17 +69,17 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 * Constraint:
 	 *     (header=Header melody=Melody)
 	 */
-	protected void sequence_File(EObject context, File semanticObject) {
+	protected void sequence_Document(EObject context, Document semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, SimpleSonoraPackage.Literals.FILE__HEADER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimpleSonoraPackage.Literals.FILE__HEADER));
-			if(transientValues.isValueTransient(semanticObject, SimpleSonoraPackage.Literals.FILE__MELODY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimpleSonoraPackage.Literals.FILE__MELODY));
+			if(transientValues.isValueTransient(semanticObject, SimpleSonoraPackage.Literals.DOCUMENT__HEADER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimpleSonoraPackage.Literals.DOCUMENT__HEADER));
+			if(transientValues.isValueTransient(semanticObject, SimpleSonoraPackage.Literals.DOCUMENT__MELODY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimpleSonoraPackage.Literals.DOCUMENT__MELODY));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getFileAccess().getHeaderHeaderParserRuleCall_0_0(), semanticObject.getHeader());
-		feeder.accept(grammarAccess.getFileAccess().getMelodyMelodyParserRuleCall_1_0(), semanticObject.getMelody());
+		feeder.accept(grammarAccess.getDocumentAccess().getHeaderHeaderParserRuleCall_0_0(), semanticObject.getHeader());
+		feeder.accept(grammarAccess.getDocumentAccess().getMelodyMelodyParserRuleCall_1_0(), semanticObject.getMelody());
 		feeder.finish();
 	}
 	

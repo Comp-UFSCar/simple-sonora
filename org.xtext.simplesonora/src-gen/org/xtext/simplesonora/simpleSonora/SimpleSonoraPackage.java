@@ -57,14 +57,14 @@ public interface SimpleSonoraPackage extends EPackage
   SimpleSonoraPackage eINSTANCE = org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link org.xtext.simplesonora.simpleSonora.impl.FileImpl <em>File</em>}' class.
+   * The meta object id for the '{@link org.xtext.simplesonora.simpleSonora.impl.DocumentImpl <em>Document</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.simplesonora.simpleSonora.impl.FileImpl
-   * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getFile()
+   * @see org.xtext.simplesonora.simpleSonora.impl.DocumentImpl
+   * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getDocument()
    * @generated
    */
-  int FILE = 0;
+  int DOCUMENT = 0;
 
   /**
    * The feature id for the '<em><b>Header</b></em>' containment reference.
@@ -73,7 +73,7 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FILE__HEADER = 0;
+  int DOCUMENT__HEADER = 0;
 
   /**
    * The feature id for the '<em><b>Melody</b></em>' containment reference.
@@ -82,16 +82,16 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FILE__MELODY = 1;
+  int DOCUMENT__MELODY = 1;
 
   /**
-   * The number of structural features of the '<em>File</em>' class.
+   * The number of structural features of the '<em>Document</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FILE_FEATURE_COUNT = 2;
+  int DOCUMENT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.simplesonora.simpleSonora.impl.HeaderImpl <em>Header</em>}' class.
@@ -289,36 +289,36 @@ public interface SimpleSonoraPackage extends EPackage
 
 
   /**
-   * Returns the meta object for class '{@link org.xtext.simplesonora.simpleSonora.File <em>File</em>}'.
+   * Returns the meta object for class '{@link org.xtext.simplesonora.simpleSonora.Document <em>Document</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>File</em>'.
-   * @see org.xtext.simplesonora.simpleSonora.File
+   * @return the meta object for class '<em>Document</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Document
    * @generated
    */
-  EClass getFile();
+  EClass getDocument();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.simplesonora.simpleSonora.File#getHeader <em>Header</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.simplesonora.simpleSonora.Document#getHeader <em>Header</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Header</em>'.
-   * @see org.xtext.simplesonora.simpleSonora.File#getHeader()
-   * @see #getFile()
+   * @see org.xtext.simplesonora.simpleSonora.Document#getHeader()
+   * @see #getDocument()
    * @generated
    */
-  EReference getFile_Header();
+  EReference getDocument_Header();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.simplesonora.simpleSonora.File#getMelody <em>Melody</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.simplesonora.simpleSonora.Document#getMelody <em>Melody</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Melody</em>'.
-   * @see org.xtext.simplesonora.simpleSonora.File#getMelody()
-   * @see #getFile()
+   * @see org.xtext.simplesonora.simpleSonora.Document#getMelody()
+   * @see #getDocument()
    * @generated
    */
-  EReference getFile_Melody();
+  EReference getDocument_Melody();
 
   /**
    * Returns the meta object for class '{@link org.xtext.simplesonora.simpleSonora.Header <em>Header</em>}'.
@@ -515,14 +515,14 @@ public interface SimpleSonoraPackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link org.xtext.simplesonora.simpleSonora.impl.FileImpl <em>File</em>}' class.
+     * The meta object literal for the '{@link org.xtext.simplesonora.simpleSonora.impl.DocumentImpl <em>Document</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.simplesonora.simpleSonora.impl.FileImpl
-     * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getFile()
+     * @see org.xtext.simplesonora.simpleSonora.impl.DocumentImpl
+     * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getDocument()
      * @generated
      */
-    EClass FILE = eINSTANCE.getFile();
+    EClass DOCUMENT = eINSTANCE.getDocument();
 
     /**
      * The meta object literal for the '<em><b>Header</b></em>' containment reference feature.
@@ -530,7 +530,7 @@ public interface SimpleSonoraPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FILE__HEADER = eINSTANCE.getFile_Header();
+    EReference DOCUMENT__HEADER = eINSTANCE.getDocument_Header();
 
     /**
      * The meta object literal for the '<em><b>Melody</b></em>' containment reference feature.
@@ -538,7 +538,7 @@ public interface SimpleSonoraPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FILE__MELODY = eINSTANCE.getFile_Melody();
+    EReference DOCUMENT__MELODY = eINSTANCE.getDocument_Melody();
 
     /**
      * The meta object literal for the '{@link org.xtext.simplesonora.simpleSonora.impl.HeaderImpl <em>Header</em>}' class.

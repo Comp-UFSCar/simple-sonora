@@ -44,7 +44,7 @@ import org.xtext.simplesonora.services.SimpleSonoraGrammarAccess;
     
     @Override
     protected String getFirstRuleName() {
-    	return "File";	
+    	return "Document";	
    	}
    	
    	@Override
@@ -63,28 +63,28 @@ import org.xtext.simplesonora.services.SimpleSonoraGrammarAccess;
 
 
 
-// Entry rule entryRuleFile
-entryRuleFile returns [EObject current=null] 
+// Entry rule entryRuleDocument
+entryRuleDocument returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getFileRule()); }
-	 iv_ruleFile=ruleFile 
-	 { $current=$iv_ruleFile.current; } 
+	{ newCompositeNode(grammarAccess.getDocumentRule()); }
+	 iv_ruleDocument=ruleDocument 
+	 { $current=$iv_ruleDocument.current; } 
 	 EOF 
 ;
 
-// Rule File
-ruleFile returns [EObject current=null] 
+// Rule Document
+ruleDocument returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFileAccess().getHeaderHeaderParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getDocumentAccess().getHeaderHeaderParserRuleCall_0_0()); 
 	    }
 		lv_header_0_0=ruleHeader		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getFileRule());
+	            $current = createModelElementForParent(grammarAccess.getDocumentRule());
 	        }
        		set(
        			$current, 
@@ -98,11 +98,11 @@ ruleFile returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFileAccess().getMelodyMelodyParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getDocumentAccess().getMelodyMelodyParserRuleCall_1_0()); 
 	    }
 		lv_melody_1_0=ruleMelody		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getFileRule());
+	            $current = createModelElementForParent(grammarAccess.getDocumentRule());
 	        }
        		set(
        			$current, 

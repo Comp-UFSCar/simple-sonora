@@ -38,7 +38,7 @@ public class SimpleSonoraParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getSequenceAccess().getAlternatives_1(), "rule__Sequence__Alternatives_1");
-					put(grammarAccess.getFileAccess().getGroup(), "rule__File__Group__0");
+					put(grammarAccess.getDocumentAccess().getGroup(), "rule__Document__Group__0");
 					put(grammarAccess.getHeaderAccess().getGroup(), "rule__Header__Group__0");
 					put(grammarAccess.getHeaderAccess().getGroup_0(), "rule__Header__Group_0__0");
 					put(grammarAccess.getHeaderAccess().getGroup_1(), "rule__Header__Group_1__0");
@@ -48,8 +48,8 @@ public class SimpleSonoraParser extends AbstractContentAssistParser {
 					put(grammarAccess.getChordAccess().getGroup(), "rule__Chord__Group__0");
 					put(grammarAccess.getChordAccess().getGroup_1(), "rule__Chord__Group_1__0");
 					put(grammarAccess.getNoteAccess().getGroup(), "rule__Note__Group__0");
-					put(grammarAccess.getFileAccess().getHeaderAssignment_0(), "rule__File__HeaderAssignment_0");
-					put(grammarAccess.getFileAccess().getMelodyAssignment_1(), "rule__File__MelodyAssignment_1");
+					put(grammarAccess.getDocumentAccess().getHeaderAssignment_0(), "rule__Document__HeaderAssignment_0");
+					put(grammarAccess.getDocumentAccess().getMelodyAssignment_1(), "rule__Document__MelodyAssignment_1");
 					put(grammarAccess.getHeaderAccess().getTempoAssignment_0_2(), "rule__Header__TempoAssignment_0_2");
 					put(grammarAccess.getHeaderAccess().getTimeAssignment_1_2(), "rule__Header__TimeAssignment_1_2");
 					put(grammarAccess.getHeaderAccess().getKeyAssignment_2_2(), "rule__Header__KeyAssignment_2_2");
@@ -72,7 +72,7 @@ public class SimpleSonoraParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			org.xtext.simplesonora.ui.contentassist.antlr.internal.InternalSimpleSonoraParser typedParser = (org.xtext.simplesonora.ui.contentassist.antlr.internal.InternalSimpleSonoraParser) parser;
-			typedParser.entryRuleFile();
+			typedParser.entryRuleDocument();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

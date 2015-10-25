@@ -7,9 +7,9 @@
     editorPluginID="org.xtext.simplesonora.editor" runtimeVersion="2.11">
   <genPackages prefix="SimpleSonora" basePackage="org.xtext.simplesonora" disposableProviderFactory="true"
       fileExtensions="sonora" ecorePackage="SimpleSonora.ecore#/">
-    <genClasses ecoreClass="SimpleSonora.ecore#//File">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//File/header"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//File/melody"/>
+    <genClasses ecoreClass="SimpleSonora.ecore#//Document">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Document/header"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Document/melody"/>
     </genClasses>
     <genClasses ecoreClass="SimpleSonora.ecore#//Header">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Header/tempo"/>

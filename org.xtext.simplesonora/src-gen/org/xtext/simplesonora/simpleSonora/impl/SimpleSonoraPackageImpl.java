@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.simplesonora.simpleSonora.Chord;
-import org.xtext.simplesonora.simpleSonora.File;
+import org.xtext.simplesonora.simpleSonora.Document;
 import org.xtext.simplesonora.simpleSonora.Header;
 import org.xtext.simplesonora.simpleSonora.Melody;
 import org.xtext.simplesonora.simpleSonora.Note;
@@ -31,7 +31,7 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass fileEClass = null;
+  private EClass documentEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -136,9 +136,9 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getFile()
+  public EClass getDocument()
   {
-    return fileEClass;
+    return documentEClass;
   }
 
   /**
@@ -146,9 +146,9 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFile_Header()
+  public EReference getDocument_Header()
   {
-    return (EReference)fileEClass.getEStructuralFeatures().get(0);
+    return (EReference)documentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -156,9 +156,9 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFile_Melody()
+  public EReference getDocument_Melody()
   {
-    return (EReference)fileEClass.getEStructuralFeatures().get(1);
+    return (EReference)documentEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -351,9 +351,9 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
     isCreated = true;
 
     // Create classes and their features
-    fileEClass = createEClass(FILE);
-    createEReference(fileEClass, FILE__HEADER);
-    createEReference(fileEClass, FILE__MELODY);
+    documentEClass = createEClass(DOCUMENT);
+    createEReference(documentEClass, DOCUMENT__HEADER);
+    createEReference(documentEClass, DOCUMENT__MELODY);
 
     headerEClass = createEClass(HEADER);
     createEAttribute(headerEClass, HEADER__TEMPO);
@@ -408,9 +408,9 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
     // Add supertypes to classes
 
     // Initialize classes and features; add operations and parameters
-    initEClass(fileEClass, File.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFile_Header(), this.getHeader(), null, "header", null, 0, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFile_Melody(), this.getMelody(), null, "melody", null, 0, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDocument_Header(), this.getHeader(), null, "header", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDocument_Melody(), this.getMelody(), null, "melody", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(headerEClass, Header.class, "Header", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getHeader_Tempo(), ecorePackage.getEInt(), "tempo", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
