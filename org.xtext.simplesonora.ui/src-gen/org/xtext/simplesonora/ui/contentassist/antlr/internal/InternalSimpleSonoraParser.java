@@ -25,23 +25,23 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NOTE_ID", "RULE_ACCIDENTAL", "RULE_INT", "RULE_TIME", "RULE_OCTAVE", "RULE_DURATION", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'tempo'", "'='", "'time'", "'key'", "'/'"
     };
     public static final int RULE_DURATION=9;
-    public static final int RULE_STRING=11;
-    public static final int RULE_SL_COMMENT=13;
     public static final int T__19=19;
-    public static final int T__16=16;
-    public static final int T__17=17;
-    public static final int T__18=18;
-    public static final int RULE_TIME=7;
-    public static final int EOF=-1;
-    public static final int RULE_NOTE_ID=4;
     public static final int RULE_ID=10;
-    public static final int RULE_WS=14;
-    public static final int RULE_ANY_OTHER=15;
+    public static final int RULE_STRING=11;
+    public static final int T__16=16;
+    public static final int RULE_NOTE_ID=4;
+    public static final int T__18=18;
     public static final int RULE_ACCIDENTAL=5;
-    public static final int RULE_OCTAVE=8;
-    public static final int RULE_INT=6;
-    public static final int RULE_ML_COMMENT=12;
+    public static final int T__17=17;
+    public static final int RULE_ANY_OTHER=15;
     public static final int T__20=20;
+    public static final int RULE_TIME=7;
+    public static final int RULE_INT=6;
+    public static final int RULE_OCTAVE=8;
+    public static final int RULE_WS=14;
+    public static final int RULE_SL_COMMENT=13;
+    public static final int EOF=-1;
+    public static final int RULE_ML_COMMENT=12;
 
     // delegates
     // delegators
@@ -696,16 +696,16 @@ public class InternalSimpleSonoraParser extends AbstractInternalContentAssistPar
                         }
                         }
                         break;
+                    case 20:
+                        {
+                        alt2=2;
+                        }
+                        break;
                     case EOF:
                     case RULE_NOTE_ID:
                     case RULE_OCTAVE:
                         {
                         alt2=1;
-                        }
-                        break;
-                    case 20:
-                        {
-                        alt2=2;
                         }
                         break;
                     default:
