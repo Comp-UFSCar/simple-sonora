@@ -40,13 +40,21 @@ public class SimpleSonoraGenerator implements IGenerator {
         {
           String _note = n.getNote();
           this.auxNote = _note;
-          String _duration = n.getDuration();
-          boolean _notEquals = (!Objects.equal(_duration, null));
+          String _accidental = n.getAccidental();
+          boolean _notEquals = (!Objects.equal(_accidental, null));
           if (_notEquals) {
-            String _duration_1 = n.getDuration();
-            String _staccato = this.toStaccato(_duration_1);
-            String _concat = this.auxNote.concat(_staccato);
+            String _accidental_1 = n.getAccidental();
+            String _accidentalToStaccato = this.accidentalToStaccato(_accidental_1);
+            String _concat = this.auxNote.concat(_accidentalToStaccato);
             this.auxNote = _concat;
+          }
+          String _duration = n.getDuration();
+          boolean _notEquals_1 = (!Objects.equal(_duration, null));
+          if (_notEquals_1) {
+            String _duration_1 = n.getDuration();
+            String _durationToStaccato = this.durationToStaccato(_duration_1);
+            String _concat_1 = this.auxNote.concat(_durationToStaccato);
+            this.auxNote = _concat_1;
           }
           pattern.add(this.auxNote);
         }
@@ -72,8 +80,8 @@ public class SimpleSonoraGenerator implements IGenerator {
     }
   }
   
-  public String toStaccato(final String acc) {
-    switch (acc) {
+  public String durationToStaccato(final String dur) {
+    switch (dur) {
       case ":1":
         return "w";
       case ":2":
@@ -90,6 +98,16 @@ public class SimpleSonoraGenerator implements IGenerator {
         return "x";
       case ":128":
         return "o";
+    }
+    return "";
+  }
+  
+  public String accidentalToStaccato(final String acc) {
+    switch (acc) {
+      case "+":
+        return "#";
+      case "-":
+        return "b";
     }
     return "";
   }

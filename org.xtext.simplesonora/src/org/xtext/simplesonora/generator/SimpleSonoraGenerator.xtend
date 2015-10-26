@@ -29,9 +29,14 @@ class SimpleSonoraGenerator implements IGenerator {
 		for(Note n :resource.allContents.toIterable.filter(Note)){
 			auxNote=n.note;
 			
-			//em caso de haver uma duração, ela será adicionada em seguida da nota
+			//em caso de haver um acidente, ele será adicionado em seguida da nota
+			if(n.accidental!=null){
+				auxNote = auxNote.concat(n.accidental.accidentalToStaccato);	
+			}
+			
+			//em caso de haver uma duração, ela será adicionada em seguida da nota, ou do acidente
 			if(n.duration!=null){
-				auxNote = auxNote.concat(n.duration.toStaccato);	
+				auxNote = auxNote.concat(n.duration.durationToStaccato);	
 			}
 			
 			//insere a pattern que foi criada acima
@@ -53,8 +58,8 @@ class SimpleSonoraGenerator implements IGenerator {
 	//essa funcao converte as durações numérica para o formato de letras usado pelo Staccato
 	//NOTE: veja que os cases possuem um ':', isso deverá ser alterado no advento da remoção
 	//do ':'
-	def String toStaccato(String acc){
-		switch(acc){
+	def String durationToStaccato(String dur){
+		switch(dur){
 			case ':1':
 			return 'w'			
 			case ':2':
@@ -71,6 +76,17 @@ class SimpleSonoraGenerator implements IGenerator {
 			return 'x'
 			case ':128':
 			return 'o'			
+		}		
+		
+		return "";
+	}
+	
+	def String accidentalToStaccato(String acc){
+		switch(acc){
+			case '+':
+			return '#'			
+			case '-':
+			return 'b'			
 		}		
 		
 		return "";
