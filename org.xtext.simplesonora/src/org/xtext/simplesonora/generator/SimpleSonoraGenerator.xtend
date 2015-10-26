@@ -19,12 +19,23 @@ import java.io.File
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class SimpleSonoraGenerator implements IGenerator {
+	//variavel auxiliar que será usada para guardar uma nota completa para ser inserida no pattern
+	String auxNote = new String("");
+	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		val player = new Player();		
 		val pattern=new Pattern();
 		//adição de todas as notas ao pattern q sera tocado
 		for(Note n :resource.allContents.toIterable.filter(Note)){
-			pattern.add(n.note)
+			auxNote=n.note;
+			
+			//em caso de haver uma duração, ela será adicionada em seguida da nota
+			if(n.duration!=null){
+				auxNote = auxNote.concat(n.duration.toStaccato);	
+			}
+			
+			//insere a pattern que foi criada acima
+			pattern.add(auxNote)
 		}		
 		
 		//busca informações do header para personalizar o player
@@ -32,15 +43,36 @@ class SimpleSonoraGenerator implements IGenerator {
 			pattern.tempo = h.tempo;
 			
 			MidiFileManager.savePatternToMidi(pattern,new File(h.songName+".midi"));
-			
-			
 		}
 		
 		//toca o pattern criado nos loops anteriores
 		player.play(pattern);
+		System.out.println(pattern.toString);
+	}
+	
+	//essa funcao converte as durações numérica para o formato de letras usado pelo Staccato
+	//NOTE: veja que os cases possuem um ':', isso deverá ser alterado no advento da remoção
+	//do ':'
+	def String toStaccato(String acc){
+		switch(acc){
+			case ':1':
+			return 'w'			
+			case ':2':
+			return 'h'
+			case ':4':
+			return 'q'
+			case ':8':
+			return 'i'
+			case ':16':
+			return 's'
+			case ':32':
+			return 't'
+			case ':64':
+			return 'x'
+			case ':128':
+			return 'o'			
+		}		
 		
-		
-		
-		
+		return "";
 	}
 }

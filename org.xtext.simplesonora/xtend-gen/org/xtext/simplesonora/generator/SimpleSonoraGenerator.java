@@ -3,6 +3,7 @@
  */
 package org.xtext.simplesonora.generator;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import java.io.File;
 import org.eclipse.emf.common.util.TreeIterator;
@@ -25,6 +26,8 @@ import org.xtext.simplesonora.simpleSonora.Note;
  */
 @SuppressWarnings("all")
 public class SimpleSonoraGenerator implements IGenerator {
+  private String auxNote = new String("");
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     try {
@@ -34,8 +37,19 @@ public class SimpleSonoraGenerator implements IGenerator {
       Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
       Iterable<Note> _filter = Iterables.<Note>filter(_iterable, Note.class);
       for (final Note n : _filter) {
-        String _note = n.getNote();
-        pattern.add(_note);
+        {
+          String _note = n.getNote();
+          this.auxNote = _note;
+          String _duration = n.getDuration();
+          boolean _notEquals = (!Objects.equal(_duration, null));
+          if (_notEquals) {
+            String _duration_1 = n.getDuration();
+            String _staccato = this.toStaccato(_duration_1);
+            String _concat = this.auxNote.concat(_staccato);
+            this.auxNote = _concat;
+          }
+          pattern.add(this.auxNote);
+        }
       }
       TreeIterator<EObject> _allContents_1 = resource.getAllContents();
       Iterable<EObject> _iterable_1 = IteratorExtensions.<EObject>toIterable(_allContents_1);
@@ -51,8 +65,32 @@ public class SimpleSonoraGenerator implements IGenerator {
         }
       }
       player.play(pattern);
+      String _string = pattern.toString();
+      System.out.println(_string);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
+  }
+  
+  public String toStaccato(final String acc) {
+    switch (acc) {
+      case ":1":
+        return "w";
+      case ":2":
+        return "h";
+      case ":4":
+        return "q";
+      case ":8":
+        return "i";
+      case ":16":
+        return "s";
+      case ":32":
+        return "t";
+      case ":64":
+        return "x";
+      case ":128":
+        return "o";
+    }
+    return "";
   }
 }
