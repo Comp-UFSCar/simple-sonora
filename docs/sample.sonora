@@ -1,0 +1,8 @@
+name = teste
+tempo = 150
+key = C maj
+
+c:1/e/g d:4 e f g
+o5	c:8 d e f g a b > 
+	c < b a g f e d c
+	

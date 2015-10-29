@@ -6,18 +6,23 @@ package org.xtext.simplesonora.generator;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import java.io.File;
+import java.util.List;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.jfugue.midi.MidiFileManager;
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
+import org.xtext.simplesonora.simpleSonora.Chord;
 import org.xtext.simplesonora.simpleSonora.Header;
 import org.xtext.simplesonora.simpleSonora.Note;
+import org.xtext.simplesonora.simpleSonora.Sequence;
 
 /**
  * Generates code from your model files on save.
@@ -26,61 +31,189 @@ import org.xtext.simplesonora.simpleSonora.Note;
  */
 @SuppressWarnings("all")
 public class SimpleSonoraGenerator implements IGenerator {
+  private String songName = new String("");
+  
+  private String key = new String("");
+  
   private String auxNote = new String("");
+  
+  private String auxChord = new String("");
+  
+  private Integer curOctave = Integer.valueOf(4);
+  
+  private String curDuration = new String("h");
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     try {
+      this.curDuration = "h";
+      this.curOctave = Integer.valueOf(4);
       final Player player = new Player();
       final Pattern pattern = new Pattern();
       TreeIterator<EObject> _allContents = resource.getAllContents();
       Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
-      Iterable<Note> _filter = Iterables.<Note>filter(_iterable, Note.class);
-      for (final Note n : _filter) {
+      Iterable<Header> _filter = Iterables.<Header>filter(_iterable, Header.class);
+      for (final Header h : _filter) {
         {
-          String _note = n.getNote();
-          this.auxNote = _note;
-          String _accidental = n.getAccidental();
-          boolean _notEquals = (!Objects.equal(_accidental, null));
-          if (_notEquals) {
-            String _accidental_1 = n.getAccidental();
-            String _accidentalToStaccato = this.accidentalToStaccato(_accidental_1);
-            String _concat = this.auxNote.concat(_accidentalToStaccato);
-            this.auxNote = _concat;
-          }
-          String _duration = n.getDuration();
-          boolean _notEquals_1 = (!Objects.equal(_duration, null));
-          if (_notEquals_1) {
-            String _duration_1 = n.getDuration();
-            String _durationToStaccato = this.durationToStaccato(_duration_1);
-            String _concat_1 = this.auxNote.concat(_durationToStaccato);
-            this.auxNote = _concat_1;
-          }
-          pattern.add(this.auxNote);
+          String _songName = h.getSongName();
+          this.songName = _songName;
+          int _tempo = h.getTempo();
+          pattern.setTempo(_tempo);
+          String _key = h.getKey();
+          String _keyToPattern = this.keyToPattern(_key);
+          pattern.add(_keyToPattern);
         }
       }
       TreeIterator<EObject> _allContents_1 = resource.getAllContents();
       Iterable<EObject> _iterable_1 = IteratorExtensions.<EObject>toIterable(_allContents_1);
-      Iterable<Header> _filter_1 = Iterables.<Header>filter(_iterable_1, Header.class);
-      for (final Header h : _filter_1) {
+      Iterable<Sequence> _filter_1 = Iterables.<Sequence>filter(_iterable_1, Sequence.class);
+      for (final Sequence s : _filter_1) {
         {
-          int _tempo = h.getTempo();
-          pattern.setTempo(_tempo);
-          String _songName = h.getSongName();
-          String _plus = (_songName + ".midi");
-          File _file = new File(_plus);
-          MidiFileManager.savePatternToMidi(pattern, _file);
+          String _octave = s.getOctave();
+          boolean _notEquals = (!Objects.equal(_octave, null));
+          if (_notEquals) {
+            String _octave_1 = s.getOctave();
+            this.setOctave(_octave_1);
+          }
+          Note _note = s.getNote();
+          boolean _notEquals_1 = (!Objects.equal(_note, null));
+          if (_notEquals_1) {
+            Note _note_1 = s.getNote();
+            String _noteToPattern = this.noteToPattern(_note_1);
+            pattern.add(_noteToPattern);
+          }
+          Chord _chord = s.getChord();
+          boolean _notEquals_2 = (!Objects.equal(_chord, null));
+          if (_notEquals_2) {
+            this.auxChord = "";
+            Chord _chord_1 = s.getChord();
+            EList<Note> _chordNotes = _chord_1.getChordNotes();
+            List<Note> _list = IterableExtensions.<Note>toList(_chordNotes);
+            for (final Note n : _list) {
+              String _noteToPattern_1 = this.noteToPattern(n);
+              String _plus = (_noteToPattern_1 + "+");
+              String _concat = this.auxChord.concat(_plus);
+              this.auxChord = _concat;
+            }
+            int _length = this.auxChord.length();
+            int _minus = (_length - 1);
+            String _substring = this.auxChord.substring(0, _minus);
+            pattern.add(_substring);
+          }
         }
       }
       player.play(pattern);
       String _string = pattern.toString();
       System.out.println(_string);
+      File _file = new File((this.songName + ".midi"));
+      MidiFileManager.savePatternToMidi(pattern, _file);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
   }
   
-  public String durationToStaccato(final String dur) {
+  /**
+   * Converts the Simple-Sonora key signature pattern to the JFugue pattern.
+   * 
+   * @param k	String containing.
+   * @return String with JFugue Pattern notation for key signature.
+   */
+  public String keyToPattern(final String k) {
+    this.key = "KEY:";
+    char _charAt = k.charAt(0);
+    char _upperCase = Character.toUpperCase(_charAt);
+    String _string = Character.valueOf(_upperCase).toString();
+    String _concat = this.key.concat(_string);
+    this.key = _concat;
+    char _charAt_1 = k.charAt(1);
+    int _compareTo = Character.valueOf(_charAt_1).compareTo(Character.valueOf('+'));
+    boolean _equals = (_compareTo == 0);
+    if (_equals) {
+      String _concat_1 = this.key.concat("#");
+      this.key = _concat_1;
+    } else {
+      char _charAt_2 = k.charAt(1);
+      int _compareTo_1 = Character.valueOf(_charAt_2).compareTo(Character.valueOf('-'));
+      boolean _equals_1 = (_compareTo_1 == 0);
+      if (_equals_1) {
+        String _concat_2 = this.key.concat("b");
+        this.key = _concat_2;
+      }
+    }
+    String _substring = k.substring(2);
+    String _trim = _substring.trim();
+    String _concat_3 = this.key.concat(_trim);
+    this.key = _concat_3;
+    return this.key;
+  }
+  
+  /**
+   * Changes the current octave accordingly to the octave operator used.
+   * 
+   * @param o String containing the octave information.
+   */
+  public Integer setOctave(final String o) {
+    Integer _xifexpression = null;
+    int _compareTo = o.compareTo(">");
+    boolean _equals = (_compareTo == 0);
+    if (_equals) {
+      _xifexpression = this.curOctave++;
+    } else {
+      Integer _xifexpression_1 = null;
+      int _compareTo_1 = o.compareTo("<");
+      boolean _equals_1 = (_compareTo_1 == 0);
+      if (_equals_1) {
+        _xifexpression_1 = this.curOctave--;
+      } else {
+        char _charAt = o.charAt(1);
+        String _string = Character.valueOf(_charAt).toString();
+        int _parseInt = Integer.parseInt(_string);
+        _xifexpression_1 = this.curOctave = Integer.valueOf(_parseInt);
+      }
+      _xifexpression = _xifexpression_1;
+    }
+    return _xifexpression;
+  }
+  
+  /**
+   * Converts from Simple-Sonora note pattern to the JFugue one.
+   * 
+   * @param note Note containing note id, accidental and duration.
+   * @return String with JFugue pattern notation for notes.
+   */
+  public String noteToPattern(final Note note) {
+    String _note = note.getNote();
+    String _upperCase = _note.toUpperCase();
+    this.auxNote = _upperCase;
+    String _accidental = note.getAccidental();
+    boolean _notEquals = (!Objects.equal(_accidental, null));
+    if (_notEquals) {
+      String _accidental_1 = note.getAccidental();
+      String _accidentalToPattern = this.accidentalToPattern(_accidental_1);
+      String _concat = this.auxNote.concat(_accidentalToPattern);
+      this.auxNote = _concat;
+    }
+    String _duration = note.getDuration();
+    boolean _notEquals_1 = (!Objects.equal(_duration, null));
+    if (_notEquals_1) {
+      String _duration_1 = note.getDuration();
+      String _durationToPattern = this.durationToPattern(_duration_1);
+      this.curDuration = _durationToPattern;
+    }
+    String _string = this.curOctave.toString();
+    String _plus = (_string + this.curDuration);
+    String _concat_1 = this.auxNote.concat(_plus);
+    this.auxNote = _concat_1;
+    return this.auxNote;
+  }
+  
+  /**
+   * Converts Simple-Sonora to JFugue duration pattern.
+   * 
+   * @param dur Simple-Sonora notation for duration.
+   * @return JFugue notation for duration.
+   */
+  public String durationToPattern(final String dur) {
     switch (dur) {
       case ":1":
         return "w";
@@ -102,7 +235,13 @@ public class SimpleSonoraGenerator implements IGenerator {
     return "";
   }
   
-  public String accidentalToStaccato(final String acc) {
+  /**
+   * Converts Simple-Sonora to JFugue accidental pattern.
+   * 
+   * @param acc Simple-Sonora accidental notation.
+   * @return JFugue accidental notation.
+   */
+  public String accidentalToPattern(final String acc) {
     switch (acc) {
       case "+":
         return "#";

@@ -22,7 +22,6 @@ import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
  * <ul>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.HeaderImpl#getSongName <em>Song Name</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.HeaderImpl#getTempo <em>Tempo</em>}</li>
- *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.HeaderImpl#getTime <em>Time</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.HeaderImpl#getKey <em>Key</em>}</li>
  * </ul>
  *
@@ -69,26 +68,6 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
    * @ordered
    */
   protected int tempo = TEMPO_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getTime() <em>Time</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTime()
-   * @generated
-   * @ordered
-   */
-  protected static final String TIME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTime() <em>Time</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTime()
-   * @generated
-   * @ordered
-   */
-  protected String time = TIME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
@@ -182,29 +161,6 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTime()
-  {
-    return time;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTime(String newTime)
-  {
-    String oldTime = time;
-    time = newTime;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.HEADER__TIME, oldTime, time));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getKey()
   {
     return key;
@@ -237,8 +193,6 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
         return getSongName();
       case SimpleSonoraPackage.HEADER__TEMPO:
         return getTempo();
-      case SimpleSonoraPackage.HEADER__TIME:
-        return getTime();
       case SimpleSonoraPackage.HEADER__KEY:
         return getKey();
     }
@@ -260,9 +214,6 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
         return;
       case SimpleSonoraPackage.HEADER__TEMPO:
         setTempo((Integer)newValue);
-        return;
-      case SimpleSonoraPackage.HEADER__TIME:
-        setTime((String)newValue);
         return;
       case SimpleSonoraPackage.HEADER__KEY:
         setKey((String)newValue);
@@ -287,9 +238,6 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
       case SimpleSonoraPackage.HEADER__TEMPO:
         setTempo(TEMPO_EDEFAULT);
         return;
-      case SimpleSonoraPackage.HEADER__TIME:
-        setTime(TIME_EDEFAULT);
-        return;
       case SimpleSonoraPackage.HEADER__KEY:
         setKey(KEY_EDEFAULT);
         return;
@@ -311,8 +259,6 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
         return SONG_NAME_EDEFAULT == null ? songName != null : !SONG_NAME_EDEFAULT.equals(songName);
       case SimpleSonoraPackage.HEADER__TEMPO:
         return tempo != TEMPO_EDEFAULT;
-      case SimpleSonoraPackage.HEADER__TIME:
-        return TIME_EDEFAULT == null ? time != null : !TIME_EDEFAULT.equals(time);
       case SimpleSonoraPackage.HEADER__KEY:
         return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
     }
@@ -334,8 +280,6 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
     result.append(songName);
     result.append(", tempo: ");
     result.append(tempo);
-    result.append(", time: ");
-    result.append(time);
     result.append(", key: ");
     result.append(key);
     result.append(')');

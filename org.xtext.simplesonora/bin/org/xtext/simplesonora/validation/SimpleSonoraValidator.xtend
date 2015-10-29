@@ -3,6 +3,9 @@
  */
 package org.xtext.simplesonora.validation
 
+import org.eclipse.xtext.validation.Check
+import org.jfugue.player.Player
+
 //import org.eclipse.xtext.validation.Check
 /**
  * This class contains custom validation rules. 

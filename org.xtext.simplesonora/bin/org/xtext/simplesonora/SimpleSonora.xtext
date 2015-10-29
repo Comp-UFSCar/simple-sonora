@@ -10,17 +10,27 @@ Document:
 Header:
 	('name' '=' songName=ID)
 	('tempo' '=' tempo=INT)
-	('time' '=' time=TIME)
+//	('time' '=' time=TIME)
 	('key' '=' key=Key)
 ;
 
 Key:
-	NOTE_ID ACCIDENTAL?
+	NOTE_ID ACCIDENTAL? INTERVAL
 ;
 
-terminal TIME:
-	'3/4' | '4/4'
+terminal INTERVAL:
+	'maj' | 'min'
 ;
+
+/*	There is a time signature represented in the sheet music, but JFugue does not
+	currently contain a time signature token. This is because the time signature is
+	important for knowing how many notes appear within a measure. However,
+	JFugue is capable of playing notes with just the tempo and the note durations. */
+
+//terminal TIME:
+//	'3/4' | '4/4'
+//;
+
 
 /* The body of the file with melody. */
 Melody:

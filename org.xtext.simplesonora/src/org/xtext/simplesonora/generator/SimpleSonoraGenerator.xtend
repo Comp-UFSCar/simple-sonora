@@ -7,86 +7,187 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.jfugue.player.Player
-import org.xtext.simplesonora.simpleSonora.Note
 import org.xtext.simplesonora.simpleSonora.Header
 import org.jfugue.pattern.Pattern
 import org.jfugue.midi.MidiFileManager
 import java.io.File
+import org.xtext.simplesonora.simpleSonora.Sequence
+import org.xtext.simplesonora.simpleSonora.Note
 
 /**
  * Generates code from your model files on save.
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
+ 
 class SimpleSonoraGenerator implements IGenerator {
-	//variavel auxiliar que será usada para guardar uma nota completa para ser inserida no pattern
-	String auxNote = new String("");
 	
-	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		val player = new Player();		
-		val pattern=new Pattern();
-		//adição de todas as notas ao pattern q sera tocado
-		for(Note n :resource.allContents.toIterable.filter(Note)){
-			auxNote=n.note;
-			
-			//em caso de haver um acidente, ele será adicionado em seguida da nota
-			if(n.accidental!=null){
-				auxNote = auxNote.concat(n.accidental.accidentalToStaccato);	
-			}
-			
-			//em caso de haver uma duração, ela será adicionada em seguida da nota, ou do acidente
-			if(n.duration!=null){
-				auxNote = auxNote.concat(n.duration.durationToStaccato);	
-			}
-			
-			//insere a pattern que foi criada acima
-			pattern.add(auxNote)
-		}		
+	String songName = new String("");		// song name to create 'midi' file
+	String key = new String("");			// key signature
+	
+	String auxNote = new String("");		// aux variable for note
+	String auxChord = new String("");		// aux variable for chord
+	Integer curOctave = 4; 					// default octave 
+	String curDuration = new String("h");	// default note duration 
 		
-		//busca informações do header para personalizar o player
+	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
+		
+		curDuration = 'h'; // reset to default each time
+		curOctave = 4;		
+		
+		//JFugue Player and Pattern
+		val player = new Player()	
+		val pattern = new Pattern()
+				
+		// Header information to define the basics of the music
 		for(Header h :resource.allContents.toIterable.filter(Header)){
-			pattern.tempo = h.tempo;
-			
-			MidiFileManager.savePatternToMidi(pattern,new File(h.songName+".midi"));
+			songName = h.songName			// get the song name
+			pattern.tempo = h.tempo			// define the tempo (velocity)
+			pattern.add(h.key.keyToPattern)	// define key signature
 		}
 		
-		//toca o pattern criado nos loops anteriores
-		player.play(pattern);
-		System.out.println(pattern.toString);
+		// Sequence of Notes or Chords of the Melody
+		for(Sequence s : resource.allContents.toIterable.filter(Sequence)) {
+			
+			// octave
+			if(s.octave != null){
+				s.octave.setOctave;
+			}
+			
+			// note
+			if(s.note != null){
+				pattern.add(s.note.noteToPattern)
+			}
+			
+			// chord
+			if(s.chord != null) {
+				auxChord = ""
+				for(n : s.chord.chordNotes.toList) {
+					// for each note get the pattern and add a '+' 
+					auxChord = auxChord.concat(n.noteToPattern + "+")
+				}
+				// add the chord pattern minus the extra '+' at the end
+				pattern.add(auxChord.substring(0, auxChord.length - 1))
+			}
+			
+		}
+		
+		player.play(pattern); // Play the pattern
+		System.out.println(pattern.toString); // Print the pattern on Console
+		// Write the .midi file on Eclipse root folder
+		MidiFileManager.savePatternToMidi(pattern, new File(songName+".midi"));
 	}
 	
-	//essa funcao converte as durações numérica para o formato de letras usado pelo Staccato
-	//NOTE: veja que os cases possuem um ':', isso deverá ser alterado no advento da remoção
-	//do ':'
-	def String durationToStaccato(String dur){
+	/**
+	 * Converts the Simple-Sonora key signature pattern to the JFugue pattern.
+	 * 
+	 * @param k	String containing.
+	 * @return String with JFugue Pattern notation for key signature.
+	 */
+	def String keyToPattern(String k){
+		key = "KEY:"	// starts with 'KEY:'
+		 // note must be upper case
+		key = key.concat(Character.toUpperCase(k.charAt(0)).toString())
+		
+		// convert the accident 
+		if(k.charAt(1).compareTo('+') == 0){
+			key = key.concat('#')
+		}
+		else if (k.charAt(1).compareTo('-') == 0){
+			key = key.concat('b')
+		}
+		// concatenate 'maj' or 'min' to the string
+		key = key.concat(k.substring(2).trim)
+		
+		return key
+	}	
+	
+	/**
+	 * Changes the current octave accordingly to the octave operator used.
+	 * 
+	 * @param o String containing the octave information.
+	 */
+	def setOctave(String o){
+		// go one octave higher
+		if(o.compareTo('>') == 0){
+			curOctave++
+		}
+		// go one octave lower
+		else if(o.compareTo('<') == 0){
+			curOctave--
+		}
+		// go to N octave
+		else {
+			curOctave = Integer.parseInt(o.charAt(1).toString)
+		}
+	}
+	
+	/**
+	 * Converts from Simple-Sonora note pattern to the JFugue one.
+	 * 
+	 * @param note Note containing note id, accidental and duration.
+	 * @return String with JFugue pattern notation for notes.
+	 */
+	def String noteToPattern(Note note){
+		auxNote =  note.note.toUpperCase;	// note must be upper case
+		
+		// If there is an Accidental - gets the accidental value for JFugue
+		if(note.accidental != null){	
+			auxNote = auxNote.concat(note.accidental.accidentalToPattern);	
+		}
+		
+		// If there is a duration - gets the duration value for JFugue
+		if(note.duration != null){
+			curDuration = note.duration.durationToPattern;
+		}
+		
+		// concatenate current octave and current duration to the note
+		auxNote = auxNote.concat(curOctave.toString + curDuration);
+		
+		return auxNote	
+	}
+	
+	/**
+	 * Converts Simple-Sonora to JFugue duration pattern.
+	 * 
+	 * @param dur Simple-Sonora notation for duration.
+	 * @return JFugue notation for duration.
+	 */
+	def String durationToPattern(String dur){
 		switch(dur){
-			case ':1':
-			return 'w'			
-			case ':2':
-			return 'h'
-			case ':4':
-			return 'q'
-			case ':8':
-			return 'i'
-			case ':16':
-			return 's'
-			case ':32':
-			return 't'
-			case ':64':
-			return 'x'
-			case ':128':
-			return 'o'			
+			case ':1':		// 1		semibreve
+				return 'w'			
+			case ':2':		// 1/2		minim
+				return 'h'
+			case ':4':		// 1/4		crotchet
+				return 'q'
+			case ':8':		// 1/8		quaver
+				return 'i'
+			case ':16':		// 1/16		semiquaver
+				return 's'
+			case ':32':		// 1/32		demisemiquaver
+				return 't'
+			case ':64':		// 1/64		hemidemisemiquaver
+				return 'x'
+			case ':128':	// 1/128	semihemidemisemiquaver
+				return 'o'			
 		}		
 		
 		return "";
 	}
 	
-	def String accidentalToStaccato(String acc){
+	/**
+	 * Converts Simple-Sonora to JFugue accidental pattern.
+	 * 
+	 * @param acc Simple-Sonora accidental notation.
+	 * @return JFugue accidental notation.
+	 */
+	def String accidentalToPattern(String acc){
 		switch(acc){
-			case '+':
-			return '#'			
-			case '-':
-			return 'b'			
+			case '+':		// sharp
+				return '#'			
+			case '-':		// flat
+				return 'b'			
 		}		
 		
 		return "";

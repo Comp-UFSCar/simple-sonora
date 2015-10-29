@@ -122,22 +122,13 @@ public interface SimpleSonoraPackage extends EPackage
   int HEADER__TEMPO = 1;
 
   /**
-   * The feature id for the '<em><b>Time</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int HEADER__TIME = 2;
-
-  /**
    * The feature id for the '<em><b>Key</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HEADER__KEY = 3;
+  int HEADER__KEY = 2;
 
   /**
    * The number of structural features of the '<em>Header</em>' class.
@@ -146,7 +137,7 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    * @ordered
    */
-  int HEADER_FEATURE_COUNT = 4;
+  int HEADER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.simplesonora.simpleSonora.impl.MelodyImpl <em>Melody</em>}' class.
@@ -362,17 +353,6 @@ public interface SimpleSonoraPackage extends EPackage
   EAttribute getHeader_Tempo();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Header#getTime <em>Time</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Time</em>'.
-   * @see org.xtext.simplesonora.simpleSonora.Header#getTime()
-   * @see #getHeader()
-   * @generated
-   */
-  EAttribute getHeader_Time();
-
-  /**
    * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Header#getKey <em>Key</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -585,14 +565,6 @@ public interface SimpleSonoraPackage extends EPackage
      * @generated
      */
     EAttribute HEADER__TEMPO = eINSTANCE.getHeader_Tempo();
-
-    /**
-     * The meta object literal for the '<em><b>Time</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute HEADER__TIME = eINSTANCE.getHeader_Time();
 
     /**
      * The meta object literal for the '<em><b>Key</b></em>' attribute feature.

@@ -186,9 +186,9 @@ ruleHeader returns [EObject current=null]
 	    }
 
 )
-))(	otherlv_6='time' 
+))(	otherlv_6='key' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getHeaderAccess().getTimeKeyword_2_0());
+    	newLeafNode(otherlv_6, grammarAccess.getHeaderAccess().getKeyKeyword_2_0());
     }
 	otherlv_7='=' 
     {
@@ -196,43 +196,17 @@ ruleHeader returns [EObject current=null]
     }
 (
 (
-		lv_time_8_0=RULE_TIME
-		{
-			newLeafNode(lv_time_8_0, grammarAccess.getHeaderAccess().getTimeTIMETerminalRuleCall_2_2_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getHeaderRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"time",
-        		lv_time_8_0, 
-        		"TIME");
-	    }
-
-)
-))(	otherlv_9='key' 
-    {
-    	newLeafNode(otherlv_9, grammarAccess.getHeaderAccess().getKeyKeyword_3_0());
-    }
-	otherlv_10='=' 
-    {
-    	newLeafNode(otherlv_10, grammarAccess.getHeaderAccess().getEqualsSignKeyword_3_1());
-    }
-(
-(
 		{ 
-	        newCompositeNode(grammarAccess.getHeaderAccess().getKeyKeyParserRuleCall_3_2_0()); 
+	        newCompositeNode(grammarAccess.getHeaderAccess().getKeyKeyParserRuleCall_2_2_0()); 
 	    }
-		lv_key_11_0=ruleKey		{
+		lv_key_8_0=ruleKey		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getHeaderRule());
 	        }
        		set(
        			$current, 
        			"key",
-        		lv_key_11_0, 
+        		lv_key_8_0, 
         		"Key");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -273,7 +247,14 @@ ruleKey returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     { 
     newLeafNode(this_ACCIDENTAL_1, grammarAccess.getKeyAccess().getACCIDENTALTerminalRuleCall_1()); 
     }
-)?)
+)?    this_INTERVAL_2=RULE_INTERVAL    {
+		$current.merge(this_INTERVAL_2);
+    }
+
+    { 
+    newLeafNode(this_INTERVAL_2, grammarAccess.getKeyAccess().getINTERVALTerminalRuleCall_2()); 
+    }
+)
     ;
 
 
@@ -531,7 +512,7 @@ ruleNote returns [EObject current=null]
 
 
 
-RULE_TIME : ('3/4'|'4/4');
+RULE_INTERVAL : ('maj'|'min');
 
 RULE_OCTAVE : ('<'+|'o' '0'..'9'|'>'+);
 

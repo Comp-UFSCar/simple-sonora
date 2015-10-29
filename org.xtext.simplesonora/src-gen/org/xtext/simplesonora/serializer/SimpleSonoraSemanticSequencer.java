@@ -86,7 +86,7 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Constraint:
-	 *     (songName=ID tempo=INT time=TIME key=Key)
+	 *     (songName=ID tempo=INT key=Key)
 	 */
 	protected void sequence_Header(EObject context, Header semanticObject) {
 		if(errorAcceptor != null) {
@@ -94,8 +94,6 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimpleSonoraPackage.Literals.HEADER__SONG_NAME));
 			if(transientValues.isValueTransient(semanticObject, SimpleSonoraPackage.Literals.HEADER__TEMPO) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimpleSonoraPackage.Literals.HEADER__TEMPO));
-			if(transientValues.isValueTransient(semanticObject, SimpleSonoraPackage.Literals.HEADER__TIME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimpleSonoraPackage.Literals.HEADER__TIME));
 			if(transientValues.isValueTransient(semanticObject, SimpleSonoraPackage.Literals.HEADER__KEY) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimpleSonoraPackage.Literals.HEADER__KEY));
 		}
@@ -103,8 +101,7 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getHeaderAccess().getSongNameIDTerminalRuleCall_0_2_0(), semanticObject.getSongName());
 		feeder.accept(grammarAccess.getHeaderAccess().getTempoINTTerminalRuleCall_1_2_0(), semanticObject.getTempo());
-		feeder.accept(grammarAccess.getHeaderAccess().getTimeTIMETerminalRuleCall_2_2_0(), semanticObject.getTime());
-		feeder.accept(grammarAccess.getHeaderAccess().getKeyKeyParserRuleCall_3_2_0(), semanticObject.getKey());
+		feeder.accept(grammarAccess.getHeaderAccess().getKeyKeyParserRuleCall_2_2_0(), semanticObject.getKey());
 		feeder.finish();
 	}
 	
