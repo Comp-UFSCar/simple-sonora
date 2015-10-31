@@ -13,6 +13,7 @@ import org.jfugue.midi.MidiFileManager
 import java.io.File
 import org.xtext.simplesonora.simpleSonora.Sequence
 import org.xtext.simplesonora.simpleSonora.Note
+import org.xtext.simplesonora.simpleSonora.Instrument
 
 /**
  * Generates code from your model files on save.
@@ -22,19 +23,17 @@ import org.xtext.simplesonora.simpleSonora.Note
  
 class SimpleSonoraGenerator implements IGenerator {
 	
-	String songName = new String("");		// song name to create 'midi' file
-	String key = new String("");			// key signature
+	String songName = new String("")			// song name to create 'midi' file
+	String key = new String("")					// key signature
 	
-	String auxNote = new String("");		// aux variable for note
-	String auxChord = new String("");		// aux variable for chord
-	Integer curOctave = 4; 					// default octave 
-	String curDuration = new String("h");	// default note duration 
-		
+	Integer curVoice = 0						// MIDI track/channel/voice
+	Integer curOctave = 4 						// default octave 
+	String auxNote = new String("")				// aux variable for note
+	String auxChord = new String("")			// aux variable for chord
+	String curDuration = new String("h")		// default note duration 
+	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		
-		curDuration = 'h'; // reset to default each time
-		curOctave = 4;		
-		
+				
 		//JFugue Player and Pattern
 		val player = new Player()	
 		val pattern = new Pattern()
@@ -42,40 +41,51 @@ class SimpleSonoraGenerator implements IGenerator {
 		// Header information to define the basics of the music
 		for(Header h :resource.allContents.toIterable.filter(Header)){
 			songName = h.songName			// get the song name
-			pattern.tempo = h.tempo			// define the tempo (velocity)
-			pattern.add(h.key.keyToPattern)	// define key signature
+			if(h.tempo > 0)
+				pattern.tempo = h.tempo			// define the tempo (velocity)
+			if(h.key != null)
+				pattern.add(h.key.keyToPattern)	// define key signature
 		}
 		
-		// Sequence of Notes or Chords of the Melody
-		for(Sequence s : resource.allContents.toIterable.filter(Sequence)) {
+		curVoice = 0 // first MIDI track/channel/voice
+		
+		for (Instrument instrument : resource.allContents.toIterable.filter(Instrument)) {
 			
-			// octave
-			if(s.octave != null){
-				s.octave.setOctave;
-			}
+			curDuration = 'h' // reset to default each time
+			curOctave = 4		
 			
-			// note
-			if(s.note != null){
-				pattern.add(s.note.noteToPattern)
-			}
+			pattern.add('V' + curVoice)
+			pattern.add('I[' + instrument.instrumentName + ']')
 			
-			// chord
-			if(s.chord != null) {
-				auxChord = ""
-				for(n : s.chord.chordNotes.toList) {
-					// for each note get the pattern and add a '+' 
-					auxChord = auxChord.concat(n.noteToPattern + "+")
+			// Sequence of Notes and/or Chords of the Instrument
+			for (Sequence s : instrument.sequences) {
+				
+				// note
+				if (s.note != null) {
+					// octave
+					if (s.note.octave != null) s.note.octave.setOctave
+					pattern.add(s.note.noteToPattern)
 				}
-				// add the chord pattern minus the extra '+' at the end
-				pattern.add(auxChord.substring(0, auxChord.length - 1))
+				// chord
+				if (s.chord != null) {
+					auxChord = ""
+					for (n : s.chord.chordNotes.toList) {
+						// for each note get the pattern and add a '+' 
+						if(n.octave != null) n.octave.setOctave
+						
+						auxChord = auxChord.concat(n.noteToPattern + "+")
+					}
+					// add the chord pattern minus the extra '+' at the end
+					pattern.add(auxChord.substring(0, auxChord.length - 1))
+				}
 			}
-			
+			curVoice++
 		}
 		
-		player.play(pattern); // Play the pattern
-		System.out.println(pattern.toString); // Print the pattern on Console
+		player.play(pattern) // Play the pattern
+		System.out.println(pattern.toString) // Print the pattern on Console
 		// Write the .midi file on Eclipse root folder
-		MidiFileManager.savePatternToMidi(pattern, new File(songName+".midi"));
+		MidiFileManager.savePatternToMidi(pattern, new File(songName+".mid"))
 	}
 	
 	/**
@@ -107,7 +117,7 @@ class SimpleSonoraGenerator implements IGenerator {
 	 * 
 	 * @param o String containing the octave information.
 	 */
-	def setOctave(String o){
+	def void setOctave(String o){
 		// go one octave higher
 		if(o.compareTo('>') == 0){
 			curOctave++
@@ -129,20 +139,20 @@ class SimpleSonoraGenerator implements IGenerator {
 	 * @return String with JFugue pattern notation for notes.
 	 */
 	def String noteToPattern(Note note){
-		auxNote =  note.note.toUpperCase;	// note must be upper case
+		auxNote =  note.note.toUpperCase	// note must be upper case
 		
 		// If there is an Accidental - gets the accidental value for JFugue
 		if(note.accidental != null){	
-			auxNote = auxNote.concat(note.accidental.accidentalToPattern);	
+			auxNote = auxNote.concat(note.accidental.accidentalToPattern)	
 		}
 		
 		// If there is a duration - gets the duration value for JFugue
 		if(note.duration != null){
-			curDuration = note.duration.durationToPattern;
+			curDuration = note.duration.durationToPattern
 		}
 		
 		// concatenate current octave and current duration to the note
-		auxNote = auxNote.concat(curOctave.toString + curDuration);
+		auxNote = auxNote.concat(curOctave.toString + curDuration)
 		
 		return auxNote	
 	}
@@ -172,8 +182,7 @@ class SimpleSonoraGenerator implements IGenerator {
 			case ':128':	// 1/128	semihemidemisemiquaver
 				return 'o'			
 		}		
-		
-		return "";
+		return ""
 	}
 	
 	/**
@@ -188,8 +197,7 @@ class SimpleSonoraGenerator implements IGenerator {
 				return '#'			
 			case '-':		// flat
 				return 'b'			
-		}		
-		
-		return "";
+		}			
+		return ""
 	}
 }

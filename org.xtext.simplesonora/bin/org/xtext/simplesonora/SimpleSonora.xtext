@@ -3,15 +3,14 @@ grammar org.xtext.simplesonora.SimpleSonora with org.eclipse.xtext.common.Termin
 generate simpleSonora "http://www.xtext.org/simplesonora/SimpleSonora"
 
 Document:
-	(header=Header)(melody=Melody)
+	(header=Header)(song=Song)
 ;
 
 /* Header of the file containing the tempo, time and key of melody. */
 Header:
-	('name' '=' songName=ID)
-	('tempo' '=' tempo=INT)
-//	('time' '=' time=TIME)
-	('key' '=' key=Key)
+	('title' '=' songName=ID)
+	('tempo' '=' tempo=INT)?	// default is 120 (Allegro)
+	('key' '=' key=Key)?		// default is C major
 ;
 
 Key:
@@ -22,23 +21,20 @@ terminal INTERVAL:
 	'maj' | 'min'
 ;
 
-/*	There is a time signature represented in the sheet music, but JFugue does not
-	currently contain a time signature token. This is because the time signature is
-	important for knowing how many notes appear within a measure. However,
-	JFugue is capable of playing notes with just the tempo and the note durations. */
-
-//terminal TIME:
-//	'3/4' | '4/4'
-//;
-
 
 /* The body of the file with melody. */
-Melody:
-	(sequences += Sequence)+
+
+Song:
+	(instruments += Instrument)+
 ;
 
+Instrument:
+	instrumentName = ID '{' (sequences += Sequence)+ '}'
+;
+
+
 Sequence:
-	(octave = OCTAVE)? (note = Note | chord = Chord)
+	(note = Note | chord = Chord)
 ;
 
 Chord:
@@ -46,7 +42,7 @@ Chord:
 ;
 
 Note:
-	note=NOTE_ID accidental=(ACCIDENTAL)? duration=(DURATION)?
+	(octave = OCTAVE)? note=NOTE_ID accidental=(ACCIDENTAL)? duration=(DURATION)?
 ;
 
 terminal OCTAVE:
@@ -61,7 +57,6 @@ terminal NOTE_ID:
 	 ('a'..'g')|('A'..'G')
 ;
 
-/*TODO: remover o uso dos dois pontos nessa regra */
 terminal DURATION :
 	':'('1' | '2' | '4' | '8' | '16' | '32')
 ;

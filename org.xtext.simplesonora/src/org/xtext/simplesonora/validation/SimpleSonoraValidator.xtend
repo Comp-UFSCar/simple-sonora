@@ -3,6 +3,12 @@
  */
 package org.xtext.simplesonora.validation
 
+import org.xtext.simplesonora.simpleSonora.Instrument
+import org.eclipse.xtext.validation.Check
+import org.jfugue.midi.MidiDictionary
+import java.util.Set
+import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage
+
 //import org.eclipse.xtext.validation.Check
 /**
  * This class contains custom validation rules. 
@@ -11,11 +17,21 @@ package org.xtext.simplesonora.validation
  */
 class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
 
-//	@Check
-//	def void playNote(Note note) {
-//		
-////		val Player player = new Player();
-////		player.play(note.note);
-//		//System.out.println(note.note);
-//	}
+	Set<String> instrumentNames = MidiDictionary.INSTRUMENT_BYTE_TO_STRING.values.toSet
+	
+	@Check
+	def void checkInstrument(Instrument instrument) {
+		// get the instrument name, convert it to lower case
+		var namelist = instrument.instrumentName.toLowerCase.split('_')
+		var convertedName = new StringBuilder()
+		for(n : namelist){
+			// each first character must be upper case for verification
+			convertedName.append(n.toFirstUpper + "_")
+		}
+		convertedName.deleteCharAt(convertedName.length - 1)
+		
+		// verify if instrument name exists on JFugue MidiDictionary
+		if(instrumentNames.contains(convertedName.toString) == false)
+			error("Instrument invalid or not recognized. Check a general MIDI instrument list.", SimpleSonoraPackage$Literals::INSTRUMENT__INSTRUMENT_NAME);		
+	}
 }

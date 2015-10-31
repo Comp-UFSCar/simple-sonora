@@ -16,41 +16,41 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.simplesonora.simpleSonora.Melody;
-import org.xtext.simplesonora.simpleSonora.Sequence;
+import org.xtext.simplesonora.simpleSonora.Instrument;
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
+import org.xtext.simplesonora.simpleSonora.Song;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Melody</b></em>'.
+ * An implementation of the model object '<em><b>Song</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.MelodyImpl#getSequences <em>Sequences</em>}</li>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.SongImpl#getInstruments <em>Instruments</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MelodyImpl extends MinimalEObjectImpl.Container implements Melody
+public class SongImpl extends MinimalEObjectImpl.Container implements Song
 {
   /**
-   * The cached value of the '{@link #getSequences() <em>Sequences</em>}' containment reference list.
+   * The cached value of the '{@link #getInstruments() <em>Instruments</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSequences()
+   * @see #getInstruments()
    * @generated
    * @ordered
    */
-  protected EList<Sequence> sequences;
+  protected EList<Instrument> instruments;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MelodyImpl()
+  protected SongImpl()
   {
     super();
   }
@@ -63,7 +63,7 @@ public class MelodyImpl extends MinimalEObjectImpl.Container implements Melody
   @Override
   protected EClass eStaticClass()
   {
-    return SimpleSonoraPackage.Literals.MELODY;
+    return SimpleSonoraPackage.Literals.SONG;
   }
 
   /**
@@ -71,13 +71,13 @@ public class MelodyImpl extends MinimalEObjectImpl.Container implements Melody
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Sequence> getSequences()
+  public EList<Instrument> getInstruments()
   {
-    if (sequences == null)
+    if (instruments == null)
     {
-      sequences = new EObjectContainmentEList<Sequence>(Sequence.class, this, SimpleSonoraPackage.MELODY__SEQUENCES);
+      instruments = new EObjectContainmentEList<Instrument>(Instrument.class, this, SimpleSonoraPackage.SONG__INSTRUMENTS);
     }
-    return sequences;
+    return instruments;
   }
 
   /**
@@ -90,8 +90,8 @@ public class MelodyImpl extends MinimalEObjectImpl.Container implements Melody
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.MELODY__SEQUENCES:
-        return ((InternalEList<?>)getSequences()).basicRemove(otherEnd, msgs);
+      case SimpleSonoraPackage.SONG__INSTRUMENTS:
+        return ((InternalEList<?>)getInstruments()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -106,8 +106,8 @@ public class MelodyImpl extends MinimalEObjectImpl.Container implements Melody
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.MELODY__SEQUENCES:
-        return getSequences();
+      case SimpleSonoraPackage.SONG__INSTRUMENTS:
+        return getInstruments();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -123,9 +123,9 @@ public class MelodyImpl extends MinimalEObjectImpl.Container implements Melody
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.MELODY__SEQUENCES:
-        getSequences().clear();
-        getSequences().addAll((Collection<? extends Sequence>)newValue);
+      case SimpleSonoraPackage.SONG__INSTRUMENTS:
+        getInstruments().clear();
+        getInstruments().addAll((Collection<? extends Instrument>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,8 +141,8 @@ public class MelodyImpl extends MinimalEObjectImpl.Container implements Melody
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.MELODY__SEQUENCES:
-        getSequences().clear();
+      case SimpleSonoraPackage.SONG__INSTRUMENTS:
+        getInstruments().clear();
         return;
     }
     super.eUnset(featureID);
@@ -158,10 +158,10 @@ public class MelodyImpl extends MinimalEObjectImpl.Container implements Melody
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.MELODY__SEQUENCES:
-        return sequences != null && !sequences.isEmpty();
+      case SimpleSonoraPackage.SONG__INSTRUMENTS:
+        return instruments != null && !instruments.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //MelodyImpl
+} //SongImpl

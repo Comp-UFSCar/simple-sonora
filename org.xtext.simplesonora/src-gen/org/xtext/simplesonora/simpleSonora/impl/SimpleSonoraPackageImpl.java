@@ -12,11 +12,12 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.xtext.simplesonora.simpleSonora.Chord;
 import org.xtext.simplesonora.simpleSonora.Document;
 import org.xtext.simplesonora.simpleSonora.Header;
-import org.xtext.simplesonora.simpleSonora.Melody;
+import org.xtext.simplesonora.simpleSonora.Instrument;
 import org.xtext.simplesonora.simpleSonora.Note;
 import org.xtext.simplesonora.simpleSonora.Sequence;
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraFactory;
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
+import org.xtext.simplesonora.simpleSonora.Song;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +46,14 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass melodyEClass = null;
+  private EClass songEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass instrumentEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -156,7 +164,7 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDocument_Melody()
+  public EReference getDocument_Song()
   {
     return (EReference)documentEClass.getEStructuralFeatures().get(1);
   }
@@ -206,9 +214,9 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMelody()
+  public EClass getSong()
   {
-    return melodyEClass;
+    return songEClass;
   }
 
   /**
@@ -216,9 +224,39 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMelody_Sequences()
+  public EReference getSong_Instruments()
   {
-    return (EReference)melodyEClass.getEStructuralFeatures().get(0);
+    return (EReference)songEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getInstrument()
+  {
+    return instrumentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInstrument_InstrumentName()
+  {
+    return (EAttribute)instrumentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInstrument_Sequences()
+  {
+    return (EReference)instrumentEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -236,19 +274,9 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSequence_Octave()
-  {
-    return (EAttribute)sequenceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getSequence_Note()
   {
-    return (EReference)sequenceEClass.getEStructuralFeatures().get(1);
+    return (EReference)sequenceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -258,7 +286,7 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    */
   public EReference getSequence_Chord()
   {
-    return (EReference)sequenceEClass.getEStructuralFeatures().get(2);
+    return (EReference)sequenceEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -296,7 +324,7 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getNote_Note()
+  public EAttribute getNote_Octave()
   {
     return (EAttribute)noteEClass.getEStructuralFeatures().get(0);
   }
@@ -306,7 +334,7 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getNote_Accidental()
+  public EAttribute getNote_Note()
   {
     return (EAttribute)noteEClass.getEStructuralFeatures().get(1);
   }
@@ -316,9 +344,19 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getNote_Duration()
+  public EAttribute getNote_Accidental()
   {
     return (EAttribute)noteEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getNote_Duration()
+  {
+    return (EAttribute)noteEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -353,18 +391,21 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
     // Create classes and their features
     documentEClass = createEClass(DOCUMENT);
     createEReference(documentEClass, DOCUMENT__HEADER);
-    createEReference(documentEClass, DOCUMENT__MELODY);
+    createEReference(documentEClass, DOCUMENT__SONG);
 
     headerEClass = createEClass(HEADER);
     createEAttribute(headerEClass, HEADER__SONG_NAME);
     createEAttribute(headerEClass, HEADER__TEMPO);
     createEAttribute(headerEClass, HEADER__KEY);
 
-    melodyEClass = createEClass(MELODY);
-    createEReference(melodyEClass, MELODY__SEQUENCES);
+    songEClass = createEClass(SONG);
+    createEReference(songEClass, SONG__INSTRUMENTS);
+
+    instrumentEClass = createEClass(INSTRUMENT);
+    createEAttribute(instrumentEClass, INSTRUMENT__INSTRUMENT_NAME);
+    createEReference(instrumentEClass, INSTRUMENT__SEQUENCES);
 
     sequenceEClass = createEClass(SEQUENCE);
-    createEAttribute(sequenceEClass, SEQUENCE__OCTAVE);
     createEReference(sequenceEClass, SEQUENCE__NOTE);
     createEReference(sequenceEClass, SEQUENCE__CHORD);
 
@@ -372,6 +413,7 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
     createEReference(chordEClass, CHORD__CHORD_NOTES);
 
     noteEClass = createEClass(NOTE);
+    createEAttribute(noteEClass, NOTE__OCTAVE);
     createEAttribute(noteEClass, NOTE__NOTE);
     createEAttribute(noteEClass, NOTE__ACCIDENTAL);
     createEAttribute(noteEClass, NOTE__DURATION);
@@ -410,18 +452,21 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
     // Initialize classes and features; add operations and parameters
     initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDocument_Header(), this.getHeader(), null, "header", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDocument_Melody(), this.getMelody(), null, "melody", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDocument_Song(), this.getSong(), null, "song", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(headerEClass, Header.class, "Header", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getHeader_SongName(), ecorePackage.getEString(), "songName", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getHeader_Tempo(), ecorePackage.getEInt(), "tempo", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getHeader_Key(), ecorePackage.getEString(), "key", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(melodyEClass, Melody.class, "Melody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMelody_Sequences(), this.getSequence(), null, "sequences", null, 0, -1, Melody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(songEClass, Song.class, "Song", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSong_Instruments(), this.getInstrument(), null, "instruments", null, 0, -1, Song.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(instrumentEClass, Instrument.class, "Instrument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInstrument_InstrumentName(), ecorePackage.getEString(), "instrumentName", null, 0, 1, Instrument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInstrument_Sequences(), this.getSequence(), null, "sequences", null, 0, -1, Instrument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sequenceEClass, Sequence.class, "Sequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSequence_Octave(), ecorePackage.getEString(), "octave", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSequence_Note(), this.getNote(), null, "note", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSequence_Chord(), this.getChord(), null, "chord", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -429,6 +474,7 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
     initEReference(getChord_ChordNotes(), this.getNote(), null, "chordNotes", null, 0, -1, Chord.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(noteEClass, Note.class, "Note", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNote_Octave(), ecorePackage.getEString(), "octave", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getNote_Note(), ecorePackage.getEString(), "note", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getNote_Accidental(), ecorePackage.getEString(), "accidental", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getNote_Duration(), ecorePackage.getEString(), "duration", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -41,13 +41,22 @@ public interface SimpleSonoraFactory extends EFactory
   Header createHeader();
 
   /**
-   * Returns a new object of class '<em>Melody</em>'.
+   * Returns a new object of class '<em>Song</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Melody</em>'.
+   * @return a new object of class '<em>Song</em>'.
    * @generated
    */
-  Melody createMelody();
+  Song createSong();
+
+  /**
+   * Returns a new object of class '<em>Instrument</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Instrument</em>'.
+   * @generated
+   */
+  Instrument createInstrument();
 
   /**
    * Returns a new object of class '<em>Sequence</em>'.

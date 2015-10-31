@@ -86,10 +86,17 @@ public class SimpleSonoraSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SimpleSonoraPackage.MELODY:
+      case SimpleSonoraPackage.SONG:
       {
-        Melody melody = (Melody)theEObject;
-        T result = caseMelody(melody);
+        Song song = (Song)theEObject;
+        T result = caseSong(song);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SimpleSonoraPackage.INSTRUMENT:
+      {
+        Instrument instrument = (Instrument)theEObject;
+        T result = caseInstrument(instrument);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -151,17 +158,33 @@ public class SimpleSonoraSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Melody</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Song</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Melody</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Song</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMelody(Melody object)
+  public T caseSong(Song object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Instrument</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Instrument</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInstrument(Instrument object)
   {
     return null;
   }

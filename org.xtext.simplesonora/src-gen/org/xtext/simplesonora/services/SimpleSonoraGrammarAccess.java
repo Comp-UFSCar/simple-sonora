@@ -23,14 +23,14 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cHeaderAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cHeaderHeaderParserRuleCall_0_0 = (RuleCall)cHeaderAssignment_0.eContents().get(0);
-		private final Assignment cMelodyAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cMelodyMelodyParserRuleCall_1_0 = (RuleCall)cMelodyAssignment_1.eContents().get(0);
+		private final Assignment cSongAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSongSongParserRuleCall_1_0 = (RuleCall)cSongAssignment_1.eContents().get(0);
 		
 		//Document:
-		//	header=Header melody=Melody;
+		//	header=Header song=Song;
 		@Override public ParserRule getRule() { return rule; }
 
-		//header=Header melody=Melody
+		//header=Header song=Song
 		public Group getGroup() { return cGroup; }
 
 		//header=Header
@@ -39,18 +39,18 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		//Header
 		public RuleCall getHeaderHeaderParserRuleCall_0_0() { return cHeaderHeaderParserRuleCall_0_0; }
 
-		//melody=Melody
-		public Assignment getMelodyAssignment_1() { return cMelodyAssignment_1; }
+		//song=Song
+		public Assignment getSongAssignment_1() { return cSongAssignment_1; }
 
-		//Melody
-		public RuleCall getMelodyMelodyParserRuleCall_1_0() { return cMelodyMelodyParserRuleCall_1_0; }
+		//Song
+		public RuleCall getSongSongParserRuleCall_1_0() { return cSongSongParserRuleCall_1_0; }
 	}
 
 	public class HeaderElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Header");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Keyword cNameKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cTitleKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Assignment cSongNameAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
 		private final RuleCall cSongNameIDTerminalRuleCall_0_2_0 = (RuleCall)cSongNameAssignment_0_2.eContents().get(0);
@@ -66,19 +66,20 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cKeyKeyParserRuleCall_2_2_0 = (RuleCall)cKeyAssignment_2_2.eContents().get(0);
 		
 		/// * Header of the file containing the tempo, time and key of melody. * / Header:
-		//	("name" "=" songName=ID) ("tempo" "=" tempo=INT) //	('time' '=' time=TIME)
-		//	("key" "=" key=Key);
+		//	("title" "=" songName=ID) ("tempo" "=" tempo=INT)? // default is 120 (Allegro)
+		//	("key" "=" key=Key)? // default is C major
+		//;
 		@Override public ParserRule getRule() { return rule; }
 
-		//("name" "=" songName=ID) ("tempo" "=" tempo=INT) //	('time' '=' time=TIME)
-		//("key" "=" key=Key)
+		//("title" "=" songName=ID) ("tempo" "=" tempo=INT)? // default is 120 (Allegro)
+		//("key" "=" key=Key)? // default is C major
 		public Group getGroup() { return cGroup; }
 
-		//"name" "=" songName=ID
+		//"title" "=" songName=ID
 		public Group getGroup_0() { return cGroup_0; }
 
-		//"name"
-		public Keyword getNameKeyword_0_0() { return cNameKeyword_0_0; }
+		//"title"
+		public Keyword getTitleKeyword_0_0() { return cTitleKeyword_0_0; }
 
 		//"="
 		public Keyword getEqualsSignKeyword_0_1() { return cEqualsSignKeyword_0_1; }
@@ -89,7 +90,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getSongNameIDTerminalRuleCall_0_2_0() { return cSongNameIDTerminalRuleCall_0_2_0; }
 
-		//"tempo" "=" tempo=INT
+		//("tempo" "=" tempo=INT)?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//"tempo"
@@ -104,7 +105,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getTempoINTTerminalRuleCall_1_2_0() { return cTempoINTTerminalRuleCall_1_2_0; }
 
-		//"key" "=" key=Key
+		//("key" "=" key=Key)?
 		public Group getGroup_2() { return cGroup_2; }
 
 		//"key"
@@ -144,66 +145,84 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getINTERVALTerminalRuleCall_2() { return cINTERVALTerminalRuleCall_2; }
 	}
 
-	public class MelodyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Melody");
-		private final Assignment cSequencesAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cSequencesSequenceParserRuleCall_0 = (RuleCall)cSequencesAssignment.eContents().get(0);
+	public class SongElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Song");
+		private final Assignment cInstrumentsAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cInstrumentsInstrumentParserRuleCall_0 = (RuleCall)cInstrumentsAssignment.eContents().get(0);
 		
-		/// *	There is a time signature represented in the sheet music, but JFugue does not
-		//	currently contain a time signature token. This is because the time signature is
-		//	important for knowing how many notes appear within a measure. However,
-		//	JFugue is capable of playing notes with just the tempo and the note durations. * / //terminal TIME:
-		////	'3/4' | '4/4'
-		////;
-		/// * The body of the file with melody. * / Melody:
-		//	sequences+=Sequence+;
+		/// * The body of the file with melody. * / Song:
+		//	instruments+=Instrument+;
 		@Override public ParserRule getRule() { return rule; }
 
+		//instruments+=Instrument+
+		public Assignment getInstrumentsAssignment() { return cInstrumentsAssignment; }
+
+		//Instrument
+		public RuleCall getInstrumentsInstrumentParserRuleCall_0() { return cInstrumentsInstrumentParserRuleCall_0; }
+	}
+
+	public class InstrumentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Instrument");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cInstrumentNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cInstrumentNameIDTerminalRuleCall_0_0 = (RuleCall)cInstrumentNameAssignment_0.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cSequencesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cSequencesSequenceParserRuleCall_2_0 = (RuleCall)cSequencesAssignment_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//Instrument:
+		//	instrumentName=ID "{" sequences+=Sequence+ "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//instrumentName=ID "{" sequences+=Sequence+ "}"
+		public Group getGroup() { return cGroup; }
+
+		//instrumentName=ID
+		public Assignment getInstrumentNameAssignment_0() { return cInstrumentNameAssignment_0; }
+
+		//ID
+		public RuleCall getInstrumentNameIDTerminalRuleCall_0_0() { return cInstrumentNameIDTerminalRuleCall_0_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
 		//sequences+=Sequence+
-		public Assignment getSequencesAssignment() { return cSequencesAssignment; }
+		public Assignment getSequencesAssignment_2() { return cSequencesAssignment_2; }
 
 		//Sequence
-		public RuleCall getSequencesSequenceParserRuleCall_0() { return cSequencesSequenceParserRuleCall_0; }
+		public RuleCall getSequencesSequenceParserRuleCall_2_0() { return cSequencesSequenceParserRuleCall_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
 
 	public class SequenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Sequence");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cOctaveAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cOctaveOCTAVETerminalRuleCall_0_0 = (RuleCall)cOctaveAssignment_0.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cNoteAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cNoteNoteParserRuleCall_1_0_0 = (RuleCall)cNoteAssignment_1_0.eContents().get(0);
-		private final Assignment cChordAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cChordChordParserRuleCall_1_1_0 = (RuleCall)cChordAssignment_1_1.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cNoteAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cNoteNoteParserRuleCall_0_0 = (RuleCall)cNoteAssignment_0.eContents().get(0);
+		private final Assignment cChordAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cChordChordParserRuleCall_1_0 = (RuleCall)cChordAssignment_1.eContents().get(0);
 		
 		//Sequence:
-		//	octave=OCTAVE? (note=Note | chord=Chord);
+		//	note=Note | chord=Chord;
 		@Override public ParserRule getRule() { return rule; }
 
-		//octave=OCTAVE? (note=Note | chord=Chord)
-		public Group getGroup() { return cGroup; }
-
-		//octave=OCTAVE?
-		public Assignment getOctaveAssignment_0() { return cOctaveAssignment_0; }
-
-		//OCTAVE
-		public RuleCall getOctaveOCTAVETerminalRuleCall_0_0() { return cOctaveOCTAVETerminalRuleCall_0_0; }
-
 		//note=Note | chord=Chord
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//note=Note
-		public Assignment getNoteAssignment_1_0() { return cNoteAssignment_1_0; }
+		public Assignment getNoteAssignment_0() { return cNoteAssignment_0; }
 
 		//Note
-		public RuleCall getNoteNoteParserRuleCall_1_0_0() { return cNoteNoteParserRuleCall_1_0_0; }
+		public RuleCall getNoteNoteParserRuleCall_0_0() { return cNoteNoteParserRuleCall_0_0; }
 
 		//chord=Chord
-		public Assignment getChordAssignment_1_1() { return cChordAssignment_1_1; }
+		public Assignment getChordAssignment_1() { return cChordAssignment_1; }
 
 		//Chord
-		public RuleCall getChordChordParserRuleCall_1_1_0() { return cChordChordParserRuleCall_1_1_0; }
+		public RuleCall getChordChordParserRuleCall_1_0() { return cChordChordParserRuleCall_1_0; }
 	}
 
 	public class ChordElements extends AbstractParserRuleElementFinder {
@@ -245,37 +264,45 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	public class NoteElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Note");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNoteAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNoteNOTE_IDTerminalRuleCall_0_0 = (RuleCall)cNoteAssignment_0.eContents().get(0);
-		private final Assignment cAccidentalAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cAccidentalACCIDENTALTerminalRuleCall_1_0 = (RuleCall)cAccidentalAssignment_1.eContents().get(0);
-		private final Assignment cDurationAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cDurationDURATIONTerminalRuleCall_2_0 = (RuleCall)cDurationAssignment_2.eContents().get(0);
+		private final Assignment cOctaveAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cOctaveOCTAVETerminalRuleCall_0_0 = (RuleCall)cOctaveAssignment_0.eContents().get(0);
+		private final Assignment cNoteAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNoteNOTE_IDTerminalRuleCall_1_0 = (RuleCall)cNoteAssignment_1.eContents().get(0);
+		private final Assignment cAccidentalAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cAccidentalACCIDENTALTerminalRuleCall_2_0 = (RuleCall)cAccidentalAssignment_2.eContents().get(0);
+		private final Assignment cDurationAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDurationDURATIONTerminalRuleCall_3_0 = (RuleCall)cDurationAssignment_3.eContents().get(0);
 		
 		//Note:
-		//	note=NOTE_ID accidental=ACCIDENTAL? duration=DURATION?;
+		//	octave=OCTAVE? note=NOTE_ID accidental=ACCIDENTAL? duration=DURATION?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//note=NOTE_ID accidental=ACCIDENTAL? duration=DURATION?
+		//octave=OCTAVE? note=NOTE_ID accidental=ACCIDENTAL? duration=DURATION?
 		public Group getGroup() { return cGroup; }
 
+		//octave=OCTAVE?
+		public Assignment getOctaveAssignment_0() { return cOctaveAssignment_0; }
+
+		//OCTAVE
+		public RuleCall getOctaveOCTAVETerminalRuleCall_0_0() { return cOctaveOCTAVETerminalRuleCall_0_0; }
+
 		//note=NOTE_ID
-		public Assignment getNoteAssignment_0() { return cNoteAssignment_0; }
+		public Assignment getNoteAssignment_1() { return cNoteAssignment_1; }
 
 		//NOTE_ID
-		public RuleCall getNoteNOTE_IDTerminalRuleCall_0_0() { return cNoteNOTE_IDTerminalRuleCall_0_0; }
+		public RuleCall getNoteNOTE_IDTerminalRuleCall_1_0() { return cNoteNOTE_IDTerminalRuleCall_1_0; }
 
 		//accidental=ACCIDENTAL?
-		public Assignment getAccidentalAssignment_1() { return cAccidentalAssignment_1; }
+		public Assignment getAccidentalAssignment_2() { return cAccidentalAssignment_2; }
 
 		//ACCIDENTAL
-		public RuleCall getAccidentalACCIDENTALTerminalRuleCall_1_0() { return cAccidentalACCIDENTALTerminalRuleCall_1_0; }
+		public RuleCall getAccidentalACCIDENTALTerminalRuleCall_2_0() { return cAccidentalACCIDENTALTerminalRuleCall_2_0; }
 
 		//duration=DURATION?
-		public Assignment getDurationAssignment_2() { return cDurationAssignment_2; }
+		public Assignment getDurationAssignment_3() { return cDurationAssignment_3; }
 
 		//DURATION
-		public RuleCall getDurationDURATIONTerminalRuleCall_2_0() { return cDurationDURATIONTerminalRuleCall_2_0; }
+		public RuleCall getDurationDURATIONTerminalRuleCall_3_0() { return cDurationDURATIONTerminalRuleCall_3_0; }
 	}
 	
 	
@@ -283,7 +310,8 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	private final HeaderElements pHeader;
 	private final KeyElements pKey;
 	private final TerminalRule tINTERVAL;
-	private final MelodyElements pMelody;
+	private final SongElements pSong;
+	private final InstrumentElements pInstrument;
 	private final SequenceElements pSequence;
 	private final ChordElements pChord;
 	private final NoteElements pNote;
@@ -305,7 +333,8 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		this.pHeader = new HeaderElements();
 		this.pKey = new KeyElements();
 		this.tINTERVAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INTERVAL");
-		this.pMelody = new MelodyElements();
+		this.pSong = new SongElements();
+		this.pInstrument = new InstrumentElements();
 		this.pSequence = new SequenceElements();
 		this.pChord = new ChordElements();
 		this.pNote = new NoteElements();
@@ -343,7 +372,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Document:
-	//	header=Header melody=Melody;
+	//	header=Header song=Song;
 	public DocumentElements getDocumentAccess() {
 		return pDocument;
 	}
@@ -353,8 +382,9 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// * Header of the file containing the tempo, time and key of melody. * / Header:
-	//	("name" "=" songName=ID) ("tempo" "=" tempo=INT) //	('time' '=' time=TIME)
-	//	("key" "=" key=Key);
+	//	("title" "=" songName=ID) ("tempo" "=" tempo=INT)? // default is 120 (Allegro)
+	//	("key" "=" key=Key)? // default is C major
+	//;
 	public HeaderElements getHeaderAccess() {
 		return pHeader;
 	}
@@ -379,24 +409,28 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		return tINTERVAL;
 	} 
 
-	/// *	There is a time signature represented in the sheet music, but JFugue does not
-	//	currently contain a time signature token. This is because the time signature is
-	//	important for knowing how many notes appear within a measure. However,
-	//	JFugue is capable of playing notes with just the tempo and the note durations. * / //terminal TIME:
-	////	'3/4' | '4/4'
-	////;
-	/// * The body of the file with melody. * / Melody:
-	//	sequences+=Sequence+;
-	public MelodyElements getMelodyAccess() {
-		return pMelody;
+	/// * The body of the file with melody. * / Song:
+	//	instruments+=Instrument+;
+	public SongElements getSongAccess() {
+		return pSong;
 	}
 	
-	public ParserRule getMelodyRule() {
-		return getMelodyAccess().getRule();
+	public ParserRule getSongRule() {
+		return getSongAccess().getRule();
+	}
+
+	//Instrument:
+	//	instrumentName=ID "{" sequences+=Sequence+ "}";
+	public InstrumentElements getInstrumentAccess() {
+		return pInstrument;
+	}
+	
+	public ParserRule getInstrumentRule() {
+		return getInstrumentAccess().getRule();
 	}
 
 	//Sequence:
-	//	octave=OCTAVE? (note=Note | chord=Chord);
+	//	note=Note | chord=Chord;
 	public SequenceElements getSequenceAccess() {
 		return pSequence;
 	}
@@ -416,7 +450,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Note:
-	//	note=NOTE_ID accidental=ACCIDENTAL? duration=DURATION?;
+	//	octave=OCTAVE? note=NOTE_ID accidental=ACCIDENTAL? duration=DURATION?;
 	public NoteElements getNoteAccess() {
 		return pNote;
 	}
@@ -443,7 +477,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		return tNOTE_ID;
 	} 
 
-	/// *TODO: remover o uso dos dois pontos nessa regra * / terminal DURATION:
+	//terminal DURATION:
 	//	":" ("1" | "2" | "4" | "8" | "16" | "32");
 	public TerminalRule getDURATIONRule() {
 		return tDURATION;

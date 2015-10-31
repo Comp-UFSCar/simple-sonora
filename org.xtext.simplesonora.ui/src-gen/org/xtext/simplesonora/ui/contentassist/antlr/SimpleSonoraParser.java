@@ -37,31 +37,33 @@ public class SimpleSonoraParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getSequenceAccess().getAlternatives_1(), "rule__Sequence__Alternatives_1");
+					put(grammarAccess.getSequenceAccess().getAlternatives(), "rule__Sequence__Alternatives");
 					put(grammarAccess.getDocumentAccess().getGroup(), "rule__Document__Group__0");
 					put(grammarAccess.getHeaderAccess().getGroup(), "rule__Header__Group__0");
 					put(grammarAccess.getHeaderAccess().getGroup_0(), "rule__Header__Group_0__0");
 					put(grammarAccess.getHeaderAccess().getGroup_1(), "rule__Header__Group_1__0");
 					put(grammarAccess.getHeaderAccess().getGroup_2(), "rule__Header__Group_2__0");
 					put(grammarAccess.getKeyAccess().getGroup(), "rule__Key__Group__0");
-					put(grammarAccess.getSequenceAccess().getGroup(), "rule__Sequence__Group__0");
+					put(grammarAccess.getInstrumentAccess().getGroup(), "rule__Instrument__Group__0");
 					put(grammarAccess.getChordAccess().getGroup(), "rule__Chord__Group__0");
 					put(grammarAccess.getChordAccess().getGroup_1(), "rule__Chord__Group_1__0");
 					put(grammarAccess.getNoteAccess().getGroup(), "rule__Note__Group__0");
 					put(grammarAccess.getDocumentAccess().getHeaderAssignment_0(), "rule__Document__HeaderAssignment_0");
-					put(grammarAccess.getDocumentAccess().getMelodyAssignment_1(), "rule__Document__MelodyAssignment_1");
+					put(grammarAccess.getDocumentAccess().getSongAssignment_1(), "rule__Document__SongAssignment_1");
 					put(grammarAccess.getHeaderAccess().getSongNameAssignment_0_2(), "rule__Header__SongNameAssignment_0_2");
 					put(grammarAccess.getHeaderAccess().getTempoAssignment_1_2(), "rule__Header__TempoAssignment_1_2");
 					put(grammarAccess.getHeaderAccess().getKeyAssignment_2_2(), "rule__Header__KeyAssignment_2_2");
-					put(grammarAccess.getMelodyAccess().getSequencesAssignment(), "rule__Melody__SequencesAssignment");
-					put(grammarAccess.getSequenceAccess().getOctaveAssignment_0(), "rule__Sequence__OctaveAssignment_0");
-					put(grammarAccess.getSequenceAccess().getNoteAssignment_1_0(), "rule__Sequence__NoteAssignment_1_0");
-					put(grammarAccess.getSequenceAccess().getChordAssignment_1_1(), "rule__Sequence__ChordAssignment_1_1");
+					put(grammarAccess.getSongAccess().getInstrumentsAssignment(), "rule__Song__InstrumentsAssignment");
+					put(grammarAccess.getInstrumentAccess().getInstrumentNameAssignment_0(), "rule__Instrument__InstrumentNameAssignment_0");
+					put(grammarAccess.getInstrumentAccess().getSequencesAssignment_2(), "rule__Instrument__SequencesAssignment_2");
+					put(grammarAccess.getSequenceAccess().getNoteAssignment_0(), "rule__Sequence__NoteAssignment_0");
+					put(grammarAccess.getSequenceAccess().getChordAssignment_1(), "rule__Sequence__ChordAssignment_1");
 					put(grammarAccess.getChordAccess().getChordNotesAssignment_0(), "rule__Chord__ChordNotesAssignment_0");
 					put(grammarAccess.getChordAccess().getChordNotesAssignment_1_1(), "rule__Chord__ChordNotesAssignment_1_1");
-					put(grammarAccess.getNoteAccess().getNoteAssignment_0(), "rule__Note__NoteAssignment_0");
-					put(grammarAccess.getNoteAccess().getAccidentalAssignment_1(), "rule__Note__AccidentalAssignment_1");
-					put(grammarAccess.getNoteAccess().getDurationAssignment_2(), "rule__Note__DurationAssignment_2");
+					put(grammarAccess.getNoteAccess().getOctaveAssignment_0(), "rule__Note__OctaveAssignment_0");
+					put(grammarAccess.getNoteAccess().getNoteAssignment_1(), "rule__Note__NoteAssignment_1");
+					put(grammarAccess.getNoteAccess().getAccidentalAssignment_2(), "rule__Note__AccidentalAssignment_2");
+					put(grammarAccess.getNoteAccess().getDurationAssignment_3(), "rule__Note__DurationAssignment_3");
 				}
 			};
 		}

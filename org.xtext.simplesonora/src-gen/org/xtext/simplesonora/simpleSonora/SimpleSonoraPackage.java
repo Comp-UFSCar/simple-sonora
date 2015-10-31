@@ -76,13 +76,13 @@ public interface SimpleSonoraPackage extends EPackage
   int DOCUMENT__HEADER = 0;
 
   /**
-   * The feature id for the '<em><b>Melody</b></em>' containment reference.
+   * The feature id for the '<em><b>Song</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOCUMENT__MELODY = 1;
+  int DOCUMENT__SONG = 1;
 
   /**
    * The number of structural features of the '<em>Document</em>' class.
@@ -140,14 +140,51 @@ public interface SimpleSonoraPackage extends EPackage
   int HEADER_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link org.xtext.simplesonora.simpleSonora.impl.MelodyImpl <em>Melody</em>}' class.
+   * The meta object id for the '{@link org.xtext.simplesonora.simpleSonora.impl.SongImpl <em>Song</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.simplesonora.simpleSonora.impl.MelodyImpl
-   * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getMelody()
+   * @see org.xtext.simplesonora.simpleSonora.impl.SongImpl
+   * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getSong()
    * @generated
    */
-  int MELODY = 2;
+  int SONG = 2;
+
+  /**
+   * The feature id for the '<em><b>Instruments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SONG__INSTRUMENTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Song</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SONG_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.simplesonora.simpleSonora.impl.InstrumentImpl <em>Instrument</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.simplesonora.simpleSonora.impl.InstrumentImpl
+   * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getInstrument()
+   * @generated
+   */
+  int INSTRUMENT = 3;
+
+  /**
+   * The feature id for the '<em><b>Instrument Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSTRUMENT__INSTRUMENT_NAME = 0;
 
   /**
    * The feature id for the '<em><b>Sequences</b></em>' containment reference list.
@@ -156,16 +193,16 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MELODY__SEQUENCES = 0;
+  int INSTRUMENT__SEQUENCES = 1;
 
   /**
-   * The number of structural features of the '<em>Melody</em>' class.
+   * The number of structural features of the '<em>Instrument</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MELODY_FEATURE_COUNT = 1;
+  int INSTRUMENT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.simplesonora.simpleSonora.impl.SequenceImpl <em>Sequence</em>}' class.
@@ -175,16 +212,7 @@ public interface SimpleSonoraPackage extends EPackage
    * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getSequence()
    * @generated
    */
-  int SEQUENCE = 3;
-
-  /**
-   * The feature id for the '<em><b>Octave</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEQUENCE__OCTAVE = 0;
+  int SEQUENCE = 4;
 
   /**
    * The feature id for the '<em><b>Note</b></em>' containment reference.
@@ -193,7 +221,7 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEQUENCE__NOTE = 1;
+  int SEQUENCE__NOTE = 0;
 
   /**
    * The feature id for the '<em><b>Chord</b></em>' containment reference.
@@ -202,7 +230,7 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEQUENCE__CHORD = 2;
+  int SEQUENCE__CHORD = 1;
 
   /**
    * The number of structural features of the '<em>Sequence</em>' class.
@@ -211,7 +239,7 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEQUENCE_FEATURE_COUNT = 3;
+  int SEQUENCE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.simplesonora.simpleSonora.impl.ChordImpl <em>Chord</em>}' class.
@@ -221,7 +249,7 @@ public interface SimpleSonoraPackage extends EPackage
    * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getChord()
    * @generated
    */
-  int CHORD = 4;
+  int CHORD = 5;
 
   /**
    * The feature id for the '<em><b>Chord Notes</b></em>' containment reference list.
@@ -249,7 +277,16 @@ public interface SimpleSonoraPackage extends EPackage
    * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getNote()
    * @generated
    */
-  int NOTE = 5;
+  int NOTE = 6;
+
+  /**
+   * The feature id for the '<em><b>Octave</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOTE__OCTAVE = 0;
 
   /**
    * The feature id for the '<em><b>Note</b></em>' attribute.
@@ -258,7 +295,7 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NOTE__NOTE = 0;
+  int NOTE__NOTE = 1;
 
   /**
    * The feature id for the '<em><b>Accidental</b></em>' attribute.
@@ -267,7 +304,7 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NOTE__ACCIDENTAL = 1;
+  int NOTE__ACCIDENTAL = 2;
 
   /**
    * The feature id for the '<em><b>Duration</b></em>' attribute.
@@ -276,7 +313,7 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NOTE__DURATION = 2;
+  int NOTE__DURATION = 3;
 
   /**
    * The number of structural features of the '<em>Note</em>' class.
@@ -285,7 +322,7 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NOTE_FEATURE_COUNT = 3;
+  int NOTE_FEATURE_COUNT = 4;
 
 
   /**
@@ -310,15 +347,15 @@ public interface SimpleSonoraPackage extends EPackage
   EReference getDocument_Header();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.simplesonora.simpleSonora.Document#getMelody <em>Melody</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.simplesonora.simpleSonora.Document#getSong <em>Song</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Melody</em>'.
-   * @see org.xtext.simplesonora.simpleSonora.Document#getMelody()
+   * @return the meta object for the containment reference '<em>Song</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Document#getSong()
    * @see #getDocument()
    * @generated
    */
-  EReference getDocument_Melody();
+  EReference getDocument_Song();
 
   /**
    * Returns the meta object for class '{@link org.xtext.simplesonora.simpleSonora.Header <em>Header</em>}'.
@@ -364,25 +401,57 @@ public interface SimpleSonoraPackage extends EPackage
   EAttribute getHeader_Key();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.simplesonora.simpleSonora.Melody <em>Melody</em>}'.
+   * Returns the meta object for class '{@link org.xtext.simplesonora.simpleSonora.Song <em>Song</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Melody</em>'.
-   * @see org.xtext.simplesonora.simpleSonora.Melody
+   * @return the meta object for class '<em>Song</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Song
    * @generated
    */
-  EClass getMelody();
+  EClass getSong();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.simplesonora.simpleSonora.Melody#getSequences <em>Sequences</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.simplesonora.simpleSonora.Song#getInstruments <em>Instruments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Instruments</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Song#getInstruments()
+   * @see #getSong()
+   * @generated
+   */
+  EReference getSong_Instruments();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.simplesonora.simpleSonora.Instrument <em>Instrument</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Instrument</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Instrument
+   * @generated
+   */
+  EClass getInstrument();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Instrument#getInstrumentName <em>Instrument Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Instrument Name</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Instrument#getInstrumentName()
+   * @see #getInstrument()
+   * @generated
+   */
+  EAttribute getInstrument_InstrumentName();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.simplesonora.simpleSonora.Instrument#getSequences <em>Sequences</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Sequences</em>'.
-   * @see org.xtext.simplesonora.simpleSonora.Melody#getSequences()
-   * @see #getMelody()
+   * @see org.xtext.simplesonora.simpleSonora.Instrument#getSequences()
+   * @see #getInstrument()
    * @generated
    */
-  EReference getMelody_Sequences();
+  EReference getInstrument_Sequences();
 
   /**
    * Returns the meta object for class '{@link org.xtext.simplesonora.simpleSonora.Sequence <em>Sequence</em>}'.
@@ -393,17 +462,6 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    */
   EClass getSequence();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Sequence#getOctave <em>Octave</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Octave</em>'.
-   * @see org.xtext.simplesonora.simpleSonora.Sequence#getOctave()
-   * @see #getSequence()
-   * @generated
-   */
-  EAttribute getSequence_Octave();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.simplesonora.simpleSonora.Sequence#getNote <em>Note</em>}'.
@@ -457,6 +515,17 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    */
   EClass getNote();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Note#getOctave <em>Octave</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Octave</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Note#getOctave()
+   * @see #getNote()
+   * @generated
+   */
+  EAttribute getNote_Octave();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Note#getNote <em>Note</em>}'.
@@ -533,12 +602,12 @@ public interface SimpleSonoraPackage extends EPackage
     EReference DOCUMENT__HEADER = eINSTANCE.getDocument_Header();
 
     /**
-     * The meta object literal for the '<em><b>Melody</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Song</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DOCUMENT__MELODY = eINSTANCE.getDocument_Melody();
+    EReference DOCUMENT__SONG = eINSTANCE.getDocument_Song();
 
     /**
      * The meta object literal for the '{@link org.xtext.simplesonora.simpleSonora.impl.HeaderImpl <em>Header</em>}' class.
@@ -575,14 +644,40 @@ public interface SimpleSonoraPackage extends EPackage
     EAttribute HEADER__KEY = eINSTANCE.getHeader_Key();
 
     /**
-     * The meta object literal for the '{@link org.xtext.simplesonora.simpleSonora.impl.MelodyImpl <em>Melody</em>}' class.
+     * The meta object literal for the '{@link org.xtext.simplesonora.simpleSonora.impl.SongImpl <em>Song</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.simplesonora.simpleSonora.impl.MelodyImpl
-     * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getMelody()
+     * @see org.xtext.simplesonora.simpleSonora.impl.SongImpl
+     * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getSong()
      * @generated
      */
-    EClass MELODY = eINSTANCE.getMelody();
+    EClass SONG = eINSTANCE.getSong();
+
+    /**
+     * The meta object literal for the '<em><b>Instruments</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SONG__INSTRUMENTS = eINSTANCE.getSong_Instruments();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.simplesonora.simpleSonora.impl.InstrumentImpl <em>Instrument</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.simplesonora.simpleSonora.impl.InstrumentImpl
+     * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getInstrument()
+     * @generated
+     */
+    EClass INSTRUMENT = eINSTANCE.getInstrument();
+
+    /**
+     * The meta object literal for the '<em><b>Instrument Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INSTRUMENT__INSTRUMENT_NAME = eINSTANCE.getInstrument_InstrumentName();
 
     /**
      * The meta object literal for the '<em><b>Sequences</b></em>' containment reference list feature.
@@ -590,7 +685,7 @@ public interface SimpleSonoraPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MELODY__SEQUENCES = eINSTANCE.getMelody_Sequences();
+    EReference INSTRUMENT__SEQUENCES = eINSTANCE.getInstrument_Sequences();
 
     /**
      * The meta object literal for the '{@link org.xtext.simplesonora.simpleSonora.impl.SequenceImpl <em>Sequence</em>}' class.
@@ -601,14 +696,6 @@ public interface SimpleSonoraPackage extends EPackage
      * @generated
      */
     EClass SEQUENCE = eINSTANCE.getSequence();
-
-    /**
-     * The meta object literal for the '<em><b>Octave</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SEQUENCE__OCTAVE = eINSTANCE.getSequence_Octave();
 
     /**
      * The meta object literal for the '<em><b>Note</b></em>' containment reference feature.
@@ -653,6 +740,14 @@ public interface SimpleSonoraPackage extends EPackage
      * @generated
      */
     EClass NOTE = eINSTANCE.getNote();
+
+    /**
+     * The meta object literal for the '<em><b>Octave</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NOTE__OCTAVE = eINSTANCE.getNote_Octave();
 
     /**
      * The meta object literal for the '<em><b>Note</b></em>' attribute feature.

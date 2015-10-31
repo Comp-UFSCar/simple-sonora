@@ -21,6 +21,7 @@ import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
 import org.xtext.simplesonora.simpleSonora.Chord;
 import org.xtext.simplesonora.simpleSonora.Header;
+import org.xtext.simplesonora.simpleSonora.Instrument;
 import org.xtext.simplesonora.simpleSonora.Note;
 import org.xtext.simplesonora.simpleSonora.Sequence;
 
@@ -35,19 +36,19 @@ public class SimpleSonoraGenerator implements IGenerator {
   
   private String key = new String("");
   
+  private Integer curVoice = Integer.valueOf(0);
+  
+  private Integer curOctave = Integer.valueOf(4);
+  
   private String auxNote = new String("");
   
   private String auxChord = new String("");
-  
-  private Integer curOctave = Integer.valueOf(4);
   
   private String curDuration = new String("h");
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     try {
-      this.curDuration = "h";
-      this.curOctave = Integer.valueOf(4);
       final Player player = new Player();
       final Pattern pattern = new Pattern();
       TreeIterator<EObject> _allContents = resource.getAllContents();
@@ -58,54 +59,86 @@ public class SimpleSonoraGenerator implements IGenerator {
           String _songName = h.getSongName();
           this.songName = _songName;
           int _tempo = h.getTempo();
-          pattern.setTempo(_tempo);
+          boolean _greaterThan = (_tempo > 0);
+          if (_greaterThan) {
+            int _tempo_1 = h.getTempo();
+            pattern.setTempo(_tempo_1);
+          }
           String _key = h.getKey();
-          String _keyToPattern = this.keyToPattern(_key);
-          pattern.add(_keyToPattern);
+          boolean _notEquals = (!Objects.equal(_key, null));
+          if (_notEquals) {
+            String _key_1 = h.getKey();
+            String _keyToPattern = this.keyToPattern(_key_1);
+            pattern.add(_keyToPattern);
+          }
         }
       }
+      this.curVoice = Integer.valueOf(0);
       TreeIterator<EObject> _allContents_1 = resource.getAllContents();
       Iterable<EObject> _iterable_1 = IteratorExtensions.<EObject>toIterable(_allContents_1);
-      Iterable<Sequence> _filter_1 = Iterables.<Sequence>filter(_iterable_1, Sequence.class);
-      for (final Sequence s : _filter_1) {
+      Iterable<Instrument> _filter_1 = Iterables.<Instrument>filter(_iterable_1, Instrument.class);
+      for (final Instrument instrument : _filter_1) {
         {
-          String _octave = s.getOctave();
-          boolean _notEquals = (!Objects.equal(_octave, null));
-          if (_notEquals) {
-            String _octave_1 = s.getOctave();
-            this.setOctave(_octave_1);
-          }
-          Note _note = s.getNote();
-          boolean _notEquals_1 = (!Objects.equal(_note, null));
-          if (_notEquals_1) {
-            Note _note_1 = s.getNote();
-            String _noteToPattern = this.noteToPattern(_note_1);
-            pattern.add(_noteToPattern);
-          }
-          Chord _chord = s.getChord();
-          boolean _notEquals_2 = (!Objects.equal(_chord, null));
-          if (_notEquals_2) {
-            this.auxChord = "";
-            Chord _chord_1 = s.getChord();
-            EList<Note> _chordNotes = _chord_1.getChordNotes();
-            List<Note> _list = IterableExtensions.<Note>toList(_chordNotes);
-            for (final Note n : _list) {
-              String _noteToPattern_1 = this.noteToPattern(n);
-              String _plus = (_noteToPattern_1 + "+");
-              String _concat = this.auxChord.concat(_plus);
-              this.auxChord = _concat;
+          this.curDuration = "h";
+          this.curOctave = Integer.valueOf(4);
+          pattern.add(("V" + this.curVoice));
+          String _instrumentName = instrument.getInstrumentName();
+          String _plus = ("I[" + _instrumentName);
+          String _plus_1 = (_plus + "]");
+          pattern.add(_plus_1);
+          EList<Sequence> _sequences = instrument.getSequences();
+          for (final Sequence s : _sequences) {
+            {
+              Note _note = s.getNote();
+              boolean _notEquals = (!Objects.equal(_note, null));
+              if (_notEquals) {
+                Note _note_1 = s.getNote();
+                String _octave = _note_1.getOctave();
+                boolean _notEquals_1 = (!Objects.equal(_octave, null));
+                if (_notEquals_1) {
+                  Note _note_2 = s.getNote();
+                  String _octave_1 = _note_2.getOctave();
+                  this.setOctave(_octave_1);
+                }
+                Note _note_3 = s.getNote();
+                String _noteToPattern = this.noteToPattern(_note_3);
+                pattern.add(_noteToPattern);
+              }
+              Chord _chord = s.getChord();
+              boolean _notEquals_2 = (!Objects.equal(_chord, null));
+              if (_notEquals_2) {
+                this.auxChord = "";
+                Chord _chord_1 = s.getChord();
+                EList<Note> _chordNotes = _chord_1.getChordNotes();
+                List<Note> _list = IterableExtensions.<Note>toList(_chordNotes);
+                for (final Note n : _list) {
+                  {
+                    String _octave_2 = n.getOctave();
+                    boolean _notEquals_3 = (!Objects.equal(_octave_2, null));
+                    if (_notEquals_3) {
+                      String _octave_3 = n.getOctave();
+                      this.setOctave(_octave_3);
+                    }
+                    String _noteToPattern_1 = this.noteToPattern(n);
+                    String _plus_2 = (_noteToPattern_1 + "+");
+                    String _concat = this.auxChord.concat(_plus_2);
+                    this.auxChord = _concat;
+                  }
+                }
+                int _length = this.auxChord.length();
+                int _minus = (_length - 1);
+                String _substring = this.auxChord.substring(0, _minus);
+                pattern.add(_substring);
+              }
             }
-            int _length = this.auxChord.length();
-            int _minus = (_length - 1);
-            String _substring = this.auxChord.substring(0, _minus);
-            pattern.add(_substring);
           }
+          this.curVoice++;
         }
       }
       player.play(pattern);
       String _string = pattern.toString();
       System.out.println(_string);
-      File _file = new File((this.songName + ".midi"));
+      File _file = new File((this.songName + ".mid"));
       MidiFileManager.savePatternToMidi(pattern, _file);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -152,27 +185,23 @@ public class SimpleSonoraGenerator implements IGenerator {
    * 
    * @param o String containing the octave information.
    */
-  public Integer setOctave(final String o) {
-    Integer _xifexpression = null;
+  public void setOctave(final String o) {
     int _compareTo = o.compareTo(">");
     boolean _equals = (_compareTo == 0);
     if (_equals) {
-      _xifexpression = this.curOctave++;
+      this.curOctave++;
     } else {
-      Integer _xifexpression_1 = null;
       int _compareTo_1 = o.compareTo("<");
       boolean _equals_1 = (_compareTo_1 == 0);
       if (_equals_1) {
-        _xifexpression_1 = this.curOctave--;
+        this.curOctave--;
       } else {
         char _charAt = o.charAt(1);
         String _string = Character.valueOf(_charAt).toString();
         int _parseInt = Integer.parseInt(_string);
-        _xifexpression_1 = this.curOctave = Integer.valueOf(_parseInt);
+        this.curOctave = Integer.valueOf(_parseInt);
       }
-      _xifexpression = _xifexpression_1;
     }
-    return _xifexpression;
   }
   
   /**

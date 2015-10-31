@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.simplesonora.simpleSonora.Document;
 import org.xtext.simplesonora.simpleSonora.Header;
-import org.xtext.simplesonora.simpleSonora.Melody;
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
+import org.xtext.simplesonora.simpleSonora.Song;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +25,7 @@ import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.DocumentImpl#getHeader <em>Header</em>}</li>
- *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.DocumentImpl#getMelody <em>Melody</em>}</li>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.DocumentImpl#getSong <em>Song</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,14 +43,14 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
   protected Header header;
 
   /**
-   * The cached value of the '{@link #getMelody() <em>Melody</em>}' containment reference.
+   * The cached value of the '{@link #getSong() <em>Song</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMelody()
+   * @see #getSong()
    * @generated
    * @ordered
    */
-  protected Melody melody;
+  protected Song song;
 
   /**
    * <!-- begin-user-doc -->
@@ -126,9 +126,9 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
    * <!-- end-user-doc -->
    * @generated
    */
-  public Melody getMelody()
+  public Song getSong()
   {
-    return melody;
+    return song;
   }
 
   /**
@@ -136,13 +136,13 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetMelody(Melody newMelody, NotificationChain msgs)
+  public NotificationChain basicSetSong(Song newSong, NotificationChain msgs)
   {
-    Melody oldMelody = melody;
-    melody = newMelody;
+    Song oldSong = song;
+    song = newSong;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.DOCUMENT__MELODY, oldMelody, newMelody);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.DOCUMENT__SONG, oldSong, newSong);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -153,20 +153,20 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMelody(Melody newMelody)
+  public void setSong(Song newSong)
   {
-    if (newMelody != melody)
+    if (newSong != song)
     {
       NotificationChain msgs = null;
-      if (melody != null)
-        msgs = ((InternalEObject)melody).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimpleSonoraPackage.DOCUMENT__MELODY, null, msgs);
-      if (newMelody != null)
-        msgs = ((InternalEObject)newMelody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SimpleSonoraPackage.DOCUMENT__MELODY, null, msgs);
-      msgs = basicSetMelody(newMelody, msgs);
+      if (song != null)
+        msgs = ((InternalEObject)song).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimpleSonoraPackage.DOCUMENT__SONG, null, msgs);
+      if (newSong != null)
+        msgs = ((InternalEObject)newSong).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SimpleSonoraPackage.DOCUMENT__SONG, null, msgs);
+      msgs = basicSetSong(newSong, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.DOCUMENT__MELODY, newMelody, newMelody));
+      eNotify(new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.DOCUMENT__SONG, newSong, newSong));
   }
 
   /**
@@ -181,8 +181,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
     {
       case SimpleSonoraPackage.DOCUMENT__HEADER:
         return basicSetHeader(null, msgs);
-      case SimpleSonoraPackage.DOCUMENT__MELODY:
-        return basicSetMelody(null, msgs);
+      case SimpleSonoraPackage.DOCUMENT__SONG:
+        return basicSetSong(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -199,8 +199,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
     {
       case SimpleSonoraPackage.DOCUMENT__HEADER:
         return getHeader();
-      case SimpleSonoraPackage.DOCUMENT__MELODY:
-        return getMelody();
+      case SimpleSonoraPackage.DOCUMENT__SONG:
+        return getSong();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -218,8 +218,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
       case SimpleSonoraPackage.DOCUMENT__HEADER:
         setHeader((Header)newValue);
         return;
-      case SimpleSonoraPackage.DOCUMENT__MELODY:
-        setMelody((Melody)newValue);
+      case SimpleSonoraPackage.DOCUMENT__SONG:
+        setSong((Song)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -238,8 +238,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
       case SimpleSonoraPackage.DOCUMENT__HEADER:
         setHeader((Header)null);
         return;
-      case SimpleSonoraPackage.DOCUMENT__MELODY:
-        setMelody((Melody)null);
+      case SimpleSonoraPackage.DOCUMENT__SONG:
+        setSong((Song)null);
         return;
     }
     super.eUnset(featureID);
@@ -257,8 +257,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
     {
       case SimpleSonoraPackage.DOCUMENT__HEADER:
         return header != null;
-      case SimpleSonoraPackage.DOCUMENT__MELODY:
-        return melody != null;
+      case SimpleSonoraPackage.DOCUMENT__SONG:
+        return song != null;
     }
     return super.eIsSet(featureID);
   }

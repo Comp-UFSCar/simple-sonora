@@ -5,20 +5,23 @@
   <eClassifiers xsi:type="ecore:EClass" name="Document">
     <eStructuralFeatures xsi:type="ecore:EReference" name="header" eType="#//Header"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="melody" eType="#//Melody"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="song" eType="#//Song" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Header">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="songName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tempo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Melody">
+  <eClassifiers xsi:type="ecore:EClass" name="Song">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instruments" upperBound="-1"
+        eType="#//Instrument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Instrument">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="instrumentName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sequences" upperBound="-1"
         eType="#//Sequence" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sequence">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="octave" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="note" eType="#//Note" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="chord" eType="#//Chord"
         containment="true"/>
@@ -28,6 +31,7 @@
         eType="#//Note" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Note">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="octave" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="note" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="accidental" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

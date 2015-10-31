@@ -20,6 +20,7 @@ import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.NoteImpl#getOctave <em>Octave</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.NoteImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.NoteImpl#getAccidental <em>Accidental</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.NoteImpl#getDuration <em>Duration</em>}</li>
@@ -29,6 +30,26 @@ import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
  */
 public class NoteImpl extends MinimalEObjectImpl.Container implements Note
 {
+  /**
+   * The default value of the '{@link #getOctave() <em>Octave</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOctave()
+   * @generated
+   * @ordered
+   */
+  protected static final String OCTAVE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOctave() <em>Octave</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOctave()
+   * @generated
+   * @ordered
+   */
+  protected String octave = OCTAVE_EDEFAULT;
+
   /**
    * The default value of the '{@link #getNote() <em>Note</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -115,6 +136,29 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getOctave()
+  {
+    return octave;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOctave(String newOctave)
+  {
+    String oldOctave = octave;
+    octave = newOctave;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.NOTE__OCTAVE, oldOctave, octave));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getNote()
   {
     return note;
@@ -189,6 +233,8 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note
   {
     switch (featureID)
     {
+      case SimpleSonoraPackage.NOTE__OCTAVE:
+        return getOctave();
       case SimpleSonoraPackage.NOTE__NOTE:
         return getNote();
       case SimpleSonoraPackage.NOTE__ACCIDENTAL:
@@ -209,6 +255,9 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note
   {
     switch (featureID)
     {
+      case SimpleSonoraPackage.NOTE__OCTAVE:
+        setOctave((String)newValue);
+        return;
       case SimpleSonoraPackage.NOTE__NOTE:
         setNote((String)newValue);
         return;
@@ -232,6 +281,9 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note
   {
     switch (featureID)
     {
+      case SimpleSonoraPackage.NOTE__OCTAVE:
+        setOctave(OCTAVE_EDEFAULT);
+        return;
       case SimpleSonoraPackage.NOTE__NOTE:
         setNote(NOTE_EDEFAULT);
         return;
@@ -255,6 +307,8 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note
   {
     switch (featureID)
     {
+      case SimpleSonoraPackage.NOTE__OCTAVE:
+        return OCTAVE_EDEFAULT == null ? octave != null : !OCTAVE_EDEFAULT.equals(octave);
       case SimpleSonoraPackage.NOTE__NOTE:
         return NOTE_EDEFAULT == null ? note != null : !NOTE_EDEFAULT.equals(note);
       case SimpleSonoraPackage.NOTE__ACCIDENTAL:
@@ -276,7 +330,9 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (note: ");
+    result.append(" (octave: ");
+    result.append(octave);
+    result.append(", note: ");
     result.append(note);
     result.append(", accidental: ");
     result.append(accidental);

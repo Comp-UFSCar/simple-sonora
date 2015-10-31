@@ -66,7 +66,8 @@ public class SimpleSonoraFactoryImpl extends EFactoryImpl implements SimpleSonor
     {
       case SimpleSonoraPackage.DOCUMENT: return createDocument();
       case SimpleSonoraPackage.HEADER: return createHeader();
-      case SimpleSonoraPackage.MELODY: return createMelody();
+      case SimpleSonoraPackage.SONG: return createSong();
+      case SimpleSonoraPackage.INSTRUMENT: return createInstrument();
       case SimpleSonoraPackage.SEQUENCE: return createSequence();
       case SimpleSonoraPackage.CHORD: return createChord();
       case SimpleSonoraPackage.NOTE: return createNote();
@@ -102,10 +103,21 @@ public class SimpleSonoraFactoryImpl extends EFactoryImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public Melody createMelody()
+  public Song createSong()
   {
-    MelodyImpl melody = new MelodyImpl();
-    return melody;
+    SongImpl song = new SongImpl();
+    return song;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Instrument createInstrument()
+  {
+    InstrumentImpl instrument = new InstrumentImpl();
+    return instrument;
   }
 
   /**

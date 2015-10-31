@@ -140,32 +140,60 @@ finally {
 
 
 
-// Entry rule entryRuleMelody
-entryRuleMelody 
+// Entry rule entryRuleSong
+entryRuleSong 
 :
-{ before(grammarAccess.getMelodyRule()); }
-	 ruleMelody
-{ after(grammarAccess.getMelodyRule()); } 
+{ before(grammarAccess.getSongRule()); }
+	 ruleSong
+{ after(grammarAccess.getSongRule()); } 
 	 EOF 
 ;
 
-// Rule Melody
-ruleMelody
+// Rule Song
+ruleSong
     @init {
 		int stackSize = keepStackSize();
     }
 	:
 (
 (
-{ before(grammarAccess.getMelodyAccess().getSequencesAssignment()); }
-(rule__Melody__SequencesAssignment)
-{ after(grammarAccess.getMelodyAccess().getSequencesAssignment()); }
+{ before(grammarAccess.getSongAccess().getInstrumentsAssignment()); }
+(rule__Song__InstrumentsAssignment)
+{ after(grammarAccess.getSongAccess().getInstrumentsAssignment()); }
 )
 (
-{ before(grammarAccess.getMelodyAccess().getSequencesAssignment()); }
-(rule__Melody__SequencesAssignment)*
-{ after(grammarAccess.getMelodyAccess().getSequencesAssignment()); }
+{ before(grammarAccess.getSongAccess().getInstrumentsAssignment()); }
+(rule__Song__InstrumentsAssignment)*
+{ after(grammarAccess.getSongAccess().getInstrumentsAssignment()); }
 )
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+// Entry rule entryRuleInstrument
+entryRuleInstrument 
+:
+{ before(grammarAccess.getInstrumentRule()); }
+	 ruleInstrument
+{ after(grammarAccess.getInstrumentRule()); } 
+	 EOF 
+;
+
+// Rule Instrument
+ruleInstrument
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getInstrumentAccess().getGroup()); }
+(rule__Instrument__Group__0)
+{ after(grammarAccess.getInstrumentAccess().getGroup()); }
 )
 
 ;
@@ -191,9 +219,9 @@ ruleSequence
     }
 	:
 (
-{ before(grammarAccess.getSequenceAccess().getGroup()); }
-(rule__Sequence__Group__0)
-{ after(grammarAccess.getSequenceAccess().getGroup()); }
+{ before(grammarAccess.getSequenceAccess().getAlternatives()); }
+(rule__Sequence__Alternatives)
+{ after(grammarAccess.getSequenceAccess().getAlternatives()); }
 )
 
 ;
@@ -260,21 +288,21 @@ finally {
 
 
 
-rule__Sequence__Alternatives_1
+rule__Sequence__Alternatives
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getSequenceAccess().getNoteAssignment_1_0()); }
-(rule__Sequence__NoteAssignment_1_0)
-{ after(grammarAccess.getSequenceAccess().getNoteAssignment_1_0()); }
+{ before(grammarAccess.getSequenceAccess().getNoteAssignment_0()); }
+(rule__Sequence__NoteAssignment_0)
+{ after(grammarAccess.getSequenceAccess().getNoteAssignment_0()); }
 )
 
     |(
-{ before(grammarAccess.getSequenceAccess().getChordAssignment_1_1()); }
-(rule__Sequence__ChordAssignment_1_1)
-{ after(grammarAccess.getSequenceAccess().getChordAssignment_1_1()); }
+{ before(grammarAccess.getSequenceAccess().getChordAssignment_1()); }
+(rule__Sequence__ChordAssignment_1)
+{ after(grammarAccess.getSequenceAccess().getChordAssignment_1()); }
 )
 
 ;
@@ -330,9 +358,9 @@ rule__Document__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getDocumentAccess().getMelodyAssignment_1()); }
-(rule__Document__MelodyAssignment_1)
-{ after(grammarAccess.getDocumentAccess().getMelodyAssignment_1()); }
+{ before(grammarAccess.getDocumentAccess().getSongAssignment_1()); }
+(rule__Document__SongAssignment_1)
+{ after(grammarAccess.getDocumentAccess().getSongAssignment_1()); }
 )
 
 ;
@@ -393,7 +421,7 @@ rule__Header__Group__1__Impl
 :
 (
 { before(grammarAccess.getHeaderAccess().getGroup_1()); }
-(rule__Header__Group_1__0)
+(rule__Header__Group_1__0)?
 { after(grammarAccess.getHeaderAccess().getGroup_1()); }
 )
 
@@ -421,7 +449,7 @@ rule__Header__Group__2__Impl
 :
 (
 { before(grammarAccess.getHeaderAccess().getGroup_2()); }
-(rule__Header__Group_2__0)
+(rule__Header__Group_2__0)?
 { after(grammarAccess.getHeaderAccess().getGroup_2()); }
 )
 
@@ -455,11 +483,11 @@ rule__Header__Group_0__0__Impl
     }
 :
 (
-{ before(grammarAccess.getHeaderAccess().getNameKeyword_0_0()); }
+{ before(grammarAccess.getHeaderAccess().getTitleKeyword_0_0()); }
 
-	'name' 
+	'title' 
 
-{ after(grammarAccess.getHeaderAccess().getNameKeyword_0_0()); }
+{ after(grammarAccess.getHeaderAccess().getTitleKeyword_0_0()); }
 )
 
 ;
@@ -817,27 +845,27 @@ finally {
 
 
 
-rule__Sequence__Group__0
+rule__Instrument__Group__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__Sequence__Group__0__Impl
-	rule__Sequence__Group__1
+	rule__Instrument__Group__0__Impl
+	rule__Instrument__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sequence__Group__0__Impl
+rule__Instrument__Group__0__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getSequenceAccess().getOctaveAssignment_0()); }
-(rule__Sequence__OctaveAssignment_0)?
-{ after(grammarAccess.getSequenceAccess().getOctaveAssignment_0()); }
+{ before(grammarAccess.getInstrumentAccess().getInstrumentNameAssignment_0()); }
+(rule__Instrument__InstrumentNameAssignment_0)
+{ after(grammarAccess.getInstrumentAccess().getInstrumentNameAssignment_0()); }
 )
 
 ;
@@ -846,32 +874,105 @@ finally {
 }
 
 
-rule__Sequence__Group__1
+rule__Instrument__Group__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__Sequence__Group__1__Impl
+	rule__Instrument__Group__1__Impl
+	rule__Instrument__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sequence__Group__1__Impl
+rule__Instrument__Group__1__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getSequenceAccess().getAlternatives_1()); }
-(rule__Sequence__Alternatives_1)
-{ after(grammarAccess.getSequenceAccess().getAlternatives_1()); }
+{ before(grammarAccess.getInstrumentAccess().getLeftCurlyBracketKeyword_1()); }
+
+	'{' 
+
+{ after(grammarAccess.getInstrumentAccess().getLeftCurlyBracketKeyword_1()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__Instrument__Group__2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Instrument__Group__2__Impl
+	rule__Instrument__Group__3
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Instrument__Group__2__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+(
+{ before(grammarAccess.getInstrumentAccess().getSequencesAssignment_2()); }
+(rule__Instrument__SequencesAssignment_2)
+{ after(grammarAccess.getInstrumentAccess().getSequencesAssignment_2()); }
+)
+(
+{ before(grammarAccess.getInstrumentAccess().getSequencesAssignment_2()); }
+(rule__Instrument__SequencesAssignment_2)*
+{ after(grammarAccess.getInstrumentAccess().getSequencesAssignment_2()); }
+)
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Instrument__Group__3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Instrument__Group__3__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Instrument__Group__3__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getInstrumentAccess().getRightCurlyBracketKeyword_3()); }
+
+	'}' 
+
+{ after(grammarAccess.getInstrumentAccess().getRightCurlyBracketKeyword_3()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
 
 
 
@@ -1027,9 +1128,9 @@ rule__Note__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getNoteAccess().getNoteAssignment_0()); }
-(rule__Note__NoteAssignment_0)
-{ after(grammarAccess.getNoteAccess().getNoteAssignment_0()); }
+{ before(grammarAccess.getNoteAccess().getOctaveAssignment_0()); }
+(rule__Note__OctaveAssignment_0)?
+{ after(grammarAccess.getNoteAccess().getOctaveAssignment_0()); }
 )
 
 ;
@@ -1056,9 +1157,9 @@ rule__Note__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getNoteAccess().getAccidentalAssignment_1()); }
-(rule__Note__AccidentalAssignment_1)?
-{ after(grammarAccess.getNoteAccess().getAccidentalAssignment_1()); }
+{ before(grammarAccess.getNoteAccess().getNoteAssignment_1()); }
+(rule__Note__NoteAssignment_1)
+{ after(grammarAccess.getNoteAccess().getNoteAssignment_1()); }
 )
 
 ;
@@ -1073,6 +1174,7 @@ rule__Note__Group__2
     }
 :
 	rule__Note__Group__2__Impl
+	rule__Note__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1084,15 +1186,45 @@ rule__Note__Group__2__Impl
     }
 :
 (
-{ before(grammarAccess.getNoteAccess().getDurationAssignment_2()); }
-(rule__Note__DurationAssignment_2)?
-{ after(grammarAccess.getNoteAccess().getDurationAssignment_2()); }
+{ before(grammarAccess.getNoteAccess().getAccidentalAssignment_2()); }
+(rule__Note__AccidentalAssignment_2)?
+{ after(grammarAccess.getNoteAccess().getAccidentalAssignment_2()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__Note__Group__3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Note__Group__3__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Note__Group__3__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getNoteAccess().getDurationAssignment_3()); }
+(rule__Note__DurationAssignment_3)?
+{ after(grammarAccess.getNoteAccess().getDurationAssignment_3()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 
@@ -1117,14 +1249,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Document__MelodyAssignment_1
+rule__Document__SongAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDocumentAccess().getMelodyMelodyParserRuleCall_1_0()); }
-	ruleMelody{ after(grammarAccess.getDocumentAccess().getMelodyMelodyParserRuleCall_1_0()); }
+{ before(grammarAccess.getDocumentAccess().getSongSongParserRuleCall_1_0()); }
+	ruleSong{ after(grammarAccess.getDocumentAccess().getSongSongParserRuleCall_1_0()); }
 )
 
 ;
@@ -1177,14 +1309,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Melody__SequencesAssignment
+rule__Song__InstrumentsAssignment
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getMelodyAccess().getSequencesSequenceParserRuleCall_0()); }
-	ruleSequence{ after(grammarAccess.getMelodyAccess().getSequencesSequenceParserRuleCall_0()); }
+{ before(grammarAccess.getSongAccess().getInstrumentsInstrumentParserRuleCall_0()); }
+	ruleInstrument{ after(grammarAccess.getSongAccess().getInstrumentsInstrumentParserRuleCall_0()); }
 )
 
 ;
@@ -1192,14 +1324,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sequence__OctaveAssignment_0
+rule__Instrument__InstrumentNameAssignment_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getSequenceAccess().getOctaveOCTAVETerminalRuleCall_0_0()); }
-	RULE_OCTAVE{ after(grammarAccess.getSequenceAccess().getOctaveOCTAVETerminalRuleCall_0_0()); }
+{ before(grammarAccess.getInstrumentAccess().getInstrumentNameIDTerminalRuleCall_0_0()); }
+	RULE_ID{ after(grammarAccess.getInstrumentAccess().getInstrumentNameIDTerminalRuleCall_0_0()); }
 )
 
 ;
@@ -1207,14 +1339,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sequence__NoteAssignment_1_0
+rule__Instrument__SequencesAssignment_2
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getSequenceAccess().getNoteNoteParserRuleCall_1_0_0()); }
-	ruleNote{ after(grammarAccess.getSequenceAccess().getNoteNoteParserRuleCall_1_0_0()); }
+{ before(grammarAccess.getInstrumentAccess().getSequencesSequenceParserRuleCall_2_0()); }
+	ruleSequence{ after(grammarAccess.getInstrumentAccess().getSequencesSequenceParserRuleCall_2_0()); }
 )
 
 ;
@@ -1222,14 +1354,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sequence__ChordAssignment_1_1
+rule__Sequence__NoteAssignment_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getSequenceAccess().getChordChordParserRuleCall_1_1_0()); }
-	ruleChord{ after(grammarAccess.getSequenceAccess().getChordChordParserRuleCall_1_1_0()); }
+{ before(grammarAccess.getSequenceAccess().getNoteNoteParserRuleCall_0_0()); }
+	ruleNote{ after(grammarAccess.getSequenceAccess().getNoteNoteParserRuleCall_0_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Sequence__ChordAssignment_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSequenceAccess().getChordChordParserRuleCall_1_0()); }
+	ruleChord{ after(grammarAccess.getSequenceAccess().getChordChordParserRuleCall_1_0()); }
 )
 
 ;
@@ -1267,14 +1414,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Note__NoteAssignment_0
+rule__Note__OctaveAssignment_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getNoteAccess().getNoteNOTE_IDTerminalRuleCall_0_0()); }
-	RULE_NOTE_ID{ after(grammarAccess.getNoteAccess().getNoteNOTE_IDTerminalRuleCall_0_0()); }
+{ before(grammarAccess.getNoteAccess().getOctaveOCTAVETerminalRuleCall_0_0()); }
+	RULE_OCTAVE{ after(grammarAccess.getNoteAccess().getOctaveOCTAVETerminalRuleCall_0_0()); }
 )
 
 ;
@@ -1282,14 +1429,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Note__AccidentalAssignment_1
+rule__Note__NoteAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getNoteAccess().getAccidentalACCIDENTALTerminalRuleCall_1_0()); }
-	RULE_ACCIDENTAL{ after(grammarAccess.getNoteAccess().getAccidentalACCIDENTALTerminalRuleCall_1_0()); }
+{ before(grammarAccess.getNoteAccess().getNoteNOTE_IDTerminalRuleCall_1_0()); }
+	RULE_NOTE_ID{ after(grammarAccess.getNoteAccess().getNoteNOTE_IDTerminalRuleCall_1_0()); }
 )
 
 ;
@@ -1297,14 +1444,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Note__DurationAssignment_2
+rule__Note__AccidentalAssignment_2
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getNoteAccess().getDurationDURATIONTerminalRuleCall_2_0()); }
-	RULE_DURATION{ after(grammarAccess.getNoteAccess().getDurationDURATIONTerminalRuleCall_2_0()); }
+{ before(grammarAccess.getNoteAccess().getAccidentalACCIDENTALTerminalRuleCall_2_0()); }
+	RULE_ACCIDENTAL{ after(grammarAccess.getNoteAccess().getAccidentalACCIDENTALTerminalRuleCall_2_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Note__DurationAssignment_3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getNoteAccess().getDurationDURATIONTerminalRuleCall_3_0()); }
+	RULE_DURATION{ after(grammarAccess.getNoteAccess().getDurationDURATIONTerminalRuleCall_3_0()); }
 )
 
 ;

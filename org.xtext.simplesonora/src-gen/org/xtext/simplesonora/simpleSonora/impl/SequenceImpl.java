@@ -24,7 +24,6 @@ import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.SequenceImpl#getOctave <em>Octave</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.SequenceImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.SequenceImpl#getChord <em>Chord</em>}</li>
  * </ul>
@@ -33,26 +32,6 @@ import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
  */
 public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequence
 {
-  /**
-   * The default value of the '{@link #getOctave() <em>Octave</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOctave()
-   * @generated
-   * @ordered
-   */
-  protected static final String OCTAVE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getOctave() <em>Octave</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOctave()
-   * @generated
-   * @ordered
-   */
-  protected String octave = OCTAVE_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -92,29 +71,6 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
   protected EClass eStaticClass()
   {
     return SimpleSonoraPackage.Literals.SEQUENCE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getOctave()
-  {
-    return octave;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setOctave(String newOctave)
-  {
-    String oldOctave = octave;
-    octave = newOctave;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.SEQUENCE__OCTAVE, oldOctave, octave));
   }
 
   /**
@@ -241,8 +197,6 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.SEQUENCE__OCTAVE:
-        return getOctave();
       case SimpleSonoraPackage.SEQUENCE__NOTE:
         return getNote();
       case SimpleSonoraPackage.SEQUENCE__CHORD:
@@ -261,9 +215,6 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.SEQUENCE__OCTAVE:
-        setOctave((String)newValue);
-        return;
       case SimpleSonoraPackage.SEQUENCE__NOTE:
         setNote((Note)newValue);
         return;
@@ -284,9 +235,6 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.SEQUENCE__OCTAVE:
-        setOctave(OCTAVE_EDEFAULT);
-        return;
       case SimpleSonoraPackage.SEQUENCE__NOTE:
         setNote((Note)null);
         return;
@@ -307,31 +255,12 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.SEQUENCE__OCTAVE:
-        return OCTAVE_EDEFAULT == null ? octave != null : !OCTAVE_EDEFAULT.equals(octave);
       case SimpleSonoraPackage.SEQUENCE__NOTE:
         return note != null;
       case SimpleSonoraPackage.SEQUENCE__CHORD:
         return chord != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (octave: ");
-    result.append(octave);
-    result.append(')');
-    return result.toString();
   }
 
 } //SequenceImpl

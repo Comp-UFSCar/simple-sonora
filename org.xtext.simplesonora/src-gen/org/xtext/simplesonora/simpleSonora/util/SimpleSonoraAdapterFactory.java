@@ -85,9 +85,14 @@ public class SimpleSonoraAdapterFactory extends AdapterFactoryImpl
         return createHeaderAdapter();
       }
       @Override
-      public Adapter caseMelody(Melody object)
+      public Adapter caseSong(Song object)
       {
-        return createMelodyAdapter();
+        return createSongAdapter();
+      }
+      @Override
+      public Adapter caseInstrument(Instrument object)
+      {
+        return createInstrumentAdapter();
       }
       @Override
       public Adapter caseSequence(Sequence object)
@@ -157,16 +162,31 @@ public class SimpleSonoraAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Melody <em>Melody</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Song <em>Song</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.simplesonora.simpleSonora.Melody
+   * @see org.xtext.simplesonora.simpleSonora.Song
    * @generated
    */
-  public Adapter createMelodyAdapter()
+  public Adapter createSongAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Instrument <em>Instrument</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.simplesonora.simpleSonora.Instrument
+   * @generated
+   */
+  public Adapter createInstrumentAdapter()
   {
     return null;
   }

@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.Document#getHeader <em>Header</em>}</li>
- *   <li>{@link org.xtext.simplesonora.simpleSonora.Document#getMelody <em>Melody</em>}</li>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.Document#getSong <em>Song</em>}</li>
  * </ul>
  *
  * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getDocument()
@@ -50,29 +50,29 @@ public interface Document extends EObject
   void setHeader(Header value);
 
   /**
-   * Returns the value of the '<em><b>Melody</b></em>' containment reference.
+   * Returns the value of the '<em><b>Song</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Melody</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Song</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Melody</em>' containment reference.
-   * @see #setMelody(Melody)
-   * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getDocument_Melody()
+   * @return the value of the '<em>Song</em>' containment reference.
+   * @see #setSong(Song)
+   * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getDocument_Song()
    * @model containment="true"
    * @generated
    */
-  Melody getMelody();
+  Song getSong();
 
   /**
-   * Sets the value of the '{@link org.xtext.simplesonora.simpleSonora.Document#getMelody <em>Melody</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.simplesonora.simpleSonora.Document#getSong <em>Song</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Melody</em>' containment reference.
-   * @see #getMelody()
+   * @param value the new value of the '<em>Song</em>' containment reference.
+   * @see #getSong()
    * @generated
    */
-  void setMelody(Melody value);
+  void setSong(Song value);
 
 } // Document

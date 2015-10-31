@@ -98,17 +98,17 @@ ruleDocument returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDocumentAccess().getMelodyMelodyParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getDocumentAccess().getSongSongParserRuleCall_1_0()); 
 	    }
-		lv_melody_1_0=ruleMelody		{
+		lv_song_1_0=ruleSong		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDocumentRule());
 	        }
        		set(
        			$current, 
-       			"melody",
-        		lv_melody_1_0, 
-        		"Melody");
+       			"song",
+        		lv_song_1_0, 
+        		"Song");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -134,9 +134,9 @@ ruleHeader returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((	otherlv_0='name' 
+((	otherlv_0='title' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getHeaderAccess().getNameKeyword_0_0());
+    	newLeafNode(otherlv_0, grammarAccess.getHeaderAccess().getTitleKeyword_0_0());
     }
 	otherlv_1='=' 
     {
@@ -186,7 +186,7 @@ ruleHeader returns [EObject current=null]
 	    }
 
 )
-))(	otherlv_6='key' 
+))?(	otherlv_6='key' 
     {
     	newLeafNode(otherlv_6, grammarAccess.getHeaderAccess().getKeyKeyword_2_0());
     }
@@ -212,7 +212,7 @@ ruleHeader returns [EObject current=null]
 	    }
 
 )
-)))
+))?)
 ;
 
 
@@ -261,39 +261,104 @@ ruleKey returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 
 
 
-// Entry rule entryRuleMelody
-entryRuleMelody returns [EObject current=null] 
+// Entry rule entryRuleSong
+entryRuleSong returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getMelodyRule()); }
-	 iv_ruleMelody=ruleMelody 
-	 { $current=$iv_ruleMelody.current; } 
+	{ newCompositeNode(grammarAccess.getSongRule()); }
+	 iv_ruleSong=ruleSong 
+	 { $current=$iv_ruleSong.current; } 
 	 EOF 
 ;
 
-// Rule Melody
-ruleMelody returns [EObject current=null] 
+// Rule Song
+ruleSong returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMelodyAccess().getSequencesSequenceParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getSongAccess().getInstrumentsInstrumentParserRuleCall_0()); 
 	    }
-		lv_sequences_0_0=ruleSequence		{
+		lv_instruments_0_0=ruleInstrument		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getMelodyRule());
+	            $current = createModelElementForParent(grammarAccess.getSongRule());
 	        }
        		add(
        			$current, 
-       			"sequences",
-        		lv_sequences_0_0, 
-        		"Sequence");
+       			"instruments",
+        		lv_instruments_0_0, 
+        		"Instrument");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )+
+;
+
+
+
+
+
+// Entry rule entryRuleInstrument
+entryRuleInstrument returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getInstrumentRule()); }
+	 iv_ruleInstrument=ruleInstrument 
+	 { $current=$iv_ruleInstrument.current; } 
+	 EOF 
+;
+
+// Rule Instrument
+ruleInstrument returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		lv_instrumentName_0_0=RULE_ID
+		{
+			newLeafNode(lv_instrumentName_0_0, grammarAccess.getInstrumentAccess().getInstrumentNameIDTerminalRuleCall_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getInstrumentRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"instrumentName",
+        		lv_instrumentName_0_0, 
+        		"ID");
+	    }
+
+)
+)	otherlv_1='{' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getInstrumentAccess().getLeftCurlyBracketKeyword_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getInstrumentAccess().getSequencesSequenceParserRuleCall_2_0()); 
+	    }
+		lv_sequences_2_0=ruleSequence		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getInstrumentRule());
+	        }
+       		add(
+       			$current, 
+       			"sequences",
+        		lv_sequences_2_0, 
+        		"Sequence");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+	otherlv_3='}' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getInstrumentAccess().getRightCurlyBracketKeyword_3());
+    }
+)
 ;
 
 
@@ -316,35 +381,17 @@ ruleSequence returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_octave_0_0=RULE_OCTAVE
-		{
-			newLeafNode(lv_octave_0_0, grammarAccess.getSequenceAccess().getOctaveOCTAVETerminalRuleCall_0_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSequenceRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"octave",
-        		lv_octave_0_0, 
-        		"OCTAVE");
-	    }
-
-)
-)?((
-(
 		{ 
-	        newCompositeNode(grammarAccess.getSequenceAccess().getNoteNoteParserRuleCall_1_0_0()); 
+	        newCompositeNode(grammarAccess.getSequenceAccess().getNoteNoteParserRuleCall_0_0()); 
 	    }
-		lv_note_1_0=ruleNote		{
+		lv_note_0_0=ruleNote		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSequenceRule());
 	        }
        		set(
        			$current, 
        			"note",
-        		lv_note_1_0, 
+        		lv_note_0_0, 
         		"Note");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -354,22 +401,22 @@ ruleSequence returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSequenceAccess().getChordChordParserRuleCall_1_1_0()); 
+	        newCompositeNode(grammarAccess.getSequenceAccess().getChordChordParserRuleCall_1_0()); 
 	    }
-		lv_chord_2_0=ruleChord		{
+		lv_chord_1_0=ruleChord		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSequenceRule());
 	        }
        		set(
        			$current, 
        			"chord",
-        		lv_chord_2_0, 
+        		lv_chord_1_0, 
         		"Chord");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)))
+))
 ;
 
 
@@ -453,9 +500,27 @@ ruleNote returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_note_0_0=RULE_NOTE_ID
+		lv_octave_0_0=RULE_OCTAVE
 		{
-			newLeafNode(lv_note_0_0, grammarAccess.getNoteAccess().getNoteNOTE_IDTerminalRuleCall_0_0()); 
+			newLeafNode(lv_octave_0_0, grammarAccess.getNoteAccess().getOctaveOCTAVETerminalRuleCall_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getNoteRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"octave",
+        		lv_octave_0_0, 
+        		"OCTAVE");
+	    }
+
+)
+)?(
+(
+		lv_note_1_0=RULE_NOTE_ID
+		{
+			newLeafNode(lv_note_1_0, grammarAccess.getNoteAccess().getNoteNOTE_IDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -464,16 +529,16 @@ ruleNote returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"note",
-        		lv_note_0_0, 
+        		lv_note_1_0, 
         		"NOTE_ID");
 	    }
 
 )
 )(
 (
-		lv_accidental_1_0=RULE_ACCIDENTAL
+		lv_accidental_2_0=RULE_ACCIDENTAL
 		{
-			newLeafNode(lv_accidental_1_0, grammarAccess.getNoteAccess().getAccidentalACCIDENTALTerminalRuleCall_1_0()); 
+			newLeafNode(lv_accidental_2_0, grammarAccess.getNoteAccess().getAccidentalACCIDENTALTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -482,16 +547,16 @@ ruleNote returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"accidental",
-        		lv_accidental_1_0, 
+        		lv_accidental_2_0, 
         		"ACCIDENTAL");
 	    }
 
 )
 )?(
 (
-		lv_duration_2_0=RULE_DURATION
+		lv_duration_3_0=RULE_DURATION
 		{
-			newLeafNode(lv_duration_2_0, grammarAccess.getNoteAccess().getDurationDURATIONTerminalRuleCall_2_0()); 
+			newLeafNode(lv_duration_3_0, grammarAccess.getNoteAccess().getDurationDURATIONTerminalRuleCall_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -500,7 +565,7 @@ ruleNote returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"duration",
-        		lv_duration_2_0, 
+        		lv_duration_3_0, 
         		"DURATION");
 	    }
 

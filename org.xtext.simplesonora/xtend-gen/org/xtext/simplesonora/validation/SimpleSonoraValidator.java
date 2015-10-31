@@ -3,6 +3,13 @@
  */
 package org.xtext.simplesonora.validation;
 
+import java.util.Set;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
+import org.jfugue.midi.MidiDictionary;
+import org.xtext.simplesonora.simpleSonora.Instrument;
+import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
 import org.xtext.simplesonora.validation.AbstractSimpleSonoraValidator;
 
 /**
@@ -12,4 +19,27 @@ import org.xtext.simplesonora.validation.AbstractSimpleSonoraValidator;
  */
 @SuppressWarnings("all")
 public class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
+  private Set<String> instrumentNames = IterableExtensions.<String>toSet(MidiDictionary.INSTRUMENT_BYTE_TO_STRING.values());
+  
+  @Check
+  public void checkInstrument(final Instrument instrument) {
+    String _instrumentName = instrument.getInstrumentName();
+    String _lowerCase = _instrumentName.toLowerCase();
+    String[] namelist = _lowerCase.split("_");
+    StringBuilder convertedName = new StringBuilder();
+    for (final String n : namelist) {
+      String _firstUpper = StringExtensions.toFirstUpper(n);
+      String _plus = (_firstUpper + "_");
+      convertedName.append(_plus);
+    }
+    int _length = convertedName.length();
+    int _minus = (_length - 1);
+    convertedName.deleteCharAt(_minus);
+    String _string = convertedName.toString();
+    boolean _contains = this.instrumentNames.contains(_string);
+    boolean _equals = (_contains == false);
+    if (_equals) {
+      this.error("Instrument invalid or not recognized. Check a general MIDI instrument list.", SimpleSonoraPackage.Literals.INSTRUMENT__INSTRUMENT_NAME);
+    }
+  }
 }
