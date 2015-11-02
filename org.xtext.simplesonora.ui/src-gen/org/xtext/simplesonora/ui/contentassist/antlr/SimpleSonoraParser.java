@@ -46,6 +46,8 @@ public class SimpleSonoraParser extends AbstractContentAssistParser {
 					put(grammarAccess.getHeaderAccess().getGroup_2(), "rule__Header__Group_2__0");
 					put(grammarAccess.getKeyAccess().getGroup(), "rule__Key__Group__0");
 					put(grammarAccess.getInstrumentAccess().getGroup(), "rule__Instrument__Group__0");
+					put(grammarAccess.getHarmonyAccess().getGroup(), "rule__Harmony__Group__0");
+					put(grammarAccess.getHarmonyAccess().getGroup_1(), "rule__Harmony__Group_1__0");
 					put(grammarAccess.getChordAccess().getGroup(), "rule__Chord__Group__0");
 					put(grammarAccess.getChordAccess().getGroup_1(), "rule__Chord__Group_1__0");
 					put(grammarAccess.getNoteAccess().getGroup(), "rule__Note__Group__0");
@@ -59,7 +61,11 @@ public class SimpleSonoraParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInstrumentAccess().getSequencesAssignment_2(), "rule__Instrument__SequencesAssignment_2");
 					put(grammarAccess.getSequenceAccess().getNoteAssignment_0_0(), "rule__Sequence__NoteAssignment_0_0");
 					put(grammarAccess.getSequenceAccess().getChordAssignment_0_1(), "rule__Sequence__ChordAssignment_0_1");
+					put(grammarAccess.getSequenceAccess().getHarmonyAssignment_0_2(), "rule__Sequence__HarmonyAssignment_0_2");
 					put(grammarAccess.getSequenceAccess().getMeasureAssignment_1(), "rule__Sequence__MeasureAssignment_1");
+					put(grammarAccess.getHarmonyAccess().getHarmonyNotesAssignment_0(), "rule__Harmony__HarmonyNotesAssignment_0");
+					put(grammarAccess.getHarmonyAccess().getHarmonyNotesAssignment_1_1(), "rule__Harmony__HarmonyNotesAssignment_1_1");
+					put(grammarAccess.getHarmonyAccess().getNotesAssignment_3(), "rule__Harmony__NotesAssignment_3");
 					put(grammarAccess.getChordAccess().getChordNotesAssignment_0(), "rule__Chord__ChordNotesAssignment_0");
 					put(grammarAccess.getChordAccess().getChordNotesAssignment_1_1(), "rule__Chord__ChordNotesAssignment_1_1");
 					put(grammarAccess.getNoteAccess().getOctaveAssignment_0(), "rule__Note__OctaveAssignment_0");

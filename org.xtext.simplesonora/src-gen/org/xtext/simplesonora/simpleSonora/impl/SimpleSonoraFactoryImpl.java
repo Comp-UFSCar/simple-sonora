@@ -69,6 +69,7 @@ public class SimpleSonoraFactoryImpl extends EFactoryImpl implements SimpleSonor
       case SimpleSonoraPackage.SONG: return createSong();
       case SimpleSonoraPackage.INSTRUMENT: return createInstrument();
       case SimpleSonoraPackage.SEQUENCE: return createSequence();
+      case SimpleSonoraPackage.HARMONY: return createHarmony();
       case SimpleSonoraPackage.CHORD: return createChord();
       case SimpleSonoraPackage.NOTE: return createNote();
       default:
@@ -129,6 +130,17 @@ public class SimpleSonoraFactoryImpl extends EFactoryImpl implements SimpleSonor
   {
     SequenceImpl sequence = new SequenceImpl();
     return sequence;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Harmony createHarmony()
+  {
+    HarmonyImpl harmony = new HarmonyImpl();
+    return harmony;
   }
 
   /**

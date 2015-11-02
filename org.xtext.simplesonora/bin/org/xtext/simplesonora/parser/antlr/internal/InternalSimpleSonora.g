@@ -416,12 +416,31 @@ ruleSequence returns [EObject current=null]
 	    }
 
 )
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSequenceAccess().getHarmonyHarmonyParserRuleCall_0_2_0()); 
+	    }
+		lv_harmony_2_0=ruleHarmony		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSequenceRule());
+	        }
+       		set(
+       			$current, 
+       			"harmony",
+        		lv_harmony_2_0, 
+        		"Harmony");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
 ))
     |(
 (
-		lv_measure_2_0=RULE_MEASURE
+		lv_measure_3_0=RULE_MEASURE
 		{
-			newLeafNode(lv_measure_2_0, grammarAccess.getSequenceAccess().getMeasureMEASURETerminalRuleCall_1_0()); 
+			newLeafNode(lv_measure_3_0, grammarAccess.getSequenceAccess().getMeasureMEASURETerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -436,6 +455,93 @@ ruleSequence returns [EObject current=null]
 
 )
 ))
+;
+
+
+
+
+
+// Entry rule entryRuleHarmony
+entryRuleHarmony returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getHarmonyRule()); }
+	 iv_ruleHarmony=ruleHarmony 
+	 { $current=$iv_ruleHarmony.current; } 
+	 EOF 
+;
+
+// Rule Harmony
+ruleHarmony returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getHarmonyAccess().getHarmonyNotesNoteParserRuleCall_0_0()); 
+	    }
+		lv_harmonyNotes_0_0=ruleNote		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getHarmonyRule());
+	        }
+       		add(
+       			$current, 
+       			"harmonyNotes",
+        		lv_harmonyNotes_0_0, 
+        		"Note");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_1='/' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getHarmonyAccess().getSolidusKeyword_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getHarmonyAccess().getHarmonyNotesNoteParserRuleCall_1_1_0()); 
+	    }
+		lv_harmonyNotes_2_0=ruleNote		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getHarmonyRule());
+	        }
+       		add(
+       			$current, 
+       			"harmonyNotes",
+        		lv_harmonyNotes_2_0, 
+        		"Note");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*	otherlv_3='[' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getHarmonyAccess().getLeftSquareBracketKeyword_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getHarmonyAccess().getNotesNoteParserRuleCall_3_0()); 
+	    }
+		lv_notes_4_0=ruleNote		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getHarmonyRule());
+	        }
+       		add(
+       			$current, 
+       			"notes",
+        		lv_notes_4_0, 
+        		"Note");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+	otherlv_5=']' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getHarmonyAccess().getRightSquareBracketKeyword_4());
+    }
+)
 ;
 
 

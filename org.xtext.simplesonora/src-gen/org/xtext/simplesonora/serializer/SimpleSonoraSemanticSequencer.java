@@ -19,6 +19,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.xtext.simplesonora.services.SimpleSonoraGrammarAccess;
 import org.xtext.simplesonora.simpleSonora.Chord;
 import org.xtext.simplesonora.simpleSonora.Document;
+import org.xtext.simplesonora.simpleSonora.Harmony;
 import org.xtext.simplesonora.simpleSonora.Header;
 import org.xtext.simplesonora.simpleSonora.Instrument;
 import org.xtext.simplesonora.simpleSonora.Note;
@@ -40,6 +41,9 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 				return; 
 			case SimpleSonoraPackage.DOCUMENT:
 				sequence_Document(context, (Document) semanticObject); 
+				return; 
+			case SimpleSonoraPackage.HARMONY:
+				sequence_Harmony(context, (Harmony) semanticObject); 
 				return; 
 			case SimpleSonoraPackage.HEADER:
 				sequence_Header(context, (Header) semanticObject); 
@@ -90,6 +94,15 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Constraint:
+	 *     (harmonyNotes+=Note harmonyNotes+=Note* notes+=Note+)
+	 */
+	protected void sequence_Harmony(EObject context, Harmony semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (songName=ID tempo=INT? key=Key?)
 	 */
 	protected void sequence_Header(EObject context, Header semanticObject) {
@@ -117,7 +130,7 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Constraint:
-	 *     (note=Note | chord=Chord | measure?=MEASURE)
+	 *     (note=Note | chord=Chord | harmony=Harmony | measure?=MEASURE)
 	 */
 	protected void sequence_Sequence(EObject context, Sequence semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -78,6 +78,24 @@ class SimpleSonoraGenerator implements IGenerator {
 					// add the chord pattern minus the extra '+' at the end
 					pattern.add(auxChord.substring(0, auxChord.length - 1))
 				}
+				// harmony
+				if (s.harmony != null) {
+					var harmony = ""
+					for (n : s.harmony.harmonyNotes.toList) {
+						// verify if there's a chance on the octave
+						if(n.octave != null) n.octave.setOctave 
+						
+						harmony = harmony.concat(n.noteToPattern + "+")
+					}
+					
+					for(n : s.harmony.notes.toList) {
+						if(n.octave != null) n.octave.setOctave
+						
+						harmony = harmony.concat(n.noteToPattern + "_")		
+					}
+					harmony = harmony.substring(0, harmony.length - 1)
+					pattern.add(harmony)
+				}
 			}
 			curVoice++
 		}
@@ -158,7 +176,10 @@ class SimpleSonoraGenerator implements IGenerator {
 			point = "."
 			
 		// concatenate current octave and current duration to the note
-		auxNote = auxNote.concat(curOctave.toString + curDuration + point)
+		if(note.note.equalsIgnoreCase('r'))	// if Rest, hide the octave
+			auxNote = auxNote.concat(curDuration + point)
+		else
+			auxNote = auxNote.concat(curOctave.toString + curDuration + point)
 		
 		return auxNote	
 	}

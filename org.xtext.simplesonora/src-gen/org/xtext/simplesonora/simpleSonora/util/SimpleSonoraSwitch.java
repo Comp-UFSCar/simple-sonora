@@ -107,6 +107,13 @@ public class SimpleSonoraSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SimpleSonoraPackage.HARMONY:
+      {
+        Harmony harmony = (Harmony)theEObject;
+        T result = caseHarmony(harmony);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SimpleSonoraPackage.CHORD:
       {
         Chord chord = (Chord)theEObject;
@@ -201,6 +208,22 @@ public class SimpleSonoraSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSequence(Sequence object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Harmony</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Harmony</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHarmony(Harmony object)
   {
     return null;
   }

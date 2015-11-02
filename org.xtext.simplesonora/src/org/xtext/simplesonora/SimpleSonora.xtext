@@ -39,7 +39,13 @@ Instrument:
 
 Sequence:
 	// A sequence is a note, chord or measure which is discarded
-	(note=Note | chord= Chord) | measure?=MEASURE
+	(note=Note | chord=Chord | harmony=Harmony) | measure?=MEASURE
+;
+
+Harmony:
+	// Harmony can have multiple "harmony notes" and notes within '[' ']'
+	(harmonyNotes+=Note)('/' harmonyNotes+= Note)* 
+	'[' (notes+=Note)+ ']'	
 ;
 
 Chord:

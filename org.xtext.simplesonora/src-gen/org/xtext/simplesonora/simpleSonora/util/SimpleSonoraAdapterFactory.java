@@ -100,6 +100,11 @@ public class SimpleSonoraAdapterFactory extends AdapterFactoryImpl
         return createSequenceAdapter();
       }
       @Override
+      public Adapter caseHarmony(Harmony object)
+      {
+        return createHarmonyAdapter();
+      }
+      @Override
       public Adapter caseChord(Chord object)
       {
         return createChordAdapter();
@@ -202,6 +207,21 @@ public class SimpleSonoraAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSequenceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Harmony <em>Harmony</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.simplesonora.simpleSonora.Harmony
+   * @generated
+   */
+  public Adapter createHarmonyAdapter()
   {
     return null;
   }

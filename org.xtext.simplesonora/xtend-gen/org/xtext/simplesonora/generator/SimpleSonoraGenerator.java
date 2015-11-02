@@ -20,6 +20,7 @@ import org.jfugue.midi.MidiFileManager;
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
 import org.xtext.simplesonora.simpleSonora.Chord;
+import org.xtext.simplesonora.simpleSonora.Harmony;
 import org.xtext.simplesonora.simpleSonora.Header;
 import org.xtext.simplesonora.simpleSonora.Instrument;
 import org.xtext.simplesonora.simpleSonora.Note;
@@ -130,6 +131,50 @@ public class SimpleSonoraGenerator implements IGenerator {
                 String _substring = this.auxChord.substring(0, _minus);
                 pattern.add(_substring);
               }
+              Harmony _harmony = s.getHarmony();
+              boolean _notEquals_3 = (!Objects.equal(_harmony, null));
+              if (_notEquals_3) {
+                String harmony = "";
+                Harmony _harmony_1 = s.getHarmony();
+                EList<Note> _harmonyNotes = _harmony_1.getHarmonyNotes();
+                List<Note> _list_1 = IterableExtensions.<Note>toList(_harmonyNotes);
+                for (final Note n_1 : _list_1) {
+                  {
+                    String _octave_2 = n_1.getOctave();
+                    boolean _notEquals_4 = (!Objects.equal(_octave_2, null));
+                    if (_notEquals_4) {
+                      String _octave_3 = n_1.getOctave();
+                      this.setOctave(_octave_3);
+                    }
+                    String _noteToPattern_1 = this.noteToPattern(n_1);
+                    String _plus_2 = (_noteToPattern_1 + "+");
+                    String _concat = harmony.concat(_plus_2);
+                    harmony = _concat;
+                  }
+                }
+                Harmony _harmony_2 = s.getHarmony();
+                EList<Note> _notes = _harmony_2.getNotes();
+                List<Note> _list_2 = IterableExtensions.<Note>toList(_notes);
+                for (final Note n_2 : _list_2) {
+                  {
+                    String _octave_2 = n_2.getOctave();
+                    boolean _notEquals_4 = (!Objects.equal(_octave_2, null));
+                    if (_notEquals_4) {
+                      String _octave_3 = n_2.getOctave();
+                      this.setOctave(_octave_3);
+                    }
+                    String _noteToPattern_1 = this.noteToPattern(n_2);
+                    String _plus_2 = (_noteToPattern_1 + "_");
+                    String _concat = harmony.concat(_plus_2);
+                    harmony = _concat;
+                  }
+                }
+                int _length_1 = harmony.length();
+                int _minus_1 = (_length_1 - 1);
+                String _substring_1 = harmony.substring(0, _minus_1);
+                harmony = _substring_1;
+                pattern.add(harmony);
+              }
             }
           }
           this.curVoice++;
@@ -234,11 +279,18 @@ public class SimpleSonoraGenerator implements IGenerator {
     if (_isPoint) {
       point = ".";
     }
-    String _string = this.curOctave.toString();
-    String _plus = (_string + this.curDuration);
-    String _plus_1 = (_plus + point);
-    String _concat_1 = this.auxNote.concat(_plus_1);
-    this.auxNote = _concat_1;
+    String _note_1 = note.getNote();
+    boolean _equalsIgnoreCase = _note_1.equalsIgnoreCase("r");
+    if (_equalsIgnoreCase) {
+      String _concat_1 = this.auxNote.concat((this.curDuration + point));
+      this.auxNote = _concat_1;
+    } else {
+      String _string = this.curOctave.toString();
+      String _plus = (_string + this.curDuration);
+      String _plus_1 = (_plus + point);
+      String _concat_2 = this.auxNote.concat(_plus_1);
+      this.auxNote = _concat_2;
+    }
     return this.auxNote;
   }
   

@@ -26,11 +26,14 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSongAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cSongSongParserRuleCall_1_0 = (RuleCall)cSongAssignment_1.eContents().get(0);
 		
-		//Document:
-		//	header=Header song=Song;
+		/// * Document organization * / Document:
+		//	header=Header // Header containing all the song 'settings'
+		//	song=Song // Body containing the Song itself
+		//;
 		@Override public ParserRule getRule() { return rule; }
 
-		//header=Header song=Song
+		//header=Header // Header containing all the song 'settings'
+		//song=Song // Body containing the Song itself
 		public Group getGroup() { return cGroup; }
 
 		//header=Header
@@ -130,13 +133,15 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cACCIDENTALTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final RuleCall cINTERVALTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
-		//Key:
+		//Key: // Key, defined by note, it's accidental (if exists) and interval
 		//	NOTE_ID ACCIDENTAL? INTERVAL;
 		@Override public ParserRule getRule() { return rule; }
 
+		//// Key, defined by note, it's accidental (if exists) and interval
 		//NOTE_ID ACCIDENTAL? INTERVAL
 		public Group getGroup() { return cGroup; }
 
+		//// Key, defined by note, it's accidental (if exists) and interval
 		//NOTE_ID
 		public RuleCall getNOTE_IDTerminalRuleCall_0() { return cNOTE_IDTerminalRuleCall_0; }
 
@@ -211,20 +216,22 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNoteNoteParserRuleCall_0_0_0 = (RuleCall)cNoteAssignment_0_0.eContents().get(0);
 		private final Assignment cChordAssignment_0_1 = (Assignment)cAlternatives_0.eContents().get(1);
 		private final RuleCall cChordChordParserRuleCall_0_1_0 = (RuleCall)cChordAssignment_0_1.eContents().get(0);
+		private final Assignment cHarmonyAssignment_0_2 = (Assignment)cAlternatives_0.eContents().get(2);
+		private final RuleCall cHarmonyHarmonyParserRuleCall_0_2_0 = (RuleCall)cHarmonyAssignment_0_2.eContents().get(0);
 		private final Assignment cMeasureAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
 		private final RuleCall cMeasureMEASURETerminalRuleCall_1_0 = (RuleCall)cMeasureAssignment_1.eContents().get(0);
 		
 		//Sequence:
 		//	(note=Note // A sequence is a note, chord or measure which is discarded
-		//	| chord=Chord) | measure?=MEASURE;
+		//	| chord=Chord | harmony=Harmony) | measure?=MEASURE;
 		@Override public ParserRule getRule() { return rule; }
 
 		//(note=Note // A sequence is a note, chord or measure which is discarded
-		//| chord=Chord) | measure?=MEASURE
+		//| chord=Chord | harmony=Harmony) | measure?=MEASURE
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//note=Note // A sequence is a note, chord or measure which is discarded
-		//| chord=Chord
+		//| chord=Chord | harmony=Harmony
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 
 		//note=Note
@@ -239,11 +246,71 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		//Chord
 		public RuleCall getChordChordParserRuleCall_0_1_0() { return cChordChordParserRuleCall_0_1_0; }
 
+		//harmony=Harmony
+		public Assignment getHarmonyAssignment_0_2() { return cHarmonyAssignment_0_2; }
+
+		//Harmony
+		public RuleCall getHarmonyHarmonyParserRuleCall_0_2_0() { return cHarmonyHarmonyParserRuleCall_0_2_0; }
+
 		//measure?=MEASURE
 		public Assignment getMeasureAssignment_1() { return cMeasureAssignment_1; }
 
 		//MEASURE
 		public RuleCall getMeasureMEASURETerminalRuleCall_1_0() { return cMeasureMEASURETerminalRuleCall_1_0; }
+	}
+
+	public class HarmonyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Harmony");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cHarmonyNotesAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cHarmonyNotesNoteParserRuleCall_0_0 = (RuleCall)cHarmonyNotesAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cSolidusKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cHarmonyNotesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cHarmonyNotesNoteParserRuleCall_1_1_0 = (RuleCall)cHarmonyNotesAssignment_1_1.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNotesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNotesNoteParserRuleCall_3_0 = (RuleCall)cNotesAssignment_3.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Harmony:
+		//	harmonyNotes+=Note // Harmony can have multiple "harmony notes" and notes within '[' ']'
+		//	("/" harmonyNotes+=Note)* "[" notes+=Note+ "]";
+		@Override public ParserRule getRule() { return rule; }
+
+		//harmonyNotes+=Note // Harmony can have multiple "harmony notes" and notes within '[' ']'
+		//("/" harmonyNotes+=Note)* "[" notes+=Note+ "]"
+		public Group getGroup() { return cGroup; }
+
+		//harmonyNotes+=Note
+		public Assignment getHarmonyNotesAssignment_0() { return cHarmonyNotesAssignment_0; }
+
+		//Note
+		public RuleCall getHarmonyNotesNoteParserRuleCall_0_0() { return cHarmonyNotesNoteParserRuleCall_0_0; }
+
+		//("/" harmonyNotes+=Note)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"/"
+		public Keyword getSolidusKeyword_1_0() { return cSolidusKeyword_1_0; }
+
+		//harmonyNotes+=Note
+		public Assignment getHarmonyNotesAssignment_1_1() { return cHarmonyNotesAssignment_1_1; }
+
+		//Note
+		public RuleCall getHarmonyNotesNoteParserRuleCall_1_1_0() { return cHarmonyNotesNoteParserRuleCall_1_1_0; }
+
+		//"["
+		public Keyword getLeftSquareBracketKeyword_2() { return cLeftSquareBracketKeyword_2; }
+
+		//notes+=Note+
+		public Assignment getNotesAssignment_3() { return cNotesAssignment_3; }
+
+		//Note
+		public RuleCall getNotesNoteParserRuleCall_3_0() { return cNotesNoteParserRuleCall_3_0; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
 	}
 
 	public class ChordElements extends AbstractParserRuleElementFinder {
@@ -355,6 +422,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	private final SongElements pSong;
 	private final InstrumentElements pInstrument;
 	private final SequenceElements pSequence;
+	private final HarmonyElements pHarmony;
 	private final ChordElements pChord;
 	private final NoteElements pNote;
 	private final TerminalRule tOCTAVE;
@@ -379,6 +447,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSong = new SongElements();
 		this.pInstrument = new InstrumentElements();
 		this.pSequence = new SequenceElements();
+		this.pHarmony = new HarmonyElements();
 		this.pChord = new ChordElements();
 		this.pNote = new NoteElements();
 		this.tOCTAVE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "OCTAVE");
@@ -415,8 +484,10 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Document:
-	//	header=Header song=Song;
+	/// * Document organization * / Document:
+	//	header=Header // Header containing all the song 'settings'
+	//	song=Song // Body containing the Song itself
+	//;
 	public DocumentElements getDocumentAccess() {
 		return pDocument;
 	}
@@ -438,7 +509,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		return getHeaderAccess().getRule();
 	}
 
-	//Key:
+	//Key: // Key, defined by note, it's accidental (if exists) and interval
 	//	NOTE_ID ACCIDENTAL? INTERVAL;
 	public KeyElements getKeyAccess() {
 		return pKey;
@@ -478,13 +549,24 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Sequence:
 	//	(note=Note // A sequence is a note, chord or measure which is discarded
-	//	| chord=Chord) | measure?=MEASURE;
+	//	| chord=Chord | harmony=Harmony) | measure?=MEASURE;
 	public SequenceElements getSequenceAccess() {
 		return pSequence;
 	}
 	
 	public ParserRule getSequenceRule() {
 		return getSequenceAccess().getRule();
+	}
+
+	//Harmony:
+	//	harmonyNotes+=Note // Harmony can have multiple "harmony notes" and notes within '[' ']'
+	//	("/" harmonyNotes+=Note)* "[" notes+=Note+ "]";
+	public HarmonyElements getHarmonyAccess() {
+		return pHarmony;
+	}
+	
+	public ParserRule getHarmonyRule() {
+		return getHarmonyAccess().getRule();
 	}
 
 	//Chord: // A chord must have at least 2 notes

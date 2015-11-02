@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.simplesonora.simpleSonora.Chord;
+import org.xtext.simplesonora.simpleSonora.Harmony;
 import org.xtext.simplesonora.simpleSonora.Note;
 import org.xtext.simplesonora.simpleSonora.Sequence;
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
@@ -26,6 +27,7 @@ import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
  * <ul>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.SequenceImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.SequenceImpl#getChord <em>Chord</em>}</li>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.SequenceImpl#getHarmony <em>Harmony</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.SequenceImpl#isMeasure <em>Measure</em>}</li>
  * </ul>
  *
@@ -52,6 +54,16 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
    * @ordered
    */
   protected Chord chord;
+
+  /**
+   * The cached value of the '{@link #getHarmony() <em>Harmony</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getHarmony()
+   * @generated
+   * @ordered
+   */
+  protected Harmony harmony;
 
   /**
    * The default value of the '{@link #isMeasure() <em>Measure</em>}' attribute.
@@ -195,6 +207,54 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
    * <!-- end-user-doc -->
    * @generated
    */
+  public Harmony getHarmony()
+  {
+    return harmony;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetHarmony(Harmony newHarmony, NotificationChain msgs)
+  {
+    Harmony oldHarmony = harmony;
+    harmony = newHarmony;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.SEQUENCE__HARMONY, oldHarmony, newHarmony);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setHarmony(Harmony newHarmony)
+  {
+    if (newHarmony != harmony)
+    {
+      NotificationChain msgs = null;
+      if (harmony != null)
+        msgs = ((InternalEObject)harmony).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimpleSonoraPackage.SEQUENCE__HARMONY, null, msgs);
+      if (newHarmony != null)
+        msgs = ((InternalEObject)newHarmony).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SimpleSonoraPackage.SEQUENCE__HARMONY, null, msgs);
+      msgs = basicSetHarmony(newHarmony, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.SEQUENCE__HARMONY, newHarmony, newHarmony));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public boolean isMeasure()
   {
     return measure;
@@ -227,6 +287,8 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
         return basicSetNote(null, msgs);
       case SimpleSonoraPackage.SEQUENCE__CHORD:
         return basicSetChord(null, msgs);
+      case SimpleSonoraPackage.SEQUENCE__HARMONY:
+        return basicSetHarmony(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -245,6 +307,8 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
         return getNote();
       case SimpleSonoraPackage.SEQUENCE__CHORD:
         return getChord();
+      case SimpleSonoraPackage.SEQUENCE__HARMONY:
+        return getHarmony();
       case SimpleSonoraPackage.SEQUENCE__MEASURE:
         return isMeasure();
     }
@@ -266,6 +330,9 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
         return;
       case SimpleSonoraPackage.SEQUENCE__CHORD:
         setChord((Chord)newValue);
+        return;
+      case SimpleSonoraPackage.SEQUENCE__HARMONY:
+        setHarmony((Harmony)newValue);
         return;
       case SimpleSonoraPackage.SEQUENCE__MEASURE:
         setMeasure((Boolean)newValue);
@@ -290,6 +357,9 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
       case SimpleSonoraPackage.SEQUENCE__CHORD:
         setChord((Chord)null);
         return;
+      case SimpleSonoraPackage.SEQUENCE__HARMONY:
+        setHarmony((Harmony)null);
+        return;
       case SimpleSonoraPackage.SEQUENCE__MEASURE:
         setMeasure(MEASURE_EDEFAULT);
         return;
@@ -311,6 +381,8 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
         return note != null;
       case SimpleSonoraPackage.SEQUENCE__CHORD:
         return chord != null;
+      case SimpleSonoraPackage.SEQUENCE__HARMONY:
+        return harmony != null;
       case SimpleSonoraPackage.SEQUENCE__MEASURE:
         return measure != MEASURE_EDEFAULT;
     }

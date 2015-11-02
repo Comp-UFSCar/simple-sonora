@@ -68,6 +68,15 @@ public interface SimpleSonoraFactory extends EFactory
   Sequence createSequence();
 
   /**
+   * Returns a new object of class '<em>Harmony</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Harmony</em>'.
+   * @generated
+   */
+  Harmony createHarmony();
+
+  /**
    * Returns a new object of class '<em>Chord</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

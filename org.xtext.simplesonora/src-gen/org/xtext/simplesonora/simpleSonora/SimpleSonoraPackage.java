@@ -233,13 +233,22 @@ public interface SimpleSonoraPackage extends EPackage
   int SEQUENCE__CHORD = 1;
 
   /**
+   * The feature id for the '<em><b>Harmony</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEQUENCE__HARMONY = 2;
+
+  /**
    * The feature id for the '<em><b>Measure</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEQUENCE__MEASURE = 2;
+  int SEQUENCE__MEASURE = 3;
 
   /**
    * The number of structural features of the '<em>Sequence</em>' class.
@@ -248,7 +257,44 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEQUENCE_FEATURE_COUNT = 3;
+  int SEQUENCE_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link org.xtext.simplesonora.simpleSonora.impl.HarmonyImpl <em>Harmony</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.simplesonora.simpleSonora.impl.HarmonyImpl
+   * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getHarmony()
+   * @generated
+   */
+  int HARMONY = 5;
+
+  /**
+   * The feature id for the '<em><b>Harmony Notes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HARMONY__HARMONY_NOTES = 0;
+
+  /**
+   * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HARMONY__NOTES = 1;
+
+  /**
+   * The number of structural features of the '<em>Harmony</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HARMONY_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.simplesonora.simpleSonora.impl.ChordImpl <em>Chord</em>}' class.
@@ -258,7 +304,7 @@ public interface SimpleSonoraPackage extends EPackage
    * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getChord()
    * @generated
    */
-  int CHORD = 5;
+  int CHORD = 6;
 
   /**
    * The feature id for the '<em><b>Chord Notes</b></em>' containment reference list.
@@ -286,7 +332,7 @@ public interface SimpleSonoraPackage extends EPackage
    * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getNote()
    * @generated
    */
-  int NOTE = 6;
+  int NOTE = 7;
 
   /**
    * The feature id for the '<em><b>Octave</b></em>' attribute.
@@ -504,6 +550,17 @@ public interface SimpleSonoraPackage extends EPackage
   EReference getSequence_Chord();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.simplesonora.simpleSonora.Sequence#getHarmony <em>Harmony</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Harmony</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Sequence#getHarmony()
+   * @see #getSequence()
+   * @generated
+   */
+  EReference getSequence_Harmony();
+
+  /**
    * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Sequence#isMeasure <em>Measure</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -513,6 +570,38 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    */
   EAttribute getSequence_Measure();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.simplesonora.simpleSonora.Harmony <em>Harmony</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Harmony</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Harmony
+   * @generated
+   */
+  EClass getHarmony();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.simplesonora.simpleSonora.Harmony#getHarmonyNotes <em>Harmony Notes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Harmony Notes</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Harmony#getHarmonyNotes()
+   * @see #getHarmony()
+   * @generated
+   */
+  EReference getHarmony_HarmonyNotes();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.simplesonora.simpleSonora.Harmony#getNotes <em>Notes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Notes</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Harmony#getNotes()
+   * @see #getHarmony()
+   * @generated
+   */
+  EReference getHarmony_Notes();
 
   /**
    * Returns the meta object for class '{@link org.xtext.simplesonora.simpleSonora.Chord <em>Chord</em>}'.
@@ -754,12 +843,46 @@ public interface SimpleSonoraPackage extends EPackage
     EReference SEQUENCE__CHORD = eINSTANCE.getSequence_Chord();
 
     /**
+     * The meta object literal for the '<em><b>Harmony</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SEQUENCE__HARMONY = eINSTANCE.getSequence_Harmony();
+
+    /**
      * The meta object literal for the '<em><b>Measure</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute SEQUENCE__MEASURE = eINSTANCE.getSequence_Measure();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.simplesonora.simpleSonora.impl.HarmonyImpl <em>Harmony</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.simplesonora.simpleSonora.impl.HarmonyImpl
+     * @see org.xtext.simplesonora.simpleSonora.impl.SimpleSonoraPackageImpl#getHarmony()
+     * @generated
+     */
+    EClass HARMONY = eINSTANCE.getHarmony();
+
+    /**
+     * The meta object literal for the '<em><b>Harmony Notes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference HARMONY__HARMONY_NOTES = eINSTANCE.getHarmony_HarmonyNotes();
+
+    /**
+     * The meta object literal for the '<em><b>Notes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference HARMONY__NOTES = eINSTANCE.getHarmony_Notes();
 
     /**
      * The meta object literal for the '{@link org.xtext.simplesonora.simpleSonora.impl.ChordImpl <em>Chord</em>}' class.

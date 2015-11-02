@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.Sequence#getNote <em>Note</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.Sequence#getChord <em>Chord</em>}</li>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.Sequence#getHarmony <em>Harmony</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.Sequence#isMeasure <em>Measure</em>}</li>
  * </ul>
  *
@@ -75,6 +76,32 @@ public interface Sequence extends EObject
    * @generated
    */
   void setChord(Chord value);
+
+  /**
+   * Returns the value of the '<em><b>Harmony</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Harmony</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Harmony</em>' containment reference.
+   * @see #setHarmony(Harmony)
+   * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getSequence_Harmony()
+   * @model containment="true"
+   * @generated
+   */
+  Harmony getHarmony();
+
+  /**
+   * Sets the value of the '{@link org.xtext.simplesonora.simpleSonora.Sequence#getHarmony <em>Harmony</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Harmony</em>' containment reference.
+   * @see #getHarmony()
+   * @generated
+   */
+  void setHarmony(Harmony value);
 
   /**
    * Returns the value of the '<em><b>Measure</b></em>' attribute.

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.simplesonora.simpleSonora.Chord;
 import org.xtext.simplesonora.simpleSonora.Document;
+import org.xtext.simplesonora.simpleSonora.Harmony;
 import org.xtext.simplesonora.simpleSonora.Header;
 import org.xtext.simplesonora.simpleSonora.Instrument;
 import org.xtext.simplesonora.simpleSonora.Note;
@@ -61,6 +62,13 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * @generated
    */
   private EClass sequenceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass harmonyEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -294,9 +302,49 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getSequence_Harmony()
+  {
+    return (EReference)sequenceEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getSequence_Measure()
   {
-    return (EAttribute)sequenceEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)sequenceEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getHarmony()
+  {
+    return harmonyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getHarmony_HarmonyNotes()
+  {
+    return (EReference)harmonyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getHarmony_Notes()
+  {
+    return (EReference)harmonyEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -428,7 +476,12 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
     sequenceEClass = createEClass(SEQUENCE);
     createEReference(sequenceEClass, SEQUENCE__NOTE);
     createEReference(sequenceEClass, SEQUENCE__CHORD);
+    createEReference(sequenceEClass, SEQUENCE__HARMONY);
     createEAttribute(sequenceEClass, SEQUENCE__MEASURE);
+
+    harmonyEClass = createEClass(HARMONY);
+    createEReference(harmonyEClass, HARMONY__HARMONY_NOTES);
+    createEReference(harmonyEClass, HARMONY__NOTES);
 
     chordEClass = createEClass(CHORD);
     createEReference(chordEClass, CHORD__CHORD_NOTES);
@@ -491,7 +544,12 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
     initEClass(sequenceEClass, Sequence.class, "Sequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSequence_Note(), this.getNote(), null, "note", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSequence_Chord(), this.getChord(), null, "chord", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSequence_Harmony(), this.getHarmony(), null, "harmony", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSequence_Measure(), ecorePackage.getEBoolean(), "measure", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(harmonyEClass, Harmony.class, "Harmony", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getHarmony_HarmonyNotes(), this.getNote(), null, "harmonyNotes", null, 0, -1, Harmony.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getHarmony_Notes(), this.getNote(), null, "notes", null, 0, -1, Harmony.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(chordEClass, Chord.class, "Chord", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getChord_ChordNotes(), this.getNote(), null, "chordNotes", null, 0, -1, Chord.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
