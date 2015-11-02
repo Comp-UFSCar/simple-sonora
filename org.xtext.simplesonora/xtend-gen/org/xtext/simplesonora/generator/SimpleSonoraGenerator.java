@@ -229,9 +229,15 @@ public class SimpleSonoraGenerator implements IGenerator {
       String _durationToPattern = this.durationToPattern(_duration_1);
       this.curDuration = _durationToPattern;
     }
+    String point = "";
+    boolean _isPoint = note.isPoint();
+    if (_isPoint) {
+      point = ".";
+    }
     String _string = this.curOctave.toString();
     String _plus = (_string + this.curDuration);
-    String _concat_1 = this.auxNote.concat(_plus);
+    String _plus_1 = (_plus + point);
+    String _concat_1 = this.auxNote.concat(_plus_1);
     this.auxNote = _concat_1;
     return this.auxNote;
   }
@@ -276,7 +282,9 @@ public class SimpleSonoraGenerator implements IGenerator {
         return "#";
       case "-":
         return "b";
+      case "@":
+        return "n";
     }
-    return "";
+    return acc;
   }
 }

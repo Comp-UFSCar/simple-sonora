@@ -21,6 +21,10 @@ import org.xtext.simplesonora.validation.AbstractSimpleSonoraValidator;
 public class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
   private Set<String> instrumentNames = IterableExtensions.<String>toSet(MidiDictionary.INSTRUMENT_BYTE_TO_STRING.values());
   
+  /**
+   * This will verify the existence of the instrument entered by
+   * the user, if it doesn't match, an error will be shown.
+   */
   @Check
   public void checkInstrument(final Instrument instrument) {
     String _instrumentName = instrument.getInstrumentName();

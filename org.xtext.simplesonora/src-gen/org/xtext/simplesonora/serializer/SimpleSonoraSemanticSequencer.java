@@ -108,7 +108,7 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Constraint:
-	 *     (octave=OCTAVE? note=NOTE_ID accidental=ACCIDENTAL? duration=DURATION?)
+	 *     (octave=OCTAVE? note=NOTE_ID accidental=ACCIDENTAL? duration=DURATION? point?='.'?)
 	 */
 	protected void sequence_Note(EObject context, Note semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -117,7 +117,7 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Constraint:
-	 *     (note=Note | chord=Chord)
+	 *     (note=Note | chord=Chord | measure?=MEASURE)
 	 */
 	protected void sequence_Sequence(EObject context, Sequence semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

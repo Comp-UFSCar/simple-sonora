@@ -233,13 +233,22 @@ public interface SimpleSonoraPackage extends EPackage
   int SEQUENCE__CHORD = 1;
 
   /**
+   * The feature id for the '<em><b>Measure</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEQUENCE__MEASURE = 2;
+
+  /**
    * The number of structural features of the '<em>Sequence</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEQUENCE_FEATURE_COUNT = 2;
+  int SEQUENCE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.simplesonora.simpleSonora.impl.ChordImpl <em>Chord</em>}' class.
@@ -316,13 +325,22 @@ public interface SimpleSonoraPackage extends EPackage
   int NOTE__DURATION = 3;
 
   /**
+   * The feature id for the '<em><b>Point</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOTE__POINT = 4;
+
+  /**
    * The number of structural features of the '<em>Note</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NOTE_FEATURE_COUNT = 4;
+  int NOTE_FEATURE_COUNT = 5;
 
 
   /**
@@ -486,6 +504,17 @@ public interface SimpleSonoraPackage extends EPackage
   EReference getSequence_Chord();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Sequence#isMeasure <em>Measure</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Measure</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Sequence#isMeasure()
+   * @see #getSequence()
+   * @generated
+   */
+  EAttribute getSequence_Measure();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.simplesonora.simpleSonora.Chord <em>Chord</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -559,6 +588,17 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    */
   EAttribute getNote_Duration();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Note#isPoint <em>Point</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Point</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Note#isPoint()
+   * @see #getNote()
+   * @generated
+   */
+  EAttribute getNote_Point();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -714,6 +754,14 @@ public interface SimpleSonoraPackage extends EPackage
     EReference SEQUENCE__CHORD = eINSTANCE.getSequence_Chord();
 
     /**
+     * The meta object literal for the '<em><b>Measure</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SEQUENCE__MEASURE = eINSTANCE.getSequence_Measure();
+
+    /**
      * The meta object literal for the '{@link org.xtext.simplesonora.simpleSonora.impl.ChordImpl <em>Chord</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -772,6 +820,14 @@ public interface SimpleSonoraPackage extends EPackage
      * @generated
      */
     EAttribute NOTE__DURATION = eINSTANCE.getNote_Duration();
+
+    /**
+     * The meta object literal for the '<em><b>Point</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NOTE__POINT = eINSTANCE.getNote_Point();
 
   }
 

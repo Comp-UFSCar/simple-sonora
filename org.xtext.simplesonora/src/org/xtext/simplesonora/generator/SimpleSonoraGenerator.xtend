@@ -82,9 +82,10 @@ class SimpleSonoraGenerator implements IGenerator {
 			curVoice++
 		}
 		
+		// Outputs
 		player.play(pattern) // Play the pattern
 		System.out.println(pattern.toString) // Print the pattern on Console
-		// Write the .midi file on Eclipse root folder
+		// Write the .mid file on Eclipse root folder
 		MidiFileManager.savePatternToMidi(pattern, new File(songName+".mid"))
 	}
 	
@@ -151,8 +152,13 @@ class SimpleSonoraGenerator implements IGenerator {
 			curDuration = note.duration.durationToPattern
 		}
 		
+		// Verify the use of point
+		var point = ""
+		if(note.point)
+			point = "."
+			
 		// concatenate current octave and current duration to the note
-		auxNote = auxNote.concat(curOctave.toString + curDuration)
+		auxNote = auxNote.concat(curOctave.toString + curDuration + point)
 		
 		return auxNote	
 	}
@@ -196,8 +202,11 @@ class SimpleSonoraGenerator implements IGenerator {
 			case '+':		// sharp
 				return '#'			
 			case '-':		// flat
-				return 'b'			
-		}			
-		return ""
+				return 'b'
+			case '@':		// natural
+				return 'n'		
+		}
+		// other case '.' don't need to be converted			
+		return acc
 	}
 }

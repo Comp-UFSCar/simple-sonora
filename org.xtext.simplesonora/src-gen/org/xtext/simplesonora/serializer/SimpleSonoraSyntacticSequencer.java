@@ -26,9 +26,21 @@ public class SimpleSonoraSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if(ruleCall.getRule() == grammarAccess.getMEASURERule())
+			return getMEASUREToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * terminal MEASURE :
+	 * 	'|'? 	
+	 * ;
+	 */
+	protected String getMEASUREToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {

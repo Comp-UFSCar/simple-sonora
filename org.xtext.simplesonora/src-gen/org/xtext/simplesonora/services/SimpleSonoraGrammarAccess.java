@@ -66,12 +66,14 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cKeyKeyParserRuleCall_2_2_0 = (RuleCall)cKeyAssignment_2_2.eContents().get(0);
 		
 		/// * Header of the file containing the tempo, time and key of melody. * / Header:
-		//	("title" "=" songName=ID) ("tempo" "=" tempo=INT)? // default is 120 (Allegro)
+		//	("title" "=" songName=ID) // title of the song - also mid name
+		//	("tempo" "=" tempo=INT)? // default is 120 (Allegro)
 		//	("key" "=" key=Key)? // default is C major
 		//;
 		@Override public ParserRule getRule() { return rule; }
 
-		//("title" "=" songName=ID) ("tempo" "=" tempo=INT)? // default is 120 (Allegro)
+		//("title" "=" songName=ID) // title of the song - also mid name
+		//("tempo" "=" tempo=INT)? // default is 120 (Allegro)
 		//("key" "=" key=Key)? // default is C major
 		public Group getGroup() { return cGroup; }
 
@@ -150,7 +152,9 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cInstrumentsAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cInstrumentsInstrumentParserRuleCall_0 = (RuleCall)cInstrumentsAssignment.eContents().get(0);
 		
-		/// * The body of the file with melody. * / Song:
+		/// * The body of the file with melody. * / // A song can have many instruments
+		//// *instrument must exist as a General MIDI instrument 
+		//Song:
 		//	instruments+=Instrument+;
 		@Override public ParserRule getRule() { return rule; }
 
@@ -171,13 +175,15 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSequencesSequenceParserRuleCall_2_0 = (RuleCall)cSequencesAssignment_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//Instrument:
+		//Instrument: // Each instrument can have a sequence of notes and chords
 		//	instrumentName=ID "{" sequences+=Sequence+ "}";
 		@Override public ParserRule getRule() { return rule; }
 
+		//// Each instrument can have a sequence of notes and chords
 		//instrumentName=ID "{" sequences+=Sequence+ "}"
 		public Group getGroup() { return cGroup; }
 
+		//// Each instrument can have a sequence of notes and chords
 		//instrumentName=ID
 		public Assignment getInstrumentNameAssignment_0() { return cInstrumentNameAssignment_0; }
 
@@ -200,29 +206,44 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	public class SequenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Sequence");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cNoteAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cNoteNoteParserRuleCall_0_0 = (RuleCall)cNoteAssignment_0.eContents().get(0);
-		private final Assignment cChordAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cChordChordParserRuleCall_1_0 = (RuleCall)cChordAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives_0 = (Alternatives)cAlternatives.eContents().get(0);
+		private final Assignment cNoteAssignment_0_0 = (Assignment)cAlternatives_0.eContents().get(0);
+		private final RuleCall cNoteNoteParserRuleCall_0_0_0 = (RuleCall)cNoteAssignment_0_0.eContents().get(0);
+		private final Assignment cChordAssignment_0_1 = (Assignment)cAlternatives_0.eContents().get(1);
+		private final RuleCall cChordChordParserRuleCall_0_1_0 = (RuleCall)cChordAssignment_0_1.eContents().get(0);
+		private final Assignment cMeasureAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cMeasureMEASURETerminalRuleCall_1_0 = (RuleCall)cMeasureAssignment_1.eContents().get(0);
 		
 		//Sequence:
-		//	note=Note | chord=Chord;
+		//	(note=Note // A sequence is a note, chord or measure which is discarded
+		//	| chord=Chord) | measure?=MEASURE;
 		@Override public ParserRule getRule() { return rule; }
 
-		//note=Note | chord=Chord
+		//(note=Note // A sequence is a note, chord or measure which is discarded
+		//| chord=Chord) | measure?=MEASURE
 		public Alternatives getAlternatives() { return cAlternatives; }
 
+		//note=Note // A sequence is a note, chord or measure which is discarded
+		//| chord=Chord
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+
 		//note=Note
-		public Assignment getNoteAssignment_0() { return cNoteAssignment_0; }
+		public Assignment getNoteAssignment_0_0() { return cNoteAssignment_0_0; }
 
 		//Note
-		public RuleCall getNoteNoteParserRuleCall_0_0() { return cNoteNoteParserRuleCall_0_0; }
+		public RuleCall getNoteNoteParserRuleCall_0_0_0() { return cNoteNoteParserRuleCall_0_0_0; }
 
 		//chord=Chord
-		public Assignment getChordAssignment_1() { return cChordAssignment_1; }
+		public Assignment getChordAssignment_0_1() { return cChordAssignment_0_1; }
 
 		//Chord
-		public RuleCall getChordChordParserRuleCall_1_0() { return cChordChordParserRuleCall_1_0; }
+		public RuleCall getChordChordParserRuleCall_0_1_0() { return cChordChordParserRuleCall_0_1_0; }
+
+		//measure?=MEASURE
+		public Assignment getMeasureAssignment_1() { return cMeasureAssignment_1; }
+
+		//MEASURE
+		public RuleCall getMeasureMEASURETerminalRuleCall_1_0() { return cMeasureMEASURETerminalRuleCall_1_0; }
 	}
 
 	public class ChordElements extends AbstractParserRuleElementFinder {
@@ -235,13 +256,15 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cChordNotesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cChordNotesNoteParserRuleCall_1_1_0 = (RuleCall)cChordNotesAssignment_1_1.eContents().get(0);
 		
-		//Chord:
+		//Chord: // A chord must have at least 2 notes
 		//	chordNotes+=Note ("/" chordNotes+=Note)+;
 		@Override public ParserRule getRule() { return rule; }
 
+		//// A chord must have at least 2 notes
 		//chordNotes+=Note ("/" chordNotes+=Note)+
 		public Group getGroup() { return cGroup; }
 
+		//// A chord must have at least 2 notes
 		//chordNotes+=Note
 		public Assignment getChordNotesAssignment_0() { return cChordNotesAssignment_0; }
 
@@ -272,12 +295,25 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAccidentalACCIDENTALTerminalRuleCall_2_0 = (RuleCall)cAccidentalAssignment_2.eContents().get(0);
 		private final Assignment cDurationAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cDurationDURATIONTerminalRuleCall_3_0 = (RuleCall)cDurationAssignment_3.eContents().get(0);
+		private final Assignment cPointAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final Keyword cPointFullStopKeyword_4_0 = (Keyword)cPointAssignment_4.eContents().get(0);
 		
 		//Note:
-		//	octave=OCTAVE? note=NOTE_ID accidental=ACCIDENTAL? duration=DURATION?;
+		//	octave=OCTAVE? // A note is composed by
+		//	// uses current octave, if none is received
+		//	note=NOTE_ID // a note id using ABC Notation
+		//	accidental=ACCIDENTAL? // the accidental, if wanted (flat, sharp or natural)
+		//	duration=DURATION? // uses current duration, if none is received
+		//	point?="."? // point duration for the note, if wanted
+		//;
 		@Override public ParserRule getRule() { return rule; }
 
-		//octave=OCTAVE? note=NOTE_ID accidental=ACCIDENTAL? duration=DURATION?
+		//octave=OCTAVE? // A note is composed by
+		//// uses current octave, if none is received
+		//note=NOTE_ID // a note id using ABC Notation
+		//accidental=ACCIDENTAL? // the accidental, if wanted (flat, sharp or natural)
+		//duration=DURATION? // uses current duration, if none is received
+		//point?="."? // point duration for the note, if wanted
 		public Group getGroup() { return cGroup; }
 
 		//octave=OCTAVE?
@@ -303,6 +339,12 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 
 		//DURATION
 		public RuleCall getDurationDURATIONTerminalRuleCall_3_0() { return cDurationDURATIONTerminalRuleCall_3_0; }
+
+		//point?="."?
+		public Assignment getPointAssignment_4() { return cPointAssignment_4; }
+
+		//"."
+		public Keyword getPointFullStopKeyword_4_0() { return cPointFullStopKeyword_4_0; }
 	}
 	
 	
@@ -319,6 +361,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tACCIDENTAL;
 	private final TerminalRule tNOTE_ID;
 	private final TerminalRule tDURATION;
+	private final TerminalRule tMEASURE;
 	
 	private final Grammar grammar;
 
@@ -342,6 +385,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		this.tACCIDENTAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ACCIDENTAL");
 		this.tNOTE_ID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NOTE_ID");
 		this.tDURATION = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DURATION");
+		this.tMEASURE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "MEASURE");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -382,7 +426,8 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// * Header of the file containing the tempo, time and key of melody. * / Header:
-	//	("title" "=" songName=ID) ("tempo" "=" tempo=INT)? // default is 120 (Allegro)
+	//	("title" "=" songName=ID) // title of the song - also mid name
+	//	("tempo" "=" tempo=INT)? // default is 120 (Allegro)
 	//	("key" "=" key=Key)? // default is C major
 	//;
 	public HeaderElements getHeaderAccess() {
@@ -403,13 +448,15 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		return getKeyAccess().getRule();
 	}
 
-	//terminal INTERVAL:
+	//terminal INTERVAL: // Key interval: major or minor
 	//	"maj" | "min";
 	public TerminalRule getINTERVALRule() {
 		return tINTERVAL;
 	} 
 
-	/// * The body of the file with melody. * / Song:
+	/// * The body of the file with melody. * / // A song can have many instruments
+	//// *instrument must exist as a General MIDI instrument 
+	//Song:
 	//	instruments+=Instrument+;
 	public SongElements getSongAccess() {
 		return pSong;
@@ -419,7 +466,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		return getSongAccess().getRule();
 	}
 
-	//Instrument:
+	//Instrument: // Each instrument can have a sequence of notes and chords
 	//	instrumentName=ID "{" sequences+=Sequence+ "}";
 	public InstrumentElements getInstrumentAccess() {
 		return pInstrument;
@@ -430,7 +477,8 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Sequence:
-	//	note=Note | chord=Chord;
+	//	(note=Note // A sequence is a note, chord or measure which is discarded
+	//	| chord=Chord) | measure?=MEASURE;
 	public SequenceElements getSequenceAccess() {
 		return pSequence;
 	}
@@ -439,7 +487,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		return getSequenceAccess().getRule();
 	}
 
-	//Chord:
+	//Chord: // A chord must have at least 2 notes
 	//	chordNotes+=Note ("/" chordNotes+=Note)+;
 	public ChordElements getChordAccess() {
 		return pChord;
@@ -450,7 +498,13 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Note:
-	//	octave=OCTAVE? note=NOTE_ID accidental=ACCIDENTAL? duration=DURATION?;
+	//	octave=OCTAVE? // A note is composed by
+	//	// uses current octave, if none is received
+	//	note=NOTE_ID // a note id using ABC Notation
+	//	accidental=ACCIDENTAL? // the accidental, if wanted (flat, sharp or natural)
+	//	duration=DURATION? // uses current duration, if none is received
+	//	point?="."? // point duration for the note, if wanted
+	//;
 	public NoteElements getNoteAccess() {
 		return pNote;
 	}
@@ -460,27 +514,42 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//terminal OCTAVE:
-	//	"<"+ | "o" "0".."9" | ">"+;
+	//	"<"+ // goes down one octave
+	//	// goes to octave 0-9 directly
+	//	// goes up one octave
+	//	| "o" "0".."9" | ">"+;
 	public TerminalRule getOCTAVERule() {
 		return tOCTAVE;
 	} 
 
+	////TODO: corrigir o simbolo para 'natural'
 	//terminal ACCIDENTAL:
-	//	"+" | "-";
+	//	"+" // sharp #
+	//	// flat b
+	//	| "-" | // natural
+	//	"@";
 	public TerminalRule getACCIDENTALRule() {
 		return tACCIDENTAL;
 	} 
 
 	//terminal NOTE_ID:
-	//	"a".."g" | "A".."G";
+	//	"a".."g" // ABC Notation and 'R' for rest
+	//	| "A".."G" | ("R" | "r");
 	public TerminalRule getNOTE_IDRule() {
 		return tNOTE_ID;
 	} 
 
-	//terminal DURATION:
+	//terminal DURATION: // 1 for whole, 2 for 1/2, 4 for 1/4, ...
 	//	":" ("1" | "2" | "4" | "8" | "16" | "32");
 	public TerminalRule getDURATIONRule() {
 		return tDURATION;
+	} 
+
+	//// measure is for the programmer organization only
+	//terminal MEASURE:
+	//	"|"?;
+	public TerminalRule getMEASURERule() {
+		return tMEASURE;
 	} 
 
 	//terminal ID:

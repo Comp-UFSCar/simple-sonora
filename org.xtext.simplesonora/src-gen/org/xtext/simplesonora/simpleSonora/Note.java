@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.simplesonora.simpleSonora.Note#getNote <em>Note</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.Note#getAccidental <em>Accidental</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.Note#getDuration <em>Duration</em>}</li>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.Note#isPoint <em>Point</em>}</li>
  * </ul>
  *
  * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getNote()
@@ -128,5 +129,31 @@ public interface Note extends EObject
    * @generated
    */
   void setDuration(String value);
+
+  /**
+   * Returns the value of the '<em><b>Point</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Point</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Point</em>' attribute.
+   * @see #setPoint(boolean)
+   * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getNote_Point()
+   * @model
+   * @generated
+   */
+  boolean isPoint();
+
+  /**
+   * Sets the value of the '{@link org.xtext.simplesonora.simpleSonora.Note#isPoint <em>Point</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Point</em>' attribute.
+   * @see #isPoint()
+   * @generated
+   */
+  void setPoint(boolean value);
 
 } // Note

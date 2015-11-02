@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.Sequence#getNote <em>Note</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.Sequence#getChord <em>Chord</em>}</li>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.Sequence#isMeasure <em>Measure</em>}</li>
  * </ul>
  *
  * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getSequence()
@@ -74,5 +75,31 @@ public interface Sequence extends EObject
    * @generated
    */
   void setChord(Chord value);
+
+  /**
+   * Returns the value of the '<em><b>Measure</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Measure</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Measure</em>' attribute.
+   * @see #setMeasure(boolean)
+   * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getSequence_Measure()
+   * @model
+   * @generated
+   */
+  boolean isMeasure();
+
+  /**
+   * Sets the value of the '{@link org.xtext.simplesonora.simpleSonora.Sequence#isMeasure <em>Measure</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Measure</em>' attribute.
+   * @see #isMeasure()
+   * @generated
+   */
+  void setMeasure(boolean value);
 
 } // Sequence

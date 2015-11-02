@@ -21,28 +21,30 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_NOTE_ID", "RULE_ACCIDENTAL", "RULE_INTERVAL", "RULE_OCTAVE", "RULE_DURATION", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'title'", "'='", "'tempo'", "'key'", "'{'", "'}'", "'/'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_NOTE_ID", "RULE_ACCIDENTAL", "RULE_INTERVAL", "RULE_MEASURE", "RULE_OCTAVE", "RULE_DURATION", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'title'", "'='", "'tempo'", "'key'", "'{'", "'}'", "'/'", "'.'"
     };
-    public static final int RULE_DURATION=10;
+    public static final int RULE_DURATION=11;
     public static final int RULE_INTERVAL=8;
     public static final int RULE_ID=4;
+    public static final int RULE_MEASURE=9;
     public static final int RULE_ACCIDENTAL=7;
+    public static final int T__24=24;
+    public static final int T__23=23;
     public static final int T__22=22;
-    public static final int RULE_ANY_OTHER=15;
+    public static final int RULE_ANY_OTHER=16;
     public static final int T__21=21;
     public static final int T__20=20;
-    public static final int RULE_SL_COMMENT=13;
+    public static final int RULE_SL_COMMENT=14;
     public static final int EOF=-1;
-    public static final int RULE_ML_COMMENT=12;
+    public static final int RULE_ML_COMMENT=13;
     public static final int T__19=19;
-    public static final int RULE_STRING=11;
-    public static final int T__16=16;
+    public static final int RULE_STRING=12;
     public static final int RULE_NOTE_ID=6;
     public static final int T__18=18;
     public static final int T__17=17;
     public static final int RULE_INT=5;
-    public static final int RULE_OCTAVE=9;
-    public static final int RULE_WS=14;
+    public static final int RULE_OCTAVE=10;
+    public static final int RULE_WS=15;
 
     // delegates
     // delegators
@@ -283,11 +285,11 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
             // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:137:2: (otherlv_0= 'title' otherlv_1= '=' ( (lv_songName_2_0= RULE_ID ) ) )
             // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:137:4: otherlv_0= 'title' otherlv_1= '=' ( (lv_songName_2_0= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,16,FOLLOW_16_in_ruleHeader236); 
+            otherlv_0=(Token)match(input,17,FOLLOW_17_in_ruleHeader236); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getHeaderAccess().getTitleKeyword_0_0());
                 
-            otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleHeader248); 
+            otherlv_1=(Token)match(input,18,FOLLOW_18_in_ruleHeader248); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getHeaderAccess().getEqualsSignKeyword_0_1());
                 
@@ -324,18 +326,18 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
             int alt1=2;
             int LA1_0 = input.LA(1);
 
-            if ( (LA1_0==18) ) {
+            if ( (LA1_0==19) ) {
                 alt1=1;
             }
             switch (alt1) {
                 case 1 :
                     // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:163:5: otherlv_3= 'tempo' otherlv_4= '=' ( (lv_tempo_5_0= RULE_INT ) )
                     {
-                    otherlv_3=(Token)match(input,18,FOLLOW_18_in_ruleHeader284); 
+                    otherlv_3=(Token)match(input,19,FOLLOW_19_in_ruleHeader284); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getHeaderAccess().getTempoKeyword_1_0());
                         
-                    otherlv_4=(Token)match(input,17,FOLLOW_17_in_ruleHeader296); 
+                    otherlv_4=(Token)match(input,18,FOLLOW_18_in_ruleHeader296); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getHeaderAccess().getEqualsSignKeyword_1_1());
                         
@@ -375,18 +377,18 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==19) ) {
+            if ( (LA2_0==20) ) {
                 alt2=1;
             }
             switch (alt2) {
                 case 1 :
                     // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:189:6: otherlv_6= 'key' otherlv_7= '=' ( (lv_key_8_0= ruleKey ) )
                     {
-                    otherlv_6=(Token)match(input,19,FOLLOW_19_in_ruleHeader333); 
+                    otherlv_6=(Token)match(input,20,FOLLOW_20_in_ruleHeader333); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getHeaderAccess().getKeyKeyword_2_0());
                         
-                    otherlv_7=(Token)match(input,17,FOLLOW_17_in_ruleHeader345); 
+                    otherlv_7=(Token)match(input,18,FOLLOW_18_in_ruleHeader345); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getHeaderAccess().getEqualsSignKeyword_2_1());
                         
@@ -762,7 +764,7 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,20,FOLLOW_20_in_ruleInstrument704); 
+            otherlv_1=(Token)match(input,21,FOLLOW_21_in_ruleInstrument704); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getInstrumentAccess().getLeftCurlyBracketKeyword_1());
                 
@@ -773,7 +775,7 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( (LA5_0==RULE_NOTE_ID||LA5_0==RULE_OCTAVE) ) {
+                if ( (LA5_0==RULE_NOTE_ID||(LA5_0>=RULE_MEASURE && LA5_0<=RULE_OCTAVE)) ) {
                     alt5=1;
                 }
 
@@ -820,7 +822,7 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
                 cnt5++;
             } while (true);
 
-            otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleInstrument738); 
+            otherlv_3=(Token)match(input,22,FOLLOW_22_in_ruleInstrument738); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getInstrumentAccess().getRightCurlyBracketKeyword_3());
                 
@@ -881,10 +883,11 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSequence"
-    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:378:1: ruleSequence returns [EObject current=null] : ( ( (lv_note_0_0= ruleNote ) ) | ( (lv_chord_1_0= ruleChord ) ) ) ;
+    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:378:1: ruleSequence returns [EObject current=null] : ( ( ( (lv_note_0_0= ruleNote ) ) | ( (lv_chord_1_0= ruleChord ) ) ) | ( (lv_measure_2_0= RULE_MEASURE ) ) ) ;
     public final EObject ruleSequence() throws RecognitionException {
         EObject current = null;
 
+        Token lv_measure_2_0=null;
         EObject lv_note_0_0 = null;
 
         EObject lv_chord_1_0 = null;
@@ -893,34 +896,364 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:381:28: ( ( ( (lv_note_0_0= ruleNote ) ) | ( (lv_chord_1_0= ruleChord ) ) ) )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:382:1: ( ( (lv_note_0_0= ruleNote ) ) | ( (lv_chord_1_0= ruleChord ) ) )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:381:28: ( ( ( ( (lv_note_0_0= ruleNote ) ) | ( (lv_chord_1_0= ruleChord ) ) ) | ( (lv_measure_2_0= RULE_MEASURE ) ) ) )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:382:1: ( ( ( (lv_note_0_0= ruleNote ) ) | ( (lv_chord_1_0= ruleChord ) ) ) | ( (lv_measure_2_0= RULE_MEASURE ) ) )
             {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:382:1: ( ( (lv_note_0_0= ruleNote ) ) | ( (lv_chord_1_0= ruleChord ) ) )
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:382:1: ( ( ( (lv_note_0_0= ruleNote ) ) | ( (lv_chord_1_0= ruleChord ) ) ) | ( (lv_measure_2_0= RULE_MEASURE ) ) )
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA6_0==RULE_OCTAVE) ) {
-                int LA6_1 = input.LA(2);
+            if ( (LA7_0==RULE_NOTE_ID||LA7_0==RULE_OCTAVE) ) {
+                alt7=1;
+            }
+            else if ( (LA7_0==RULE_MEASURE) ) {
+                alt7=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 7, 0, input);
 
-                if ( (LA6_1==RULE_NOTE_ID) ) {
-                    switch ( input.LA(3) ) {
-                    case RULE_ACCIDENTAL:
-                        {
-                        switch ( input.LA(4) ) {
+                throw nvae;
+            }
+            switch (alt7) {
+                case 1 :
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:382:2: ( ( (lv_note_0_0= ruleNote ) ) | ( (lv_chord_1_0= ruleChord ) ) )
+                    {
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:382:2: ( ( (lv_note_0_0= ruleNote ) ) | ( (lv_chord_1_0= ruleChord ) ) )
+                    int alt6=2;
+                    int LA6_0 = input.LA(1);
+
+                    if ( (LA6_0==RULE_OCTAVE) ) {
+                        int LA6_1 = input.LA(2);
+
+                        if ( (LA6_1==RULE_NOTE_ID) ) {
+                            switch ( input.LA(3) ) {
+                            case RULE_ACCIDENTAL:
+                                {
+                                switch ( input.LA(4) ) {
+                                case RULE_DURATION:
+                                    {
+                                    switch ( input.LA(5) ) {
+                                    case 24:
+                                        {
+                                        int LA6_5 = input.LA(6);
+
+                                        if ( (LA6_5==23) ) {
+                                            alt6=2;
+                                        }
+                                        else if ( (LA6_5==EOF||LA6_5==RULE_NOTE_ID||(LA6_5>=RULE_MEASURE && LA6_5<=RULE_OCTAVE)||LA6_5==22) ) {
+                                            alt6=1;
+                                        }
+                                        else {
+                                            NoViableAltException nvae =
+                                                new NoViableAltException("", 6, 5, input);
+
+                                            throw nvae;
+                                        }
+                                        }
+                                        break;
+                                    case EOF:
+                                    case RULE_NOTE_ID:
+                                    case RULE_MEASURE:
+                                    case RULE_OCTAVE:
+                                    case 22:
+                                        {
+                                        alt6=1;
+                                        }
+                                        break;
+                                    case 23:
+                                        {
+                                        alt6=2;
+                                        }
+                                        break;
+                                    default:
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 6, 4, input);
+
+                                        throw nvae;
+                                    }
+
+                                    }
+                                    break;
+                                case 24:
+                                    {
+                                    int LA6_5 = input.LA(5);
+
+                                    if ( (LA6_5==23) ) {
+                                        alt6=2;
+                                    }
+                                    else if ( (LA6_5==EOF||LA6_5==RULE_NOTE_ID||(LA6_5>=RULE_MEASURE && LA6_5<=RULE_OCTAVE)||LA6_5==22) ) {
+                                        alt6=1;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 6, 5, input);
+
+                                        throw nvae;
+                                    }
+                                    }
+                                    break;
+                                case 23:
+                                    {
+                                    alt6=2;
+                                    }
+                                    break;
+                                case EOF:
+                                case RULE_NOTE_ID:
+                                case RULE_MEASURE:
+                                case RULE_OCTAVE:
+                                case 22:
+                                    {
+                                    alt6=1;
+                                    }
+                                    break;
+                                default:
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 6, 3, input);
+
+                                    throw nvae;
+                                }
+
+                                }
+                                break;
+                            case RULE_DURATION:
+                                {
+                                switch ( input.LA(4) ) {
+                                case 24:
+                                    {
+                                    int LA6_5 = input.LA(5);
+
+                                    if ( (LA6_5==23) ) {
+                                        alt6=2;
+                                    }
+                                    else if ( (LA6_5==EOF||LA6_5==RULE_NOTE_ID||(LA6_5>=RULE_MEASURE && LA6_5<=RULE_OCTAVE)||LA6_5==22) ) {
+                                        alt6=1;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 6, 5, input);
+
+                                        throw nvae;
+                                    }
+                                    }
+                                    break;
+                                case EOF:
+                                case RULE_NOTE_ID:
+                                case RULE_MEASURE:
+                                case RULE_OCTAVE:
+                                case 22:
+                                    {
+                                    alt6=1;
+                                    }
+                                    break;
+                                case 23:
+                                    {
+                                    alt6=2;
+                                    }
+                                    break;
+                                default:
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 6, 4, input);
+
+                                    throw nvae;
+                                }
+
+                                }
+                                break;
+                            case 24:
+                                {
+                                int LA6_5 = input.LA(4);
+
+                                if ( (LA6_5==23) ) {
+                                    alt6=2;
+                                }
+                                else if ( (LA6_5==EOF||LA6_5==RULE_NOTE_ID||(LA6_5>=RULE_MEASURE && LA6_5<=RULE_OCTAVE)||LA6_5==22) ) {
+                                    alt6=1;
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 6, 5, input);
+
+                                    throw nvae;
+                                }
+                                }
+                                break;
+                            case EOF:
+                            case RULE_NOTE_ID:
+                            case RULE_MEASURE:
+                            case RULE_OCTAVE:
+                            case 22:
+                                {
+                                alt6=1;
+                                }
+                                break;
+                            case 23:
+                                {
+                                alt6=2;
+                                }
+                                break;
+                            default:
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 6, 2, input);
+
+                                throw nvae;
+                            }
+
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 6, 1, input);
+
+                            throw nvae;
+                        }
+                    }
+                    else if ( (LA6_0==RULE_NOTE_ID) ) {
+                        switch ( input.LA(2) ) {
+                        case RULE_ACCIDENTAL:
+                            {
+                            switch ( input.LA(3) ) {
+                            case RULE_DURATION:
+                                {
+                                switch ( input.LA(4) ) {
+                                case 24:
+                                    {
+                                    int LA6_5 = input.LA(5);
+
+                                    if ( (LA6_5==23) ) {
+                                        alt6=2;
+                                    }
+                                    else if ( (LA6_5==EOF||LA6_5==RULE_NOTE_ID||(LA6_5>=RULE_MEASURE && LA6_5<=RULE_OCTAVE)||LA6_5==22) ) {
+                                        alt6=1;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 6, 5, input);
+
+                                        throw nvae;
+                                    }
+                                    }
+                                    break;
+                                case EOF:
+                                case RULE_NOTE_ID:
+                                case RULE_MEASURE:
+                                case RULE_OCTAVE:
+                                case 22:
+                                    {
+                                    alt6=1;
+                                    }
+                                    break;
+                                case 23:
+                                    {
+                                    alt6=2;
+                                    }
+                                    break;
+                                default:
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 6, 4, input);
+
+                                    throw nvae;
+                                }
+
+                                }
+                                break;
+                            case 24:
+                                {
+                                int LA6_5 = input.LA(4);
+
+                                if ( (LA6_5==23) ) {
+                                    alt6=2;
+                                }
+                                else if ( (LA6_5==EOF||LA6_5==RULE_NOTE_ID||(LA6_5>=RULE_MEASURE && LA6_5<=RULE_OCTAVE)||LA6_5==22) ) {
+                                    alt6=1;
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 6, 5, input);
+
+                                    throw nvae;
+                                }
+                                }
+                                break;
+                            case 23:
+                                {
+                                alt6=2;
+                                }
+                                break;
+                            case EOF:
+                            case RULE_NOTE_ID:
+                            case RULE_MEASURE:
+                            case RULE_OCTAVE:
+                            case 22:
+                                {
+                                alt6=1;
+                                }
+                                break;
+                            default:
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 6, 3, input);
+
+                                throw nvae;
+                            }
+
+                            }
+                            break;
                         case RULE_DURATION:
                             {
-                            int LA6_4 = input.LA(5);
+                            switch ( input.LA(3) ) {
+                            case 24:
+                                {
+                                int LA6_5 = input.LA(4);
 
-                            if ( (LA6_4==22) ) {
+                                if ( (LA6_5==23) ) {
+                                    alt6=2;
+                                }
+                                else if ( (LA6_5==EOF||LA6_5==RULE_NOTE_ID||(LA6_5>=RULE_MEASURE && LA6_5<=RULE_OCTAVE)||LA6_5==22) ) {
+                                    alt6=1;
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 6, 5, input);
+
+                                    throw nvae;
+                                }
+                                }
+                                break;
+                            case EOF:
+                            case RULE_NOTE_ID:
+                            case RULE_MEASURE:
+                            case RULE_OCTAVE:
+                            case 22:
+                                {
+                                alt6=1;
+                                }
+                                break;
+                            case 23:
+                                {
+                                alt6=2;
+                                }
+                                break;
+                            default:
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 6, 4, input);
+
+                                throw nvae;
+                            }
+
+                            }
+                            break;
+                        case 24:
+                            {
+                            int LA6_5 = input.LA(3);
+
+                            if ( (LA6_5==23) ) {
                                 alt6=2;
                             }
-                            else if ( (LA6_4==EOF||LA6_4==RULE_NOTE_ID||LA6_4==RULE_OCTAVE||LA6_4==21) ) {
+                            else if ( (LA6_5==EOF||LA6_5==RULE_NOTE_ID||(LA6_5>=RULE_MEASURE && LA6_5<=RULE_OCTAVE)||LA6_5==22) ) {
                                 alt6=1;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("", 6, 4, input);
+                                    new NoViableAltException("", 6, 5, input);
 
                                 throw nvae;
                             }
@@ -928,194 +1261,107 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
                             break;
                         case EOF:
                         case RULE_NOTE_ID:
+                        case RULE_MEASURE:
                         case RULE_OCTAVE:
-                        case 21:
+                        case 22:
                             {
                             alt6=1;
                             }
                             break;
-                        case 22:
+                        case 23:
                             {
                             alt6=2;
                             }
                             break;
                         default:
                             NoViableAltException nvae =
-                                new NoViableAltException("", 6, 3, input);
+                                new NoViableAltException("", 6, 2, input);
 
                             throw nvae;
                         }
 
-                        }
-                        break;
-                    case RULE_DURATION:
-                        {
-                        int LA6_4 = input.LA(4);
-
-                        if ( (LA6_4==22) ) {
-                            alt6=2;
-                        }
-                        else if ( (LA6_4==EOF||LA6_4==RULE_NOTE_ID||LA6_4==RULE_OCTAVE||LA6_4==21) ) {
-                            alt6=1;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 6, 4, input);
-
-                            throw nvae;
-                        }
-                        }
-                        break;
-                    case 22:
-                        {
-                        alt6=2;
-                        }
-                        break;
-                    case EOF:
-                    case RULE_NOTE_ID:
-                    case RULE_OCTAVE:
-                    case 21:
-                        {
-                        alt6=1;
-                        }
-                        break;
-                    default:
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 6, 2, input);
-
-                        throw nvae;
-                    }
-
-                }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 6, 1, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA6_0==RULE_NOTE_ID) ) {
-                switch ( input.LA(2) ) {
-                case RULE_ACCIDENTAL:
-                    {
-                    switch ( input.LA(3) ) {
-                    case RULE_DURATION:
-                        {
-                        int LA6_4 = input.LA(4);
-
-                        if ( (LA6_4==22) ) {
-                            alt6=2;
-                        }
-                        else if ( (LA6_4==EOF||LA6_4==RULE_NOTE_ID||LA6_4==RULE_OCTAVE||LA6_4==21) ) {
-                            alt6=1;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 6, 4, input);
-
-                            throw nvae;
-                        }
-                        }
-                        break;
-                    case EOF:
-                    case RULE_NOTE_ID:
-                    case RULE_OCTAVE:
-                    case 21:
-                        {
-                        alt6=1;
-                        }
-                        break;
-                    case 22:
-                        {
-                        alt6=2;
-                        }
-                        break;
-                    default:
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 6, 3, input);
-
-                        throw nvae;
-                    }
-
-                    }
-                    break;
-                case RULE_DURATION:
-                    {
-                    int LA6_4 = input.LA(3);
-
-                    if ( (LA6_4==22) ) {
-                        alt6=2;
-                    }
-                    else if ( (LA6_4==EOF||LA6_4==RULE_NOTE_ID||LA6_4==RULE_OCTAVE||LA6_4==21) ) {
-                        alt6=1;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 6, 4, input);
+                            new NoViableAltException("", 6, 0, input);
 
                         throw nvae;
                     }
-                    }
-                    break;
-                case 22:
-                    {
-                    alt6=2;
-                    }
-                    break;
-                case EOF:
-                case RULE_NOTE_ID:
-                case RULE_OCTAVE:
-                case 21:
-                    {
-                    alt6=1;
-                    }
-                    break;
-                default:
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 6, 2, input);
+                    switch (alt6) {
+                        case 1 :
+                            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:382:3: ( (lv_note_0_0= ruleNote ) )
+                            {
+                            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:382:3: ( (lv_note_0_0= ruleNote ) )
+                            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:383:1: (lv_note_0_0= ruleNote )
+                            {
+                            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:383:1: (lv_note_0_0= ruleNote )
+                            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:384:3: lv_note_0_0= ruleNote
+                            {
+                             
+                            	        newCompositeNode(grammarAccess.getSequenceAccess().getNoteNoteParserRuleCall_0_0_0()); 
+                            	    
+                            pushFollow(FOLLOW_ruleNote_in_ruleSequence831);
+                            lv_note_0_0=ruleNote();
 
-                    throw nvae;
-                }
-
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
-
-                throw nvae;
-            }
-            switch (alt6) {
-                case 1 :
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:382:2: ( (lv_note_0_0= ruleNote ) )
-                    {
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:382:2: ( (lv_note_0_0= ruleNote ) )
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:383:1: (lv_note_0_0= ruleNote )
-                    {
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:383:1: (lv_note_0_0= ruleNote )
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:384:3: lv_note_0_0= ruleNote
-                    {
-                     
-                    	        newCompositeNode(grammarAccess.getSequenceAccess().getNoteNoteParserRuleCall_0_0()); 
-                    	    
-                    pushFollow(FOLLOW_ruleNote_in_ruleSequence830);
-                    lv_note_0_0=ruleNote();
-
-                    state._fsp--;
+                            state._fsp--;
 
 
-                    	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getSequenceRule());
-                    	        }
-                           		set(
-                           			current, 
-                           			"note",
-                            		lv_note_0_0, 
-                            		"Note");
-                    	        afterParserOrEnumRuleCall();
-                    	    
+                            	        if (current==null) {
+                            	            current = createModelElementForParent(grammarAccess.getSequenceRule());
+                            	        }
+                                   		set(
+                                   			current, 
+                                   			"note",
+                                    		lv_note_0_0, 
+                                    		"Note");
+                            	        afterParserOrEnumRuleCall();
+                            	    
 
-                    }
+                            }
 
+
+                            }
+
+
+                            }
+                            break;
+                        case 2 :
+                            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:401:6: ( (lv_chord_1_0= ruleChord ) )
+                            {
+                            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:401:6: ( (lv_chord_1_0= ruleChord ) )
+                            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:402:1: (lv_chord_1_0= ruleChord )
+                            {
+                            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:402:1: (lv_chord_1_0= ruleChord )
+                            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:403:3: lv_chord_1_0= ruleChord
+                            {
+                             
+                            	        newCompositeNode(grammarAccess.getSequenceAccess().getChordChordParserRuleCall_0_1_0()); 
+                            	    
+                            pushFollow(FOLLOW_ruleChord_in_ruleSequence858);
+                            lv_chord_1_0=ruleChord();
+
+                            state._fsp--;
+
+
+                            	        if (current==null) {
+                            	            current = createModelElementForParent(grammarAccess.getSequenceRule());
+                            	        }
+                                   		set(
+                                   			current, 
+                                   			"chord",
+                                    		lv_chord_1_0, 
+                                    		"Chord");
+                            	        afterParserOrEnumRuleCall();
+                            	    
+
+                            }
+
+
+                            }
+
+
+                            }
+                            break;
 
                     }
 
@@ -1123,32 +1369,27 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:401:6: ( (lv_chord_1_0= ruleChord ) )
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:420:6: ( (lv_measure_2_0= RULE_MEASURE ) )
                     {
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:401:6: ( (lv_chord_1_0= ruleChord ) )
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:402:1: (lv_chord_1_0= ruleChord )
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:420:6: ( (lv_measure_2_0= RULE_MEASURE ) )
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:421:1: (lv_measure_2_0= RULE_MEASURE )
                     {
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:402:1: (lv_chord_1_0= ruleChord )
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:403:3: lv_chord_1_0= ruleChord
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:421:1: (lv_measure_2_0= RULE_MEASURE )
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:422:3: lv_measure_2_0= RULE_MEASURE
                     {
-                     
-                    	        newCompositeNode(grammarAccess.getSequenceAccess().getChordChordParserRuleCall_1_0()); 
-                    	    
-                    pushFollow(FOLLOW_ruleChord_in_ruleSequence857);
-                    lv_chord_1_0=ruleChord();
+                    lv_measure_2_0=(Token)match(input,RULE_MEASURE,FOLLOW_RULE_MEASURE_in_ruleSequence882); 
 
-                    state._fsp--;
-
+                    			newLeafNode(lv_measure_2_0, grammarAccess.getSequenceAccess().getMeasureMEASURETerminalRuleCall_1_0()); 
+                    		
 
                     	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getSequenceRule());
+                    	            current = createModelElement(grammarAccess.getSequenceRule());
                     	        }
-                           		set(
+                           		setWithLastConsumed(
                            			current, 
-                           			"chord",
-                            		lv_chord_1_0, 
-                            		"Chord");
-                    	        afterParserOrEnumRuleCall();
+                           			"measure",
+                            		true, 
+                            		"MEASURE");
                     	    
 
                     }
@@ -1180,7 +1421,7 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleChord"
-    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:427:1: entryRuleChord returns [EObject current=null] : iv_ruleChord= ruleChord EOF ;
+    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:446:1: entryRuleChord returns [EObject current=null] : iv_ruleChord= ruleChord EOF ;
     public final EObject entryRuleChord() throws RecognitionException {
         EObject current = null;
 
@@ -1188,17 +1429,17 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:428:2: (iv_ruleChord= ruleChord EOF )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:429:2: iv_ruleChord= ruleChord EOF
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:447:2: (iv_ruleChord= ruleChord EOF )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:448:2: iv_ruleChord= ruleChord EOF
             {
              newCompositeNode(grammarAccess.getChordRule()); 
-            pushFollow(FOLLOW_ruleChord_in_entryRuleChord893);
+            pushFollow(FOLLOW_ruleChord_in_entryRuleChord923);
             iv_ruleChord=ruleChord();
 
             state._fsp--;
 
              current =iv_ruleChord; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleChord903); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleChord933); 
 
             }
 
@@ -1216,7 +1457,7 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleChord"
-    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:436:1: ruleChord returns [EObject current=null] : ( ( (lv_chordNotes_0_0= ruleNote ) ) (otherlv_1= '/' ( (lv_chordNotes_2_0= ruleNote ) ) )+ ) ;
+    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:455:1: ruleChord returns [EObject current=null] : ( ( (lv_chordNotes_0_0= ruleNote ) ) (otherlv_1= '/' ( (lv_chordNotes_2_0= ruleNote ) ) )+ ) ;
     public final EObject ruleChord() throws RecognitionException {
         EObject current = null;
 
@@ -1229,22 +1470,22 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:439:28: ( ( ( (lv_chordNotes_0_0= ruleNote ) ) (otherlv_1= '/' ( (lv_chordNotes_2_0= ruleNote ) ) )+ ) )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:440:1: ( ( (lv_chordNotes_0_0= ruleNote ) ) (otherlv_1= '/' ( (lv_chordNotes_2_0= ruleNote ) ) )+ )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:458:28: ( ( ( (lv_chordNotes_0_0= ruleNote ) ) (otherlv_1= '/' ( (lv_chordNotes_2_0= ruleNote ) ) )+ ) )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:459:1: ( ( (lv_chordNotes_0_0= ruleNote ) ) (otherlv_1= '/' ( (lv_chordNotes_2_0= ruleNote ) ) )+ )
             {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:440:1: ( ( (lv_chordNotes_0_0= ruleNote ) ) (otherlv_1= '/' ( (lv_chordNotes_2_0= ruleNote ) ) )+ )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:440:2: ( (lv_chordNotes_0_0= ruleNote ) ) (otherlv_1= '/' ( (lv_chordNotes_2_0= ruleNote ) ) )+
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:459:1: ( ( (lv_chordNotes_0_0= ruleNote ) ) (otherlv_1= '/' ( (lv_chordNotes_2_0= ruleNote ) ) )+ )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:459:2: ( (lv_chordNotes_0_0= ruleNote ) ) (otherlv_1= '/' ( (lv_chordNotes_2_0= ruleNote ) ) )+
             {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:440:2: ( (lv_chordNotes_0_0= ruleNote ) )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:441:1: (lv_chordNotes_0_0= ruleNote )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:459:2: ( (lv_chordNotes_0_0= ruleNote ) )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:460:1: (lv_chordNotes_0_0= ruleNote )
             {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:441:1: (lv_chordNotes_0_0= ruleNote )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:442:3: lv_chordNotes_0_0= ruleNote
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:460:1: (lv_chordNotes_0_0= ruleNote )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:461:3: lv_chordNotes_0_0= ruleNote
             {
              
             	        newCompositeNode(grammarAccess.getChordAccess().getChordNotesNoteParserRuleCall_0_0()); 
             	    
-            pushFollow(FOLLOW_ruleNote_in_ruleChord949);
+            pushFollow(FOLLOW_ruleNote_in_ruleChord979);
             lv_chordNotes_0_0=ruleNote();
 
             state._fsp--;
@@ -1266,36 +1507,36 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:458:2: (otherlv_1= '/' ( (lv_chordNotes_2_0= ruleNote ) ) )+
-            int cnt7=0;
-            loop7:
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:477:2: (otherlv_1= '/' ( (lv_chordNotes_2_0= ruleNote ) ) )+
+            int cnt8=0;
+            loop8:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt8=2;
+                int LA8_0 = input.LA(1);
 
-                if ( (LA7_0==22) ) {
-                    alt7=1;
+                if ( (LA8_0==23) ) {
+                    alt8=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt8) {
             	case 1 :
-            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:458:4: otherlv_1= '/' ( (lv_chordNotes_2_0= ruleNote ) )
+            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:477:4: otherlv_1= '/' ( (lv_chordNotes_2_0= ruleNote ) )
             	    {
-            	    otherlv_1=(Token)match(input,22,FOLLOW_22_in_ruleChord962); 
+            	    otherlv_1=(Token)match(input,23,FOLLOW_23_in_ruleChord992); 
 
             	        	newLeafNode(otherlv_1, grammarAccess.getChordAccess().getSolidusKeyword_1_0());
             	        
-            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:462:1: ( (lv_chordNotes_2_0= ruleNote ) )
-            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:463:1: (lv_chordNotes_2_0= ruleNote )
+            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:481:1: ( (lv_chordNotes_2_0= ruleNote ) )
+            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:482:1: (lv_chordNotes_2_0= ruleNote )
             	    {
-            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:463:1: (lv_chordNotes_2_0= ruleNote )
-            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:464:3: lv_chordNotes_2_0= ruleNote
+            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:482:1: (lv_chordNotes_2_0= ruleNote )
+            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:483:3: lv_chordNotes_2_0= ruleNote
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getChordAccess().getChordNotesNoteParserRuleCall_1_1_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleNote_in_ruleChord983);
+            	    pushFollow(FOLLOW_ruleNote_in_ruleChord1013);
             	    lv_chordNotes_2_0=ruleNote();
 
             	    state._fsp--;
@@ -1322,12 +1563,12 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt7 >= 1 ) break loop7;
+            	    if ( cnt8 >= 1 ) break loop8;
                         EarlyExitException eee =
-                            new EarlyExitException(7, input);
+                            new EarlyExitException(8, input);
                         throw eee;
                 }
-                cnt7++;
+                cnt8++;
             } while (true);
 
 
@@ -1351,7 +1592,7 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNote"
-    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:488:1: entryRuleNote returns [EObject current=null] : iv_ruleNote= ruleNote EOF ;
+    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:507:1: entryRuleNote returns [EObject current=null] : iv_ruleNote= ruleNote EOF ;
     public final EObject entryRuleNote() throws RecognitionException {
         EObject current = null;
 
@@ -1359,17 +1600,17 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:489:2: (iv_ruleNote= ruleNote EOF )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:490:2: iv_ruleNote= ruleNote EOF
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:508:2: (iv_ruleNote= ruleNote EOF )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:509:2: iv_ruleNote= ruleNote EOF
             {
              newCompositeNode(grammarAccess.getNoteRule()); 
-            pushFollow(FOLLOW_ruleNote_in_entryRuleNote1021);
+            pushFollow(FOLLOW_ruleNote_in_entryRuleNote1051);
             iv_ruleNote=ruleNote();
 
             state._fsp--;
 
              current =iv_ruleNote; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNote1031); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNote1061); 
 
             }
 
@@ -1387,7 +1628,7 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNote"
-    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:497:1: ruleNote returns [EObject current=null] : ( ( (lv_octave_0_0= RULE_OCTAVE ) )? ( (lv_note_1_0= RULE_NOTE_ID ) ) ( (lv_accidental_2_0= RULE_ACCIDENTAL ) )? ( (lv_duration_3_0= RULE_DURATION ) )? ) ;
+    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:516:1: ruleNote returns [EObject current=null] : ( ( (lv_octave_0_0= RULE_OCTAVE ) )? ( (lv_note_1_0= RULE_NOTE_ID ) ) ( (lv_accidental_2_0= RULE_ACCIDENTAL ) )? ( (lv_duration_3_0= RULE_DURATION ) )? ( (lv_point_4_0= '.' ) )? ) ;
     public final EObject ruleNote() throws RecognitionException {
         EObject current = null;
 
@@ -1395,31 +1636,32 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
         Token lv_note_1_0=null;
         Token lv_accidental_2_0=null;
         Token lv_duration_3_0=null;
+        Token lv_point_4_0=null;
 
          enterRule(); 
             
         try {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:500:28: ( ( ( (lv_octave_0_0= RULE_OCTAVE ) )? ( (lv_note_1_0= RULE_NOTE_ID ) ) ( (lv_accidental_2_0= RULE_ACCIDENTAL ) )? ( (lv_duration_3_0= RULE_DURATION ) )? ) )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:501:1: ( ( (lv_octave_0_0= RULE_OCTAVE ) )? ( (lv_note_1_0= RULE_NOTE_ID ) ) ( (lv_accidental_2_0= RULE_ACCIDENTAL ) )? ( (lv_duration_3_0= RULE_DURATION ) )? )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:519:28: ( ( ( (lv_octave_0_0= RULE_OCTAVE ) )? ( (lv_note_1_0= RULE_NOTE_ID ) ) ( (lv_accidental_2_0= RULE_ACCIDENTAL ) )? ( (lv_duration_3_0= RULE_DURATION ) )? ( (lv_point_4_0= '.' ) )? ) )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:520:1: ( ( (lv_octave_0_0= RULE_OCTAVE ) )? ( (lv_note_1_0= RULE_NOTE_ID ) ) ( (lv_accidental_2_0= RULE_ACCIDENTAL ) )? ( (lv_duration_3_0= RULE_DURATION ) )? ( (lv_point_4_0= '.' ) )? )
             {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:501:1: ( ( (lv_octave_0_0= RULE_OCTAVE ) )? ( (lv_note_1_0= RULE_NOTE_ID ) ) ( (lv_accidental_2_0= RULE_ACCIDENTAL ) )? ( (lv_duration_3_0= RULE_DURATION ) )? )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:501:2: ( (lv_octave_0_0= RULE_OCTAVE ) )? ( (lv_note_1_0= RULE_NOTE_ID ) ) ( (lv_accidental_2_0= RULE_ACCIDENTAL ) )? ( (lv_duration_3_0= RULE_DURATION ) )?
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:520:1: ( ( (lv_octave_0_0= RULE_OCTAVE ) )? ( (lv_note_1_0= RULE_NOTE_ID ) ) ( (lv_accidental_2_0= RULE_ACCIDENTAL ) )? ( (lv_duration_3_0= RULE_DURATION ) )? ( (lv_point_4_0= '.' ) )? )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:520:2: ( (lv_octave_0_0= RULE_OCTAVE ) )? ( (lv_note_1_0= RULE_NOTE_ID ) ) ( (lv_accidental_2_0= RULE_ACCIDENTAL ) )? ( (lv_duration_3_0= RULE_DURATION ) )? ( (lv_point_4_0= '.' ) )?
             {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:501:2: ( (lv_octave_0_0= RULE_OCTAVE ) )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:520:2: ( (lv_octave_0_0= RULE_OCTAVE ) )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA8_0==RULE_OCTAVE) ) {
-                alt8=1;
+            if ( (LA9_0==RULE_OCTAVE) ) {
+                alt9=1;
             }
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:502:1: (lv_octave_0_0= RULE_OCTAVE )
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:521:1: (lv_octave_0_0= RULE_OCTAVE )
                     {
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:502:1: (lv_octave_0_0= RULE_OCTAVE )
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:503:3: lv_octave_0_0= RULE_OCTAVE
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:521:1: (lv_octave_0_0= RULE_OCTAVE )
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:522:3: lv_octave_0_0= RULE_OCTAVE
                     {
-                    lv_octave_0_0=(Token)match(input,RULE_OCTAVE,FOLLOW_RULE_OCTAVE_in_ruleNote1073); 
+                    lv_octave_0_0=(Token)match(input,RULE_OCTAVE,FOLLOW_RULE_OCTAVE_in_ruleNote1103); 
 
                     			newLeafNode(lv_octave_0_0, grammarAccess.getNoteAccess().getOctaveOCTAVETerminalRuleCall_0_0()); 
                     		
@@ -1442,13 +1684,13 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:519:3: ( (lv_note_1_0= RULE_NOTE_ID ) )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:520:1: (lv_note_1_0= RULE_NOTE_ID )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:538:3: ( (lv_note_1_0= RULE_NOTE_ID ) )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:539:1: (lv_note_1_0= RULE_NOTE_ID )
             {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:520:1: (lv_note_1_0= RULE_NOTE_ID )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:521:3: lv_note_1_0= RULE_NOTE_ID
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:539:1: (lv_note_1_0= RULE_NOTE_ID )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:540:3: lv_note_1_0= RULE_NOTE_ID
             {
-            lv_note_1_0=(Token)match(input,RULE_NOTE_ID,FOLLOW_RULE_NOTE_ID_in_ruleNote1096); 
+            lv_note_1_0=(Token)match(input,RULE_NOTE_ID,FOLLOW_RULE_NOTE_ID_in_ruleNote1126); 
 
             			newLeafNode(lv_note_1_0, grammarAccess.getNoteAccess().getNoteNOTE_IDTerminalRuleCall_1_0()); 
             		
@@ -1468,21 +1710,21 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:537:2: ( (lv_accidental_2_0= RULE_ACCIDENTAL ) )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:556:2: ( (lv_accidental_2_0= RULE_ACCIDENTAL ) )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA9_0==RULE_ACCIDENTAL) ) {
-                alt9=1;
+            if ( (LA10_0==RULE_ACCIDENTAL) ) {
+                alt10=1;
             }
-            switch (alt9) {
+            switch (alt10) {
                 case 1 :
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:538:1: (lv_accidental_2_0= RULE_ACCIDENTAL )
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:557:1: (lv_accidental_2_0= RULE_ACCIDENTAL )
                     {
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:538:1: (lv_accidental_2_0= RULE_ACCIDENTAL )
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:539:3: lv_accidental_2_0= RULE_ACCIDENTAL
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:557:1: (lv_accidental_2_0= RULE_ACCIDENTAL )
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:558:3: lv_accidental_2_0= RULE_ACCIDENTAL
                     {
-                    lv_accidental_2_0=(Token)match(input,RULE_ACCIDENTAL,FOLLOW_RULE_ACCIDENTAL_in_ruleNote1118); 
+                    lv_accidental_2_0=(Token)match(input,RULE_ACCIDENTAL,FOLLOW_RULE_ACCIDENTAL_in_ruleNote1148); 
 
                     			newLeafNode(lv_accidental_2_0, grammarAccess.getNoteAccess().getAccidentalACCIDENTALTerminalRuleCall_2_0()); 
                     		
@@ -1505,21 +1747,21 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:555:3: ( (lv_duration_3_0= RULE_DURATION ) )?
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:574:3: ( (lv_duration_3_0= RULE_DURATION ) )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            if ( (LA10_0==RULE_DURATION) ) {
-                alt10=1;
+            if ( (LA11_0==RULE_DURATION) ) {
+                alt11=1;
             }
-            switch (alt10) {
+            switch (alt11) {
                 case 1 :
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:556:1: (lv_duration_3_0= RULE_DURATION )
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:575:1: (lv_duration_3_0= RULE_DURATION )
                     {
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:556:1: (lv_duration_3_0= RULE_DURATION )
-                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:557:3: lv_duration_3_0= RULE_DURATION
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:575:1: (lv_duration_3_0= RULE_DURATION )
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:576:3: lv_duration_3_0= RULE_DURATION
                     {
-                    lv_duration_3_0=(Token)match(input,RULE_DURATION,FOLLOW_RULE_DURATION_in_ruleNote1141); 
+                    lv_duration_3_0=(Token)match(input,RULE_DURATION,FOLLOW_RULE_DURATION_in_ruleNote1171); 
 
                     			newLeafNode(lv_duration_3_0, grammarAccess.getNoteAccess().getDurationDURATIONTerminalRuleCall_3_0()); 
                     		
@@ -1532,6 +1774,39 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
                            			"duration",
                             		lv_duration_3_0, 
                             		"DURATION");
+                    	    
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:592:3: ( (lv_point_4_0= '.' ) )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
+
+            if ( (LA12_0==24) ) {
+                alt12=1;
+            }
+            switch (alt12) {
+                case 1 :
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:593:1: (lv_point_4_0= '.' )
+                    {
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:593:1: (lv_point_4_0= '.' )
+                    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:594:3: lv_point_4_0= '.'
+                    {
+                    lv_point_4_0=(Token)match(input,24,FOLLOW_24_in_ruleNote1195); 
+
+                            newLeafNode(lv_point_4_0, grammarAccess.getNoteAccess().getPointFullStopKeyword_4_0());
+                        
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getNoteRule());
+                    	        }
+                           		setWithLastConsumed(current, "point", true, ".");
                     	    
 
                     }
@@ -1572,14 +1847,14 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleSong_in_ruleDocument152 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleHeader_in_entryRuleHeader188 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleHeader198 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_ruleHeader236 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleHeader248 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleHeader265 = new BitSet(new long[]{0x00000000000C0002L});
-    public static final BitSet FOLLOW_18_in_ruleHeader284 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleHeader296 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleHeader313 = new BitSet(new long[]{0x0000000000080002L});
-    public static final BitSet FOLLOW_19_in_ruleHeader333 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleHeader345 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_17_in_ruleHeader236 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleHeader248 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleHeader265 = new BitSet(new long[]{0x0000000000180002L});
+    public static final BitSet FOLLOW_19_in_ruleHeader284 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleHeader296 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleHeader313 = new BitSet(new long[]{0x0000000000100002L});
+    public static final BitSet FOLLOW_20_in_ruleHeader333 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleHeader345 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_ruleKey_in_ruleHeader366 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleKey_in_entryRuleKey405 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleKey416 = new BitSet(new long[]{0x0000000000000002L});
@@ -1591,24 +1866,26 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleInstrument_in_ruleSong599 = new BitSet(new long[]{0x0000000000000012L});
     public static final BitSet FOLLOW_ruleInstrument_in_entryRuleInstrument635 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleInstrument645 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleInstrument687 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleInstrument704 = new BitSet(new long[]{0x0000000000000240L});
-    public static final BitSet FOLLOW_ruleSequence_in_ruleInstrument725 = new BitSet(new long[]{0x0000000000200240L});
-    public static final BitSet FOLLOW_21_in_ruleInstrument738 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleInstrument687 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleInstrument704 = new BitSet(new long[]{0x0000000000000640L});
+    public static final BitSet FOLLOW_ruleSequence_in_ruleInstrument725 = new BitSet(new long[]{0x0000000000400640L});
+    public static final BitSet FOLLOW_22_in_ruleInstrument738 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSequence_in_entryRuleSequence774 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSequence784 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNote_in_ruleSequence830 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleChord_in_ruleSequence857 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleChord_in_entryRuleChord893 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleChord903 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNote_in_ruleChord949 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_22_in_ruleChord962 = new BitSet(new long[]{0x0000000000000240L});
-    public static final BitSet FOLLOW_ruleNote_in_ruleChord983 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_ruleNote_in_entryRuleNote1021 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNote1031 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_OCTAVE_in_ruleNote1073 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_NOTE_ID_in_ruleNote1096 = new BitSet(new long[]{0x0000000000000482L});
-    public static final BitSet FOLLOW_RULE_ACCIDENTAL_in_ruleNote1118 = new BitSet(new long[]{0x0000000000000402L});
-    public static final BitSet FOLLOW_RULE_DURATION_in_ruleNote1141 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNote_in_ruleSequence831 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleChord_in_ruleSequence858 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_MEASURE_in_ruleSequence882 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleChord_in_entryRuleChord923 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleChord933 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNote_in_ruleChord979 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23_in_ruleChord992 = new BitSet(new long[]{0x0000000000000440L});
+    public static final BitSet FOLLOW_ruleNote_in_ruleChord1013 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_ruleNote_in_entryRuleNote1051 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNote1061 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_OCTAVE_in_ruleNote1103 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_NOTE_ID_in_ruleNote1126 = new BitSet(new long[]{0x0000000001000882L});
+    public static final BitSet FOLLOW_RULE_ACCIDENTAL_in_ruleNote1148 = new BitSet(new long[]{0x0000000001000802L});
+    public static final BitSet FOLLOW_RULE_DURATION_in_ruleNote1171 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_24_in_ruleNote1195 = new BitSet(new long[]{0x0000000000000002L});
 
 }

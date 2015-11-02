@@ -26,6 +26,7 @@
     <genClasses ecoreClass="SimpleSonora.ecore#//Sequence">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Sequence/note"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Sequence/chord"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Sequence/measure"/>
     </genClasses>
     <genClasses ecoreClass="SimpleSonora.ecore#//Chord">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Chord/chordNotes"/>
@@ -35,6 +36,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Note/note"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Note/accidental"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Note/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Note/point"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

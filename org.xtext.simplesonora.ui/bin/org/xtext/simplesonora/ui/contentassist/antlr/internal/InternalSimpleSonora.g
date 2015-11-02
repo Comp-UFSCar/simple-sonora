@@ -294,15 +294,37 @@ rule__Sequence__Alternatives
     }
 :
 (
-{ before(grammarAccess.getSequenceAccess().getNoteAssignment_0()); }
-(rule__Sequence__NoteAssignment_0)
-{ after(grammarAccess.getSequenceAccess().getNoteAssignment_0()); }
+{ before(grammarAccess.getSequenceAccess().getAlternatives_0()); }
+(rule__Sequence__Alternatives_0)
+{ after(grammarAccess.getSequenceAccess().getAlternatives_0()); }
 )
 
     |(
-{ before(grammarAccess.getSequenceAccess().getChordAssignment_1()); }
-(rule__Sequence__ChordAssignment_1)
-{ after(grammarAccess.getSequenceAccess().getChordAssignment_1()); }
+{ before(grammarAccess.getSequenceAccess().getMeasureAssignment_1()); }
+(rule__Sequence__MeasureAssignment_1)
+{ after(grammarAccess.getSequenceAccess().getMeasureAssignment_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Sequence__Alternatives_0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSequenceAccess().getNoteAssignment_0_0()); }
+(rule__Sequence__NoteAssignment_0_0)
+{ after(grammarAccess.getSequenceAccess().getNoteAssignment_0_0()); }
+)
+
+    |(
+{ before(grammarAccess.getSequenceAccess().getChordAssignment_0_1()); }
+(rule__Sequence__ChordAssignment_0_1)
+{ after(grammarAccess.getSequenceAccess().getChordAssignment_0_1()); }
 )
 
 ;
@@ -1203,6 +1225,7 @@ rule__Note__Group__3
     }
 :
 	rule__Note__Group__3__Impl
+	rule__Note__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1223,6 +1246,36 @@ rule__Note__Group__3__Impl
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__Note__Group__4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Note__Group__4__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Note__Group__4__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getNoteAccess().getPointAssignment_4()); }
+(rule__Note__PointAssignment_4)?
+{ after(grammarAccess.getNoteAccess().getPointAssignment_4()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 
@@ -1354,14 +1407,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sequence__NoteAssignment_0
+rule__Sequence__NoteAssignment_0_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getSequenceAccess().getNoteNoteParserRuleCall_0_0()); }
-	ruleNote{ after(grammarAccess.getSequenceAccess().getNoteNoteParserRuleCall_0_0()); }
+{ before(grammarAccess.getSequenceAccess().getNoteNoteParserRuleCall_0_0_0()); }
+	ruleNote{ after(grammarAccess.getSequenceAccess().getNoteNoteParserRuleCall_0_0_0()); }
 )
 
 ;
@@ -1369,14 +1422,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sequence__ChordAssignment_1
+rule__Sequence__ChordAssignment_0_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getSequenceAccess().getChordChordParserRuleCall_1_0()); }
-	ruleChord{ after(grammarAccess.getSequenceAccess().getChordChordParserRuleCall_1_0()); }
+{ before(grammarAccess.getSequenceAccess().getChordChordParserRuleCall_0_1_0()); }
+	ruleChord{ after(grammarAccess.getSequenceAccess().getChordChordParserRuleCall_0_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Sequence__MeasureAssignment_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSequenceAccess().getMeasureMEASURETerminalRuleCall_1_0()); }
+	RULE_MEASURE{ after(grammarAccess.getSequenceAccess().getMeasureMEASURETerminalRuleCall_1_0()); }
 )
 
 ;
@@ -1474,16 +1542,41 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__Note__PointAssignment_4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getNoteAccess().getPointFullStopKeyword_4_0()); }
+(
+{ before(grammarAccess.getNoteAccess().getPointFullStopKeyword_4_0()); }
+
+	'.' 
+
+{ after(grammarAccess.getNoteAccess().getPointFullStopKeyword_4_0()); }
+)
+
+{ after(grammarAccess.getNoteAccess().getPointFullStopKeyword_4_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 
 RULE_INTERVAL : ('maj'|'min');
 
 RULE_OCTAVE : ('<'+|'o' '0'..'9'|'>'+);
 
-RULE_ACCIDENTAL : ('+'|'-');
+RULE_ACCIDENTAL : ('+'|'-'|'@');
 
-RULE_NOTE_ID : ('a'..'g'|'A'..'G');
+RULE_NOTE_ID : ('a'..'g'|'A'..'G'|('R'|'r'));
 
 RULE_DURATION : ':' ('1'|'2'|'4'|'8'|'16'|'32');
+
+RULE_MEASURE : '|'?;
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

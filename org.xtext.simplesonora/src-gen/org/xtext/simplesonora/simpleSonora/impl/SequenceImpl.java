@@ -26,6 +26,7 @@ import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
  * <ul>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.SequenceImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.SequenceImpl#getChord <em>Chord</em>}</li>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.SequenceImpl#isMeasure <em>Measure</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,6 +52,26 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
    * @ordered
    */
   protected Chord chord;
+
+  /**
+   * The default value of the '{@link #isMeasure() <em>Measure</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isMeasure()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean MEASURE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isMeasure() <em>Measure</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isMeasure()
+   * @generated
+   * @ordered
+   */
+  protected boolean measure = MEASURE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -174,6 +195,29 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isMeasure()
+  {
+    return measure;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMeasure(boolean newMeasure)
+  {
+    boolean oldMeasure = measure;
+    measure = newMeasure;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.SEQUENCE__MEASURE, oldMeasure, measure));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -201,6 +245,8 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
         return getNote();
       case SimpleSonoraPackage.SEQUENCE__CHORD:
         return getChord();
+      case SimpleSonoraPackage.SEQUENCE__MEASURE:
+        return isMeasure();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -220,6 +266,9 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
         return;
       case SimpleSonoraPackage.SEQUENCE__CHORD:
         setChord((Chord)newValue);
+        return;
+      case SimpleSonoraPackage.SEQUENCE__MEASURE:
+        setMeasure((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -241,6 +290,9 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
       case SimpleSonoraPackage.SEQUENCE__CHORD:
         setChord((Chord)null);
         return;
+      case SimpleSonoraPackage.SEQUENCE__MEASURE:
+        setMeasure(MEASURE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -259,8 +311,27 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
         return note != null;
       case SimpleSonoraPackage.SEQUENCE__CHORD:
         return chord != null;
+      case SimpleSonoraPackage.SEQUENCE__MEASURE:
+        return measure != MEASURE_EDEFAULT;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (measure: ");
+    result.append(measure);
+    result.append(')');
+    return result.toString();
   }
 
 } //SequenceImpl

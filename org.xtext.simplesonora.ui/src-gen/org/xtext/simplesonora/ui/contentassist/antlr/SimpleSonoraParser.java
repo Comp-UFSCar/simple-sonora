@@ -38,6 +38,7 @@ public class SimpleSonoraParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getSequenceAccess().getAlternatives(), "rule__Sequence__Alternatives");
+					put(grammarAccess.getSequenceAccess().getAlternatives_0(), "rule__Sequence__Alternatives_0");
 					put(grammarAccess.getDocumentAccess().getGroup(), "rule__Document__Group__0");
 					put(grammarAccess.getHeaderAccess().getGroup(), "rule__Header__Group__0");
 					put(grammarAccess.getHeaderAccess().getGroup_0(), "rule__Header__Group_0__0");
@@ -56,14 +57,16 @@ public class SimpleSonoraParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSongAccess().getInstrumentsAssignment(), "rule__Song__InstrumentsAssignment");
 					put(grammarAccess.getInstrumentAccess().getInstrumentNameAssignment_0(), "rule__Instrument__InstrumentNameAssignment_0");
 					put(grammarAccess.getInstrumentAccess().getSequencesAssignment_2(), "rule__Instrument__SequencesAssignment_2");
-					put(grammarAccess.getSequenceAccess().getNoteAssignment_0(), "rule__Sequence__NoteAssignment_0");
-					put(grammarAccess.getSequenceAccess().getChordAssignment_1(), "rule__Sequence__ChordAssignment_1");
+					put(grammarAccess.getSequenceAccess().getNoteAssignment_0_0(), "rule__Sequence__NoteAssignment_0_0");
+					put(grammarAccess.getSequenceAccess().getChordAssignment_0_1(), "rule__Sequence__ChordAssignment_0_1");
+					put(grammarAccess.getSequenceAccess().getMeasureAssignment_1(), "rule__Sequence__MeasureAssignment_1");
 					put(grammarAccess.getChordAccess().getChordNotesAssignment_0(), "rule__Chord__ChordNotesAssignment_0");
 					put(grammarAccess.getChordAccess().getChordNotesAssignment_1_1(), "rule__Chord__ChordNotesAssignment_1_1");
 					put(grammarAccess.getNoteAccess().getOctaveAssignment_0(), "rule__Note__OctaveAssignment_0");
 					put(grammarAccess.getNoteAccess().getNoteAssignment_1(), "rule__Note__NoteAssignment_1");
 					put(grammarAccess.getNoteAccess().getAccidentalAssignment_2(), "rule__Note__AccidentalAssignment_2");
 					put(grammarAccess.getNoteAccess().getDurationAssignment_3(), "rule__Note__DurationAssignment_3");
+					put(grammarAccess.getNoteAccess().getPointAssignment_4(), "rule__Note__PointAssignment_4");
 				}
 			};
 		}

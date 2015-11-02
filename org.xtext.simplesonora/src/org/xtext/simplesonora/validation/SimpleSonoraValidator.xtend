@@ -17,8 +17,13 @@ import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage
  */
 class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
 
+	// from JFugue, get the instruments name
 	Set<String> instrumentNames = MidiDictionary.INSTRUMENT_BYTE_TO_STRING.values.toSet
 	
+	/**
+	 * This will verify the existence of the instrument entered by 
+	 * the user, if it doesn't match, an error will be shown.
+	 */
 	@Check
 	def void checkInstrument(Instrument instrument) {
 		// get the instrument name, convert it to lower case

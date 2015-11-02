@@ -379,10 +379,10 @@ ruleSequence returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((
+(((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSequenceAccess().getNoteNoteParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getSequenceAccess().getNoteNoteParserRuleCall_0_0_0()); 
 	    }
 		lv_note_0_0=ruleNote		{
 	        if ($current==null) {
@@ -401,7 +401,7 @@ ruleSequence returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSequenceAccess().getChordChordParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getSequenceAccess().getChordChordParserRuleCall_0_1_0()); 
 	    }
 		lv_chord_1_0=ruleChord		{
 	        if ($current==null) {
@@ -413,6 +413,25 @@ ruleSequence returns [EObject current=null]
         		lv_chord_1_0, 
         		"Chord");
 	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+    |(
+(
+		lv_measure_2_0=RULE_MEASURE
+		{
+			newLeafNode(lv_measure_2_0, grammarAccess.getSequenceAccess().getMeasureMEASURETerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSequenceRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"measure",
+        		true, 
+        		"MEASURE");
 	    }
 
 )
@@ -570,6 +589,21 @@ ruleNote returns [EObject current=null]
 	    }
 
 )
+)?(
+(
+		lv_point_4_0=	'.' 
+    {
+        newLeafNode(lv_point_4_0, grammarAccess.getNoteAccess().getPointFullStopKeyword_4_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getNoteRule());
+	        }
+       		setWithLastConsumed($current, "point", true, ".");
+	    }
+
+)
 )?)
 ;
 
@@ -581,11 +615,13 @@ RULE_INTERVAL : ('maj'|'min');
 
 RULE_OCTAVE : ('<'+|'o' '0'..'9'|'>'+);
 
-RULE_ACCIDENTAL : ('+'|'-');
+RULE_ACCIDENTAL : ('+'|'-'|'@');
 
-RULE_NOTE_ID : ('a'..'g'|'A'..'G');
+RULE_NOTE_ID : ('a'..'g'|'A'..'G'|('R'|'r'));
 
 RULE_DURATION : ':' ('1'|'2'|'4'|'8'|'16'|'32');
+
+RULE_MEASURE : '|'?;
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

@@ -2,61 +2,83 @@ grammar org.xtext.simplesonora.SimpleSonora with org.eclipse.xtext.common.Termin
 
 generate simpleSonora "http://www.xtext.org/simplesonora/SimpleSonora"
 
+/* Document organization */
 Document:
-	(header=Header)(song=Song)
+	(header=Header)	// Header containing all the song 'settings'
+	(song=Song)		// Body containing the Song itself
 ;
 
 /* Header of the file containing the tempo, time and key of melody. */
 Header:
-	('title' '=' songName=ID)
+	('title' '=' songName=ID)	// title of the song - also mid name
 	('tempo' '=' tempo=INT)?	// default is 120 (Allegro)
 	('key' '=' key=Key)?		// default is C major
 ;
 
 Key:
+	// Key, defined by note, it's accidental (if exists) and interval
 	NOTE_ID ACCIDENTAL? INTERVAL
 ;
 
 terminal INTERVAL:
+	// Key interval: major or minor
 	'maj' | 'min'
 ;
 
-
 /* The body of the file with melody. */
-
 Song:
+	// A song can have many instruments
 	(instruments += Instrument)+
+	// *instrument must exist as a General MIDI instrument 
 ;
 
 Instrument:
+	// Each instrument can have a sequence of notes and chords
 	instrumentName = ID '{' (sequences += Sequence)+ '}'
 ;
 
-
 Sequence:
-	(note = Note | chord = Chord)
+	// A sequence is a note, chord or measure which is discarded
+	(note=Note | chord= Chord) | measure?=MEASURE
 ;
 
 Chord:
+	// A chord must have at least 2 notes
 	chordNotes+=Note ('/' chordNotes+= Note)+
 ;
 
 Note:
-	(octave = OCTAVE)? note=NOTE_ID accidental=(ACCIDENTAL)? duration=(DURATION)?
+	// A note is composed by
+	(octave=OCTAVE)? 			// uses current octave, if none is received
+	(note=NOTE_ID) 				// a note id using ABC Notation
+	(accidental=ACCIDENTAL)? 	// the accidental, if wanted (flat, sharp or natural)
+	(duration=DURATION)? 		// uses current duration, if none is received
+	(point?='.')?				// point duration for the note, if wanted
 ;
 
 terminal OCTAVE:
-	('<')+ | 'o'('0'..'9') | ('>')+
+	('<')+ | 			// goes down one octave
+	'o'('0'..'9') | 	// goes to octave 0-9 directly
+	('>')+				// goes up one octave
 ;
 
-terminal ACCIDENTAL:
-	'+' | '-'
+//TODO: corrigir o simbolo para 'natural'
+terminal ACCIDENTAL :
+	'+' | 				// sharp #
+	'-' | 				// flat b
+	'@'					// natural
 ;
 
 terminal NOTE_ID:
-	 ('a'..'g')|('A'..'G')
+	// ABC Notation and 'R' for rest
+	 ('a'..'g')|('A'..'G')|('R' | 'r')
 ;
 
 terminal DURATION :
-	':'('1' | '2' | '4' | '8' | '16' | '32')
+	// 1 for whole, 2 for 1/2, 4 for 1/4, ...
+	':' ('1' | '2' | '4' | '8' | '16' | '32')
+;
+terminal MEASURE :
+	'|'? // measure is for the programmer organization only
+	
 ;
