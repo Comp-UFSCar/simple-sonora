@@ -104,13 +104,22 @@ public interface SimpleSonoraPackage extends EPackage
   int HEADER = 1;
 
   /**
+   * The feature id for the '<em><b>Nofeedback</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HEADER__NOFEEDBACK = 0;
+
+  /**
    * The feature id for the '<em><b>Song Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HEADER__SONG_NAME = 0;
+  int HEADER__SONG_NAME = 1;
 
   /**
    * The feature id for the '<em><b>Tempo</b></em>' attribute.
@@ -119,7 +128,7 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    * @ordered
    */
-  int HEADER__TEMPO = 1;
+  int HEADER__TEMPO = 2;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -128,7 +137,7 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    * @ordered
    */
-  int HEADER__KEY = 2;
+  int HEADER__KEY = 3;
 
   /**
    * The number of structural features of the '<em>Header</em>' class.
@@ -137,7 +146,7 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    * @ordered
    */
-  int HEADER_FEATURE_COUNT = 3;
+  int HEADER_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.simplesonora.simpleSonora.impl.SongImpl <em>Song</em>}' class.
@@ -380,13 +389,22 @@ public interface SimpleSonoraPackage extends EPackage
   int NOTE__POINT = 4;
 
   /**
+   * The feature id for the '<em><b>Tie</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOTE__TIE = 5;
+
+  /**
    * The number of structural features of the '<em>Note</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NOTE_FEATURE_COUNT = 5;
+  int NOTE_FEATURE_COUNT = 6;
 
 
   /**
@@ -430,6 +448,17 @@ public interface SimpleSonoraPackage extends EPackage
    * @generated
    */
   EClass getHeader();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Header#isNofeedback <em>Nofeedback</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Nofeedback</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Header#isNofeedback()
+   * @see #getHeader()
+   * @generated
+   */
+  EAttribute getHeader_Nofeedback();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Header#getSongName <em>Song Name</em>}'.
@@ -690,6 +719,17 @@ public interface SimpleSonoraPackage extends EPackage
   EAttribute getNote_Point();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Note#isTie <em>Tie</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Tie</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Note#isTie()
+   * @see #getNote()
+   * @generated
+   */
+  EAttribute getNote_Tie();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -747,6 +787,14 @@ public interface SimpleSonoraPackage extends EPackage
      * @generated
      */
     EClass HEADER = eINSTANCE.getHeader();
+
+    /**
+     * The meta object literal for the '<em><b>Nofeedback</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute HEADER__NOFEEDBACK = eINSTANCE.getHeader_Nofeedback();
 
     /**
      * The meta object literal for the '<em><b>Song Name</b></em>' attribute feature.
@@ -951,6 +999,14 @@ public interface SimpleSonoraPackage extends EPackage
      * @generated
      */
     EAttribute NOTE__POINT = eINSTANCE.getNote_Point();
+
+    /**
+     * The meta object literal for the '<em><b>Tie</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NOTE__TIE = eINSTANCE.getNote_Tie();
 
   }
 

@@ -10,6 +10,7 @@ Document:
 
 /* Header of the file containing the tempo, time and key of melody. */
 Header:
+	(nofeedback?='no-feedback')?// wont play when file is saved, only generate MIDI
 	('title' '=' songName=ID)	// title of the song - also mid name
 	('tempo' '=' tempo=INT)?	// default is 120 (Allegro)
 	('key' '=' key=Key)?		// default is C major
@@ -60,6 +61,7 @@ Note:
 	(accidental=ACCIDENTAL)? 	// the accidental, if wanted (flat, sharp or natural)
 	(duration=DURATION)? 		// uses current duration, if none is received
 	(point?='.')?				// point duration for the note, if wanted
+	(tie?='_')?					// tie to the next note, if wanted
 ;
 
 terminal OCTAVE:

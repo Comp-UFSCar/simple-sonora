@@ -37,15 +37,15 @@ public class SimpleSonoraGenerator implements IGenerator {
   
   private String key = new String("");
   
+  private boolean feedback = true;
+  
   private Integer curVoice = Integer.valueOf(0);
   
   private Integer curOctave = Integer.valueOf(4);
   
-  private String auxNote = new String("");
-  
-  private String auxChord = new String("");
-  
   private String curDuration = new String("h");
+  
+  private boolean keepTie = false;
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
@@ -57,6 +57,7 @@ public class SimpleSonoraGenerator implements IGenerator {
       Iterable<Header> _filter = Iterables.<Header>filter(_iterable, Header.class);
       for (final Header h : _filter) {
         {
+          this.feedback = true;
           String _songName = h.getSongName();
           this.songName = _songName;
           int _tempo = h.getTempo();
@@ -71,6 +72,10 @@ public class SimpleSonoraGenerator implements IGenerator {
             String _key_1 = h.getKey();
             String _keyToPattern = this.keyToPattern(_key_1);
             pattern.add(_keyToPattern);
+          }
+          boolean _isNofeedback = h.isNofeedback();
+          if (_isNofeedback) {
+            this.feedback = false;
           }
         }
       }
@@ -94,93 +99,31 @@ public class SimpleSonoraGenerator implements IGenerator {
               boolean _notEquals = (!Objects.equal(_note, null));
               if (_notEquals) {
                 Note _note_1 = s.getNote();
-                String _octave = _note_1.getOctave();
-                boolean _notEquals_1 = (!Objects.equal(_octave, null));
-                if (_notEquals_1) {
-                  Note _note_2 = s.getNote();
-                  String _octave_1 = _note_2.getOctave();
-                  this.setOctave(_octave_1);
-                }
-                Note _note_3 = s.getNote();
-                String _noteToPattern = this.noteToPattern(_note_3);
+                String _noteToPattern = this.noteToPattern(_note_1);
                 pattern.add(_noteToPattern);
               }
               Chord _chord = s.getChord();
-              boolean _notEquals_2 = (!Objects.equal(_chord, null));
-              if (_notEquals_2) {
-                this.auxChord = "";
+              boolean _notEquals_1 = (!Objects.equal(_chord, null));
+              if (_notEquals_1) {
                 Chord _chord_1 = s.getChord();
-                EList<Note> _chordNotes = _chord_1.getChordNotes();
-                List<Note> _list = IterableExtensions.<Note>toList(_chordNotes);
-                for (final Note n : _list) {
-                  {
-                    String _octave_2 = n.getOctave();
-                    boolean _notEquals_3 = (!Objects.equal(_octave_2, null));
-                    if (_notEquals_3) {
-                      String _octave_3 = n.getOctave();
-                      this.setOctave(_octave_3);
-                    }
-                    String _noteToPattern_1 = this.noteToPattern(n);
-                    String _plus_2 = (_noteToPattern_1 + "+");
-                    String _concat = this.auxChord.concat(_plus_2);
-                    this.auxChord = _concat;
-                  }
-                }
-                int _length = this.auxChord.length();
-                int _minus = (_length - 1);
-                String _substring = this.auxChord.substring(0, _minus);
-                pattern.add(_substring);
+                String _chordToPattern = this.chordToPattern(_chord_1);
+                pattern.add(_chordToPattern);
               }
               Harmony _harmony = s.getHarmony();
-              boolean _notEquals_3 = (!Objects.equal(_harmony, null));
-              if (_notEquals_3) {
-                String harmony = "";
+              boolean _notEquals_2 = (!Objects.equal(_harmony, null));
+              if (_notEquals_2) {
                 Harmony _harmony_1 = s.getHarmony();
-                EList<Note> _harmonyNotes = _harmony_1.getHarmonyNotes();
-                List<Note> _list_1 = IterableExtensions.<Note>toList(_harmonyNotes);
-                for (final Note n_1 : _list_1) {
-                  {
-                    String _octave_2 = n_1.getOctave();
-                    boolean _notEquals_4 = (!Objects.equal(_octave_2, null));
-                    if (_notEquals_4) {
-                      String _octave_3 = n_1.getOctave();
-                      this.setOctave(_octave_3);
-                    }
-                    String _noteToPattern_1 = this.noteToPattern(n_1);
-                    String _plus_2 = (_noteToPattern_1 + "+");
-                    String _concat = harmony.concat(_plus_2);
-                    harmony = _concat;
-                  }
-                }
-                Harmony _harmony_2 = s.getHarmony();
-                EList<Note> _notes = _harmony_2.getNotes();
-                List<Note> _list_2 = IterableExtensions.<Note>toList(_notes);
-                for (final Note n_2 : _list_2) {
-                  {
-                    String _octave_2 = n_2.getOctave();
-                    boolean _notEquals_4 = (!Objects.equal(_octave_2, null));
-                    if (_notEquals_4) {
-                      String _octave_3 = n_2.getOctave();
-                      this.setOctave(_octave_3);
-                    }
-                    String _noteToPattern_1 = this.noteToPattern(n_2);
-                    String _plus_2 = (_noteToPattern_1 + "_");
-                    String _concat = harmony.concat(_plus_2);
-                    harmony = _concat;
-                  }
-                }
-                int _length_1 = harmony.length();
-                int _minus_1 = (_length_1 - 1);
-                String _substring_1 = harmony.substring(0, _minus_1);
-                harmony = _substring_1;
-                pattern.add(harmony);
+                String _harmonyToPattern = this.harmonyToPattern(_harmony_1);
+                pattern.add(_harmonyToPattern);
               }
             }
           }
           this.curVoice++;
         }
       }
-      player.play(pattern);
+      if (this.feedback) {
+        player.play(pattern);
+      }
       String _string = pattern.toString();
       System.out.println(_string);
       File _file = new File((this.songName + ".mid"));
@@ -256,20 +199,25 @@ public class SimpleSonoraGenerator implements IGenerator {
    * @return String with JFugue pattern notation for notes.
    */
   public String noteToPattern(final Note note) {
-    String _note = note.getNote();
-    String _upperCase = _note.toUpperCase();
-    this.auxNote = _upperCase;
-    String _accidental = note.getAccidental();
-    boolean _notEquals = (!Objects.equal(_accidental, null));
+    String _octave = note.getOctave();
+    boolean _notEquals = (!Objects.equal(_octave, null));
     if (_notEquals) {
+      String _octave_1 = note.getOctave();
+      this.setOctave(_octave_1);
+    }
+    String _note = note.getNote();
+    String auxNote = _note.toUpperCase();
+    String _accidental = note.getAccidental();
+    boolean _notEquals_1 = (!Objects.equal(_accidental, null));
+    if (_notEquals_1) {
       String _accidental_1 = note.getAccidental();
       String _accidentalToPattern = this.accidentalToPattern(_accidental_1);
-      String _concat = this.auxNote.concat(_accidentalToPattern);
-      this.auxNote = _concat;
+      String _concat = auxNote.concat(_accidentalToPattern);
+      auxNote = _concat;
     }
     String _duration = note.getDuration();
-    boolean _notEquals_1 = (!Objects.equal(_duration, null));
-    if (_notEquals_1) {
+    boolean _notEquals_2 = (!Objects.equal(_duration, null));
+    if (_notEquals_2) {
       String _duration_1 = note.getDuration();
       String _durationToPattern = this.durationToPattern(_duration_1);
       this.curDuration = _durationToPattern;
@@ -279,19 +227,74 @@ public class SimpleSonoraGenerator implements IGenerator {
     if (_isPoint) {
       point = ".";
     }
+    String tie = "";
+    String tied = "";
+    boolean _isTie = note.isTie();
+    if (_isTie) {
+      tie = "-";
+      if (this.keepTie) {
+        tied = "-";
+      }
+      this.keepTie = true;
+    } else {
+      if (this.keepTie) {
+        tied = "-";
+        this.keepTie = false;
+      }
+    }
     String _note_1 = note.getNote();
     boolean _equalsIgnoreCase = _note_1.equalsIgnoreCase("r");
     if (_equalsIgnoreCase) {
-      String _concat_1 = this.auxNote.concat((this.curDuration + point));
-      this.auxNote = _concat_1;
+      String _concat_1 = auxNote.concat((((tied + this.curDuration) + point) + tie));
+      auxNote = _concat_1;
     } else {
       String _string = this.curOctave.toString();
-      String _plus = (_string + this.curDuration);
-      String _plus_1 = (_plus + point);
-      String _concat_2 = this.auxNote.concat(_plus_1);
-      this.auxNote = _concat_2;
+      String _plus = (_string + tied);
+      String _plus_1 = (_plus + this.curDuration);
+      String _plus_2 = (_plus_1 + point);
+      String _plus_3 = (_plus_2 + tie);
+      String _concat_2 = auxNote.concat(_plus_3);
+      auxNote = _concat_2;
     }
-    return this.auxNote;
+    return auxNote;
+  }
+  
+  public String chordToPattern(final Chord chord) {
+    String auxChord = "";
+    EList<Note> _chordNotes = chord.getChordNotes();
+    List<Note> _list = IterableExtensions.<Note>toList(_chordNotes);
+    for (final Note n : _list) {
+      String _noteToPattern = this.noteToPattern(n);
+      String _plus = (_noteToPattern + "+");
+      String _concat = auxChord.concat(_plus);
+      auxChord = _concat;
+    }
+    int _length = auxChord.length();
+    int _minus = (_length - 1);
+    return auxChord.substring(0, _minus);
+  }
+  
+  public String harmonyToPattern(final Harmony harmony) {
+    String h = "";
+    EList<Note> _harmonyNotes = harmony.getHarmonyNotes();
+    List<Note> _list = IterableExtensions.<Note>toList(_harmonyNotes);
+    for (final Note n : _list) {
+      String _noteToPattern = this.noteToPattern(n);
+      String _plus = (_noteToPattern + "+");
+      String _concat = h.concat(_plus);
+      h = _concat;
+    }
+    EList<Note> _notes = harmony.getNotes();
+    List<Note> _list_1 = IterableExtensions.<Note>toList(_notes);
+    for (final Note n_1 : _list_1) {
+      String _noteToPattern_1 = this.noteToPattern(n_1);
+      String _plus_1 = (_noteToPattern_1 + "_");
+      String _concat_1 = h.concat(_plus_1);
+      h = _concat_1;
+    }
+    int _length = h.length();
+    int _minus = (_length - 1);
+    return h.substring(0, _minus);
   }
   
   /**

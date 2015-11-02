@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.simplesonora.simpleSonora.Note#getAccidental <em>Accidental</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.Note#getDuration <em>Duration</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.Note#isPoint <em>Point</em>}</li>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.Note#isTie <em>Tie</em>}</li>
  * </ul>
  *
  * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getNote()
@@ -155,5 +156,31 @@ public interface Note extends EObject
    * @generated
    */
   void setPoint(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Tie</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Tie</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tie</em>' attribute.
+   * @see #setTie(boolean)
+   * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getNote_Tie()
+   * @model
+   * @generated
+   */
+  boolean isTie();
+
+  /**
+   * Sets the value of the '{@link org.xtext.simplesonora.simpleSonora.Note#isTie <em>Tie</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Tie</em>' attribute.
+   * @see #isTie()
+   * @generated
+   */
+  void setTie(boolean value);
 
 } // Note

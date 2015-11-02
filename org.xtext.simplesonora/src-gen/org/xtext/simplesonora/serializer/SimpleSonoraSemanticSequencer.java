@@ -103,7 +103,7 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Constraint:
-	 *     (songName=ID tempo=INT? key=Key?)
+	 *     (nofeedback?='no-feedback'? songName=ID tempo=INT? key=Key?)
 	 */
 	protected void sequence_Header(EObject context, Header semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -121,7 +121,14 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Constraint:
-	 *     (octave=OCTAVE? note=NOTE_ID accidental=ACCIDENTAL? duration=DURATION? point?='.'?)
+	 *     (
+	 *         octave=OCTAVE? 
+	 *         note=NOTE_ID 
+	 *         accidental=ACCIDENTAL? 
+	 *         duration=DURATION? 
+	 *         point?='.'? 
+	 *         tie?='_'?
+	 *     )
 	 */
 	protected void sequence_Note(EObject context, Note semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

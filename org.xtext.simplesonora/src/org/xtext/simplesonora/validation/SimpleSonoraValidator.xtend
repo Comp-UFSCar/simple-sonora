@@ -8,6 +8,7 @@ import org.eclipse.xtext.validation.Check
 import org.jfugue.midi.MidiDictionary
 import java.util.Set
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage
+import org.xtext.simplesonora.simpleSonora.Note
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -19,6 +20,8 @@ class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
 
 	// from JFugue, get the instruments name
 	Set<String> instrumentNames = MidiDictionary.INSTRUMENT_BYTE_TO_STRING.values.toSet
+	String lastNote = ""
+	boolean tied = false
 	
 	/**
 	 * This will verify the existence of the instrument entered by 
@@ -38,5 +41,18 @@ class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
 		// verify if instrument name exists on JFugue MidiDictionary
 		if(instrumentNames.contains(convertedName.toString) == false)
 			error("Instrument invalid or not recognized. Check a general MIDI instrument list.", SimpleSonoraPackage$Literals::INSTRUMENT__INSTRUMENT_NAME);		
+	}
+	
+	@Check
+	def void checkTie(Note n) {
+		if(tied && !(n.note.equalsIgnoreCase(lastNote)))
+			warning("A tie must be used with same notes.", SimpleSonoraPackage$Literals::NOTE__TIE)
+			
+		if(n.tie){
+			lastNote = n.note
+			tied = true
+		}
+		else
+			tied = false
 	}
 }

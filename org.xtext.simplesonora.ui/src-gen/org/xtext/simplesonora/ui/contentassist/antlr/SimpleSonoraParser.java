@@ -41,9 +41,9 @@ public class SimpleSonoraParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSequenceAccess().getAlternatives_0(), "rule__Sequence__Alternatives_0");
 					put(grammarAccess.getDocumentAccess().getGroup(), "rule__Document__Group__0");
 					put(grammarAccess.getHeaderAccess().getGroup(), "rule__Header__Group__0");
-					put(grammarAccess.getHeaderAccess().getGroup_0(), "rule__Header__Group_0__0");
 					put(grammarAccess.getHeaderAccess().getGroup_1(), "rule__Header__Group_1__0");
 					put(grammarAccess.getHeaderAccess().getGroup_2(), "rule__Header__Group_2__0");
+					put(grammarAccess.getHeaderAccess().getGroup_3(), "rule__Header__Group_3__0");
 					put(grammarAccess.getKeyAccess().getGroup(), "rule__Key__Group__0");
 					put(grammarAccess.getInstrumentAccess().getGroup(), "rule__Instrument__Group__0");
 					put(grammarAccess.getHarmonyAccess().getGroup(), "rule__Harmony__Group__0");
@@ -53,9 +53,10 @@ public class SimpleSonoraParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNoteAccess().getGroup(), "rule__Note__Group__0");
 					put(grammarAccess.getDocumentAccess().getHeaderAssignment_0(), "rule__Document__HeaderAssignment_0");
 					put(grammarAccess.getDocumentAccess().getSongAssignment_1(), "rule__Document__SongAssignment_1");
-					put(grammarAccess.getHeaderAccess().getSongNameAssignment_0_2(), "rule__Header__SongNameAssignment_0_2");
-					put(grammarAccess.getHeaderAccess().getTempoAssignment_1_2(), "rule__Header__TempoAssignment_1_2");
-					put(grammarAccess.getHeaderAccess().getKeyAssignment_2_2(), "rule__Header__KeyAssignment_2_2");
+					put(grammarAccess.getHeaderAccess().getNofeedbackAssignment_0(), "rule__Header__NofeedbackAssignment_0");
+					put(grammarAccess.getHeaderAccess().getSongNameAssignment_1_2(), "rule__Header__SongNameAssignment_1_2");
+					put(grammarAccess.getHeaderAccess().getTempoAssignment_2_2(), "rule__Header__TempoAssignment_2_2");
+					put(grammarAccess.getHeaderAccess().getKeyAssignment_3_2(), "rule__Header__KeyAssignment_3_2");
 					put(grammarAccess.getSongAccess().getInstrumentsAssignment(), "rule__Song__InstrumentsAssignment");
 					put(grammarAccess.getInstrumentAccess().getInstrumentNameAssignment_0(), "rule__Instrument__InstrumentNameAssignment_0");
 					put(grammarAccess.getInstrumentAccess().getSequencesAssignment_2(), "rule__Instrument__SequencesAssignment_2");
@@ -73,6 +74,7 @@ public class SimpleSonoraParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNoteAccess().getAccidentalAssignment_2(), "rule__Note__AccidentalAssignment_2");
 					put(grammarAccess.getNoteAccess().getDurationAssignment_3(), "rule__Note__DurationAssignment_3");
 					put(grammarAccess.getNoteAccess().getPointAssignment_4(), "rule__Note__PointAssignment_4");
+					put(grammarAccess.getNoteAccess().getTieAssignment_5(), "rule__Note__TieAssignment_5");
 				}
 			};
 		}

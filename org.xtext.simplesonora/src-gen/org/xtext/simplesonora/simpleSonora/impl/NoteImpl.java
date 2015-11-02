@@ -25,6 +25,7 @@ import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.NoteImpl#getAccidental <em>Accidental</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.NoteImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.NoteImpl#isPoint <em>Point</em>}</li>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.NoteImpl#isTie <em>Tie</em>}</li>
  * </ul>
  *
  * @generated
@@ -130,6 +131,26 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note
    * @ordered
    */
   protected boolean point = POINT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isTie() <em>Tie</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isTie()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean TIE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isTie() <em>Tie</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isTie()
+   * @generated
+   * @ordered
+   */
+  protected boolean tie = TIE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -272,6 +293,29 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isTie()
+  {
+    return tie;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTie(boolean newTie)
+  {
+    boolean oldTie = tie;
+    tie = newTie;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.NOTE__TIE, oldTie, tie));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -287,6 +331,8 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note
         return getDuration();
       case SimpleSonoraPackage.NOTE__POINT:
         return isPoint();
+      case SimpleSonoraPackage.NOTE__TIE:
+        return isTie();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -315,6 +361,9 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note
         return;
       case SimpleSonoraPackage.NOTE__POINT:
         setPoint((Boolean)newValue);
+        return;
+      case SimpleSonoraPackage.NOTE__TIE:
+        setTie((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -345,6 +394,9 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note
       case SimpleSonoraPackage.NOTE__POINT:
         setPoint(POINT_EDEFAULT);
         return;
+      case SimpleSonoraPackage.NOTE__TIE:
+        setTie(TIE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -369,6 +421,8 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note
         return DURATION_EDEFAULT == null ? duration != null : !DURATION_EDEFAULT.equals(duration);
       case SimpleSonoraPackage.NOTE__POINT:
         return point != POINT_EDEFAULT;
+      case SimpleSonoraPackage.NOTE__TIE:
+        return tie != TIE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -394,6 +448,8 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note
     result.append(duration);
     result.append(", point: ");
     result.append(point);
+    result.append(", tie: ");
+    result.append(tie);
     result.append(')');
     return result.toString();
   }

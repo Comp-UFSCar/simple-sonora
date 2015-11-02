@@ -192,7 +192,7 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getHeader_SongName()
+  public EAttribute getHeader_Nofeedback()
   {
     return (EAttribute)headerEClass.getEStructuralFeatures().get(0);
   }
@@ -202,7 +202,7 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getHeader_Tempo()
+  public EAttribute getHeader_SongName()
   {
     return (EAttribute)headerEClass.getEStructuralFeatures().get(1);
   }
@@ -212,9 +212,19 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getHeader_Key()
+  public EAttribute getHeader_Tempo()
   {
     return (EAttribute)headerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getHeader_Key()
+  {
+    return (EAttribute)headerEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -432,6 +442,16 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getNote_Tie()
+  {
+    return (EAttribute)noteEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public SimpleSonoraFactory getSimpleSonoraFactory()
   {
     return (SimpleSonoraFactory)getEFactoryInstance();
@@ -462,6 +482,7 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
     createEReference(documentEClass, DOCUMENT__SONG);
 
     headerEClass = createEClass(HEADER);
+    createEAttribute(headerEClass, HEADER__NOFEEDBACK);
     createEAttribute(headerEClass, HEADER__SONG_NAME);
     createEAttribute(headerEClass, HEADER__TEMPO);
     createEAttribute(headerEClass, HEADER__KEY);
@@ -492,6 +513,7 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
     createEAttribute(noteEClass, NOTE__ACCIDENTAL);
     createEAttribute(noteEClass, NOTE__DURATION);
     createEAttribute(noteEClass, NOTE__POINT);
+    createEAttribute(noteEClass, NOTE__TIE);
   }
 
   /**
@@ -530,6 +552,7 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
     initEReference(getDocument_Song(), this.getSong(), null, "song", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(headerEClass, Header.class, "Header", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getHeader_Nofeedback(), ecorePackage.getEBoolean(), "nofeedback", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getHeader_SongName(), ecorePackage.getEString(), "songName", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getHeader_Tempo(), ecorePackage.getEInt(), "tempo", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getHeader_Key(), ecorePackage.getEString(), "key", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -560,6 +583,7 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
     initEAttribute(getNote_Accidental(), ecorePackage.getEString(), "accidental", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getNote_Duration(), ecorePackage.getEString(), "duration", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getNote_Point(), ecorePackage.getEBoolean(), "point", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNote_Tie(), ecorePackage.getEBoolean(), "tie", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

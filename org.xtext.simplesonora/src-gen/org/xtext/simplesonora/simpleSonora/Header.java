@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.Header#isNofeedback <em>Nofeedback</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.Header#getSongName <em>Song Name</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.Header#getTempo <em>Tempo</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.Header#getKey <em>Key</em>}</li>
@@ -24,6 +25,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Header extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Nofeedback</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Nofeedback</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Nofeedback</em>' attribute.
+   * @see #setNofeedback(boolean)
+   * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getHeader_Nofeedback()
+   * @model
+   * @generated
+   */
+  boolean isNofeedback();
+
+  /**
+   * Sets the value of the '{@link org.xtext.simplesonora.simpleSonora.Header#isNofeedback <em>Nofeedback</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Nofeedback</em>' attribute.
+   * @see #isNofeedback()
+   * @generated
+   */
+  void setNofeedback(boolean value);
+
   /**
    * Returns the value of the '<em><b>Song Name</b></em>' attribute.
    * <!-- begin-user-doc -->

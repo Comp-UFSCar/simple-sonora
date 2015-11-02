@@ -14,6 +14,8 @@ import java.io.File
 import org.xtext.simplesonora.simpleSonora.Sequence
 import org.xtext.simplesonora.simpleSonora.Note
 import org.xtext.simplesonora.simpleSonora.Instrument
+import org.xtext.simplesonora.simpleSonora.Chord
+import org.xtext.simplesonora.simpleSonora.Harmony
 
 /**
  * Generates code from your model files on save.
@@ -25,12 +27,11 @@ class SimpleSonoraGenerator implements IGenerator {
 	
 	String songName = new String("")			// song name to create 'midi' file
 	String key = new String("")					// key signature
-	
+	boolean feedback = true						// will play when file is saved
 	Integer curVoice = 0						// MIDI track/channel/voice
 	Integer curOctave = 4 						// default octave 
-	String auxNote = new String("")				// aux variable for note
-	String auxChord = new String("")			// aux variable for chord
 	String curDuration = new String("h")		// default note duration 
+	boolean keepTie = false						// control the use of tie
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 				
@@ -40,11 +41,14 @@ class SimpleSonoraGenerator implements IGenerator {
 				
 		// Header information to define the basics of the music
 		for(Header h :resource.allContents.toIterable.filter(Header)){
-			songName = h.songName			// get the song name
+			feedback = true
+			songName = h.songName				// get the song name
 			if(h.tempo > 0)
 				pattern.tempo = h.tempo			// define the tempo (velocity)
 			if(h.key != null)
 				pattern.add(h.key.keyToPattern)	// define key signature
+			if(h.nofeedback)
+				feedback = false
 		}
 		
 		curVoice = 0 // first MIDI track/channel/voice
@@ -61,47 +65,25 @@ class SimpleSonoraGenerator implements IGenerator {
 			for (Sequence s : instrument.sequences) {
 				
 				// note
-				if (s.note != null) {
-					// octave
-					if (s.note.octave != null) s.note.octave.setOctave
+				if (s.note != null)
 					pattern.add(s.note.noteToPattern)
-				}
+				
 				// chord
-				if (s.chord != null) {
-					auxChord = ""
-					for (n : s.chord.chordNotes.toList) {
-						// for each note get the pattern and add a '+' 
-						if(n.octave != null) n.octave.setOctave
-						
-						auxChord = auxChord.concat(n.noteToPattern + "+")
-					}
-					// add the chord pattern minus the extra '+' at the end
-					pattern.add(auxChord.substring(0, auxChord.length - 1))
-				}
+				if (s.chord != null) 
+					pattern.add(s.chord.chordToPattern)
+				
 				// harmony
-				if (s.harmony != null) {
-					var harmony = ""
-					for (n : s.harmony.harmonyNotes.toList) {
-						// verify if there's a chance on the octave
-						if(n.octave != null) n.octave.setOctave 
-						
-						harmony = harmony.concat(n.noteToPattern + "+")
-					}
-					
-					for(n : s.harmony.notes.toList) {
-						if(n.octave != null) n.octave.setOctave
-						
-						harmony = harmony.concat(n.noteToPattern + "_")		
-					}
-					harmony = harmony.substring(0, harmony.length - 1)
-					pattern.add(harmony)
-				}
+				if (s.harmony != null)
+					pattern.add(s.harmony.harmonyToPattern)
 			}
+			
 			curVoice++
 		}
 		
 		// Outputs
-		player.play(pattern) // Play the pattern
+		if(feedback)
+			player.play(pattern) // Play the pattern
+		
 		System.out.println(pattern.toString) // Print the pattern on Console
 		// Write the .mid file on Eclipse root folder
 		MidiFileManager.savePatternToMidi(pattern, new File(songName+".mid"))
@@ -158,7 +140,10 @@ class SimpleSonoraGenerator implements IGenerator {
 	 * @return String with JFugue pattern notation for notes.
 	 */
 	def String noteToPattern(Note note){
-		auxNote =  note.note.toUpperCase	// note must be upper case
+		// if there is change of Octave
+		if (note.octave != null) note.octave.setOctave
+					
+		var auxNote =  note.note.toUpperCase	// note must be upper case
 		
 		// If there is an Accidental - gets the accidental value for JFugue
 		if(note.accidental != null){	
@@ -174,14 +159,53 @@ class SimpleSonoraGenerator implements IGenerator {
 		var point = ""
 		if(note.point)
 			point = "."
+		
+		// Verify the use of tie
+		var tie = ""
+		var tied = ""
+		if(note.tie){		// there is a tie
+			tie = "-"		// make the tie
+			if(keepTie)		// tie from last note
+				tied = "-"	// tie with last note
+			keepTie = true
+		}
+		else if (keepTie){	// if no current tie but tie from last note
+			tied = "-"		// keep the tie with last note
+			keepTie = false	// no more tie
+		}
 			
 		// concatenate current octave and current duration to the note
 		if(note.note.equalsIgnoreCase('r'))	// if Rest, hide the octave
-			auxNote = auxNote.concat(curDuration + point)
+			auxNote = auxNote.concat(tied + curDuration + point + tie)
 		else
-			auxNote = auxNote.concat(curOctave.toString + curDuration + point)
+			auxNote = auxNote.concat(curOctave.toString + tied + curDuration + point + tie)
 		
 		return auxNote	
+	}
+	
+	def String chordToPattern(Chord chord){
+		var auxChord = ""
+		
+		for (n : chord.chordNotes.toList)
+			// for each note get the pattern and add a '+' 		
+			auxChord = auxChord.concat(n.noteToPattern + "+")
+		
+		// add the chord pattern minus the extra '+' at the end
+		return auxChord.substring(0, auxChord.length - 1)
+	}
+	
+	def String harmonyToPattern(Harmony harmony){
+		var h = ""
+		
+		for (n : harmony.harmonyNotes.toList)
+			// for each "harmony note" (will be played together, like a chord)
+			h = h.concat(n.noteToPattern + "+")
+		
+		for(n : harmony.notes.toList)
+			// subsequent notes that will be played while chord is still playing
+			h = h.concat(n.noteToPattern + "_")		
+		
+		return h.substring(0, h.length - 1)
 	}
 	
 	/**

@@ -20,6 +20,7 @@ import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.HeaderImpl#isNofeedback <em>Nofeedback</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.HeaderImpl#getSongName <em>Song Name</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.HeaderImpl#getTempo <em>Tempo</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.HeaderImpl#getKey <em>Key</em>}</li>
@@ -29,6 +30,26 @@ import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
  */
 public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
 {
+  /**
+   * The default value of the '{@link #isNofeedback() <em>Nofeedback</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isNofeedback()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean NOFEEDBACK_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isNofeedback() <em>Nofeedback</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isNofeedback()
+   * @generated
+   * @ordered
+   */
+  protected boolean nofeedback = NOFEEDBACK_EDEFAULT;
+
   /**
    * The default value of the '{@link #getSongName() <em>Song Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -115,6 +136,29 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isNofeedback()
+  {
+    return nofeedback;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNofeedback(boolean newNofeedback)
+  {
+    boolean oldNofeedback = nofeedback;
+    nofeedback = newNofeedback;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.HEADER__NOFEEDBACK, oldNofeedback, nofeedback));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getSongName()
   {
     return songName;
@@ -189,6 +233,8 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
   {
     switch (featureID)
     {
+      case SimpleSonoraPackage.HEADER__NOFEEDBACK:
+        return isNofeedback();
       case SimpleSonoraPackage.HEADER__SONG_NAME:
         return getSongName();
       case SimpleSonoraPackage.HEADER__TEMPO:
@@ -209,6 +255,9 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
   {
     switch (featureID)
     {
+      case SimpleSonoraPackage.HEADER__NOFEEDBACK:
+        setNofeedback((Boolean)newValue);
+        return;
       case SimpleSonoraPackage.HEADER__SONG_NAME:
         setSongName((String)newValue);
         return;
@@ -232,6 +281,9 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
   {
     switch (featureID)
     {
+      case SimpleSonoraPackage.HEADER__NOFEEDBACK:
+        setNofeedback(NOFEEDBACK_EDEFAULT);
+        return;
       case SimpleSonoraPackage.HEADER__SONG_NAME:
         setSongName(SONG_NAME_EDEFAULT);
         return;
@@ -255,6 +307,8 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
   {
     switch (featureID)
     {
+      case SimpleSonoraPackage.HEADER__NOFEEDBACK:
+        return nofeedback != NOFEEDBACK_EDEFAULT;
       case SimpleSonoraPackage.HEADER__SONG_NAME:
         return SONG_NAME_EDEFAULT == null ? songName != null : !SONG_NAME_EDEFAULT.equals(songName);
       case SimpleSonoraPackage.HEADER__TEMPO:
@@ -276,7 +330,9 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (songName: ");
+    result.append(" (nofeedback: ");
+    result.append(nofeedback);
+    result.append(", songName: ");
     result.append(songName);
     result.append(", tempo: ");
     result.append(tempo);

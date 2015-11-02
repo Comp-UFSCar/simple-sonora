@@ -9,6 +9,7 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.jfugue.midi.MidiDictionary;
 import org.xtext.simplesonora.simpleSonora.Instrument;
+import org.xtext.simplesonora.simpleSonora.Note;
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
 import org.xtext.simplesonora.validation.AbstractSimpleSonoraValidator;
 
@@ -20,6 +21,10 @@ import org.xtext.simplesonora.validation.AbstractSimpleSonoraValidator;
 @SuppressWarnings("all")
 public class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
   private Set<String> instrumentNames = IterableExtensions.<String>toSet(MidiDictionary.INSTRUMENT_BYTE_TO_STRING.values());
+  
+  private String lastNote = "";
+  
+  private boolean tied = false;
   
   /**
    * This will verify the existence of the instrument entered by
@@ -44,6 +49,30 @@ public class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
     boolean _equals = (_contains == false);
     if (_equals) {
       this.error("Instrument invalid or not recognized. Check a general MIDI instrument list.", SimpleSonoraPackage.Literals.INSTRUMENT__INSTRUMENT_NAME);
+    }
+  }
+  
+  @Check
+  public void checkTie(final Note n) {
+    boolean _and = false;
+    if (!this.tied) {
+      _and = false;
+    } else {
+      String _note = n.getNote();
+      boolean _equalsIgnoreCase = _note.equalsIgnoreCase(this.lastNote);
+      boolean _not = (!_equalsIgnoreCase);
+      _and = _not;
+    }
+    if (_and) {
+      this.warning("A tie must be used with same notes.", SimpleSonoraPackage.Literals.NOTE__TIE);
+    }
+    boolean _isTie = n.isTie();
+    if (_isTie) {
+      String _note_1 = n.getNote();
+      this.lastNote = _note_1;
+      this.tied = true;
+    } else {
+      this.tied = false;
     }
   }
 }
