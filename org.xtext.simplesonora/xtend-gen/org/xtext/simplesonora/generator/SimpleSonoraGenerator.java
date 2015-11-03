@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
@@ -23,8 +24,11 @@ import org.xtext.simplesonora.simpleSonora.Chord;
 import org.xtext.simplesonora.simpleSonora.Harmony;
 import org.xtext.simplesonora.simpleSonora.Header;
 import org.xtext.simplesonora.simpleSonora.Instrument;
+import org.xtext.simplesonora.simpleSonora.Key;
 import org.xtext.simplesonora.simpleSonora.Note;
 import org.xtext.simplesonora.simpleSonora.Sequence;
+import org.xtext.simplesonora.simpleSonora.Tempo;
+import org.xtext.simplesonora.simpleSonora.Tuplet;
 
 /**
  * Generates code from your model files on save.
@@ -60,16 +64,26 @@ public class SimpleSonoraGenerator implements IGenerator {
           this.feedback = true;
           String _songName = h.getSongName();
           this.songName = _songName;
-          int _tempo = h.getTempo();
-          boolean _greaterThan = (_tempo > 0);
-          if (_greaterThan) {
-            int _tempo_1 = h.getTempo();
-            pattern.setTempo(_tempo_1);
-          }
-          String _key = h.getKey();
-          boolean _notEquals = (!Objects.equal(_key, null));
+          Tempo _tempo = h.getTempo();
+          boolean _notEquals = (!Objects.equal(_tempo, null));
           if (_notEquals) {
-            String _key_1 = h.getKey();
+            Tempo _tempo_1 = h.getTempo();
+            int _value = _tempo_1.getValue();
+            boolean _greaterThan = (_value > 0);
+            if (_greaterThan) {
+              Tempo _tempo_2 = h.getTempo();
+              int _value_1 = _tempo_2.getValue();
+              pattern.setTempo(_value_1);
+            } else {
+              Tempo _tempo_3 = h.getTempo();
+              String _id = _tempo_3.getId();
+              pattern.setTempo(_id);
+            }
+          }
+          Key _key = h.getKey();
+          boolean _notEquals_1 = (!Objects.equal(_key, null));
+          if (_notEquals_1) {
+            Key _key_1 = h.getKey();
             String _keyToPattern = this.keyToPattern(_key_1);
             pattern.add(_keyToPattern);
           }
@@ -84,7 +98,10 @@ public class SimpleSonoraGenerator implements IGenerator {
       Iterable<EObject> _iterable_1 = IteratorExtensions.<EObject>toIterable(_allContents_1);
       Iterable<Instrument> _filter_1 = Iterables.<Instrument>filter(_iterable_1, Instrument.class);
       for (final Instrument instrument : _filter_1) {
-        {
+        EList<Sequence> _sequences = instrument.getSequences();
+        int _length = ((Object[])Conversions.unwrapArray(_sequences, Object.class)).length;
+        boolean _greaterThan = (_length > 0);
+        if (_greaterThan) {
           this.curDuration = "h";
           this.curOctave = Integer.valueOf(4);
           pattern.add(("V" + this.curVoice));
@@ -92,8 +109,8 @@ public class SimpleSonoraGenerator implements IGenerator {
           String _plus = ("I[" + _instrumentName);
           String _plus_1 = (_plus + "]");
           pattern.add(_plus_1);
-          EList<Sequence> _sequences = instrument.getSequences();
-          for (final Sequence s : _sequences) {
+          EList<Sequence> _sequences_1 = instrument.getSequences();
+          for (final Sequence s : _sequences_1) {
             {
               Note _note = s.getNote();
               boolean _notEquals = (!Objects.equal(_note, null));
@@ -116,6 +133,13 @@ public class SimpleSonoraGenerator implements IGenerator {
                 String _harmonyToPattern = this.harmonyToPattern(_harmony_1);
                 pattern.add(_harmonyToPattern);
               }
+              Tuplet _tuplet = s.getTuplet();
+              boolean _notEquals_3 = (!Objects.equal(_tuplet, null));
+              if (_notEquals_3) {
+                Tuplet _tuplet_1 = s.getTuplet();
+                String _tuppletToPattern = this.tuppletToPattern(_tuplet_1);
+                pattern.add(_tuppletToPattern);
+              }
             }
           }
           this.curVoice++;
@@ -136,34 +160,33 @@ public class SimpleSonoraGenerator implements IGenerator {
   /**
    * Converts the Simple-Sonora key signature pattern to the JFugue pattern.
    * 
-   * @param k	String containing.
+   * @param k	Key containing the key for the song.
    * @return String with JFugue Pattern notation for key signature.
    */
-  public String keyToPattern(final String k) {
+  public String keyToPattern(final Key k) {
     this.key = "KEY:";
-    char _charAt = k.charAt(0);
-    char _upperCase = Character.toUpperCase(_charAt);
-    String _string = Character.valueOf(_upperCase).toString();
-    String _concat = this.key.concat(_string);
+    String _note = k.getNote();
+    String _upperCase = _note.toUpperCase();
+    String _concat = this.key.concat(_upperCase);
     this.key = _concat;
-    char _charAt_1 = k.charAt(1);
-    int _compareTo = Character.valueOf(_charAt_1).compareTo(Character.valueOf('+'));
-    boolean _equals = (_compareTo == 0);
-    if (_equals) {
-      String _concat_1 = this.key.concat("#");
-      this.key = _concat_1;
-    } else {
-      char _charAt_2 = k.charAt(1);
-      int _compareTo_1 = Character.valueOf(_charAt_2).compareTo(Character.valueOf('-'));
-      boolean _equals_1 = (_compareTo_1 == 0);
-      if (_equals_1) {
-        String _concat_2 = this.key.concat("b");
-        this.key = _concat_2;
+    String _accidental = k.getAccidental();
+    boolean _notEquals = (!Objects.equal(_accidental, null));
+    if (_notEquals) {
+      String _accidental_1 = k.getAccidental();
+      switch (_accidental_1) {
+        case "+":
+          String _concat_1 = this.key.concat("#");
+          this.key = _concat_1;
+          break;
+        case "-":
+          String _concat_2 = this.key.concat("b");
+          this.key = _concat_2;
+          break;
       }
     }
-    String _substring = k.substring(2);
-    String _trim = _substring.trim();
-    String _concat_3 = this.key.concat(_trim);
+    String _interval = k.getInterval();
+    String _substring = _interval.substring(0, 3);
+    String _concat_3 = this.key.concat(_substring);
     this.key = _concat_3;
     return this.key;
   }
@@ -259,6 +282,12 @@ public class SimpleSonoraGenerator implements IGenerator {
     return auxNote;
   }
   
+  /**
+   * Converts from Simple-Sonora chord pattern to the JFugue one.
+   * 
+   * @param chord Chord containing sequence of notes or base note and chord name.
+   * @return String with JFugue pattern notation for chords.
+   */
   public String chordToPattern(final Chord chord) {
     String auxChord = "";
     EList<Note> _chordNotes = chord.getChordNotes();
@@ -271,9 +300,39 @@ public class SimpleSonoraGenerator implements IGenerator {
     }
     int _length = auxChord.length();
     int _minus = (_length - 1);
-    return auxChord.substring(0, _minus);
+    String _substring = auxChord.substring(0, _minus);
+    auxChord = _substring;
+    String _chordName = chord.getChordName();
+    boolean _notEquals = (!Objects.equal(_chordName, null));
+    if (_notEquals) {
+      String inversion = "";
+      String _inversion = chord.getInversion();
+      boolean _notEquals_1 = (!Objects.equal(_inversion, null));
+      if (_notEquals_1) {
+        String _inversion_1 = chord.getInversion();
+        inversion = _inversion_1;
+      }
+      int _length_1 = auxChord.length();
+      int _minus_1 = (_length_1 - 1);
+      String _substring_1 = auxChord.substring(0, _minus_1);
+      String _chordName_1 = chord.getChordName();
+      String _plus_1 = (_substring_1 + _chordName_1);
+      String _plus_2 = (_plus_1 + inversion);
+      int _length_2 = auxChord.length();
+      int _minus_2 = (_length_2 - 1);
+      String _substring_2 = auxChord.substring(_minus_2);
+      String _plus_3 = (_plus_2 + _substring_2);
+      auxChord = _plus_3;
+    }
+    return auxChord;
   }
   
+  /**
+   * Converts from Simple-Sonora harmony pattern to the JFugue one.
+   * 
+   * @param harmony Harmony containing chord and melody notes that will be played together.
+   * @return String with JFugue pattern notation for harmony.
+   */
   public String harmonyToPattern(final Harmony harmony) {
     String h = "";
     EList<Note> _harmonyNotes = harmony.getHarmonyNotes();
@@ -295,6 +354,32 @@ public class SimpleSonoraGenerator implements IGenerator {
     int _length = h.length();
     int _minus = (_length - 1);
     return h.substring(0, _minus);
+  }
+  
+  /**
+   * Converts from Simple-Sonora tuplet pattern to the JFugue one.
+   * 
+   * @param tuplet Tuplet containing sequence of notes and it's duration to be.
+   * @return String with JFugue pattern notation for tuplet.
+   */
+  public String tuppletToPattern(final Tuplet tuplet) {
+    EList<Note> _notes = tuplet.getNotes();
+    final int numOfNotes = ((Object[])Conversions.unwrapArray(_notes, Object.class)).length;
+    final String duration = tuplet.getDuration();
+    String auxTuplet = "";
+    EList<Note> _notes_1 = tuplet.getNotes();
+    for (final Note n : _notes_1) {
+      String _noteToPattern = this.noteToPattern(n);
+      String _plus = (_noteToPattern + "*");
+      String _string = Integer.valueOf(numOfNotes).toString();
+      String _plus_1 = (_plus + _string);
+      String _string_1 = duration.toString();
+      String _plus_2 = (_plus_1 + _string_1);
+      String _plus_3 = (_plus_2 + " ");
+      String _concat = auxTuplet.concat(_plus_3);
+      auxTuplet = _concat;
+    }
+    return auxTuplet;
   }
   
   /**

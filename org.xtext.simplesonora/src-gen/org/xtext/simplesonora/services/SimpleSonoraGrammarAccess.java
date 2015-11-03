@@ -26,7 +26,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSongAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cSongSongParserRuleCall_1_0 = (RuleCall)cSongAssignment_1.eContents().get(0);
 		
-		/// * Document organization * / Document:
+		/// * Document structure * / Document:
 		//	header=Header // Header containing all the song 'settings'
 		//	song=Song // Body containing the Song itself
 		//;
@@ -63,7 +63,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTempoKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
 		private final Assignment cTempoAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cTempoINTTerminalRuleCall_2_2_0 = (RuleCall)cTempoAssignment_2_2.eContents().get(0);
+		private final RuleCall cTempoTempoParserRuleCall_2_2_0 = (RuleCall)cTempoAssignment_2_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cKeyKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
@@ -73,14 +73,14 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		/// * Header of the file containing the tempo, time and key of melody. * / Header:
 		//	nofeedback?="no-feedback"? // wont play when file is saved, only generate MIDI
 		//	("title" "=" songName=ID) // title of the song - also mid name
-		//	("tempo" "=" tempo=INT)? // default is 120 (Allegro)
+		//	("tempo" "=" tempo=Tempo)? // default is 120 (Allegro)
 		//	("key" "=" key=Key)? // default is C major
 		//;
 		@Override public ParserRule getRule() { return rule; }
 
 		//nofeedback?="no-feedback"? // wont play when file is saved, only generate MIDI
 		//("title" "=" songName=ID) // title of the song - also mid name
-		//("tempo" "=" tempo=INT)? // default is 120 (Allegro)
+		//("tempo" "=" tempo=Tempo)? // default is 120 (Allegro)
 		//("key" "=" key=Key)? // default is C major
 		public Group getGroup() { return cGroup; }
 
@@ -105,7 +105,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getSongNameIDTerminalRuleCall_1_2_0() { return cSongNameIDTerminalRuleCall_1_2_0; }
 
-		//("tempo" "=" tempo=INT)?
+		//("tempo" "=" tempo=Tempo)?
 		public Group getGroup_2() { return cGroup_2; }
 
 		//"tempo"
@@ -114,11 +114,11 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_2_1() { return cEqualsSignKeyword_2_1; }
 
-		//tempo=INT
+		//tempo=Tempo
 		public Assignment getTempoAssignment_2_2() { return cTempoAssignment_2_2; }
 
-		//INT
-		public RuleCall getTempoINTTerminalRuleCall_2_2_0() { return cTempoINTTerminalRuleCall_2_2_0; }
+		//Tempo
+		public RuleCall getTempoTempoParserRuleCall_2_2_0() { return cTempoTempoParserRuleCall_2_2_0; }
 
 		//("key" "=" key=Key)?
 		public Group getGroup_3() { return cGroup_3; }
@@ -136,30 +136,84 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getKeyKeyParserRuleCall_3_2_0() { return cKeyKeyParserRuleCall_3_2_0; }
 	}
 
+	public class TempoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Tempo");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cValueAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cValueINTTerminalRuleCall_0_0 = (RuleCall)cValueAssignment_0.eContents().get(0);
+		private final Assignment cIdAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		
+		//Tempo: //  Tempo can be defined using 'bpm' (value) or using a constant name (like 'Adagio')
+		//	value=INT | id=ID;
+		@Override public ParserRule getRule() { return rule; }
+
+		////  Tempo can be defined using 'bpm' (value) or using a constant name (like 'Adagio')
+		//value=INT | id=ID
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		////  Tempo can be defined using 'bpm' (value) or using a constant name (like 'Adagio')
+		//value=INT
+		public Assignment getValueAssignment_0() { return cValueAssignment_0; }
+
+		//INT
+		public RuleCall getValueINTTerminalRuleCall_0_0() { return cValueINTTerminalRuleCall_0_0; }
+
+		//id=ID
+		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+	}
+
 	public class KeyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Key");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cNOTE_IDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final RuleCall cACCIDENTALTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final RuleCall cINTERVALTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNoteAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNoteNOTE_IDTerminalRuleCall_0_0 = (RuleCall)cNoteAssignment_0.eContents().get(0);
+		private final Assignment cAccidentalAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cAccidentalACCIDENTALTerminalRuleCall_1_0 = (RuleCall)cAccidentalAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cIntervalAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final Keyword cIntervalMajorKeyword_2_0_0 = (Keyword)cIntervalAssignment_2_0.eContents().get(0);
+		private final Assignment cIntervalAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
+		private final Keyword cIntervalMinorKeyword_2_1_0 = (Keyword)cIntervalAssignment_2_1.eContents().get(0);
 		
 		//Key: // Key, defined by note, it's accidental (if exists) and interval
-		//	NOTE_ID ACCIDENTAL? INTERVAL;
+		//	note=NOTE_ID accidental=ACCIDENTAL? (interval="major" | interval="minor");
 		@Override public ParserRule getRule() { return rule; }
 
 		//// Key, defined by note, it's accidental (if exists) and interval
-		//NOTE_ID ACCIDENTAL? INTERVAL
+		//note=NOTE_ID accidental=ACCIDENTAL? (interval="major" | interval="minor")
 		public Group getGroup() { return cGroup; }
 
 		//// Key, defined by note, it's accidental (if exists) and interval
+		//note=NOTE_ID
+		public Assignment getNoteAssignment_0() { return cNoteAssignment_0; }
+
 		//NOTE_ID
-		public RuleCall getNOTE_IDTerminalRuleCall_0() { return cNOTE_IDTerminalRuleCall_0; }
+		public RuleCall getNoteNOTE_IDTerminalRuleCall_0_0() { return cNoteNOTE_IDTerminalRuleCall_0_0; }
 
-		//ACCIDENTAL?
-		public RuleCall getACCIDENTALTerminalRuleCall_1() { return cACCIDENTALTerminalRuleCall_1; }
+		//accidental=ACCIDENTAL?
+		public Assignment getAccidentalAssignment_1() { return cAccidentalAssignment_1; }
 
-		//INTERVAL
-		public RuleCall getINTERVALTerminalRuleCall_2() { return cINTERVALTerminalRuleCall_2; }
+		//ACCIDENTAL
+		public RuleCall getAccidentalACCIDENTALTerminalRuleCall_1_0() { return cAccidentalACCIDENTALTerminalRuleCall_1_0; }
+
+		//interval="major" | interval="minor"
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+
+		//interval="major"
+		public Assignment getIntervalAssignment_2_0() { return cIntervalAssignment_2_0; }
+
+		//"major"
+		public Keyword getIntervalMajorKeyword_2_0_0() { return cIntervalMajorKeyword_2_0_0; }
+
+		//interval="minor"
+		public Assignment getIntervalAssignment_2_1() { return cIntervalAssignment_2_1; }
+
+		//"minor"
+		public Keyword getIntervalMinorKeyword_2_1_0() { return cIntervalMinorKeyword_2_1_0; }
 	}
 
 	public class SongElements extends AbstractParserRuleElementFinder {
@@ -191,11 +245,11 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Instrument: // Each instrument can have a sequence of notes and chords
-		//	instrumentName=ID "{" sequences+=Sequence+ "}";
+		//	instrumentName=ID "{" sequences+=Sequence* "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//// Each instrument can have a sequence of notes and chords
-		//instrumentName=ID "{" sequences+=Sequence+ "}"
+		//instrumentName=ID "{" sequences+=Sequence* "}"
 		public Group getGroup() { return cGroup; }
 
 		//// Each instrument can have a sequence of notes and chords
@@ -208,7 +262,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
-		//sequences+=Sequence+
+		//sequences+=Sequence*
 		public Assignment getSequencesAssignment_2() { return cSequencesAssignment_2; }
 
 		//Sequence
@@ -221,144 +275,65 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	public class SequenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Sequence");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cAlternatives.eContents().get(0);
-		private final Assignment cNoteAssignment_0_0 = (Assignment)cAlternatives_0.eContents().get(0);
-		private final RuleCall cNoteNoteParserRuleCall_0_0_0 = (RuleCall)cNoteAssignment_0_0.eContents().get(0);
-		private final Assignment cChordAssignment_0_1 = (Assignment)cAlternatives_0.eContents().get(1);
-		private final RuleCall cChordChordParserRuleCall_0_1_0 = (RuleCall)cChordAssignment_0_1.eContents().get(0);
-		private final Assignment cHarmonyAssignment_0_2 = (Assignment)cAlternatives_0.eContents().get(2);
-		private final RuleCall cHarmonyHarmonyParserRuleCall_0_2_0 = (RuleCall)cHarmonyAssignment_0_2.eContents().get(0);
-		private final Assignment cMeasureAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cMeasureMEASURETerminalRuleCall_1_0 = (RuleCall)cMeasureAssignment_1.eContents().get(0);
+		private final Assignment cNoteAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cNoteNoteParserRuleCall_0_0 = (RuleCall)cNoteAssignment_0.eContents().get(0);
+		private final Assignment cChordAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cChordChordParserRuleCall_1_0 = (RuleCall)cChordAssignment_1.eContents().get(0);
+		private final Assignment cHarmonyAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final RuleCall cHarmonyHarmonyParserRuleCall_2_0 = (RuleCall)cHarmonyAssignment_2.eContents().get(0);
+		private final Assignment cTupletAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
+		private final RuleCall cTupletTupletParserRuleCall_3_0 = (RuleCall)cTupletAssignment_3.eContents().get(0);
+		private final Assignment cMeasureAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
+		private final RuleCall cMeasureMEASURETerminalRuleCall_4_0 = (RuleCall)cMeasureAssignment_4.eContents().get(0);
 		
-		//Sequence:
-		//	(note=Note // A sequence is a note, chord or measure which is discarded
-		//	| chord=Chord | harmony=Harmony) | measure?=MEASURE;
+		//Sequence: // A sequence can be any of the options above
+		//	note=Note // a single note
+		//	// a chord
+		//	// a chord with a melody (notes)
+		//	| chord=Chord | harmony=Harmony | tuplet=Tuplet | measure?= // character '|' that helps with organization
+		//	MEASURE;
 		@Override public ParserRule getRule() { return rule; }
 
-		//(note=Note // A sequence is a note, chord or measure which is discarded
-		//| chord=Chord | harmony=Harmony) | measure?=MEASURE
+		//// A sequence can be any of the options above
+		//note=Note // a single note
+		//// a chord
+		//// a chord with a melody (notes)
+		//| chord=Chord | harmony=Harmony | tuplet=Tuplet | measure?= // character '|' that helps with organization
+		//MEASURE
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//note=Note // A sequence is a note, chord or measure which is discarded
-		//| chord=Chord | harmony=Harmony
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
-
+		//// A sequence can be any of the options above
 		//note=Note
-		public Assignment getNoteAssignment_0_0() { return cNoteAssignment_0_0; }
+		public Assignment getNoteAssignment_0() { return cNoteAssignment_0; }
 
 		//Note
-		public RuleCall getNoteNoteParserRuleCall_0_0_0() { return cNoteNoteParserRuleCall_0_0_0; }
+		public RuleCall getNoteNoteParserRuleCall_0_0() { return cNoteNoteParserRuleCall_0_0; }
 
 		//chord=Chord
-		public Assignment getChordAssignment_0_1() { return cChordAssignment_0_1; }
+		public Assignment getChordAssignment_1() { return cChordAssignment_1; }
 
 		//Chord
-		public RuleCall getChordChordParserRuleCall_0_1_0() { return cChordChordParserRuleCall_0_1_0; }
+		public RuleCall getChordChordParserRuleCall_1_0() { return cChordChordParserRuleCall_1_0; }
 
 		//harmony=Harmony
-		public Assignment getHarmonyAssignment_0_2() { return cHarmonyAssignment_0_2; }
+		public Assignment getHarmonyAssignment_2() { return cHarmonyAssignment_2; }
 
 		//Harmony
-		public RuleCall getHarmonyHarmonyParserRuleCall_0_2_0() { return cHarmonyHarmonyParserRuleCall_0_2_0; }
+		public RuleCall getHarmonyHarmonyParserRuleCall_2_0() { return cHarmonyHarmonyParserRuleCall_2_0; }
 
-		//measure?=MEASURE
-		public Assignment getMeasureAssignment_1() { return cMeasureAssignment_1; }
+		//tuplet=Tuplet
+		public Assignment getTupletAssignment_3() { return cTupletAssignment_3; }
 
+		//Tuplet
+		public RuleCall getTupletTupletParserRuleCall_3_0() { return cTupletTupletParserRuleCall_3_0; }
+
+		//measure?= // character '|' that helps with organization
 		//MEASURE
-		public RuleCall getMeasureMEASURETerminalRuleCall_1_0() { return cMeasureMEASURETerminalRuleCall_1_0; }
-	}
+		public Assignment getMeasureAssignment_4() { return cMeasureAssignment_4; }
 
-	public class HarmonyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Harmony");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cHarmonyNotesAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cHarmonyNotesNoteParserRuleCall_0_0 = (RuleCall)cHarmonyNotesAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cSolidusKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cHarmonyNotesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cHarmonyNotesNoteParserRuleCall_1_1_0 = (RuleCall)cHarmonyNotesAssignment_1_1.eContents().get(0);
-		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNotesAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNotesNoteParserRuleCall_3_0 = (RuleCall)cNotesAssignment_3.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//Harmony:
-		//	harmonyNotes+=Note // Harmony can have multiple "harmony notes" and notes within '[' ']'
-		//	("/" harmonyNotes+=Note)* "[" notes+=Note+ "]";
-		@Override public ParserRule getRule() { return rule; }
-
-		//harmonyNotes+=Note // Harmony can have multiple "harmony notes" and notes within '[' ']'
-		//("/" harmonyNotes+=Note)* "[" notes+=Note+ "]"
-		public Group getGroup() { return cGroup; }
-
-		//harmonyNotes+=Note
-		public Assignment getHarmonyNotesAssignment_0() { return cHarmonyNotesAssignment_0; }
-
-		//Note
-		public RuleCall getHarmonyNotesNoteParserRuleCall_0_0() { return cHarmonyNotesNoteParserRuleCall_0_0; }
-
-		//("/" harmonyNotes+=Note)*
-		public Group getGroup_1() { return cGroup_1; }
-
-		//"/"
-		public Keyword getSolidusKeyword_1_0() { return cSolidusKeyword_1_0; }
-
-		//harmonyNotes+=Note
-		public Assignment getHarmonyNotesAssignment_1_1() { return cHarmonyNotesAssignment_1_1; }
-
-		//Note
-		public RuleCall getHarmonyNotesNoteParserRuleCall_1_1_0() { return cHarmonyNotesNoteParserRuleCall_1_1_0; }
-
-		//"["
-		public Keyword getLeftSquareBracketKeyword_2() { return cLeftSquareBracketKeyword_2; }
-
-		//notes+=Note+
-		public Assignment getNotesAssignment_3() { return cNotesAssignment_3; }
-
-		//Note
-		public RuleCall getNotesNoteParserRuleCall_3_0() { return cNotesNoteParserRuleCall_3_0; }
-
-		//"]"
-		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
-	}
-
-	public class ChordElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Chord");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cChordNotesAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cChordNotesNoteParserRuleCall_0_0 = (RuleCall)cChordNotesAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cSolidusKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cChordNotesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cChordNotesNoteParserRuleCall_1_1_0 = (RuleCall)cChordNotesAssignment_1_1.eContents().get(0);
-		
-		//Chord: // A chord must have at least 2 notes
-		//	chordNotes+=Note ("/" chordNotes+=Note)+;
-		@Override public ParserRule getRule() { return rule; }
-
-		//// A chord must have at least 2 notes
-		//chordNotes+=Note ("/" chordNotes+=Note)+
-		public Group getGroup() { return cGroup; }
-
-		//// A chord must have at least 2 notes
-		//chordNotes+=Note
-		public Assignment getChordNotesAssignment_0() { return cChordNotesAssignment_0; }
-
-		//Note
-		public RuleCall getChordNotesNoteParserRuleCall_0_0() { return cChordNotesNoteParserRuleCall_0_0; }
-
-		//("/" chordNotes+=Note)+
-		public Group getGroup_1() { return cGroup_1; }
-
-		//"/"
-		public Keyword getSolidusKeyword_1_0() { return cSolidusKeyword_1_0; }
-
-		//chordNotes+=Note
-		public Assignment getChordNotesAssignment_1_1() { return cChordNotesAssignment_1_1; }
-
-		//Note
-		public RuleCall getChordNotesNoteParserRuleCall_1_1_0() { return cChordNotesNoteParserRuleCall_1_1_0; }
+		//// character '|' that helps with organization
+		//MEASURE
+		public RuleCall getMeasureMEASURETerminalRuleCall_4_0() { return cMeasureMEASURETerminalRuleCall_4_0; }
 	}
 
 	public class NoteElements extends AbstractParserRuleElementFinder {
@@ -433,18 +408,187 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		//"_"
 		public Keyword getTie_Keyword_5_0() { return cTie_Keyword_5_0; }
 	}
+
+	public class ChordElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Chord");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cChordNotesAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cChordNotesNoteParserRuleCall_0_0 = (RuleCall)cChordNotesAssignment_0.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Keyword cSolidusKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Assignment cChordNotesAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
+		private final RuleCall cChordNotesNoteParserRuleCall_1_0_1_0 = (RuleCall)cChordNotesAssignment_1_0_1.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Keyword cSolidusKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Assignment cChordNameAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cChordNameIDTerminalRuleCall_1_1_1_0 = (RuleCall)cChordNameAssignment_1_1_1.eContents().get(0);
+		private final Alternatives cAlternatives_1_1_2 = (Alternatives)cGroup_1_1.eContents().get(2);
+		private final Assignment cInversionAssignment_1_1_2_0 = (Assignment)cAlternatives_1_1_2.eContents().get(0);
+		private final Keyword cInversionCircumflexAccentKeyword_1_1_2_0_0 = (Keyword)cInversionAssignment_1_1_2_0.eContents().get(0);
+		private final Assignment cInversionAssignment_1_1_2_1 = (Assignment)cAlternatives_1_1_2.eContents().get(1);
+		private final Keyword cInversionCircumflexAccentCircumflexAccentKeyword_1_1_2_1_0 = (Keyword)cInversionAssignment_1_1_2_1.eContents().get(0);
+		
+		//Chord: // A chord must have at least 2 notes or a name
+		//	chordNotes+=Note (("/" chordNotes+=Note)+ | "/" chordName=ID (inversion="^" | inversion="^^")?);
+		@Override public ParserRule getRule() { return rule; }
+
+		//// A chord must have at least 2 notes or a name
+		//chordNotes+=Note (("/" chordNotes+=Note)+ | "/" chordName=ID (inversion="^" | inversion="^^")?)
+		public Group getGroup() { return cGroup; }
+
+		//// A chord must have at least 2 notes or a name
+		//chordNotes+=Note
+		public Assignment getChordNotesAssignment_0() { return cChordNotesAssignment_0; }
+
+		//Note
+		public RuleCall getChordNotesNoteParserRuleCall_0_0() { return cChordNotesNoteParserRuleCall_0_0; }
+
+		//("/" chordNotes+=Note)+ | "/" chordName=ID (inversion="^" | inversion="^^")?
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+
+		//("/" chordNotes+=Note)+
+		public Group getGroup_1_0() { return cGroup_1_0; }
+
+		//"/"
+		public Keyword getSolidusKeyword_1_0_0() { return cSolidusKeyword_1_0_0; }
+
+		//chordNotes+=Note
+		public Assignment getChordNotesAssignment_1_0_1() { return cChordNotesAssignment_1_0_1; }
+
+		//Note
+		public RuleCall getChordNotesNoteParserRuleCall_1_0_1_0() { return cChordNotesNoteParserRuleCall_1_0_1_0; }
+
+		//"/" chordName=ID (inversion="^" | inversion="^^")?
+		public Group getGroup_1_1() { return cGroup_1_1; }
+
+		//"/"
+		public Keyword getSolidusKeyword_1_1_0() { return cSolidusKeyword_1_1_0; }
+
+		//chordName=ID
+		public Assignment getChordNameAssignment_1_1_1() { return cChordNameAssignment_1_1_1; }
+
+		//ID
+		public RuleCall getChordNameIDTerminalRuleCall_1_1_1_0() { return cChordNameIDTerminalRuleCall_1_1_1_0; }
+
+		//(inversion="^" | inversion="^^")?
+		public Alternatives getAlternatives_1_1_2() { return cAlternatives_1_1_2; }
+
+		//inversion="^"
+		public Assignment getInversionAssignment_1_1_2_0() { return cInversionAssignment_1_1_2_0; }
+
+		//"^"
+		public Keyword getInversionCircumflexAccentKeyword_1_1_2_0_0() { return cInversionCircumflexAccentKeyword_1_1_2_0_0; }
+
+		//inversion="^^"
+		public Assignment getInversionAssignment_1_1_2_1() { return cInversionAssignment_1_1_2_1; }
+
+		//"^^"
+		public Keyword getInversionCircumflexAccentCircumflexAccentKeyword_1_1_2_1_0() { return cInversionCircumflexAccentCircumflexAccentKeyword_1_1_2_1_0; }
+	}
+
+	public class HarmonyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Harmony");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cHarmonyNotesAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cHarmonyNotesNoteParserRuleCall_0_0 = (RuleCall)cHarmonyNotesAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cSolidusKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cHarmonyNotesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cHarmonyNotesNoteParserRuleCall_1_1_0 = (RuleCall)cHarmonyNotesAssignment_1_1.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNotesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNotesNoteParserRuleCall_3_0 = (RuleCall)cNotesAssignment_3.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Harmony:
+		//	harmonyNotes+=Note // Harmony can have multiple "harmony notes" and notes within '[' ']'
+		//	("/" harmonyNotes+=Note)* "[" notes+=Note+ "]";
+		@Override public ParserRule getRule() { return rule; }
+
+		//harmonyNotes+=Note // Harmony can have multiple "harmony notes" and notes within '[' ']'
+		//("/" harmonyNotes+=Note)* "[" notes+=Note+ "]"
+		public Group getGroup() { return cGroup; }
+
+		//harmonyNotes+=Note
+		public Assignment getHarmonyNotesAssignment_0() { return cHarmonyNotesAssignment_0; }
+
+		//Note
+		public RuleCall getHarmonyNotesNoteParserRuleCall_0_0() { return cHarmonyNotesNoteParserRuleCall_0_0; }
+
+		//("/" harmonyNotes+=Note)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"/"
+		public Keyword getSolidusKeyword_1_0() { return cSolidusKeyword_1_0; }
+
+		//harmonyNotes+=Note
+		public Assignment getHarmonyNotesAssignment_1_1() { return cHarmonyNotesAssignment_1_1; }
+
+		//Note
+		public RuleCall getHarmonyNotesNoteParserRuleCall_1_1_0() { return cHarmonyNotesNoteParserRuleCall_1_1_0; }
+
+		//"["
+		public Keyword getLeftSquareBracketKeyword_2() { return cLeftSquareBracketKeyword_2; }
+
+		//notes+=Note+
+		public Assignment getNotesAssignment_3() { return cNotesAssignment_3; }
+
+		//Note
+		public RuleCall getNotesNoteParserRuleCall_3_0() { return cNotesNoteParserRuleCall_3_0; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
+	}
+
+	public class TupletElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Tuplet");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNotesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNotesNoteParserRuleCall_1_0 = (RuleCall)cNotesAssignment_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cDurationAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDurationDURATIONTerminalRuleCall_3_0 = (RuleCall)cDurationAssignment_3.eContents().get(0);
+		
+		//Tuplet:
+		//	"(" notes+=Note+ ")" duration=DURATION;
+		@Override public ParserRule getRule() { return rule; }
+
+		//"(" notes+=Note+ ")" duration=DURATION
+		public Group getGroup() { return cGroup; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+
+		//notes+=Note+
+		public Assignment getNotesAssignment_1() { return cNotesAssignment_1; }
+
+		//Note
+		public RuleCall getNotesNoteParserRuleCall_1_0() { return cNotesNoteParserRuleCall_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
+
+		//duration=DURATION
+		public Assignment getDurationAssignment_3() { return cDurationAssignment_3; }
+
+		//DURATION
+		public RuleCall getDurationDURATIONTerminalRuleCall_3_0() { return cDurationDURATIONTerminalRuleCall_3_0; }
+	}
 	
 	
 	private final DocumentElements pDocument;
 	private final HeaderElements pHeader;
+	private final TempoElements pTempo;
 	private final KeyElements pKey;
-	private final TerminalRule tINTERVAL;
 	private final SongElements pSong;
 	private final InstrumentElements pInstrument;
 	private final SequenceElements pSequence;
-	private final HarmonyElements pHarmony;
-	private final ChordElements pChord;
 	private final NoteElements pNote;
+	private final ChordElements pChord;
+	private final HarmonyElements pHarmony;
+	private final TupletElements pTuplet;
 	private final TerminalRule tOCTAVE;
 	private final TerminalRule tACCIDENTAL;
 	private final TerminalRule tNOTE_ID;
@@ -462,14 +606,15 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pDocument = new DocumentElements();
 		this.pHeader = new HeaderElements();
+		this.pTempo = new TempoElements();
 		this.pKey = new KeyElements();
-		this.tINTERVAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INTERVAL");
 		this.pSong = new SongElements();
 		this.pInstrument = new InstrumentElements();
 		this.pSequence = new SequenceElements();
-		this.pHarmony = new HarmonyElements();
-		this.pChord = new ChordElements();
 		this.pNote = new NoteElements();
+		this.pChord = new ChordElements();
+		this.pHarmony = new HarmonyElements();
+		this.pTuplet = new TupletElements();
 		this.tOCTAVE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "OCTAVE");
 		this.tACCIDENTAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ACCIDENTAL");
 		this.tNOTE_ID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NOTE_ID");
@@ -504,7 +649,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	/// * Document organization * / Document:
+	/// * Document structure * / Document:
 	//	header=Header // Header containing all the song 'settings'
 	//	song=Song // Body containing the Song itself
 	//;
@@ -519,7 +664,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	/// * Header of the file containing the tempo, time and key of melody. * / Header:
 	//	nofeedback?="no-feedback"? // wont play when file is saved, only generate MIDI
 	//	("title" "=" songName=ID) // title of the song - also mid name
-	//	("tempo" "=" tempo=INT)? // default is 120 (Allegro)
+	//	("tempo" "=" tempo=Tempo)? // default is 120 (Allegro)
 	//	("key" "=" key=Key)? // default is C major
 	//;
 	public HeaderElements getHeaderAccess() {
@@ -530,8 +675,18 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		return getHeaderAccess().getRule();
 	}
 
+	//Tempo: //  Tempo can be defined using 'bpm' (value) or using a constant name (like 'Adagio')
+	//	value=INT | id=ID;
+	public TempoElements getTempoAccess() {
+		return pTempo;
+	}
+	
+	public ParserRule getTempoRule() {
+		return getTempoAccess().getRule();
+	}
+
 	//Key: // Key, defined by note, it's accidental (if exists) and interval
-	//	NOTE_ID ACCIDENTAL? INTERVAL;
+	//	note=NOTE_ID accidental=ACCIDENTAL? (interval="major" | interval="minor");
 	public KeyElements getKeyAccess() {
 		return pKey;
 	}
@@ -539,12 +694,6 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	public ParserRule getKeyRule() {
 		return getKeyAccess().getRule();
 	}
-
-	//terminal INTERVAL: // Key interval: major or minor
-	//	"maj" | "min";
-	public TerminalRule getINTERVALRule() {
-		return tINTERVAL;
-	} 
 
 	/// * The body of the file with melody. * / // A song can have many instruments
 	//// *instrument must exist as a General MIDI instrument 
@@ -559,7 +708,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Instrument: // Each instrument can have a sequence of notes and chords
-	//	instrumentName=ID "{" sequences+=Sequence+ "}";
+	//	instrumentName=ID "{" sequences+=Sequence* "}";
 	public InstrumentElements getInstrumentAccess() {
 		return pInstrument;
 	}
@@ -568,36 +717,18 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		return getInstrumentAccess().getRule();
 	}
 
-	//Sequence:
-	//	(note=Note // A sequence is a note, chord or measure which is discarded
-	//	| chord=Chord | harmony=Harmony) | measure?=MEASURE;
+	//Sequence: // A sequence can be any of the options above
+	//	note=Note // a single note
+	//	// a chord
+	//	// a chord with a melody (notes)
+	//	| chord=Chord | harmony=Harmony | tuplet=Tuplet | measure?= // character '|' that helps with organization
+	//	MEASURE;
 	public SequenceElements getSequenceAccess() {
 		return pSequence;
 	}
 	
 	public ParserRule getSequenceRule() {
 		return getSequenceAccess().getRule();
-	}
-
-	//Harmony:
-	//	harmonyNotes+=Note // Harmony can have multiple "harmony notes" and notes within '[' ']'
-	//	("/" harmonyNotes+=Note)* "[" notes+=Note+ "]";
-	public HarmonyElements getHarmonyAccess() {
-		return pHarmony;
-	}
-	
-	public ParserRule getHarmonyRule() {
-		return getHarmonyAccess().getRule();
-	}
-
-	//Chord: // A chord must have at least 2 notes
-	//	chordNotes+=Note ("/" chordNotes+=Note)+;
-	public ChordElements getChordAccess() {
-		return pChord;
-	}
-	
-	public ParserRule getChordRule() {
-		return getChordAccess().getRule();
 	}
 
 	//Note:
@@ -617,6 +748,37 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		return getNoteAccess().getRule();
 	}
 
+	//Chord: // A chord must have at least 2 notes or a name
+	//	chordNotes+=Note (("/" chordNotes+=Note)+ | "/" chordName=ID (inversion="^" | inversion="^^")?);
+	public ChordElements getChordAccess() {
+		return pChord;
+	}
+	
+	public ParserRule getChordRule() {
+		return getChordAccess().getRule();
+	}
+
+	//Harmony:
+	//	harmonyNotes+=Note // Harmony can have multiple "harmony notes" and notes within '[' ']'
+	//	("/" harmonyNotes+=Note)* "[" notes+=Note+ "]";
+	public HarmonyElements getHarmonyAccess() {
+		return pHarmony;
+	}
+	
+	public ParserRule getHarmonyRule() {
+		return getHarmonyAccess().getRule();
+	}
+
+	//Tuplet:
+	//	"(" notes+=Note+ ")" duration=DURATION;
+	public TupletElements getTupletAccess() {
+		return pTuplet;
+	}
+	
+	public ParserRule getTupletRule() {
+		return getTupletAccess().getRule();
+	}
+
 	//terminal OCTAVE:
 	//	"<"+ // goes down one octave
 	//	// goes to octave 0-9 directly
@@ -626,7 +788,6 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		return tOCTAVE;
 	} 
 
-	////TODO: corrigir o simbolo para 'natural'
 	//terminal ACCIDENTAL:
 	//	"+" // sharp #
 	//	// flat b

@@ -2,7 +2,7 @@ grammar org.xtext.simplesonora.SimpleSonora with org.eclipse.xtext.common.Termin
 
 generate simpleSonora "http://www.xtext.org/simplesonora/SimpleSonora"
 
-/* Document organization */
+/* Document structure */
 Document:
 	(header=Header)	// Header containing all the song 'settings'
 	(song=Song)		// Body containing the Song itself
@@ -12,18 +12,18 @@ Document:
 Header:
 	(nofeedback?='no-feedback')?// wont play when file is saved, only generate MIDI
 	('title' '=' songName=ID)	// title of the song - also mid name
-	('tempo' '=' tempo=INT)?	// default is 120 (Allegro)
+	('tempo' '=' tempo=Tempo)?	// default is 120 (Allegro)
 	('key' '=' key=Key)?		// default is C major
+;
+
+Tempo:
+	//  Tempo can be defined using 'bpm' (value) or using a constant name (like 'Adagio')
+	value=INT | id=ID
 ;
 
 Key:
 	// Key, defined by note, it's accidental (if exists) and interval
-	NOTE_ID ACCIDENTAL? INTERVAL
-;
-
-terminal INTERVAL:
-	// Key interval: major or minor
-	'maj' | 'min'
+	note=NOTE_ID accidental=ACCIDENTAL? (interval='major' | interval='minor')
 ;
 
 /* The body of the file with melody. */
@@ -35,23 +35,16 @@ Song:
 
 Instrument:
 	// Each instrument can have a sequence of notes and chords
-	instrumentName = ID '{' (sequences += Sequence)+ '}'
+	instrumentName = ID '{' (sequences += Sequence)* '}'
 ;
 
 Sequence:
-	// A sequence is a note, chord or measure which is discarded
-	(note=Note | chord=Chord | harmony=Harmony) | measure?=MEASURE
-;
-
-Harmony:
-	// Harmony can have multiple "harmony notes" and notes within '[' ']'
-	(harmonyNotes+=Note)('/' harmonyNotes+= Note)* 
-	'[' (notes+=Note)+ ']'	
-;
-
-Chord:
-	// A chord must have at least 2 notes
-	chordNotes+=Note ('/' chordNotes+= Note)+
+	// A sequence can be any of the options above
+	note=Note | 			// a single note
+	chord=Chord | 			// a chord
+	harmony=Harmony | 		// a chord with a melody (notes)
+	tuplet=Tuplet |
+	measure?=MEASURE		// character '|' that helps with organization
 ;
 
 Note:
@@ -64,13 +57,37 @@ Note:
 	(tie?='_')?					// tie to the next note, if wanted
 ;
 
+Chord:
+	// A chord must have at least 2 notes or a name
+	chordNotes+=Note (
+		('/' chordNotes+= Note)+ | 							// multiple notes that will compose the chord
+		('/' chordName=ID (inversion='^'|inversion='^^')?)	// use of chord name and it's inversions
+	)
+;
+
+Harmony:
+	// Harmony can have multiple "harmony notes" and notes within '[' ']'
+	(harmonyNotes+=Note)('/' harmonyNotes+= Note)* 
+	'[' (notes+=Note)+ ']'	
+;
+
+Tuplet:
+	// Tuplet counts the number of notes inside '(' ')' and adjust their's duration to
+	// desired duration after ')'
+	'(' (notes+=Note)+ ')' duration=DURATION
+	/*
+	 * "any rhythm that involves dividing the beat into a different number of 
+	 * equal subdivisions from that usually permitted by the time-signature 
+	 * (e.g., triplets, duplets, etc.)" - (Humphries 2002, 266)
+	 */
+;
+
 terminal OCTAVE:
 	('<')+ | 			// goes down one octave
 	'o'('0'..'9') | 	// goes to octave 0-9 directly
 	('>')+				// goes up one octave
 ;
 
-//TODO: corrigir o simbolo para 'natural'
 terminal ACCIDENTAL :
 	'+' | 				// sharp #
 	'-' | 				// flat b
@@ -84,7 +101,7 @@ terminal NOTE_ID:
 
 terminal DURATION :
 	// 1 for whole, 2 for 1/2, 4 for 1/4, ...
-	':' ('1' | '2' | '4' | '8' | '16' | '32')
+	':' ('1' | '2' | '4' | '8' | '16' | '32' | '64' | '128')
 ;
 terminal MEASURE :
 	'|'? // measure is for the programmer organization only

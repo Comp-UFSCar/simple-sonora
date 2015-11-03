@@ -14,8 +14,17 @@
     <genClasses ecoreClass="SimpleSonora.ecore#//Header">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Header/nofeedback"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Header/songName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Header/tempo"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Header/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Header/tempo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Header/key"/>
+    </genClasses>
+    <genClasses ecoreClass="SimpleSonora.ecore#//Tempo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Tempo/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Tempo/id"/>
+    </genClasses>
+    <genClasses ecoreClass="SimpleSonora.ecore#//Key">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Key/note"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Key/accidental"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Key/interval"/>
     </genClasses>
     <genClasses ecoreClass="SimpleSonora.ecore#//Song">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Song/instruments"/>
@@ -28,14 +37,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Sequence/note"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Sequence/chord"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Sequence/harmony"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Sequence/tuplet"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Sequence/measure"/>
-    </genClasses>
-    <genClasses ecoreClass="SimpleSonora.ecore#//Harmony">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Harmony/harmonyNotes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Harmony/notes"/>
-    </genClasses>
-    <genClasses ecoreClass="SimpleSonora.ecore#//Chord">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Chord/chordNotes"/>
     </genClasses>
     <genClasses ecoreClass="SimpleSonora.ecore#//Note">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Note/octave"/>
@@ -44,6 +47,19 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Note/duration"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Note/point"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Note/tie"/>
+    </genClasses>
+    <genClasses ecoreClass="SimpleSonora.ecore#//Chord">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Chord/chordNotes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Chord/chordName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Chord/inversion"/>
+    </genClasses>
+    <genClasses ecoreClass="SimpleSonora.ecore#//Harmony">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Harmony/harmonyNotes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Harmony/notes"/>
+    </genClasses>
+    <genClasses ecoreClass="SimpleSonora.ecore#//Tuplet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Tuplet/notes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Tuplet/duration"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

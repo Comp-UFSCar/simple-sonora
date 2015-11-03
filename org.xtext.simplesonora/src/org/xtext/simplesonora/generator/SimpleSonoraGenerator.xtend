@@ -16,6 +16,8 @@ import org.xtext.simplesonora.simpleSonora.Note
 import org.xtext.simplesonora.simpleSonora.Instrument
 import org.xtext.simplesonora.simpleSonora.Chord
 import org.xtext.simplesonora.simpleSonora.Harmony
+import org.xtext.simplesonora.simpleSonora.Key
+import org.xtext.simplesonora.simpleSonora.Tuplet
 
 /**
  * Generates code from your model files on save.
@@ -25,7 +27,7 @@ import org.xtext.simplesonora.simpleSonora.Harmony
  
 class SimpleSonoraGenerator implements IGenerator {
 	
-	String songName = new String("")			// song name to create 'midi' file
+	String songName = new String("")			// song name to create 'MIDI' file
 	String key = new String("")					// key signature
 	boolean feedback = true						// will play when file is saved
 	Integer curVoice = 0						// MIDI track/channel/voice
@@ -43,8 +45,11 @@ class SimpleSonoraGenerator implements IGenerator {
 		for(Header h :resource.allContents.toIterable.filter(Header)){
 			feedback = true
 			songName = h.songName				// get the song name
-			if(h.tempo > 0)
-				pattern.tempo = h.tempo			// define the tempo (velocity)
+			if(h.tempo != null)					// define the tempo
+				if(h.tempo.value > 0)
+					pattern.tempo = h.tempo.value	// using bpm
+				else
+					pattern.tempo = h.tempo.id		// constant name
 			if(h.key != null)
 				pattern.add(h.key.keyToPattern)	// define key signature
 			if(h.nofeedback)
@@ -55,29 +60,30 @@ class SimpleSonoraGenerator implements IGenerator {
 		
 		for (Instrument instrument : resource.allContents.toIterable.filter(Instrument)) {
 			
-			curDuration = 'h' // reset to default each time
-			curOctave = 4		
+			if(instrument.sequences.length > 0) {
+				curDuration = 'h' // reset to default each time
+				curOctave = 4		
 			
-			pattern.add('V' + curVoice)
-			pattern.add('I[' + instrument.instrumentName + ']')
+				pattern.add('V' + curVoice)
+				pattern.add('I[' + instrument.instrumentName + ']')
 			
-			// Sequence of Notes and/or Chords of the Instrument
-			for (Sequence s : instrument.sequences) {
-				
-				// note
-				if (s.note != null)
-					pattern.add(s.note.noteToPattern)
-				
-				// chord
-				if (s.chord != null) 
-					pattern.add(s.chord.chordToPattern)
-				
-				// harmony
-				if (s.harmony != null)
-					pattern.add(s.harmony.harmonyToPattern)
+				// Sequence of Notes and/or Chords of the Instrument
+				for (Sequence s : instrument.sequences) {
+					// note
+					if (s.note != null)
+						pattern.add(s.note.noteToPattern)	
+					// chord
+					if (s.chord != null) 
+						pattern.add(s.chord.chordToPattern)
+					// harmony
+					if (s.harmony != null)
+						pattern.add(s.harmony.harmonyToPattern)
+					// tuplet
+					if (s.tuplet != null)
+						pattern.add(s.tuplet.tuppletToPattern)
+				}
+				curVoice++	
 			}
-			
-			curVoice++
 		}
 		
 		// Outputs
@@ -92,23 +98,23 @@ class SimpleSonoraGenerator implements IGenerator {
 	/**
 	 * Converts the Simple-Sonora key signature pattern to the JFugue pattern.
 	 * 
-	 * @param k	String containing.
+	 * @param k	Key containing the key for the song.
 	 * @return String with JFugue Pattern notation for key signature.
 	 */
-	def String keyToPattern(String k){
+	def String keyToPattern(Key k){
 		key = "KEY:"	// starts with 'KEY:'
-		 // note must be upper case
-		key = key.concat(Character.toUpperCase(k.charAt(0)).toString())
-		
+		key = key.concat(k.note.toUpperCase)  // note must be upper case
 		// convert the accident 
-		if(k.charAt(1).compareTo('+') == 0){
-			key = key.concat('#')
-		}
-		else if (k.charAt(1).compareTo('-') == 0){
-			key = key.concat('b')
+		if(k.accidental != null){
+			switch(k.accidental){
+				case('+'):
+					key = key.concat('#')
+				case('-'):
+					key = key.concat('b')
+			}
 		}
 		// concatenate 'maj' or 'min' to the string
-		key = key.concat(k.substring(2).trim)
+		key = key.concat(k.interval.substring(0, 3))
 		
 		return key
 	}	
@@ -183,17 +189,42 @@ class SimpleSonoraGenerator implements IGenerator {
 		return auxNote	
 	}
 	
+	/**
+	 * Converts from Simple-Sonora chord pattern to the JFugue one.
+	 * 
+	 * @param chord Chord containing sequence of notes or base note and chord name.
+	 * @return String with JFugue pattern notation for chords.
+	 */
 	def String chordToPattern(Chord chord){
 		var auxChord = ""
 		
 		for (n : chord.chordNotes.toList)
 			// for each note get the pattern and add a '+' 		
 			auxChord = auxChord.concat(n.noteToPattern + "+")
+		auxChord = auxChord.substring(0, auxChord.length - 1)
+		
+		if(chord.chordName != null){
+			// using the chord name
+			var inversion = ""
+			if(chord.inversion != null) // verify if there is any inversion
+				inversion = chord.inversion
+			
+			// chord is: 'note_id' 'chordName' 'inversion' 'duration'
+			auxChord = (auxChord.substring(0, auxChord.length - 1) +
+						chord.chordName + inversion + 
+						auxChord.substring(auxChord.length - 1))
+		}
 		
 		// add the chord pattern minus the extra '+' at the end
-		return auxChord.substring(0, auxChord.length - 1)
+		return auxChord
 	}
 	
+	/**
+	 * Converts from Simple-Sonora harmony pattern to the JFugue one.
+	 * 
+	 * @param harmony Harmony containing chord and melody notes that will be played together.
+	 * @return String with JFugue pattern notation for harmony.
+	 */
 	def String harmonyToPattern(Harmony harmony){
 		var h = ""
 		
@@ -206,6 +237,26 @@ class SimpleSonoraGenerator implements IGenerator {
 			h = h.concat(n.noteToPattern + "_")		
 		
 		return h.substring(0, h.length - 1)
+	}
+	
+	/**
+	 * Converts from Simple-Sonora tuplet pattern to the JFugue one.
+	 * 
+	 * @param tuplet Tuplet containing sequence of notes and it's duration to be.
+	 * @return String with JFugue pattern notation for tuplet.
+	 */
+	def String tuppletToPattern(Tuplet tuplet){
+		val numOfNotes = tuplet.notes.length
+		val duration = tuplet.duration
+		var auxTuplet = ""
+		
+		for(n : tuplet.notes){
+			auxTuplet = auxTuplet.concat(n.noteToPattern + "*" + 
+				numOfNotes.toString + duration.toString + " "
+			)
+		}
+		
+		return auxTuplet
 	}
 	
 	/**

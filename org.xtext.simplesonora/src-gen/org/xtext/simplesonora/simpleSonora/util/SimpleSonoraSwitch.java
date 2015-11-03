@@ -86,6 +86,20 @@ public class SimpleSonoraSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SimpleSonoraPackage.TEMPO:
+      {
+        Tempo tempo = (Tempo)theEObject;
+        T result = caseTempo(tempo);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SimpleSonoraPackage.KEY:
+      {
+        Key key = (Key)theEObject;
+        T result = caseKey(key);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SimpleSonoraPackage.SONG:
       {
         Song song = (Song)theEObject;
@@ -107,10 +121,10 @@ public class SimpleSonoraSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SimpleSonoraPackage.HARMONY:
+      case SimpleSonoraPackage.NOTE:
       {
-        Harmony harmony = (Harmony)theEObject;
-        T result = caseHarmony(harmony);
+        Note note = (Note)theEObject;
+        T result = caseNote(note);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -121,10 +135,17 @@ public class SimpleSonoraSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SimpleSonoraPackage.NOTE:
+      case SimpleSonoraPackage.HARMONY:
       {
-        Note note = (Note)theEObject;
-        T result = caseNote(note);
+        Harmony harmony = (Harmony)theEObject;
+        T result = caseHarmony(harmony);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SimpleSonoraPackage.TUPLET:
+      {
+        Tuplet tuplet = (Tuplet)theEObject;
+        T result = caseTuplet(tuplet);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -160,6 +181,38 @@ public class SimpleSonoraSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseHeader(Header object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Tempo</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Tempo</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTempo(Tempo object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Key</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Key</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseKey(Key object)
   {
     return null;
   }
@@ -213,17 +266,17 @@ public class SimpleSonoraSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Harmony</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Note</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Harmony</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Note</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseHarmony(Harmony object)
+  public T caseNote(Note object)
   {
     return null;
   }
@@ -245,17 +298,33 @@ public class SimpleSonoraSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Note</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Harmony</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Note</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Harmony</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNote(Note object)
+  public T caseHarmony(Harmony object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Tuplet</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Tuplet</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTuplet(Tuplet object)
   {
     return null;
   }

@@ -85,6 +85,16 @@ public class SimpleSonoraAdapterFactory extends AdapterFactoryImpl
         return createHeaderAdapter();
       }
       @Override
+      public Adapter caseTempo(Tempo object)
+      {
+        return createTempoAdapter();
+      }
+      @Override
+      public Adapter caseKey(Key object)
+      {
+        return createKeyAdapter();
+      }
+      @Override
       public Adapter caseSong(Song object)
       {
         return createSongAdapter();
@@ -100,9 +110,9 @@ public class SimpleSonoraAdapterFactory extends AdapterFactoryImpl
         return createSequenceAdapter();
       }
       @Override
-      public Adapter caseHarmony(Harmony object)
+      public Adapter caseNote(Note object)
       {
-        return createHarmonyAdapter();
+        return createNoteAdapter();
       }
       @Override
       public Adapter caseChord(Chord object)
@@ -110,9 +120,14 @@ public class SimpleSonoraAdapterFactory extends AdapterFactoryImpl
         return createChordAdapter();
       }
       @Override
-      public Adapter caseNote(Note object)
+      public Adapter caseHarmony(Harmony object)
       {
-        return createNoteAdapter();
+        return createHarmonyAdapter();
+      }
+      @Override
+      public Adapter caseTuplet(Tuplet object)
+      {
+        return createTupletAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -167,6 +182,36 @@ public class SimpleSonoraAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Tempo <em>Tempo</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.simplesonora.simpleSonora.Tempo
+   * @generated
+   */
+  public Adapter createTempoAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Key <em>Key</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.simplesonora.simpleSonora.Key
+   * @generated
+   */
+  public Adapter createKeyAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Song <em>Song</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -212,16 +257,16 @@ public class SimpleSonoraAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Harmony <em>Harmony</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Note <em>Note</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.simplesonora.simpleSonora.Harmony
+   * @see org.xtext.simplesonora.simpleSonora.Note
    * @generated
    */
-  public Adapter createHarmonyAdapter()
+  public Adapter createNoteAdapter()
   {
     return null;
   }
@@ -242,16 +287,31 @@ public class SimpleSonoraAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Note <em>Note</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Harmony <em>Harmony</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.simplesonora.simpleSonora.Note
+   * @see org.xtext.simplesonora.simpleSonora.Harmony
    * @generated
    */
-  public Adapter createNoteAdapter()
+  public Adapter createHarmonyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.simplesonora.simpleSonora.Tuplet <em>Tuplet</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.simplesonora.simpleSonora.Tuplet
+   * @generated
+   */
+  public Adapter createTupletAdapter()
   {
     return null;
   }

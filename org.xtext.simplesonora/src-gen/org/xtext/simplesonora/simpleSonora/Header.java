@@ -78,55 +78,55 @@ public interface Header extends EObject
   void setSongName(String value);
 
   /**
-   * Returns the value of the '<em><b>Tempo</b></em>' attribute.
+   * Returns the value of the '<em><b>Tempo</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Tempo</em>' attribute isn't clear,
+   * If the meaning of the '<em>Tempo</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Tempo</em>' attribute.
-   * @see #setTempo(int)
+   * @return the value of the '<em>Tempo</em>' containment reference.
+   * @see #setTempo(Tempo)
    * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getHeader_Tempo()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  int getTempo();
+  Tempo getTempo();
 
   /**
-   * Sets the value of the '{@link org.xtext.simplesonora.simpleSonora.Header#getTempo <em>Tempo</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.simplesonora.simpleSonora.Header#getTempo <em>Tempo</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Tempo</em>' attribute.
+   * @param value the new value of the '<em>Tempo</em>' containment reference.
    * @see #getTempo()
    * @generated
    */
-  void setTempo(int value);
+  void setTempo(Tempo value);
 
   /**
-   * Returns the value of the '<em><b>Key</b></em>' attribute.
+   * Returns the value of the '<em><b>Key</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Key</em>' attribute isn't clear,
+   * If the meaning of the '<em>Key</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Key</em>' attribute.
-   * @see #setKey(String)
+   * @return the value of the '<em>Key</em>' containment reference.
+   * @see #setKey(Key)
    * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getHeader_Key()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getKey();
+  Key getKey();
 
   /**
-   * Sets the value of the '{@link org.xtext.simplesonora.simpleSonora.Header#getKey <em>Key</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.simplesonora.simpleSonora.Header#getKey <em>Key</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Key</em>' attribute.
+   * @param value the new value of the '<em>Key</em>' containment reference.
    * @see #getKey()
    * @generated
    */
-  void setKey(String value);
+  void setKey(Key value);
 
 } // Header

@@ -22,10 +22,13 @@ import org.xtext.simplesonora.simpleSonora.Document;
 import org.xtext.simplesonora.simpleSonora.Harmony;
 import org.xtext.simplesonora.simpleSonora.Header;
 import org.xtext.simplesonora.simpleSonora.Instrument;
+import org.xtext.simplesonora.simpleSonora.Key;
 import org.xtext.simplesonora.simpleSonora.Note;
 import org.xtext.simplesonora.simpleSonora.Sequence;
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
 import org.xtext.simplesonora.simpleSonora.Song;
+import org.xtext.simplesonora.simpleSonora.Tempo;
+import org.xtext.simplesonora.simpleSonora.Tuplet;
 
 @SuppressWarnings("all")
 public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -51,6 +54,9 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 			case SimpleSonoraPackage.INSTRUMENT:
 				sequence_Instrument(context, (Instrument) semanticObject); 
 				return; 
+			case SimpleSonoraPackage.KEY:
+				sequence_Key(context, (Key) semanticObject); 
+				return; 
 			case SimpleSonoraPackage.NOTE:
 				sequence_Note(context, (Note) semanticObject); 
 				return; 
@@ -60,13 +66,19 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 			case SimpleSonoraPackage.SONG:
 				sequence_Song(context, (Song) semanticObject); 
 				return; 
+			case SimpleSonoraPackage.TEMPO:
+				sequence_Tempo(context, (Tempo) semanticObject); 
+				return; 
+			case SimpleSonoraPackage.TUPLET:
+				sequence_Tuplet(context, (Tuplet) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
 	
 	/**
 	 * Constraint:
-	 *     (chordNotes+=Note chordNotes+=Note+)
+	 *     (chordNotes+=Note (chordNotes+=Note+ | (chordName=ID (inversion='^' | inversion='^^')?)))
 	 */
 	protected void sequence_Chord(EObject context, Chord semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -103,7 +115,7 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Constraint:
-	 *     (nofeedback?='no-feedback'? songName=ID tempo=INT? key=Key?)
+	 *     (nofeedback?='no-feedback'? songName=ID tempo=Tempo? key=Key?)
 	 */
 	protected void sequence_Header(EObject context, Header semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -112,9 +124,18 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Constraint:
-	 *     (instrumentName=ID sequences+=Sequence+)
+	 *     (instrumentName=ID sequences+=Sequence*)
 	 */
 	protected void sequence_Instrument(EObject context, Instrument semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (note=NOTE_ID accidental=ACCIDENTAL? (interval='major' | interval='minor'))
+	 */
+	protected void sequence_Key(EObject context, Key semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -137,7 +158,7 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Constraint:
-	 *     (note=Note | chord=Chord | harmony=Harmony | measure?=MEASURE)
+	 *     (note=Note | chord=Chord | harmony=Harmony | tuplet=Tuplet | measure?=MEASURE)
 	 */
 	protected void sequence_Sequence(EObject context, Sequence semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -149,6 +170,24 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     instruments+=Instrument+
 	 */
 	protected void sequence_Song(EObject context, Song semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (value=INT | id=ID)
+	 */
+	protected void sequence_Tempo(EObject context, Tempo semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (notes+=Note+ duration=DURATION)
+	 */
+	protected void sequence_Tuplet(EObject context, Tuplet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

@@ -66,12 +66,15 @@ public class SimpleSonoraFactoryImpl extends EFactoryImpl implements SimpleSonor
     {
       case SimpleSonoraPackage.DOCUMENT: return createDocument();
       case SimpleSonoraPackage.HEADER: return createHeader();
+      case SimpleSonoraPackage.TEMPO: return createTempo();
+      case SimpleSonoraPackage.KEY: return createKey();
       case SimpleSonoraPackage.SONG: return createSong();
       case SimpleSonoraPackage.INSTRUMENT: return createInstrument();
       case SimpleSonoraPackage.SEQUENCE: return createSequence();
-      case SimpleSonoraPackage.HARMONY: return createHarmony();
-      case SimpleSonoraPackage.CHORD: return createChord();
       case SimpleSonoraPackage.NOTE: return createNote();
+      case SimpleSonoraPackage.CHORD: return createChord();
+      case SimpleSonoraPackage.HARMONY: return createHarmony();
+      case SimpleSonoraPackage.TUPLET: return createTuplet();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -97,6 +100,28 @@ public class SimpleSonoraFactoryImpl extends EFactoryImpl implements SimpleSonor
   {
     HeaderImpl header = new HeaderImpl();
     return header;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Tempo createTempo()
+  {
+    TempoImpl tempo = new TempoImpl();
+    return tempo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Key createKey()
+  {
+    KeyImpl key = new KeyImpl();
+    return key;
   }
 
   /**
@@ -137,10 +162,10 @@ public class SimpleSonoraFactoryImpl extends EFactoryImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public Harmony createHarmony()
+  public Note createNote()
   {
-    HarmonyImpl harmony = new HarmonyImpl();
-    return harmony;
+    NoteImpl note = new NoteImpl();
+    return note;
   }
 
   /**
@@ -159,10 +184,21 @@ public class SimpleSonoraFactoryImpl extends EFactoryImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public Note createNote()
+  public Harmony createHarmony()
   {
-    NoteImpl note = new NoteImpl();
-    return note;
+    HarmonyImpl harmony = new HarmonyImpl();
+    return harmony;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Tuplet createTuplet()
+  {
+    TupletImpl tuplet = new TupletImpl();
+    return tuplet;
   }
 
   /**

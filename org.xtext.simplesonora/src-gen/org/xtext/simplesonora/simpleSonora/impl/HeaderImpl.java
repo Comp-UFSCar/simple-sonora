@@ -3,14 +3,18 @@
 package org.xtext.simplesonora.simpleSonora.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.simplesonora.simpleSonora.Header;
+import org.xtext.simplesonora.simpleSonora.Key;
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
+import org.xtext.simplesonora.simpleSonora.Tempo;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,44 +75,24 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
   protected String songName = SONG_NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getTempo() <em>Tempo</em>}' attribute.
+   * The cached value of the '{@link #getTempo() <em>Tempo</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTempo()
    * @generated
    * @ordered
    */
-  protected static final int TEMPO_EDEFAULT = 0;
+  protected Tempo tempo;
 
   /**
-   * The cached value of the '{@link #getTempo() <em>Tempo</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTempo()
-   * @generated
-   * @ordered
-   */
-  protected int tempo = TEMPO_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
+   * The cached value of the '{@link #getKey() <em>Key</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getKey()
    * @generated
    * @ordered
    */
-  protected static final String KEY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getKey() <em>Key</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getKey()
-   * @generated
-   * @ordered
-   */
-  protected String key = KEY_EDEFAULT;
+  protected Key key;
 
   /**
    * <!-- begin-user-doc -->
@@ -182,7 +166,7 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getTempo()
+  public Tempo getTempo()
   {
     return tempo;
   }
@@ -192,12 +176,16 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTempo(int newTempo)
+  public NotificationChain basicSetTempo(Tempo newTempo, NotificationChain msgs)
   {
-    int oldTempo = tempo;
+    Tempo oldTempo = tempo;
     tempo = newTempo;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.HEADER__TEMPO, oldTempo, tempo));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.HEADER__TEMPO, oldTempo, newTempo);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -205,7 +193,28 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getKey()
+  public void setTempo(Tempo newTempo)
+  {
+    if (newTempo != tempo)
+    {
+      NotificationChain msgs = null;
+      if (tempo != null)
+        msgs = ((InternalEObject)tempo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimpleSonoraPackage.HEADER__TEMPO, null, msgs);
+      if (newTempo != null)
+        msgs = ((InternalEObject)newTempo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SimpleSonoraPackage.HEADER__TEMPO, null, msgs);
+      msgs = basicSetTempo(newTempo, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.HEADER__TEMPO, newTempo, newTempo));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Key getKey()
   {
     return key;
   }
@@ -215,12 +224,55 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setKey(String newKey)
+  public NotificationChain basicSetKey(Key newKey, NotificationChain msgs)
   {
-    String oldKey = key;
+    Key oldKey = key;
     key = newKey;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.HEADER__KEY, oldKey, key));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.HEADER__KEY, oldKey, newKey);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setKey(Key newKey)
+  {
+    if (newKey != key)
+    {
+      NotificationChain msgs = null;
+      if (key != null)
+        msgs = ((InternalEObject)key).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimpleSonoraPackage.HEADER__KEY, null, msgs);
+      if (newKey != null)
+        msgs = ((InternalEObject)newKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SimpleSonoraPackage.HEADER__KEY, null, msgs);
+      msgs = basicSetKey(newKey, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SimpleSonoraPackage.HEADER__KEY, newKey, newKey));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case SimpleSonoraPackage.HEADER__TEMPO:
+        return basicSetTempo(null, msgs);
+      case SimpleSonoraPackage.HEADER__KEY:
+        return basicSetKey(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -262,10 +314,10 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
         setSongName((String)newValue);
         return;
       case SimpleSonoraPackage.HEADER__TEMPO:
-        setTempo((Integer)newValue);
+        setTempo((Tempo)newValue);
         return;
       case SimpleSonoraPackage.HEADER__KEY:
-        setKey((String)newValue);
+        setKey((Key)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -288,10 +340,10 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
         setSongName(SONG_NAME_EDEFAULT);
         return;
       case SimpleSonoraPackage.HEADER__TEMPO:
-        setTempo(TEMPO_EDEFAULT);
+        setTempo((Tempo)null);
         return;
       case SimpleSonoraPackage.HEADER__KEY:
-        setKey(KEY_EDEFAULT);
+        setKey((Key)null);
         return;
     }
     super.eUnset(featureID);
@@ -312,9 +364,9 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
       case SimpleSonoraPackage.HEADER__SONG_NAME:
         return SONG_NAME_EDEFAULT == null ? songName != null : !SONG_NAME_EDEFAULT.equals(songName);
       case SimpleSonoraPackage.HEADER__TEMPO:
-        return tempo != TEMPO_EDEFAULT;
+        return tempo != null;
       case SimpleSonoraPackage.HEADER__KEY:
-        return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
+        return key != null;
     }
     return super.eIsSet(featureID);
   }
@@ -334,10 +386,6 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header
     result.append(nofeedback);
     result.append(", songName: ");
     result.append(songName);
-    result.append(", tempo: ");
-    result.append(tempo);
-    result.append(", key: ");
-    result.append(key);
     result.append(')');
     return result.toString();
   }

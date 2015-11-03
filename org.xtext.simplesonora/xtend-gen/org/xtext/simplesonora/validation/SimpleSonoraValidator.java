@@ -3,14 +3,19 @@
  */
 package org.xtext.simplesonora.validation;
 
+import com.google.common.base.Objects;
+import java.util.List;
 import java.util.Set;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.jfugue.midi.MidiDictionary;
+import org.xtext.simplesonora.simpleSonora.Chord;
 import org.xtext.simplesonora.simpleSonora.Instrument;
 import org.xtext.simplesonora.simpleSonora.Note;
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
+import org.xtext.simplesonora.simpleSonora.Tempo;
 import org.xtext.simplesonora.validation.AbstractSimpleSonoraValidator;
 
 /**
@@ -21,6 +26,8 @@ import org.xtext.simplesonora.validation.AbstractSimpleSonoraValidator;
 @SuppressWarnings("all")
 public class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
   private Set<String> instrumentNames = IterableExtensions.<String>toSet(MidiDictionary.INSTRUMENT_BYTE_TO_STRING.values());
+  
+  private Set<String> tempoNames = IterableExtensions.<String>toSet(MidiDictionary.TEMPO_INT_TO_STRING.values());
   
   private String lastNote = "";
   
@@ -52,6 +59,10 @@ public class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
     }
   }
   
+  /**
+   * A Tie must be used only with same notes so it add's the duration of
+   * each one of them as a "single" note with the sum of all duration.
+   */
   @Check
   public void checkTie(final Note n) {
     boolean _and = false;
@@ -73,6 +84,44 @@ public class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
       this.tied = true;
     } else {
       this.tied = false;
+    }
+  }
+  
+  @Check
+  public void checkTempo(final Tempo tempo) {
+    String _id = tempo.getId();
+    boolean _notEquals = (!Objects.equal(_id, null));
+    if (_notEquals) {
+      String _id_1 = tempo.getId();
+      String _string = _id_1.toString();
+      String _upperCase = _string.toUpperCase();
+      boolean _contains = this.tempoNames.contains(_upperCase);
+      boolean _not = (!_contains);
+      if (_not) {
+        this.error("Tempo not valid, check the available constants.", SimpleSonoraPackage.Literals.TEMPO__ID);
+      }
+    } else {
+      int _value = tempo.getValue();
+      boolean _equals = (_value == 0);
+      if (_equals) {
+        this.error("Tempo not valid, value must be bigger than 0.", SimpleSonoraPackage.Literals.TEMPO__VALUE);
+      }
+    }
+  }
+  
+  @Check
+  public void checkChord(final Chord chord) {
+    String _chordName = chord.getChordName();
+    boolean _notEquals = (!Objects.equal(_chordName, null));
+    if (_notEquals) {
+      String[] _chordNames = org.jfugue.theory.Chord.getChordNames();
+      String _chordName_1 = chord.getChordName();
+      String _upperCase = _chordName_1.toUpperCase();
+      boolean _contains = ((List<String>)Conversions.doWrapArray(_chordNames)).contains(_upperCase);
+      boolean _not = (!_contains);
+      if (_not) {
+        this.error("Chord name not valid, verify valid names.", SimpleSonoraPackage.Literals.CHORD__CHORD_NAME);
+      }
     }
   }
 }

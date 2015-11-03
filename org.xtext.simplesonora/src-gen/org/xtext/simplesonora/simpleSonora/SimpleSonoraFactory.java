@@ -41,6 +41,24 @@ public interface SimpleSonoraFactory extends EFactory
   Header createHeader();
 
   /**
+   * Returns a new object of class '<em>Tempo</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tempo</em>'.
+   * @generated
+   */
+  Tempo createTempo();
+
+  /**
+   * Returns a new object of class '<em>Key</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Key</em>'.
+   * @generated
+   */
+  Key createKey();
+
+  /**
    * Returns a new object of class '<em>Song</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -68,13 +86,13 @@ public interface SimpleSonoraFactory extends EFactory
   Sequence createSequence();
 
   /**
-   * Returns a new object of class '<em>Harmony</em>'.
+   * Returns a new object of class '<em>Note</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Harmony</em>'.
+   * @return a new object of class '<em>Note</em>'.
    * @generated
    */
-  Harmony createHarmony();
+  Note createNote();
 
   /**
    * Returns a new object of class '<em>Chord</em>'.
@@ -86,13 +104,22 @@ public interface SimpleSonoraFactory extends EFactory
   Chord createChord();
 
   /**
-   * Returns a new object of class '<em>Note</em>'.
+   * Returns a new object of class '<em>Harmony</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Note</em>'.
+   * @return a new object of class '<em>Harmony</em>'.
    * @generated
    */
-  Note createNote();
+  Harmony createHarmony();
+
+  /**
+   * Returns a new object of class '<em>Tuplet</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tuplet</em>'.
+   * @generated
+   */
+  Tuplet createTuplet();
 
   /**
    * Returns the package supported by this factory.

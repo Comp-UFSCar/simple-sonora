@@ -12,32 +12,37 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalSimpleSonoraLexer extends Lexer {
-    public static final int RULE_DURATION=11;
-    public static final int RULE_INTERVAL=6;
-    public static final int RULE_ID=7;
-    public static final int RULE_MEASURE=9;
+    public static final int RULE_DURATION=10;
+    public static final int RULE_ID=4;
+    public static final int RULE_MEASURE=8;
+    public static final int T__29=29;
     public static final int T__28=28;
     public static final int T__27=27;
+    public static final int RULE_ACCIDENTAL=7;
     public static final int T__26=26;
-    public static final int RULE_ACCIDENTAL=5;
     public static final int T__25=25;
     public static final int T__24=24;
     public static final int T__23=23;
     public static final int T__22=22;
-    public static final int RULE_ANY_OTHER=16;
+    public static final int RULE_ANY_OTHER=15;
     public static final int T__21=21;
     public static final int T__20=20;
-    public static final int RULE_SL_COMMENT=14;
+    public static final int RULE_SL_COMMENT=13;
     public static final int EOF=-1;
-    public static final int RULE_ML_COMMENT=13;
+    public static final int RULE_ML_COMMENT=12;
+    public static final int T__30=30;
     public static final int T__19=19;
-    public static final int RULE_STRING=12;
-    public static final int RULE_NOTE_ID=4;
+    public static final int T__31=31;
+    public static final int T__32=32;
+    public static final int RULE_STRING=11;
+    public static final int T__16=16;
+    public static final int T__33=33;
+    public static final int RULE_NOTE_ID=6;
     public static final int T__18=18;
     public static final int T__17=17;
-    public static final int RULE_INT=8;
-    public static final int RULE_OCTAVE=10;
-    public static final int RULE_WS=15;
+    public static final int RULE_INT=5;
+    public static final int RULE_OCTAVE=9;
+    public static final int RULE_WS=14;
 
     // delegates
     // delegators
@@ -52,16 +57,36 @@ public class InternalSimpleSonoraLexer extends Lexer {
     }
     public String getGrammarFileName() { return "../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g"; }
 
-    // $ANTLR start "T__17"
-    public final void mT__17() throws RecognitionException {
+    // $ANTLR start "T__16"
+    public final void mT__16() throws RecognitionException {
         try {
-            int _type = T__17;
+            int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
             // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:11:7: ( 'title' )
             // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:11:9: 'title'
             {
             match("title"); 
 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__16"
+
+    // $ANTLR start "T__17"
+    public final void mT__17() throws RecognitionException {
+        try {
+            int _type = T__17;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:12:7: ( '=' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:12:9: '='
+            {
+            match('='); 
 
             }
 
@@ -78,10 +103,11 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:12:7: ( '=' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:12:9: '='
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:13:7: ( 'tempo' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:13:9: 'tempo'
             {
-            match('='); 
+            match("tempo"); 
+
 
             }
 
@@ -98,10 +124,10 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:13:7: ( 'tempo' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:13:9: 'tempo'
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:14:7: ( 'key' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:14:9: 'key'
             {
-            match("tempo"); 
+            match("key"); 
 
 
             }
@@ -119,11 +145,10 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:14:7: ( 'key' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:14:9: 'key'
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:15:7: ( '{' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:15:9: '{'
             {
-            match("key"); 
-
+            match('{'); 
 
             }
 
@@ -140,10 +165,10 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:15:7: ( '{' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:15:9: '{'
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:16:7: ( '}' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:16:9: '}'
             {
-            match('{'); 
+            match('}'); 
 
             }
 
@@ -160,10 +185,10 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:16:7: ( '}' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:16:9: '}'
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:17:7: ( '/' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:17:9: '/'
             {
-            match('}'); 
+            match('/'); 
 
             }
 
@@ -180,8 +205,8 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:17:7: ( '[' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:17:9: '['
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:18:7: ( '[' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:18:9: '['
             {
             match('['); 
 
@@ -200,8 +225,8 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:18:7: ( ']' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:18:9: ']'
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:19:7: ( ']' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:19:9: ']'
             {
             match(']'); 
 
@@ -220,10 +245,10 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:19:7: ( '/' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:19:9: '/'
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:20:7: ( '(' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:20:9: '('
             {
-            match('/'); 
+            match('('); 
 
             }
 
@@ -240,11 +265,10 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:20:7: ( 'no-feedback' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:20:9: 'no-feedback'
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:21:7: ( ')' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:21:9: ')'
             {
-            match("no-feedback"); 
-
+            match(')'); 
 
             }
 
@@ -261,10 +285,11 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:21:7: ( '.' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:21:9: '.'
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:22:7: ( 'no-feedback' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:22:9: 'no-feedback'
             {
-            match('.'); 
+            match("no-feedback"); 
+
 
             }
 
@@ -281,10 +306,11 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:22:7: ( '_' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:22:9: '_'
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:23:7: ( 'major' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:23:9: 'major'
             {
-            match('_'); 
+            match("major"); 
+
 
             }
 
@@ -296,59 +322,15 @@ public class InternalSimpleSonoraLexer extends Lexer {
     }
     // $ANTLR end "T__28"
 
-    // $ANTLR start "RULE_INTERVAL"
-    public final void mRULE_INTERVAL() throws RecognitionException {
+    // $ANTLR start "T__29"
+    public final void mT__29() throws RecognitionException {
         try {
-            int _type = RULE_INTERVAL;
+            int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1999:15: ( ( 'maj' | 'min' ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1999:17: ( 'maj' | 'min' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:24:7: ( 'minor' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:24:9: 'minor'
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1999:17: ( 'maj' | 'min' )
-            int alt1=2;
-            int LA1_0 = input.LA(1);
-
-            if ( (LA1_0=='m') ) {
-                int LA1_1 = input.LA(2);
-
-                if ( (LA1_1=='a') ) {
-                    alt1=1;
-                }
-                else if ( (LA1_1=='i') ) {
-                    alt1=2;
-                }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 1, 1, input);
-
-                    throw nvae;
-                }
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 1, 0, input);
-
-                throw nvae;
-            }
-            switch (alt1) {
-                case 1 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1999:18: 'maj'
-                    {
-                    match("maj"); 
-
-
-                    }
-                    break;
-                case 2 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1999:24: 'min'
-                    {
-                    match("min"); 
-
-
-                    }
-                    break;
-
-            }
+            match("minor"); 
 
 
             }
@@ -359,62 +341,187 @@ public class InternalSimpleSonoraLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "RULE_INTERVAL"
+    // $ANTLR end "T__29"
+
+    // $ANTLR start "T__30"
+    public final void mT__30() throws RecognitionException {
+        try {
+            int _type = T__30;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:25:7: ( '.' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:25:9: '.'
+            {
+            match('.'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__30"
+
+    // $ANTLR start "T__31"
+    public final void mT__31() throws RecognitionException {
+        try {
+            int _type = T__31;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:26:7: ( '_' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:26:9: '_'
+            {
+            match('_'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__31"
+
+    // $ANTLR start "T__32"
+    public final void mT__32() throws RecognitionException {
+        try {
+            int _type = T__32;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:27:7: ( '^' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:27:9: '^'
+            {
+            match('^'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__32"
+
+    // $ANTLR start "T__33"
+    public final void mT__33() throws RecognitionException {
+        try {
+            int _type = T__33;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:28:7: ( '^^' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:28:9: '^^'
+            {
+            match("^^"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__33"
 
     // $ANTLR start "RULE_OCTAVE"
     public final void mRULE_OCTAVE() throws RecognitionException {
         try {
             int _type = RULE_OCTAVE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2001:13: ( ( ( '<' )+ | 'o' '0' .. '9' | ( '>' )+ ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2001:15: ( ( '<' )+ | 'o' '0' .. '9' | ( '>' )+ )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2566:13: ( ( ( '<' )+ | 'o' '0' .. '9' | ( '>' )+ ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2566:15: ( ( '<' )+ | 'o' '0' .. '9' | ( '>' )+ )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2001:15: ( ( '<' )+ | 'o' '0' .. '9' | ( '>' )+ )
-            int alt4=3;
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2566:15: ( ( '<' )+ | 'o' '0' .. '9' | ( '>' )+ )
+            int alt3=3;
             switch ( input.LA(1) ) {
             case '<':
                 {
-                alt4=1;
+                alt3=1;
                 }
                 break;
             case 'o':
                 {
-                alt4=2;
+                alt3=2;
                 }
                 break;
             case '>':
                 {
-                alt4=3;
+                alt3=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 4, 0, input);
+                    new NoViableAltException("", 3, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt4) {
+            switch (alt3) {
                 case 1 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2001:16: ( '<' )+
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2566:16: ( '<' )+
                     {
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2001:16: ( '<' )+
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2566:16: ( '<' )+
+                    int cnt1=0;
+                    loop1:
+                    do {
+                        int alt1=2;
+                        int LA1_0 = input.LA(1);
+
+                        if ( (LA1_0=='<') ) {
+                            alt1=1;
+                        }
+
+
+                        switch (alt1) {
+                    	case 1 :
+                    	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2566:16: '<'
+                    	    {
+                    	    match('<'); 
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    if ( cnt1 >= 1 ) break loop1;
+                                EarlyExitException eee =
+                                    new EarlyExitException(1, input);
+                                throw eee;
+                        }
+                        cnt1++;
+                    } while (true);
+
+
+                    }
+                    break;
+                case 2 :
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2566:21: 'o' '0' .. '9'
+                    {
+                    match('o'); 
+                    matchRange('0','9'); 
+
+                    }
+                    break;
+                case 3 :
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2566:34: ( '>' )+
+                    {
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2566:34: ( '>' )+
                     int cnt2=0;
                     loop2:
                     do {
                         int alt2=2;
                         int LA2_0 = input.LA(1);
 
-                        if ( (LA2_0=='<') ) {
+                        if ( (LA2_0=='>') ) {
                             alt2=1;
                         }
 
 
                         switch (alt2) {
                     	case 1 :
-                    	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2001:16: '<'
+                    	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2566:34: '>'
                     	    {
-                    	    match('<'); 
+                    	    match('>'); 
 
                     	    }
                     	    break;
@@ -426,50 +533,6 @@ public class InternalSimpleSonoraLexer extends Lexer {
                                 throw eee;
                         }
                         cnt2++;
-                    } while (true);
-
-
-                    }
-                    break;
-                case 2 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2001:21: 'o' '0' .. '9'
-                    {
-                    match('o'); 
-                    matchRange('0','9'); 
-
-                    }
-                    break;
-                case 3 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2001:34: ( '>' )+
-                    {
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2001:34: ( '>' )+
-                    int cnt3=0;
-                    loop3:
-                    do {
-                        int alt3=2;
-                        int LA3_0 = input.LA(1);
-
-                        if ( (LA3_0=='>') ) {
-                            alt3=1;
-                        }
-
-
-                        switch (alt3) {
-                    	case 1 :
-                    	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2001:34: '>'
-                    	    {
-                    	    match('>'); 
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    if ( cnt3 >= 1 ) break loop3;
-                                EarlyExitException eee =
-                                    new EarlyExitException(3, input);
-                                throw eee;
-                        }
-                        cnt3++;
                     } while (true);
 
 
@@ -494,8 +557,8 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = RULE_ACCIDENTAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2003:17: ( ( '+' | '-' | '@' ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2003:19: ( '+' | '-' | '@' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2568:17: ( ( '+' | '-' | '@' ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2568:19: ( '+' | '-' | '@' )
             {
             if ( input.LA(1)=='+'||input.LA(1)=='-'||input.LA(1)=='@' ) {
                 input.consume();
@@ -522,8 +585,8 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = RULE_NOTE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2005:14: ( ( 'a' .. 'g' | 'A' .. 'G' | ( 'R' | 'r' ) ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2005:16: ( 'a' .. 'g' | 'A' .. 'G' | ( 'R' | 'r' ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2570:14: ( ( 'a' .. 'g' | 'A' .. 'G' | ( 'R' | 'r' ) ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2570:16: ( 'a' .. 'g' | 'A' .. 'G' | ( 'R' | 'r' ) )
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='G')||input.LA(1)=='R'||(input.LA(1)>='a' && input.LA(1)<='g')||input.LA(1)=='r' ) {
                 input.consume();
@@ -550,82 +613,82 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = RULE_DURATION;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2007:15: ( ':' ( '1' | '2' | '4' | '8' | '16' | '32' ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2007:17: ':' ( '1' | '2' | '4' | '8' | '16' | '32' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2572:15: ( ':' ( '1' | '2' | '4' | '8' | '16' | '32' ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2572:17: ':' ( '1' | '2' | '4' | '8' | '16' | '32' )
             {
             match(':'); 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2007:21: ( '1' | '2' | '4' | '8' | '16' | '32' )
-            int alt5=6;
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2572:21: ( '1' | '2' | '4' | '8' | '16' | '32' )
+            int alt4=6;
             switch ( input.LA(1) ) {
             case '1':
                 {
-                int LA5_1 = input.LA(2);
+                int LA4_1 = input.LA(2);
 
-                if ( (LA5_1=='6') ) {
-                    alt5=5;
+                if ( (LA4_1=='6') ) {
+                    alt4=5;
                 }
                 else {
-                    alt5=1;}
+                    alt4=1;}
                 }
                 break;
             case '2':
                 {
-                alt5=2;
+                alt4=2;
                 }
                 break;
             case '4':
                 {
-                alt5=3;
+                alt4=3;
                 }
                 break;
             case '8':
                 {
-                alt5=4;
+                alt4=4;
                 }
                 break;
             case '3':
                 {
-                alt5=6;
+                alt4=6;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 4, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt5) {
+            switch (alt4) {
                 case 1 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2007:22: '1'
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2572:22: '1'
                     {
                     match('1'); 
 
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2007:26: '2'
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2572:26: '2'
                     {
                     match('2'); 
 
                     }
                     break;
                 case 3 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2007:30: '4'
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2572:30: '4'
                     {
                     match('4'); 
 
                     }
                     break;
                 case 4 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2007:34: '8'
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2572:34: '8'
                     {
                     match('8'); 
 
                     }
                     break;
                 case 5 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2007:38: '16'
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2572:38: '16'
                     {
                     match("16"); 
 
@@ -633,7 +696,7 @@ public class InternalSimpleSonoraLexer extends Lexer {
                     }
                     break;
                 case 6 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2007:43: '32'
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2572:43: '32'
                     {
                     match("32"); 
 
@@ -659,19 +722,19 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = RULE_MEASURE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2009:14: ( ( '|' )? )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2009:16: ( '|' )?
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2574:14: ( ( '|' )? )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2574:16: ( '|' )?
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2009:16: ( '|' )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2574:16: ( '|' )?
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            if ( (LA6_0=='|') ) {
-                alt6=1;
+            if ( (LA5_0=='|') ) {
+                alt5=1;
             }
-            switch (alt6) {
+            switch (alt5) {
                 case 1 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2009:16: '|'
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2574:16: '|'
                     {
                     match('|'); 
 
@@ -696,19 +759,19 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2011:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2011:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2576:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2576:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2011:11: ( '^' )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2576:11: ( '^' )?
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA7_0=='^') ) {
-                alt7=1;
+            if ( (LA6_0=='^') ) {
+                alt6=1;
             }
-            switch (alt7) {
+            switch (alt6) {
                 case 1 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2011:11: '^'
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2576:11: '^'
                     {
                     match('^'); 
 
@@ -726,18 +789,18 @@ public class InternalSimpleSonoraLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2011:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
-            loop8:
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2576:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            loop7:
             do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-                if ( ((LA8_0>='0' && LA8_0<='9')||(LA8_0>='A' && LA8_0<='Z')||LA8_0=='_'||(LA8_0>='a' && LA8_0<='z')) ) {
-                    alt8=1;
+                if ( ((LA7_0>='0' && LA7_0<='9')||(LA7_0>='A' && LA7_0<='Z')||LA7_0=='_'||(LA7_0>='a' && LA7_0<='z')) ) {
+                    alt7=1;
                 }
 
 
-                switch (alt8) {
+                switch (alt7) {
             	case 1 :
             	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:
             	    {
@@ -755,7 +818,7 @@ public class InternalSimpleSonoraLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop8;
+            	    break loop7;
                 }
             } while (true);
 
@@ -775,24 +838,24 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2013:10: ( ( '0' .. '9' )+ )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2013:12: ( '0' .. '9' )+
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2578:10: ( ( '0' .. '9' )+ )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2578:12: ( '0' .. '9' )+
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2013:12: ( '0' .. '9' )+
-            int cnt9=0;
-            loop9:
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2578:12: ( '0' .. '9' )+
+            int cnt8=0;
+            loop8:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt8=2;
+                int LA8_0 = input.LA(1);
 
-                if ( ((LA9_0>='0' && LA9_0<='9')) ) {
-                    alt9=1;
+                if ( ((LA8_0>='0' && LA8_0<='9')) ) {
+                    alt8=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt8) {
             	case 1 :
-            	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2013:13: '0' .. '9'
+            	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2578:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -800,12 +863,12 @@ public class InternalSimpleSonoraLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt9 >= 1 ) break loop9;
+            	    if ( cnt8 >= 1 ) break loop8;
                         EarlyExitException eee =
-                            new EarlyExitException(9, input);
+                            new EarlyExitException(8, input);
                         throw eee;
                 }
-                cnt9++;
+                cnt8++;
             } while (true);
 
 
@@ -824,47 +887,47 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2015:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2015:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2580:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2580:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2015:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2580:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            if ( (LA12_0=='\"') ) {
-                alt12=1;
+            if ( (LA11_0=='\"') ) {
+                alt11=1;
             }
-            else if ( (LA12_0=='\'') ) {
-                alt12=2;
+            else if ( (LA11_0=='\'') ) {
+                alt11=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
+                    new NoViableAltException("", 11, 0, input);
 
                 throw nvae;
             }
-            switch (alt12) {
+            switch (alt11) {
                 case 1 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2015:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2580:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2015:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
-                    loop10:
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2580:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    loop9:
                     do {
-                        int alt10=3;
-                        int LA10_0 = input.LA(1);
+                        int alt9=3;
+                        int LA9_0 = input.LA(1);
 
-                        if ( (LA10_0=='\\') ) {
-                            alt10=1;
+                        if ( (LA9_0=='\\') ) {
+                            alt9=1;
                         }
-                        else if ( ((LA10_0>='\u0000' && LA10_0<='!')||(LA10_0>='#' && LA10_0<='[')||(LA10_0>=']' && LA10_0<='\uFFFF')) ) {
-                            alt10=2;
+                        else if ( ((LA9_0>='\u0000' && LA9_0<='!')||(LA9_0>='#' && LA9_0<='[')||(LA9_0>=']' && LA9_0<='\uFFFF')) ) {
+                            alt9=2;
                         }
 
 
-                        switch (alt10) {
+                        switch (alt9) {
                     	case 1 :
-                    	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2015:21: '\\\\' .
+                    	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2580:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -872,7 +935,7 @@ public class InternalSimpleSonoraLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2015:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2580:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -888,7 +951,7 @@ public class InternalSimpleSonoraLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop10;
+                    	    break loop9;
                         }
                     } while (true);
 
@@ -897,26 +960,26 @@ public class InternalSimpleSonoraLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2015:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2580:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2015:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
-                    loop11:
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2580:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    loop10:
                     do {
-                        int alt11=3;
-                        int LA11_0 = input.LA(1);
+                        int alt10=3;
+                        int LA10_0 = input.LA(1);
 
-                        if ( (LA11_0=='\\') ) {
-                            alt11=1;
+                        if ( (LA10_0=='\\') ) {
+                            alt10=1;
                         }
-                        else if ( ((LA11_0>='\u0000' && LA11_0<='&')||(LA11_0>='(' && LA11_0<='[')||(LA11_0>=']' && LA11_0<='\uFFFF')) ) {
-                            alt11=2;
+                        else if ( ((LA10_0>='\u0000' && LA10_0<='&')||(LA10_0>='(' && LA10_0<='[')||(LA10_0>=']' && LA10_0<='\uFFFF')) ) {
+                            alt10=2;
                         }
 
 
-                        switch (alt11) {
+                        switch (alt10) {
                     	case 1 :
-                    	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2015:54: '\\\\' .
+                    	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2580:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -924,7 +987,7 @@ public class InternalSimpleSonoraLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2015:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2580:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -940,7 +1003,7 @@ public class InternalSimpleSonoraLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop11;
+                    	    break loop10;
                         }
                     } while (true);
 
@@ -967,37 +1030,37 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2017:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2017:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2582:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2582:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2017:24: ( options {greedy=false; } : . )*
-            loop13:
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2582:24: ( options {greedy=false; } : . )*
+            loop12:
             do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
+                int alt12=2;
+                int LA12_0 = input.LA(1);
 
-                if ( (LA13_0=='*') ) {
-                    int LA13_1 = input.LA(2);
+                if ( (LA12_0=='*') ) {
+                    int LA12_1 = input.LA(2);
 
-                    if ( (LA13_1=='/') ) {
-                        alt13=2;
+                    if ( (LA12_1=='/') ) {
+                        alt12=2;
                     }
-                    else if ( ((LA13_1>='\u0000' && LA13_1<='.')||(LA13_1>='0' && LA13_1<='\uFFFF')) ) {
-                        alt13=1;
+                    else if ( ((LA12_1>='\u0000' && LA12_1<='.')||(LA12_1>='0' && LA12_1<='\uFFFF')) ) {
+                        alt12=1;
                     }
 
 
                 }
-                else if ( ((LA13_0>='\u0000' && LA13_0<=')')||(LA13_0>='+' && LA13_0<='\uFFFF')) ) {
-                    alt13=1;
+                else if ( ((LA12_0>='\u0000' && LA12_0<=')')||(LA12_0>='+' && LA12_0<='\uFFFF')) ) {
+                    alt12=1;
                 }
 
 
-                switch (alt13) {
+                switch (alt12) {
             	case 1 :
-            	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2017:52: .
+            	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2582:52: .
             	    {
             	    matchAny(); 
 
@@ -1005,7 +1068,7 @@ public class InternalSimpleSonoraLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop13;
+            	    break loop12;
                 }
             } while (true);
 
@@ -1027,25 +1090,25 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2019:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2019:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2584:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2584:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2019:24: (~ ( ( '\\n' | '\\r' ) ) )*
-            loop14:
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2584:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            loop13:
             do {
-                int alt14=2;
-                int LA14_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( ((LA14_0>='\u0000' && LA14_0<='\t')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\uFFFF')) ) {
-                    alt14=1;
+                if ( ((LA13_0>='\u0000' && LA13_0<='\t')||(LA13_0>='\u000B' && LA13_0<='\f')||(LA13_0>='\u000E' && LA13_0<='\uFFFF')) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt14) {
+                switch (alt13) {
             	case 1 :
-            	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2019:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2584:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1061,31 +1124,31 @@ public class InternalSimpleSonoraLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop14;
+            	    break loop13;
                 }
             } while (true);
 
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2019:40: ( ( '\\r' )? '\\n' )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2584:40: ( ( '\\r' )? '\\n' )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA16_0=='\n'||LA16_0=='\r') ) {
-                alt16=1;
+            if ( (LA15_0=='\n'||LA15_0=='\r') ) {
+                alt15=1;
             }
-            switch (alt16) {
+            switch (alt15) {
                 case 1 :
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2019:41: ( '\\r' )? '\\n'
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2584:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2019:41: ( '\\r' )?
-                    int alt15=2;
-                    int LA15_0 = input.LA(1);
+                    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2584:41: ( '\\r' )?
+                    int alt14=2;
+                    int LA14_0 = input.LA(1);
 
-                    if ( (LA15_0=='\r') ) {
-                        alt15=1;
+                    if ( (LA14_0=='\r') ) {
+                        alt14=1;
                     }
-                    switch (alt15) {
+                    switch (alt14) {
                         case 1 :
-                            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2019:41: '\\r'
+                            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2584:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1117,22 +1180,22 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2021:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2021:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2586:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2586:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2021:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
-            int cnt17=0;
-            loop17:
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2586:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            int cnt16=0;
+            loop16:
             do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
+                int alt16=2;
+                int LA16_0 = input.LA(1);
 
-                if ( ((LA17_0>='\t' && LA17_0<='\n')||LA17_0=='\r'||LA17_0==' ') ) {
-                    alt17=1;
+                if ( ((LA16_0>='\t' && LA16_0<='\n')||LA16_0=='\r'||LA16_0==' ') ) {
+                    alt16=1;
                 }
 
 
-                switch (alt17) {
+                switch (alt16) {
             	case 1 :
             	    // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:
             	    {
@@ -1150,12 +1213,12 @@ public class InternalSimpleSonoraLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt17 >= 1 ) break loop17;
+            	    if ( cnt16 >= 1 ) break loop16;
                         EarlyExitException eee =
-                            new EarlyExitException(17, input);
+                            new EarlyExitException(16, input);
                         throw eee;
                 }
-                cnt17++;
+                cnt16++;
             } while (true);
 
 
@@ -1174,8 +1237,8 @@ public class InternalSimpleSonoraLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2023:16: ( . )
-            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2023:18: .
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2588:16: ( . )
+            // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:2588:18: .
             {
             matchAny(); 
 
@@ -1190,180 +1253,215 @@ public class InternalSimpleSonoraLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:8: ( T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | RULE_INTERVAL | RULE_OCTAVE | RULE_ACCIDENTAL | RULE_NOTE_ID | RULE_DURATION | RULE_MEASURE | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt18=25;
-        alt18 = dfa18.predict(input);
-        switch (alt18) {
+        // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:8: ( T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | RULE_OCTAVE | RULE_ACCIDENTAL | RULE_NOTE_ID | RULE_DURATION | RULE_MEASURE | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt17=30;
+        alt17 = dfa17.predict(input);
+        switch (alt17) {
             case 1 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:10: T__17
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:10: T__16
+                {
+                mT__16(); 
+
+                }
+                break;
+            case 2 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:16: T__17
                 {
                 mT__17(); 
 
                 }
                 break;
-            case 2 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:16: T__18
+            case 3 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:22: T__18
                 {
                 mT__18(); 
 
                 }
                 break;
-            case 3 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:22: T__19
+            case 4 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:28: T__19
                 {
                 mT__19(); 
 
                 }
                 break;
-            case 4 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:28: T__20
+            case 5 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:34: T__20
                 {
                 mT__20(); 
 
                 }
                 break;
-            case 5 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:34: T__21
+            case 6 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:40: T__21
                 {
                 mT__21(); 
 
                 }
                 break;
-            case 6 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:40: T__22
+            case 7 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:46: T__22
                 {
                 mT__22(); 
 
                 }
                 break;
-            case 7 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:46: T__23
+            case 8 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:52: T__23
                 {
                 mT__23(); 
 
                 }
                 break;
-            case 8 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:52: T__24
+            case 9 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:58: T__24
                 {
                 mT__24(); 
 
                 }
                 break;
-            case 9 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:58: T__25
+            case 10 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:64: T__25
                 {
                 mT__25(); 
 
                 }
                 break;
-            case 10 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:64: T__26
+            case 11 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:70: T__26
                 {
                 mT__26(); 
 
                 }
                 break;
-            case 11 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:70: T__27
+            case 12 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:76: T__27
                 {
                 mT__27(); 
 
                 }
                 break;
-            case 12 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:76: T__28
+            case 13 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:82: T__28
                 {
                 mT__28(); 
 
                 }
                 break;
-            case 13 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:82: RULE_INTERVAL
+            case 14 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:88: T__29
                 {
-                mRULE_INTERVAL(); 
+                mT__29(); 
 
                 }
                 break;
-            case 14 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:96: RULE_OCTAVE
+            case 15 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:94: T__30
+                {
+                mT__30(); 
+
+                }
+                break;
+            case 16 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:100: T__31
+                {
+                mT__31(); 
+
+                }
+                break;
+            case 17 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:106: T__32
+                {
+                mT__32(); 
+
+                }
+                break;
+            case 18 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:112: T__33
+                {
+                mT__33(); 
+
+                }
+                break;
+            case 19 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:118: RULE_OCTAVE
                 {
                 mRULE_OCTAVE(); 
 
                 }
                 break;
-            case 15 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:108: RULE_ACCIDENTAL
+            case 20 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:130: RULE_ACCIDENTAL
                 {
                 mRULE_ACCIDENTAL(); 
 
                 }
                 break;
-            case 16 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:124: RULE_NOTE_ID
+            case 21 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:146: RULE_NOTE_ID
                 {
                 mRULE_NOTE_ID(); 
 
                 }
                 break;
-            case 17 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:137: RULE_DURATION
+            case 22 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:159: RULE_DURATION
                 {
                 mRULE_DURATION(); 
 
                 }
                 break;
-            case 18 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:151: RULE_MEASURE
+            case 23 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:173: RULE_MEASURE
                 {
                 mRULE_MEASURE(); 
 
                 }
                 break;
-            case 19 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:164: RULE_ID
+            case 24 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:186: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 20 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:172: RULE_INT
+            case 25 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:194: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 21 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:181: RULE_STRING
+            case 26 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:203: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 22 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:193: RULE_ML_COMMENT
+            case 27 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:215: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 23 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:209: RULE_SL_COMMENT
+            case 28 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:231: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 24 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:225: RULE_WS
+            case 29 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:247: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 25 :
-                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:233: RULE_ANY_OTHER
+            case 30 :
+                // ../org.xtext.simplesonora.ui/src-gen/org/xtext/simplesonora/ui/contentassist/antlr/internal/InternalSimpleSonora.g:1:255: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1375,227 +1473,243 @@ public class InternalSimpleSonoraLexer extends Lexer {
     }
 
 
-    protected DFA18 dfa18 = new DFA18(this);
-    static final String DFA18_eotS =
-        "\1\24\1\36\1\uffff\1\36\4\uffff\1\47\1\36\1\uffff\1\52\1\36\1\uffff"+
-        "\1\36\2\uffff\1\60\1\33\2\uffff\1\33\2\uffff\2\33\2\uffff\2\36\2"+
-        "\uffff\1\36\7\uffff\1\36\2\uffff\2\36\1\uffff\1\55\6\uffff\2\36"+
-        "\1\75\1\uffff\2\76\2\36\2\uffff\1\101\1\102\2\uffff";
-    static final String DFA18_eofS =
-        "\103\uffff";
-    static final String DFA18_minS =
-        "\1\0\1\145\1\uffff\1\145\4\uffff\1\52\1\157\1\uffff\1\60\1\141"+
-        "\1\uffff\1\60\2\uffff\1\60\1\61\2\uffff\1\101\2\uffff\2\0\2\uffff"+
-        "\1\164\1\155\2\uffff\1\171\7\uffff\1\55\2\uffff\1\152\1\156\1\uffff"+
-        "\1\60\6\uffff\1\154\1\160\1\60\1\uffff\2\60\1\145\1\157\2\uffff"+
-        "\2\60\2\uffff";
-    static final String DFA18_maxS =
-        "\1\uffff\1\151\1\uffff\1\145\4\uffff\1\57\1\157\1\uffff\1\172\1"+
-        "\151\1\uffff\1\71\2\uffff\1\172\1\70\2\uffff\1\172\2\uffff\2\uffff"+
-        "\2\uffff\1\164\1\155\2\uffff\1\171\7\uffff\1\55\2\uffff\1\152\1"+
-        "\156\1\uffff\1\172\6\uffff\1\154\1\160\1\172\1\uffff\2\172\1\145"+
-        "\1\157\2\uffff\2\172\2\uffff";
-    static final String DFA18_acceptS =
-        "\2\uffff\1\2\1\uffff\1\5\1\6\1\7\1\10\2\uffff\1\13\2\uffff\1\16"+
-        "\1\uffff\1\16\1\17\2\uffff\2\22\1\uffff\1\23\1\24\2\uffff\1\30\1"+
-        "\31\2\uffff\1\23\1\2\1\uffff\1\5\1\6\1\7\1\10\1\26\1\27\1\11\1\uffff"+
-        "\1\13\1\14\2\uffff\1\16\1\uffff\1\17\1\20\1\21\1\24\1\25\1\30\3"+
-        "\uffff\1\12\4\uffff\1\4\1\15\2\uffff\1\1\1\3";
-    static final String DFA18_specialS =
-        "\1\0\27\uffff\1\2\1\1\51\uffff}>";
-    static final String[] DFA18_transitionS = {
-            "\11\33\2\32\2\33\1\32\22\33\1\32\1\33\1\30\4\33\1\31\3\33\1"+
-            "\20\1\33\1\20\1\12\1\10\12\27\1\22\1\33\1\15\1\2\1\17\1\33\1"+
-            "\20\7\21\12\26\1\21\10\26\1\6\1\33\1\7\1\25\1\13\1\33\7\21\3"+
-            "\26\1\3\1\26\1\14\1\11\1\16\2\26\1\21\1\26\1\1\6\26\1\4\1\23"+
-            "\1\5\uff82\33",
-            "\1\35\3\uffff\1\34",
+    protected DFA17 dfa17 = new DFA17(this);
+    static final String DFA17_eotS =
+        "\1\27\1\40\1\uffff\1\40\2\uffff\1\47\4\uffff\2\40\1\uffff\1\60"+
+        "\1\62\1\uffff\1\40\2\uffff\1\66\1\35\4\uffff\2\35\2\uffff\2\40\2"+
+        "\uffff\1\40\11\uffff\3\40\5\uffff\1\63\6\uffff\2\40\1\103\1\uffff"+
+        "\4\40\1\uffff\2\40\1\112\1\113\1\114\1\115\4\uffff";
+    static final String DFA17_eofS =
+        "\116\uffff";
+    static final String DFA17_minS =
+        "\1\0\1\145\1\uffff\1\145\2\uffff\1\52\4\uffff\1\157\1\141\1\uffff"+
+        "\1\60\1\101\1\uffff\1\60\2\uffff\1\60\1\61\4\uffff\2\0\2\uffff\1"+
+        "\164\1\155\2\uffff\1\171\11\uffff\1\55\1\152\1\156\5\uffff\1\60"+
+        "\6\uffff\1\154\1\160\1\60\1\uffff\2\157\1\145\1\157\1\uffff\2\162"+
+        "\4\60\4\uffff";
+    static final String DFA17_maxS =
+        "\1\uffff\1\151\1\uffff\1\145\2\uffff\1\57\4\uffff\1\157\1\151\1"+
+        "\uffff\2\172\1\uffff\1\71\2\uffff\1\172\1\70\4\uffff\2\uffff\2\uffff"+
+        "\1\164\1\155\2\uffff\1\171\11\uffff\1\55\1\152\1\156\5\uffff\1\172"+
+        "\6\uffff\1\154\1\160\1\172\1\uffff\2\157\1\145\1\157\1\uffff\2\162"+
+        "\4\172\4\uffff";
+    static final String DFA17_acceptS =
+        "\2\uffff\1\2\1\uffff\1\5\1\6\1\uffff\1\10\1\11\1\12\1\13\2\uffff"+
+        "\1\17\2\uffff\1\23\1\uffff\1\23\1\24\2\uffff\2\27\1\30\1\31\2\uffff"+
+        "\1\35\1\36\2\uffff\1\30\1\2\1\uffff\1\5\1\6\1\33\1\34\1\7\1\10\1"+
+        "\11\1\12\1\13\3\uffff\1\17\1\20\1\22\1\21\1\23\1\uffff\1\24\1\25"+
+        "\1\26\1\31\1\32\1\35\3\uffff\1\14\4\uffff\1\4\6\uffff\1\1\1\3\1"+
+        "\15\1\16";
+    static final String DFA17_specialS =
+        "\1\2\31\uffff\1\0\1\1\62\uffff}>";
+    static final String[] DFA17_transitionS = {
+            "\11\35\2\34\2\35\1\34\22\35\1\34\1\35\1\32\4\35\1\33\1\11\1"+
+            "\12\1\35\1\23\1\35\1\23\1\15\1\6\12\31\1\25\1\35\1\20\1\2\1"+
+            "\22\1\35\1\23\7\24\12\30\1\24\10\30\1\7\1\35\1\10\1\17\1\16"+
+            "\1\35\7\24\3\30\1\3\1\30\1\14\1\13\1\21\2\30\1\24\1\30\1\1\6"+
+            "\30\1\4\1\26\1\5\uff82\35",
+            "\1\37\3\uffff\1\36",
             "",
-            "\1\40",
-            "",
-            "",
+            "\1\42",
             "",
             "",
             "\1\45\4\uffff\1\46",
-            "\1\50",
-            "",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\1\53\7\uffff\1\54",
-            "",
-            "\12\56",
-            "",
-            "",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\4\61\3\uffff\1\61",
-            "",
-            "",
-            "\32\36\4\uffff\1\36\1\uffff\32\36",
-            "",
-            "",
-            "\0\63",
-            "\0\63",
-            "",
-            "",
-            "\1\65",
-            "\1\66",
-            "",
-            "",
-            "\1\67",
             "",
             "",
             "",
             "",
+            "\1\54",
+            "\1\55\7\uffff\1\56",
+            "",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
+            "\32\40\3\uffff\1\61\1\40\1\uffff\32\40",
+            "",
+            "\12\64",
+            "",
+            "",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
+            "\4\67\3\uffff\1\67",
             "",
             "",
             "",
-            "\1\70",
             "",
-            "",
-            "\1\71",
-            "\1\72",
-            "",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "",
-            "",
-            "",
-            "",
+            "\0\71",
+            "\0\71",
             "",
             "",
             "\1\73",
             "\1\74",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "",
+            "\1\75",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\76",
             "\1\77",
             "\1\100",
             "",
             "",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "",
+            "",
+            "",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\101",
+            "\1\102",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
+            "",
+            "\1\104",
+            "\1\105",
+            "\1\106",
+            "\1\107",
+            "",
+            "\1\110",
+            "\1\111",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
+            "",
+            "",
             "",
             ""
     };
 
-    static final short[] DFA18_eot = DFA.unpackEncodedString(DFA18_eotS);
-    static final short[] DFA18_eof = DFA.unpackEncodedString(DFA18_eofS);
-    static final char[] DFA18_min = DFA.unpackEncodedStringToUnsignedChars(DFA18_minS);
-    static final char[] DFA18_max = DFA.unpackEncodedStringToUnsignedChars(DFA18_maxS);
-    static final short[] DFA18_accept = DFA.unpackEncodedString(DFA18_acceptS);
-    static final short[] DFA18_special = DFA.unpackEncodedString(DFA18_specialS);
-    static final short[][] DFA18_transition;
+    static final short[] DFA17_eot = DFA.unpackEncodedString(DFA17_eotS);
+    static final short[] DFA17_eof = DFA.unpackEncodedString(DFA17_eofS);
+    static final char[] DFA17_min = DFA.unpackEncodedStringToUnsignedChars(DFA17_minS);
+    static final char[] DFA17_max = DFA.unpackEncodedStringToUnsignedChars(DFA17_maxS);
+    static final short[] DFA17_accept = DFA.unpackEncodedString(DFA17_acceptS);
+    static final short[] DFA17_special = DFA.unpackEncodedString(DFA17_specialS);
+    static final short[][] DFA17_transition;
 
     static {
-        int numStates = DFA18_transitionS.length;
-        DFA18_transition = new short[numStates][];
+        int numStates = DFA17_transitionS.length;
+        DFA17_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA18_transition[i] = DFA.unpackEncodedString(DFA18_transitionS[i]);
+            DFA17_transition[i] = DFA.unpackEncodedString(DFA17_transitionS[i]);
         }
     }
 
-    class DFA18 extends DFA {
+    class DFA17 extends DFA {
 
-        public DFA18(BaseRecognizer recognizer) {
+        public DFA17(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 18;
-            this.eot = DFA18_eot;
-            this.eof = DFA18_eof;
-            this.min = DFA18_min;
-            this.max = DFA18_max;
-            this.accept = DFA18_accept;
-            this.special = DFA18_special;
-            this.transition = DFA18_transition;
+            this.decisionNumber = 17;
+            this.eot = DFA17_eot;
+            this.eof = DFA17_eof;
+            this.min = DFA17_min;
+            this.max = DFA17_max;
+            this.accept = DFA17_accept;
+            this.special = DFA17_special;
+            this.transition = DFA17_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | RULE_INTERVAL | RULE_OCTAVE | RULE_ACCIDENTAL | RULE_NOTE_ID | RULE_DURATION | RULE_MEASURE | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | RULE_OCTAVE | RULE_ACCIDENTAL | RULE_NOTE_ID | RULE_DURATION | RULE_MEASURE | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA18_0 = input.LA(1);
+                        int LA17_26 = input.LA(1);
 
                         s = -1;
-                        if ( (LA18_0=='t') ) {s = 1;}
+                        if ( ((LA17_26>='\u0000' && LA17_26<='\uFFFF')) ) {s = 57;}
 
-                        else if ( (LA18_0=='=') ) {s = 2;}
-
-                        else if ( (LA18_0=='k') ) {s = 3;}
-
-                        else if ( (LA18_0=='{') ) {s = 4;}
-
-                        else if ( (LA18_0=='}') ) {s = 5;}
-
-                        else if ( (LA18_0=='[') ) {s = 6;}
-
-                        else if ( (LA18_0==']') ) {s = 7;}
-
-                        else if ( (LA18_0=='/') ) {s = 8;}
-
-                        else if ( (LA18_0=='n') ) {s = 9;}
-
-                        else if ( (LA18_0=='.') ) {s = 10;}
-
-                        else if ( (LA18_0=='_') ) {s = 11;}
-
-                        else if ( (LA18_0=='m') ) {s = 12;}
-
-                        else if ( (LA18_0=='<') ) {s = 13;}
-
-                        else if ( (LA18_0=='o') ) {s = 14;}
-
-                        else if ( (LA18_0=='>') ) {s = 15;}
-
-                        else if ( (LA18_0=='+'||LA18_0=='-'||LA18_0=='@') ) {s = 16;}
-
-                        else if ( ((LA18_0>='A' && LA18_0<='G')||LA18_0=='R'||(LA18_0>='a' && LA18_0<='g')||LA18_0=='r') ) {s = 17;}
-
-                        else if ( (LA18_0==':') ) {s = 18;}
-
-                        else if ( (LA18_0=='|') ) {s = 19;}
-
-                        else if ( (LA18_0=='^') ) {s = 21;}
-
-                        else if ( ((LA18_0>='H' && LA18_0<='Q')||(LA18_0>='S' && LA18_0<='Z')||(LA18_0>='h' && LA18_0<='j')||LA18_0=='l'||(LA18_0>='p' && LA18_0<='q')||LA18_0=='s'||(LA18_0>='u' && LA18_0<='z')) ) {s = 22;}
-
-                        else if ( ((LA18_0>='0' && LA18_0<='9')) ) {s = 23;}
-
-                        else if ( (LA18_0=='\"') ) {s = 24;}
-
-                        else if ( (LA18_0=='\'') ) {s = 25;}
-
-                        else if ( ((LA18_0>='\t' && LA18_0<='\n')||LA18_0=='\r'||LA18_0==' ') ) {s = 26;}
-
-                        else if ( ((LA18_0>='\u0000' && LA18_0<='\b')||(LA18_0>='\u000B' && LA18_0<='\f')||(LA18_0>='\u000E' && LA18_0<='\u001F')||LA18_0=='!'||(LA18_0>='#' && LA18_0<='&')||(LA18_0>='(' && LA18_0<='*')||LA18_0==','||LA18_0==';'||LA18_0=='?'||LA18_0=='\\'||LA18_0=='`'||(LA18_0>='~' && LA18_0<='\uFFFF')) ) {s = 27;}
-
-                        else s = 20;
+                        else s = 29;
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA18_25 = input.LA(1);
+                        int LA17_27 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA18_25>='\u0000' && LA18_25<='\uFFFF')) ) {s = 51;}
+                        if ( ((LA17_27>='\u0000' && LA17_27<='\uFFFF')) ) {s = 57;}
 
-                        else s = 27;
+                        else s = 29;
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA18_24 = input.LA(1);
+                        int LA17_0 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA18_24>='\u0000' && LA18_24<='\uFFFF')) ) {s = 51;}
+                        if ( (LA17_0=='t') ) {s = 1;}
 
-                        else s = 27;
+                        else if ( (LA17_0=='=') ) {s = 2;}
+
+                        else if ( (LA17_0=='k') ) {s = 3;}
+
+                        else if ( (LA17_0=='{') ) {s = 4;}
+
+                        else if ( (LA17_0=='}') ) {s = 5;}
+
+                        else if ( (LA17_0=='/') ) {s = 6;}
+
+                        else if ( (LA17_0=='[') ) {s = 7;}
+
+                        else if ( (LA17_0==']') ) {s = 8;}
+
+                        else if ( (LA17_0=='(') ) {s = 9;}
+
+                        else if ( (LA17_0==')') ) {s = 10;}
+
+                        else if ( (LA17_0=='n') ) {s = 11;}
+
+                        else if ( (LA17_0=='m') ) {s = 12;}
+
+                        else if ( (LA17_0=='.') ) {s = 13;}
+
+                        else if ( (LA17_0=='_') ) {s = 14;}
+
+                        else if ( (LA17_0=='^') ) {s = 15;}
+
+                        else if ( (LA17_0=='<') ) {s = 16;}
+
+                        else if ( (LA17_0=='o') ) {s = 17;}
+
+                        else if ( (LA17_0=='>') ) {s = 18;}
+
+                        else if ( (LA17_0=='+'||LA17_0=='-'||LA17_0=='@') ) {s = 19;}
+
+                        else if ( ((LA17_0>='A' && LA17_0<='G')||LA17_0=='R'||(LA17_0>='a' && LA17_0<='g')||LA17_0=='r') ) {s = 20;}
+
+                        else if ( (LA17_0==':') ) {s = 21;}
+
+                        else if ( (LA17_0=='|') ) {s = 22;}
+
+                        else if ( ((LA17_0>='H' && LA17_0<='Q')||(LA17_0>='S' && LA17_0<='Z')||(LA17_0>='h' && LA17_0<='j')||LA17_0=='l'||(LA17_0>='p' && LA17_0<='q')||LA17_0=='s'||(LA17_0>='u' && LA17_0<='z')) ) {s = 24;}
+
+                        else if ( ((LA17_0>='0' && LA17_0<='9')) ) {s = 25;}
+
+                        else if ( (LA17_0=='\"') ) {s = 26;}
+
+                        else if ( (LA17_0=='\'') ) {s = 27;}
+
+                        else if ( ((LA17_0>='\t' && LA17_0<='\n')||LA17_0=='\r'||LA17_0==' ') ) {s = 28;}
+
+                        else if ( ((LA17_0>='\u0000' && LA17_0<='\b')||(LA17_0>='\u000B' && LA17_0<='\f')||(LA17_0>='\u000E' && LA17_0<='\u001F')||LA17_0=='!'||(LA17_0>='#' && LA17_0<='&')||LA17_0=='*'||LA17_0==','||LA17_0==';'||LA17_0=='?'||LA17_0=='\\'||LA17_0=='`'||(LA17_0>='~' && LA17_0<='\uFFFF')) ) {s = 29;}
+
+                        else s = 23;
 
                         if ( s>=0 ) return s;
                         break;
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 18, _s, input);
+                new NoViableAltException(getDescription(), 17, _s, input);
             error(nvae);
             throw nvae;
         }

@@ -9,6 +9,8 @@ import org.jfugue.midi.MidiDictionary
 import java.util.Set
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage
 import org.xtext.simplesonora.simpleSonora.Note
+import org.xtext.simplesonora.simpleSonora.Tempo
+import org.xtext.simplesonora.simpleSonora.Chord
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -20,6 +22,10 @@ class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
 
 	// from JFugue, get the instruments name
 	Set<String> instrumentNames = MidiDictionary.INSTRUMENT_BYTE_TO_STRING.values.toSet
+	// from JFugue, get the Tempo constants
+	Set<String> tempoNames = MidiDictionary.TEMPO_INT_TO_STRING.values.toSet
+	
+	// For the "tie" check
 	String lastNote = ""
 	boolean tied = false
 	
@@ -43,6 +49,10 @@ class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
 			error("Instrument invalid or not recognized. Check a general MIDI instrument list.", SimpleSonoraPackage$Literals::INSTRUMENT__INSTRUMENT_NAME);		
 	}
 	
+	/**
+	 * A Tie must be used only with same notes so it add's the duration of
+	 * each one of them as a "single" note with the sum of all duration.
+	 */
 	@Check
 	def void checkTie(Note n) {
 		if(tied && !(n.note.equalsIgnoreCase(lastNote)))
@@ -55,4 +65,30 @@ class SimpleSonoraValidator extends AbstractSimpleSonoraValidator {
 		else
 			tied = false
 	}
+	
+	@Check
+	def void checkTempo(Tempo tempo) {
+		if(tempo.id != null){
+			if(!tempoNames.contains(tempo.id.toString.toUpperCase))
+				error("Tempo not valid, check the available constants.", SimpleSonoraPackage$Literals::TEMPO__ID)
+		}
+		else if(tempo.value == 0)
+			error("Tempo not valid, value must be bigger than 0.", SimpleSonoraPackage$Literals::TEMPO__VALUE)
+	}
+	
+	@Check
+	def void checkChord(Chord chord) {
+		if(chord.chordName != null){
+			if(!org.jfugue.theory.Chord.chordNames.contains(chord.chordName.toUpperCase))
+				error("Chord name not valid, verify valid names.", SimpleSonoraPackage$Literals::CHORD__CHORD_NAME)
+		}
+	}
+	
+//	@Check
+//	def void checkPercussion(Note n){
+//		for(p : org.jfugue.theory.Note.PERCUSSION_NAMES)
+//			println(p)
+//		
+//	}
+
 }
