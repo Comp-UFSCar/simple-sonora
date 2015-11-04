@@ -42,6 +42,7 @@ public class SimpleSonoraParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSequenceAccess().getAlternatives(), "rule__Sequence__Alternatives");
 					put(grammarAccess.getChordAccess().getAlternatives_1(), "rule__Chord__Alternatives_1");
 					put(grammarAccess.getChordAccess().getAlternatives_1_1_2(), "rule__Chord__Alternatives_1_1_2");
+					put(grammarAccess.getTupletAccess().getAlternatives_1(), "rule__Tuplet__Alternatives_1");
 					put(grammarAccess.getDocumentAccess().getGroup(), "rule__Document__Group__0");
 					put(grammarAccess.getHeaderAccess().getGroup(), "rule__Header__Group__0");
 					put(grammarAccess.getHeaderAccess().getGroup_1(), "rule__Header__Group_1__0");
@@ -90,7 +91,8 @@ public class SimpleSonoraParser extends AbstractContentAssistParser {
 					put(grammarAccess.getHarmonyAccess().getHarmonyNotesAssignment_0(), "rule__Harmony__HarmonyNotesAssignment_0");
 					put(grammarAccess.getHarmonyAccess().getHarmonyNotesAssignment_1_1(), "rule__Harmony__HarmonyNotesAssignment_1_1");
 					put(grammarAccess.getHarmonyAccess().getNotesAssignment_3(), "rule__Harmony__NotesAssignment_3");
-					put(grammarAccess.getTupletAccess().getNotesAssignment_1(), "rule__Tuplet__NotesAssignment_1");
+					put(grammarAccess.getTupletAccess().getTupletAssignment_1_0(), "rule__Tuplet__TupletAssignment_1_0");
+					put(grammarAccess.getTupletAccess().getTupletAssignment_1_1(), "rule__Tuplet__TupletAssignment_1_1");
 					put(grammarAccess.getTupletAccess().getDurationAssignment_3(), "rule__Tuplet__DurationAssignment_3");
 				}
 			};

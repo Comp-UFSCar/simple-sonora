@@ -9,6 +9,7 @@ import java.io.File;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.IFileSystemAccess;
@@ -363,21 +364,38 @@ public class SimpleSonoraGenerator implements IGenerator {
    * @return String with JFugue pattern notation for tuplet.
    */
   public String tuppletToPattern(final Tuplet tuplet) {
-    EList<Note> _notes = tuplet.getNotes();
-    final int numOfNotes = ((Object[])Conversions.unwrapArray(_notes, Object.class)).length;
+    EList<EObject> _tuplet = tuplet.getTuplet();
+    final int numOfNotes = ((Object[])Conversions.unwrapArray(_tuplet, Object.class)).length;
     final String duration = tuplet.getDuration();
     String auxTuplet = "";
-    EList<Note> _notes_1 = tuplet.getNotes();
-    for (final Note n : _notes_1) {
-      String _noteToPattern = this.noteToPattern(n);
-      String _plus = (_noteToPattern + "*");
-      String _string = Integer.valueOf(numOfNotes).toString();
-      String _plus_1 = (_plus + _string);
-      String _string_1 = duration.toString();
-      String _plus_2 = (_plus_1 + _string_1);
-      String _plus_3 = (_plus_2 + " ");
-      String _concat = auxTuplet.concat(_plus_3);
-      auxTuplet = _concat;
+    EList<EObject> _tuplet_1 = tuplet.getTuplet();
+    for (final EObject n : _tuplet_1) {
+      EClass _eClass = n.eClass();
+      String _name = _eClass.getName();
+      switch (_name) {
+        case "Note":
+          String _noteToPattern = this.noteToPattern(((Note) n));
+          String _plus = (_noteToPattern + "*");
+          String _string = Integer.valueOf(numOfNotes).toString();
+          String _plus_1 = (_plus + _string);
+          String _string_1 = duration.toString();
+          String _plus_2 = (_plus_1 + _string_1);
+          String _plus_3 = (_plus_2 + " ");
+          String _concat = auxTuplet.concat(_plus_3);
+          auxTuplet = _concat;
+          break;
+        case "Chord":
+          String _chordToPattern = this.chordToPattern(((Chord) n));
+          String _plus_4 = (_chordToPattern + "*");
+          String _string_2 = Integer.valueOf(numOfNotes).toString();
+          String _plus_5 = (_plus_4 + _string_2);
+          String _string_3 = duration.toString();
+          String _plus_6 = (_plus_5 + _string_3);
+          String _plus_7 = (_plus_6 + " ");
+          String _concat_1 = auxTuplet.concat(_plus_7);
+          auxTuplet = _concat_1;
+          break;
+      }
     }
     return auxTuplet;
   }

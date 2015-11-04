@@ -43,7 +43,7 @@ Sequence:
 	note=Note | 			// a single note
 	chord=Chord | 			// a chord
 	harmony=Harmony | 		// a chord with a melody (notes)
-	tuplet=Tuplet |
+	tuplet=Tuplet |			// a tuplet
 	measure?=MEASURE		// character '|' that helps with organization
 ;
 
@@ -74,7 +74,7 @@ Harmony:
 Tuplet:
 	// Tuplet counts the number of notes inside '(' ')' and adjust their's duration to
 	// desired duration after ')'
-	'(' (notes+=Note)+ ')' duration=DURATION
+	'(' ( tuplet+=Note | tuplet+=Chord )+ ')' duration=DURATION
 	/*
 	 * "any rhythm that involves dividing the beat into a different number of 
 	 * equal subdivisions from that usually permitted by the time-signature 

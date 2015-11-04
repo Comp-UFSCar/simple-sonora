@@ -942,33 +942,52 @@ ruleTuplet returns [EObject current=null]
     {
     	newLeafNode(otherlv_0, grammarAccess.getTupletAccess().getLeftParenthesisKeyword_0());
     }
-(
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTupletAccess().getNotesNoteParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getTupletAccess().getTupletNoteParserRuleCall_1_0_0()); 
 	    }
-		lv_notes_1_0=ruleNote		{
+		lv_tuplet_1_0=ruleNote		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTupletRule());
 	        }
        		add(
        			$current, 
-       			"notes",
-        		lv_notes_1_0, 
+       			"tuplet",
+        		lv_tuplet_1_0, 
         		"Note");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+	otherlv_2=')' 
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getTupletAccess().getTupletChordParserRuleCall_1_1_0()); 
+	    }
+		lv_tuplet_2_0=ruleChord		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTupletRule());
+	        }
+       		add(
+       			$current, 
+       			"tuplet",
+        		lv_tuplet_2_0, 
+        		"Chord");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))+	otherlv_3=')' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getTupletAccess().getRightParenthesisKeyword_2());
+    	newLeafNode(otherlv_3, grammarAccess.getTupletAccess().getRightParenthesisKeyword_2());
     }
 (
 (
-		lv_duration_3_0=RULE_DURATION
+		lv_duration_4_0=RULE_DURATION
 		{
-			newLeafNode(lv_duration_3_0, grammarAccess.getTupletAccess().getDurationDURATIONTerminalRuleCall_3_0()); 
+			newLeafNode(lv_duration_4_0, grammarAccess.getTupletAccess().getDurationDURATIONTerminalRuleCall_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -977,7 +996,7 @@ ruleTuplet returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"duration",
-        		lv_duration_3_0, 
+        		lv_duration_4_0, 
         		"DURATION");
 	    }
 
@@ -995,7 +1014,7 @@ RULE_ACCIDENTAL : ('+'|'-'|'@');
 
 RULE_NOTE_ID : ('a'..'g'|'A'..'G'|('R'|'r'));
 
-RULE_DURATION : ':' ('1'|'2'|'4'|'8'|'16'|'32');
+RULE_DURATION : ':' ('1'|'2'|'4'|'8'|'16'|'32'|'64'|'128');
 
 RULE_MEASURE : '|'?;
 

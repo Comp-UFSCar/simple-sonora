@@ -58,7 +58,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Harmony/notes"/>
     </genClasses>
     <genClasses ecoreClass="SimpleSonora.ecore#//Tuplet">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Tuplet/notes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSonora.ecore#//Tuplet/tuplet"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSonora.ecore#//Tuplet/duration"/>
     </genClasses>
   </genPackages>

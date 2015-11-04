@@ -527,13 +527,13 @@ public interface SimpleSonoraPackage extends EPackage
   int TUPLET = 10;
 
   /**
-   * The feature id for the '<em><b>Notes</b></em>' containment reference list.
+   * The feature id for the '<em><b>Tuplet</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TUPLET__NOTES = 0;
+  int TUPLET__TUPLET = 0;
 
   /**
    * The feature id for the '<em><b>Duration</b></em>' attribute.
@@ -995,15 +995,15 @@ public interface SimpleSonoraPackage extends EPackage
   EClass getTuplet();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.simplesonora.simpleSonora.Tuplet#getNotes <em>Notes</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.simplesonora.simpleSonora.Tuplet#getTuplet <em>Tuplet</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Notes</em>'.
-   * @see org.xtext.simplesonora.simpleSonora.Tuplet#getNotes()
+   * @return the meta object for the containment reference list '<em>Tuplet</em>'.
+   * @see org.xtext.simplesonora.simpleSonora.Tuplet#getTuplet()
    * @see #getTuplet()
    * @generated
    */
-  EReference getTuplet_Notes();
+  EReference getTuplet_Tuplet();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.simplesonora.simpleSonora.Tuplet#getDuration <em>Duration</em>}'.
@@ -1390,12 +1390,12 @@ public interface SimpleSonoraPackage extends EPackage
     EClass TUPLET = eINSTANCE.getTuplet();
 
     /**
-     * The meta object literal for the '<em><b>Notes</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Tuplet</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TUPLET__NOTES = eINSTANCE.getTuplet_Notes();
+    EReference TUPLET__TUPLET = eINSTANCE.getTuplet_Tuplet();
 
     /**
      * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.

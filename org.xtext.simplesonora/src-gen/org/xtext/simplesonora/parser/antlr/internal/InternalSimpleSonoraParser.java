@@ -2276,53 +2276,52 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTuplet"
-    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:937:1: ruleTuplet returns [EObject current=null] : (otherlv_0= '(' ( (lv_notes_1_0= ruleNote ) )+ otherlv_2= ')' ( (lv_duration_3_0= RULE_DURATION ) ) ) ;
+    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:937:1: ruleTuplet returns [EObject current=null] : (otherlv_0= '(' ( ( (lv_tuplet_1_0= ruleNote ) ) | ( (lv_tuplet_2_0= ruleChord ) ) )+ otherlv_3= ')' ( (lv_duration_4_0= RULE_DURATION ) ) ) ;
     public final EObject ruleTuplet() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token otherlv_2=null;
-        Token lv_duration_3_0=null;
-        EObject lv_notes_1_0 = null;
+        Token otherlv_3=null;
+        Token lv_duration_4_0=null;
+        EObject lv_tuplet_1_0 = null;
+
+        EObject lv_tuplet_2_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:940:28: ( (otherlv_0= '(' ( (lv_notes_1_0= ruleNote ) )+ otherlv_2= ')' ( (lv_duration_3_0= RULE_DURATION ) ) ) )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:941:1: (otherlv_0= '(' ( (lv_notes_1_0= ruleNote ) )+ otherlv_2= ')' ( (lv_duration_3_0= RULE_DURATION ) ) )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:940:28: ( (otherlv_0= '(' ( ( (lv_tuplet_1_0= ruleNote ) ) | ( (lv_tuplet_2_0= ruleChord ) ) )+ otherlv_3= ')' ( (lv_duration_4_0= RULE_DURATION ) ) ) )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:941:1: (otherlv_0= '(' ( ( (lv_tuplet_1_0= ruleNote ) ) | ( (lv_tuplet_2_0= ruleChord ) ) )+ otherlv_3= ')' ( (lv_duration_4_0= RULE_DURATION ) ) )
             {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:941:1: (otherlv_0= '(' ( (lv_notes_1_0= ruleNote ) )+ otherlv_2= ')' ( (lv_duration_3_0= RULE_DURATION ) ) )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:941:3: otherlv_0= '(' ( (lv_notes_1_0= ruleNote ) )+ otherlv_2= ')' ( (lv_duration_3_0= RULE_DURATION ) )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:941:1: (otherlv_0= '(' ( ( (lv_tuplet_1_0= ruleNote ) ) | ( (lv_tuplet_2_0= ruleChord ) ) )+ otherlv_3= ')' ( (lv_duration_4_0= RULE_DURATION ) ) )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:941:3: otherlv_0= '(' ( ( (lv_tuplet_1_0= ruleNote ) ) | ( (lv_tuplet_2_0= ruleChord ) ) )+ otherlv_3= ')' ( (lv_duration_4_0= RULE_DURATION ) )
             {
             otherlv_0=(Token)match(input,32,FOLLOW_32_in_ruleTuplet1863); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getTupletAccess().getLeftParenthesisKeyword_0());
                 
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:945:1: ( (lv_notes_1_0= ruleNote ) )+
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:945:1: ( ( (lv_tuplet_1_0= ruleNote ) ) | ( (lv_tuplet_2_0= ruleChord ) ) )+
             int cnt20=0;
             loop20:
             do {
-                int alt20=2;
-                int LA20_0 = input.LA(1);
-
-                if ( (LA20_0==RULE_NOTE_ID||LA20_0==RULE_OCTAVE) ) {
-                    alt20=1;
-                }
-
-
+                int alt20=3;
+                alt20 = dfa20.predict(input);
                 switch (alt20) {
             	case 1 :
-            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:946:1: (lv_notes_1_0= ruleNote )
+            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:945:2: ( (lv_tuplet_1_0= ruleNote ) )
             	    {
-            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:946:1: (lv_notes_1_0= ruleNote )
-            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:947:3: lv_notes_1_0= ruleNote
+            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:945:2: ( (lv_tuplet_1_0= ruleNote ) )
+            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:946:1: (lv_tuplet_1_0= ruleNote )
+            	    {
+            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:946:1: (lv_tuplet_1_0= ruleNote )
+            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:947:3: lv_tuplet_1_0= ruleNote
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getTupletAccess().getNotesNoteParserRuleCall_1_0()); 
+            	    	        newCompositeNode(grammarAccess.getTupletAccess().getTupletNoteParserRuleCall_1_0_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleNote_in_ruleTuplet1884);
-            	    lv_notes_1_0=ruleNote();
+            	    pushFollow(FOLLOW_ruleNote_in_ruleTuplet1885);
+            	    lv_tuplet_1_0=ruleNote();
 
             	    state._fsp--;
 
@@ -2332,11 +2331,51 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
             	    	        }
             	           		add(
             	           			current, 
-            	           			"notes",
-            	            		lv_notes_1_0, 
+            	           			"tuplet",
+            	            		lv_tuplet_1_0, 
             	            		"Note");
             	    	        afterParserOrEnumRuleCall();
             	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 2 :
+            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:964:6: ( (lv_tuplet_2_0= ruleChord ) )
+            	    {
+            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:964:6: ( (lv_tuplet_2_0= ruleChord ) )
+            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:965:1: (lv_tuplet_2_0= ruleChord )
+            	    {
+            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:965:1: (lv_tuplet_2_0= ruleChord )
+            	    // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:966:3: lv_tuplet_2_0= ruleChord
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getTupletAccess().getTupletChordParserRuleCall_1_1_0()); 
+            	    	    
+            	    pushFollow(FOLLOW_ruleChord_in_ruleTuplet1912);
+            	    lv_tuplet_2_0=ruleChord();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getTupletRule());
+            	    	        }
+            	           		add(
+            	           			current, 
+            	           			"tuplet",
+            	            		lv_tuplet_2_0, 
+            	            		"Chord");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
 
             	    }
 
@@ -2353,19 +2392,19 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
                 cnt20++;
             } while (true);
 
-            otherlv_2=(Token)match(input,33,FOLLOW_33_in_ruleTuplet1897); 
+            otherlv_3=(Token)match(input,33,FOLLOW_33_in_ruleTuplet1926); 
 
-                	newLeafNode(otherlv_2, grammarAccess.getTupletAccess().getRightParenthesisKeyword_2());
+                	newLeafNode(otherlv_3, grammarAccess.getTupletAccess().getRightParenthesisKeyword_2());
                 
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:967:1: ( (lv_duration_3_0= RULE_DURATION ) )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:968:1: (lv_duration_3_0= RULE_DURATION )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:986:1: ( (lv_duration_4_0= RULE_DURATION ) )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:987:1: (lv_duration_4_0= RULE_DURATION )
             {
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:968:1: (lv_duration_3_0= RULE_DURATION )
-            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:969:3: lv_duration_3_0= RULE_DURATION
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:987:1: (lv_duration_4_0= RULE_DURATION )
+            // ../org.xtext.simplesonora/src-gen/org/xtext/simplesonora/parser/antlr/internal/InternalSimpleSonora.g:988:3: lv_duration_4_0= RULE_DURATION
             {
-            lv_duration_3_0=(Token)match(input,RULE_DURATION,FOLLOW_RULE_DURATION_in_ruleTuplet1914); 
+            lv_duration_4_0=(Token)match(input,RULE_DURATION,FOLLOW_RULE_DURATION_in_ruleTuplet1943); 
 
-            			newLeafNode(lv_duration_3_0, grammarAccess.getTupletAccess().getDurationDURATIONTerminalRuleCall_3_0()); 
+            			newLeafNode(lv_duration_4_0, grammarAccess.getTupletAccess().getDurationDURATIONTerminalRuleCall_3_0()); 
             		
 
             	        if (current==null) {
@@ -2374,7 +2413,7 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
                    		setWithLastConsumed(
                    			current, 
                    			"duration",
-                    		lv_duration_3_0, 
+                    		lv_duration_4_0, 
                     		"DURATION");
             	    
 
@@ -2406,6 +2445,7 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
 
 
     protected DFA9 dfa9 = new DFA9(this);
+    protected DFA20 dfa20 = new DFA20(this);
     static final String DFA9_eotS =
         "\24\uffff";
     static final String DFA9_eofS =
@@ -2484,6 +2524,65 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
             return "501:1: ( ( (lv_note_0_0= ruleNote ) ) | ( (lv_chord_1_0= ruleChord ) ) | ( (lv_harmony_2_0= ruleHarmony ) ) | ( (lv_tuplet_3_0= ruleTuplet ) ) | ( (lv_measure_4_0= RULE_MEASURE ) ) )";
         }
     }
+    static final String DFA20_eotS =
+        "\12\uffff";
+    static final String DFA20_eofS =
+        "\12\uffff";
+    static final String DFA20_minS =
+        "\1\6\1\uffff\6\6\2\uffff";
+    static final String DFA20_maxS =
+        "\1\41\1\uffff\1\6\5\41\2\uffff";
+    static final String DFA20_acceptS =
+        "\1\uffff\1\3\6\uffff\1\1\1\2";
+    static final String DFA20_specialS =
+        "\12\uffff}>";
+    static final String[] DFA20_transitionS = {
+            "\1\3\2\uffff\1\2\27\uffff\1\1",
+            "",
+            "\1\3",
+            "\1\10\1\4\1\uffff\1\10\1\5\16\uffff\1\6\1\7\1\11\5\uffff\1"+
+            "\10",
+            "\1\10\2\uffff\1\10\1\5\16\uffff\1\6\1\7\1\11\5\uffff\1\10",
+            "\1\10\2\uffff\1\10\17\uffff\1\6\1\7\1\11\5\uffff\1\10",
+            "\1\10\2\uffff\1\10\20\uffff\1\7\1\11\5\uffff\1\10",
+            "\1\10\2\uffff\1\10\21\uffff\1\11\5\uffff\1\10",
+            "",
+            ""
+    };
+
+    static final short[] DFA20_eot = DFA.unpackEncodedString(DFA20_eotS);
+    static final short[] DFA20_eof = DFA.unpackEncodedString(DFA20_eofS);
+    static final char[] DFA20_min = DFA.unpackEncodedStringToUnsignedChars(DFA20_minS);
+    static final char[] DFA20_max = DFA.unpackEncodedStringToUnsignedChars(DFA20_maxS);
+    static final short[] DFA20_accept = DFA.unpackEncodedString(DFA20_acceptS);
+    static final short[] DFA20_special = DFA.unpackEncodedString(DFA20_specialS);
+    static final short[][] DFA20_transition;
+
+    static {
+        int numStates = DFA20_transitionS.length;
+        DFA20_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA20_transition[i] = DFA.unpackEncodedString(DFA20_transitionS[i]);
+        }
+    }
+
+    class DFA20 extends DFA {
+
+        public DFA20(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 20;
+            this.eot = DFA20_eot;
+            this.eof = DFA20_eof;
+            this.min = DFA20_min;
+            this.max = DFA20_max;
+            this.accept = DFA20_accept;
+            this.special = DFA20_special;
+            this.transition = DFA20_transition;
+        }
+        public String getDescription() {
+            return "()+ loopback of 945:1: ( ( (lv_tuplet_1_0= ruleNote ) ) | ( (lv_tuplet_2_0= ruleChord ) ) )+";
+        }
+    }
  
 
     public static final BitSet FOLLOW_ruleDocument_in_entryRuleDocument75 = new BitSet(new long[]{0x0000000000000000L});
@@ -2556,8 +2655,9 @@ public class InternalSimpleSonoraParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleTuplet_in_entryRuleTuplet1816 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleTuplet1826 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_32_in_ruleTuplet1863 = new BitSet(new long[]{0x0000000000000240L});
-    public static final BitSet FOLLOW_ruleNote_in_ruleTuplet1884 = new BitSet(new long[]{0x0000000200000240L});
-    public static final BitSet FOLLOW_33_in_ruleTuplet1897 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_RULE_DURATION_in_ruleTuplet1914 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNote_in_ruleTuplet1885 = new BitSet(new long[]{0x0000000200000240L});
+    public static final BitSet FOLLOW_ruleChord_in_ruleTuplet1912 = new BitSet(new long[]{0x0000000200000240L});
+    public static final BitSet FOLLOW_33_in_ruleTuplet1926 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_RULE_DURATION_in_ruleTuplet1943 = new BitSet(new long[]{0x0000000000000002L});
 
 }

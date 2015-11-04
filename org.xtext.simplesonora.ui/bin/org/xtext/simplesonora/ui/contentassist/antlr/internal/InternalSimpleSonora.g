@@ -507,6 +507,28 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__Tuplet__Alternatives_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getTupletAccess().getTupletAssignment_1_0()); }
+(rule__Tuplet__TupletAssignment_1_0)
+{ after(grammarAccess.getTupletAccess().getTupletAssignment_1_0()); }
+)
+
+    |(
+{ before(grammarAccess.getTupletAccess().getTupletAssignment_1_1()); }
+(rule__Tuplet__TupletAssignment_1_1)
+{ after(grammarAccess.getTupletAccess().getTupletAssignment_1_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 
 
 rule__Document__Group__0
@@ -1881,14 +1903,14 @@ rule__Tuplet__Group__1__Impl
 :
 (
 (
-{ before(grammarAccess.getTupletAccess().getNotesAssignment_1()); }
-(rule__Tuplet__NotesAssignment_1)
-{ after(grammarAccess.getTupletAccess().getNotesAssignment_1()); }
+{ before(grammarAccess.getTupletAccess().getAlternatives_1()); }
+(rule__Tuplet__Alternatives_1)
+{ after(grammarAccess.getTupletAccess().getAlternatives_1()); }
 )
 (
-{ before(grammarAccess.getTupletAccess().getNotesAssignment_1()); }
-(rule__Tuplet__NotesAssignment_1)*
-{ after(grammarAccess.getTupletAccess().getNotesAssignment_1()); }
+{ before(grammarAccess.getTupletAccess().getAlternatives_1()); }
+(rule__Tuplet__Alternatives_1)*
+{ after(grammarAccess.getTupletAccess().getAlternatives_1()); }
 )
 )
 
@@ -2532,14 +2554,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Tuplet__NotesAssignment_1
+rule__Tuplet__TupletAssignment_1_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getTupletAccess().getNotesNoteParserRuleCall_1_0()); }
-	ruleNote{ after(grammarAccess.getTupletAccess().getNotesNoteParserRuleCall_1_0()); }
+{ before(grammarAccess.getTupletAccess().getTupletNoteParserRuleCall_1_0_0()); }
+	ruleNote{ after(grammarAccess.getTupletAccess().getTupletNoteParserRuleCall_1_0_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Tuplet__TupletAssignment_1_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getTupletAccess().getTupletChordParserRuleCall_1_1_0()); }
+	ruleChord{ after(grammarAccess.getTupletAccess().getTupletChordParserRuleCall_1_1_0()); }
 )
 
 ;
@@ -2569,7 +2606,7 @@ RULE_ACCIDENTAL : ('+'|'-'|'@');
 
 RULE_NOTE_ID : ('a'..'g'|'A'..'G'|('R'|'r'));
 
-RULE_DURATION : ':' ('1'|'2'|'4'|'8'|'16'|'32');
+RULE_DURATION : ':' ('1'|'2'|'4'|'8'|'16'|'32'|'64'|'128');
 
 RULE_MEASURE : '|'?;
 

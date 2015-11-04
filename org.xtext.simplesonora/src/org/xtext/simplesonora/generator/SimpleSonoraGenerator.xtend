@@ -246,14 +246,23 @@ class SimpleSonoraGenerator implements IGenerator {
 	 * @return String with JFugue pattern notation for tuplet.
 	 */
 	def String tuppletToPattern(Tuplet tuplet){
-		val numOfNotes = tuplet.notes.length
+		val numOfNotes = tuplet.tuplet.length
 		val duration = tuplet.duration
 		var auxTuplet = ""
 		
-		for(n : tuplet.notes){
-			auxTuplet = auxTuplet.concat(n.noteToPattern + "*" + 
-				numOfNotes.toString + duration.toString + " "
-			)
+		for(n : tuplet.tuplet){
+			switch(n.eClass.name){
+				case 'Note':	// note inside tuplet
+					auxTuplet = auxTuplet.concat(
+						(n as Note).noteToPattern + "*" + 
+						numOfNotes.toString + duration.toString + " " )
+					
+				case 'Chord': {	// chord inside tuplet
+					auxTuplet = auxTuplet.concat(
+						(n as Chord).chordToPattern + "*" +
+						numOfNotes.toString + duration.toString + " " )
+				}
+			}
 		}
 		
 		return auxTuplet

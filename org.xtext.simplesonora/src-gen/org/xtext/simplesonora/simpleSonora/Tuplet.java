@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.simplesonora.simpleSonora.Tuplet#getNotes <em>Notes</em>}</li>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.Tuplet#getTuplet <em>Tuplet</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.Tuplet#getDuration <em>Duration</em>}</li>
  * </ul>
  *
@@ -26,20 +26,20 @@ import org.eclipse.emf.ecore.EObject;
 public interface Tuplet extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Notes</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.simplesonora.simpleSonora.Note}.
+   * Returns the value of the '<em><b>Tuplet</b></em>' containment reference list.
+   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Notes</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Tuplet</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Notes</em>' containment reference list.
-   * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getTuplet_Notes()
+   * @return the value of the '<em>Tuplet</em>' containment reference list.
+   * @see org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage#getTuplet_Tuplet()
    * @model containment="true"
    * @generated
    */
-  EList<Note> getNotes();
+  EList<EObject> getTuplet();
 
   /**
    * Returns the value of the '<em><b>Duration</b></em>' attribute.

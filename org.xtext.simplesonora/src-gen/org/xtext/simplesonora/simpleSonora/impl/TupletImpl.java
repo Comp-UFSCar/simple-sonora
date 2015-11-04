@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -18,7 +19,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.simplesonora.simpleSonora.Note;
 import org.xtext.simplesonora.simpleSonora.SimpleSonoraPackage;
 import org.xtext.simplesonora.simpleSonora.Tuplet;
 
@@ -30,7 +30,7 @@ import org.xtext.simplesonora.simpleSonora.Tuplet;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.TupletImpl#getNotes <em>Notes</em>}</li>
+ *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.TupletImpl#getTuplet <em>Tuplet</em>}</li>
  *   <li>{@link org.xtext.simplesonora.simpleSonora.impl.TupletImpl#getDuration <em>Duration</em>}</li>
  * </ul>
  *
@@ -39,14 +39,14 @@ import org.xtext.simplesonora.simpleSonora.Tuplet;
 public class TupletImpl extends MinimalEObjectImpl.Container implements Tuplet
 {
   /**
-   * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference list.
+   * The cached value of the '{@link #getTuplet() <em>Tuplet</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNotes()
+   * @see #getTuplet()
    * @generated
    * @ordered
    */
-  protected EList<Note> notes;
+  protected EList<EObject> tuplet;
 
   /**
    * The default value of the '{@link #getDuration() <em>Duration</em>}' attribute.
@@ -94,13 +94,13 @@ public class TupletImpl extends MinimalEObjectImpl.Container implements Tuplet
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Note> getNotes()
+  public EList<EObject> getTuplet()
   {
-    if (notes == null)
+    if (tuplet == null)
     {
-      notes = new EObjectContainmentEList<Note>(Note.class, this, SimpleSonoraPackage.TUPLET__NOTES);
+      tuplet = new EObjectContainmentEList<EObject>(EObject.class, this, SimpleSonoraPackage.TUPLET__TUPLET);
     }
-    return notes;
+    return tuplet;
   }
 
   /**
@@ -136,8 +136,8 @@ public class TupletImpl extends MinimalEObjectImpl.Container implements Tuplet
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.TUPLET__NOTES:
-        return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
+      case SimpleSonoraPackage.TUPLET__TUPLET:
+        return ((InternalEList<?>)getTuplet()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -152,8 +152,8 @@ public class TupletImpl extends MinimalEObjectImpl.Container implements Tuplet
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.TUPLET__NOTES:
-        return getNotes();
+      case SimpleSonoraPackage.TUPLET__TUPLET:
+        return getTuplet();
       case SimpleSonoraPackage.TUPLET__DURATION:
         return getDuration();
     }
@@ -171,9 +171,9 @@ public class TupletImpl extends MinimalEObjectImpl.Container implements Tuplet
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.TUPLET__NOTES:
-        getNotes().clear();
-        getNotes().addAll((Collection<? extends Note>)newValue);
+      case SimpleSonoraPackage.TUPLET__TUPLET:
+        getTuplet().clear();
+        getTuplet().addAll((Collection<? extends EObject>)newValue);
         return;
       case SimpleSonoraPackage.TUPLET__DURATION:
         setDuration((String)newValue);
@@ -192,8 +192,8 @@ public class TupletImpl extends MinimalEObjectImpl.Container implements Tuplet
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.TUPLET__NOTES:
-        getNotes().clear();
+      case SimpleSonoraPackage.TUPLET__TUPLET:
+        getTuplet().clear();
         return;
       case SimpleSonoraPackage.TUPLET__DURATION:
         setDuration(DURATION_EDEFAULT);
@@ -212,8 +212,8 @@ public class TupletImpl extends MinimalEObjectImpl.Container implements Tuplet
   {
     switch (featureID)
     {
-      case SimpleSonoraPackage.TUPLET__NOTES:
-        return notes != null && !notes.isEmpty();
+      case SimpleSonoraPackage.TUPLET__TUPLET:
+        return tuplet != null && !tuplet.isEmpty();
       case SimpleSonoraPackage.TUPLET__DURATION:
         return DURATION_EDEFAULT == null ? duration != null : !DURATION_EDEFAULT.equals(duration);
     }

@@ -586,7 +586,7 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTuplet_Notes()
+  public EReference getTuplet_Tuplet()
   {
     return (EReference)tupletEClass.getEStructuralFeatures().get(0);
   }
@@ -682,7 +682,7 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
     createEReference(harmonyEClass, HARMONY__NOTES);
 
     tupletEClass = createEClass(TUPLET);
-    createEReference(tupletEClass, TUPLET__NOTES);
+    createEReference(tupletEClass, TUPLET__TUPLET);
     createEAttribute(tupletEClass, TUPLET__DURATION);
   }
 
@@ -768,7 +768,7 @@ public class SimpleSonoraPackageImpl extends EPackageImpl implements SimpleSonor
     initEReference(getHarmony_Notes(), this.getNote(), null, "notes", null, 0, -1, Harmony.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(tupletEClass, Tuplet.class, "Tuplet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTuplet_Notes(), this.getNote(), null, "notes", null, 0, -1, Tuplet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTuplet_Tuplet(), ecorePackage.getEObject(), null, "tuplet", null, 0, -1, Tuplet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTuplet_Duration(), ecorePackage.getEString(), "duration", null, 0, 1, Tuplet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource

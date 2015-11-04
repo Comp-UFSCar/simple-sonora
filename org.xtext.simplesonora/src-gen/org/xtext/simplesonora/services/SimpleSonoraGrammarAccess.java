@@ -430,11 +430,15 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cInversionCircumflexAccentCircumflexAccentKeyword_1_1_2_1_0 = (Keyword)cInversionAssignment_1_1_2_1.eContents().get(0);
 		
 		//Chord: // A chord must have at least 2 notes or a name
-		//	chordNotes+=Note (("/" chordNotes+=Note)+ | "/" chordName=ID (inversion="^" | inversion="^^")?);
+		//	chordNotes+=Note (("/" chordNotes+=Note)+ // multiple notes that will compose the chord
+		//	// use of chord name and it's inversions
+		//	| "/" chordName=ID (inversion="^" | inversion="^^")?);
 		@Override public ParserRule getRule() { return rule; }
 
 		//// A chord must have at least 2 notes or a name
-		//chordNotes+=Note (("/" chordNotes+=Note)+ | "/" chordName=ID (inversion="^" | inversion="^^")?)
+		//chordNotes+=Note (("/" chordNotes+=Note)+ // multiple notes that will compose the chord
+		//// use of chord name and it's inversions
+		//| "/" chordName=ID (inversion="^" | inversion="^^")?)
 		public Group getGroup() { return cGroup; }
 
 		//// A chord must have at least 2 notes or a name
@@ -444,7 +448,9 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		//Note
 		public RuleCall getChordNotesNoteParserRuleCall_0_0() { return cChordNotesNoteParserRuleCall_0_0; }
 
-		//("/" chordNotes+=Note)+ | "/" chordName=ID (inversion="^" | inversion="^^")?
+		//("/" chordNotes+=Note)+ // multiple notes that will compose the chord
+		//// use of chord name and it's inversions
+		//| "/" chordName=ID (inversion="^" | inversion="^^")?
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
 		//("/" chordNotes+=Note)+
@@ -545,27 +551,48 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Tuplet");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNotesAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNotesNoteParserRuleCall_1_0 = (RuleCall)cNotesAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cTupletAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cTupletNoteParserRuleCall_1_0_0 = (RuleCall)cTupletAssignment_1_0.eContents().get(0);
+		private final Assignment cTupletAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cTupletChordParserRuleCall_1_1_0 = (RuleCall)cTupletAssignment_1_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cDurationAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cDurationDURATIONTerminalRuleCall_3_0 = (RuleCall)cDurationAssignment_3.eContents().get(0);
 		
-		//Tuplet:
-		//	"(" notes+=Note+ ")" duration=DURATION;
+		/// *
+		//	 * "any rhythm that involves dividing the beat into a different number of 
+		//	 * equal subdivisions from that usually permitted by the time-signature 
+		//	 * (e.g., triplets, duplets, etc.)" - (Humphries 2002, 266)
+		//	 * / Tuplet: // Tuplet counts the number of notes inside '(' ')' and adjust their's duration to
+		//// desired duration after ')'
+		//	"(" (tuplet+=Note | tuplet+=Chord)+ ")" duration=DURATION;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"(" notes+=Note+ ")" duration=DURATION
+		//// Tuplet counts the number of notes inside '(' ')' and adjust their's duration to
+		//// desired duration after ')'
+		//"(" (tuplet+=Note | tuplet+=Chord)+ ")" duration=DURATION
 		public Group getGroup() { return cGroup; }
 
+		//// Tuplet counts the number of notes inside '(' ')' and adjust their's duration to
+		//// desired duration after ')'
 		//"("
 		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
 
-		//notes+=Note+
-		public Assignment getNotesAssignment_1() { return cNotesAssignment_1; }
+		//(tuplet+=Note | tuplet+=Chord)+
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+
+		//tuplet+=Note
+		public Assignment getTupletAssignment_1_0() { return cTupletAssignment_1_0; }
 
 		//Note
-		public RuleCall getNotesNoteParserRuleCall_1_0() { return cNotesNoteParserRuleCall_1_0; }
+		public RuleCall getTupletNoteParserRuleCall_1_0_0() { return cTupletNoteParserRuleCall_1_0_0; }
+
+		//tuplet+=Chord
+		public Assignment getTupletAssignment_1_1() { return cTupletAssignment_1_1; }
+
+		//Chord
+		public RuleCall getTupletChordParserRuleCall_1_1_0() { return cTupletChordParserRuleCall_1_1_0; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
@@ -749,7 +776,9 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Chord: // A chord must have at least 2 notes or a name
-	//	chordNotes+=Note (("/" chordNotes+=Note)+ | "/" chordName=ID (inversion="^" | inversion="^^")?);
+	//	chordNotes+=Note (("/" chordNotes+=Note)+ // multiple notes that will compose the chord
+	//	// use of chord name and it's inversions
+	//	| "/" chordName=ID (inversion="^" | inversion="^^")?);
 	public ChordElements getChordAccess() {
 		return pChord;
 	}
@@ -769,8 +798,13 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 		return getHarmonyAccess().getRule();
 	}
 
-	//Tuplet:
-	//	"(" notes+=Note+ ")" duration=DURATION;
+	/// *
+	//	 * "any rhythm that involves dividing the beat into a different number of 
+	//	 * equal subdivisions from that usually permitted by the time-signature 
+	//	 * (e.g., triplets, duplets, etc.)" - (Humphries 2002, 266)
+	//	 * / Tuplet: // Tuplet counts the number of notes inside '(' ')' and adjust their's duration to
+	//// desired duration after ')'
+	//	"(" (tuplet+=Note | tuplet+=Chord)+ ")" duration=DURATION;
 	public TupletElements getTupletAccess() {
 		return pTuplet;
 	}
@@ -805,7 +839,7 @@ public class SimpleSonoraGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal DURATION: // 1 for whole, 2 for 1/2, 4 for 1/4, ...
-	//	":" ("1" | "2" | "4" | "8" | "16" | "32");
+	//	":" ("1" | "2" | "4" | "8" | "16" | "32" | "64" | "128");
 	public TerminalRule getDURATIONRule() {
 		return tDURATION;
 	} 

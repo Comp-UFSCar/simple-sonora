@@ -185,7 +185,7 @@ public class SimpleSonoraSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Constraint:
-	 *     (notes+=Note+ duration=DURATION)
+	 *     ((tuplet+=Note | tuplet+=Chord)+ duration=DURATION)
 	 */
 	protected void sequence_Tuplet(EObject context, Tuplet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

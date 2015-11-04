@@ -63,8 +63,8 @@
         eType="#//Note" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tuplet">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="notes" upperBound="-1"
-        eType="#//Note" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tuplet" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
