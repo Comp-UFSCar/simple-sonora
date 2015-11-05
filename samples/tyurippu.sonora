@@ -8,7 +8,7 @@ key = C major
 
 piano {
 	r:4 // 'pause trick' to avoid 'attack time'
-	c   d   e:2    c:4 d:4 e:2
+	c   d   e:2     c:4 d:4 e:2
 	g:4 e   d   c   d   e   d:2
 	c:4 d   e:2     c:4 d   e:2
 	g:4 e   d   c   d   e   c:2
