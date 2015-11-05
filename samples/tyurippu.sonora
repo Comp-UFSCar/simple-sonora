@@ -1,3 +1,5 @@
+//transcription: Matheus Takata
+
 title = Tyurippu
 
 tempo = 120
@@ -5,11 +7,11 @@ tempo = 120
 key = C major
 
 piano {
-	r
-	c:4 d:4 e:2 c:4 d:4 e:2
-	g:4 e d c d e d:2
-	c:4 d:4 e:2 c:4 d:4 e:2
-	g:4 e d c d e c:2
-	g:4 g e g a a g:2
-	e:4 e d d c:1
+	r:4 // 'pause trick' to avoid 'attack time'
+	c   d   e:2    c:4 d:4 e:2
+	g:4 e   d   c   d   e   d:2
+	c:4 d   e:2     c:4 d   e:2
+	g:4 e   d   c   d   e   c:2
+	g:4 g   e   g   a   a   g:2
+	e:4 e   d   d   c:1
 }
