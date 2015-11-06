@@ -1,0 +1,137 @@
+//Transcription: João Vitor Brandão
+//Original song by Slayer
+
+title = Raining_Blood
+
+tempo = 178
+
+key = c major
+
+distortion_guitar{ 
+	r:4 // 'pause trick' to avoid 'attack time'
+	<d+:8 d+ d+> e- a a+ a:4
+	f:8 a a-:4 e:8 a- g:4
+	<d+:8 d+ d+> e- a a+ a:4
+	f:8 a a-:4 e:8 a- g:4
+	<d+:8 d+ d+> e- a a+ a:4
+	f:8 a a-:4 e:8 a- g:4
+	<d+:8 d+ d+> e- a a+ a:4 
+	f:8 a a-:4 e:8 a- g:4 
+	<d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8
+	d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8
+	d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8
+	d+:8 f g > c f e < b b-  
+	d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8
+	d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8
+	d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8
+	d+:8 f g > c f e < b b- 
+	d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8
+	d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8
+	d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8
+	d+:8 f g > c f e < b b-  
+	d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8
+	d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8
+	d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8 d+:16d+d+:8
+	d+:8 f g > c f e < b b- 
+//Tempo should increase to 214bpm here
+//	a-:16 g- g e- a g g- e- a-:16 g- g e- a g g- e- 
+//	a-:16 g- g e- a g g- e- a-:16 g- g e- a g g- e-   
+	
+} 
+
+distortion_guitar{ 
+	r:4 // 'pause trick' to avoid 'attack time'
+	r:1
+	r:1
+	r:1
+	r:1
+	d+:8 d+ d+ a- > d d+ d:4  
+	<b-:8> d d-:4 <a:8> d- c:4  
+	<d+:8 d+ d+ a- > d d+ d:4 
+	<b-:8> d d-:4 <a:8> d- c:4 
+} 
+
+//bass drum
+woodblock {
+	r:4 // 'pause trick' to avoid 'attack time'
+	c:8 c c r:8 r:2
+	r:1
+	c:8 c c r:8 r:2
+	r:1
+	c:8 c c r:8 r:2
+	r:1
+	c:8 c c r:8 r:2
+	r:1
+	c:16 c c c c c c c c c c c c c c c
+	c:16 c c c c c c c c c c c c c c c
+	c:16 c c c c c c c c c c c c c c c
+	c:16 c c c c c c c c c c c c c c c
+	c:16 c c c c c c c c c c c c c c c
+	c:16 c c c c c c c c c c c c c c c
+	c:16 c c c c c c c c c c c c c c c
+	c:16 c c c c c c c c c c c c c c c
+	c:16 c c c c c c c c c c c c c c c
+	c:16 c c c c c c c c c c c c c c c
+	c:16 c c c c c c c c c c c c c c c
+	c:16 c c c c c c c c c c c c c c c
+	c:16 c c c c c c c c c c c c c c c
+	c:16 c c c c c c c c c c c c c c c
+	c:16 c c c c c c c c c c c c c c c
+	c:16 c c c c c c c c c c c c c c c
+}
+
+gunshot{
+	r:4 // 'pause trick' to avoid 'attack time'
+	r:1
+	r:1
+	r:1
+	r:1
+	r:1
+	r:1
+	r:1
+	r:1
+	c:4 c c c 
+	c c c c 
+	c c c c
+	c c c c
+	c:4 c c c 
+	c c c c 
+	c c c c
+	c c c c
+	c:4 c c c 
+	c c c c 
+	c c c c
+	c c c c
+	c:4 c c c 
+	c c c c 
+	c c c c
+	c c c c
+}
+
+applause {
+	r:4 // 'pause trick' to avoid 'attack time'
+	r:1
+	r:1
+	r:1
+	r:1
+	r:1
+	r:1
+	r:1
+	r:1
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+} 
