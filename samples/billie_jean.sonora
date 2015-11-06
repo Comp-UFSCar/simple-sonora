@@ -1,0 +1,103 @@
+//Transcription: João Vitor Brandão
+//Original song by Michael Jackson 
+
+title=Billie_Jean
+tempo=118
+
+key=C major
+
+fretless_bass{ 
+	r:4 // 'pause trick' to avoid 'attack time'
+	o3 g-:8 o2 d- e g- e d- o1 b o2 d-
+	o3 g-:8 o2 d- e g- e d- o1 b o2 d-
+	o3 g-:8 o2 d- e g- e d- o1 b o2 d-
+	o3 g-:8 o2 d- e g- e d- o1 b o2 d-
+	o3 g-:8 o2 d- e g- e d- o1 b o2 d-
+	o3 g-:8 o2 d- e g- e d- o1 b o2 d-
+	o3 g-:8 o2 d- e g- e d- o1 b o2 d-
+	o3 g-:8 o2 d- e g- e d- o1 b o2 d-
+	o3 g-:8 o2 d- e g- e d- o1 b o2 d-
+	o3 g-:8 o2 d- e g- e d- o1 b o2 d-
+	o3 g-:8 o2 d- e g- e d- o1 b o2 d-
+	o3 g-:8 o2 d- e g- e d- o1 b o2 d-
+} 
+
+new_age{
+	r:4 // 'pause trick' to avoid 'attack time'
+	r:1
+	r:1
+	r:1
+	r:1
+	f+:8/min r:4 g+:8/min r:2
+	a:8/maj r:4 g+:8/min r:2
+	f+:8/min r:4 g+:8/min r:2
+	a:8/maj r:4 g+:8/min r:2  
+	f+:8/min r:4 g+:8/min r:2
+	a:8/maj r:4 g+:8/min r:2
+	f+:8/min r:4 g+:8/min r:2
+	a:8/maj r:4 g+:8/min r:2  
+}
+
+choir{
+	r:4 // 'pause trick' to avoid 'attack time'
+	r:1
+	r:1
+	r:1
+	r:1
+	r:1
+	r:1
+	r:1
+	r:1
+	o5 f+:8/min r:4 g+:8/min r:2
+	a:8/maj r:4 g+:8/min r:2
+	f+:8/min r:4 g+:8/min r:2
+	a:8/maj r:4 g+:8/min r:2  
+}
+
+gunshot{
+	r:4 // 'pause trick' to avoid 'attack time'
+	c:8 c c c c c c c 
+	c:8 c c c c c c c 
+	c:8 c c c c c c c 
+	c:8 c c c c c c c
+	c:8 c c c c c c c 
+	c:8 c c c c c c c 
+	c:8 c c c c c c c 
+	c:8 c c c c c c c
+	c:8 c c c c c c c 
+	c:8 c c c c c c c 
+	c:8 c c c c c c c 
+	c:8 c c c c c c c  
+}
+ 
+woodblock {
+	r:4 // 'pause trick' to avoid 'attack time'
+	c:2 c:2
+	c:2 c:2
+	c:2 c:2
+	c:2 c:2
+	c:2 c:2
+	c:2 c:2
+	c:2 c:2
+	c:2 c:2
+	c:2 c:2
+	c:2 c:2
+	c:2 c:2
+	c:2 c:2
+}
+
+applause {
+	r:4 // 'pause trick' to avoid 'attack time'
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+	r:4 c:4 r:4 c:4
+}
