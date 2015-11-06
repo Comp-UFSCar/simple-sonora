@@ -1,0 +1,54 @@
+title = harmony_and_rest
+key = C maj
+
+piano {
+	<a:1[>c:4 g:8 c g c g:4]
+	<g:1[>c:4 g:8 c g c f:4]
+	<f:1[>c:4 f:8 c f c e:4]
+	<f:1[>c:4 f:8 c f c e:4]
+	<a:1[>c:4 g:8 c g c g:4]
+	<g:1[>c:4 g:8 c g c f:4]
+	<f:1[>c:4 f:8 c f c e:4]
+	<f:1[>c:4 f:8 c f c e:4]
+	<a:1[>c:4 g:8 c g c g:4]
+	<g:1[>c:4 g:8 c g c f:4]
+	<f:1[>c:4 f:8 c f c e:4]
+	<f:1[>c:4 f:8 c f c e:4]
+	<a:1[>c:4 g:8 c g c g:4]
+	<g:1[>c:4 g:8 c g c f:4]
+	<f:1[>c:4 f:8 c f c e:4]
+	<f:1[>c:4 f:8 c f c e:4]
+}
+
+pizzicato_strings {
+	r:1 
+	r
+	r
+	r
+	a:8 >c g <a >c g <a >c 
+	g <a >c g <a >c g <a 
+	>c f <a >c f <a >c f 
+	<a >c f <a >c f <a >c 
+	a:8 >c g <a >c g <a >c 
+	g <a >c g <a >c g <a 
+	>c f <a >c f <a >c f 
+	<a >c f <a >c f <a >c 
+	<a:8 >c g <a >c g <a >c 
+	g <a >c g <a >c g <a 
+	>c f <a >c f <a >c f 
+	<a >c f <a >c f <a >c 
+}
+
+viola {
+	r:1 
+	r
+	r
+	r
+	r:1 
+	r
+	r
+	r
+	a:2 b > c d f:1 
+	f:2 e:2
+	a <a >a g f:1 f:2 e
+}

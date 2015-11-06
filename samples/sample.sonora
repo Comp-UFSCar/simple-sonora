@@ -1,0 +1,34 @@
+title = test
+tempo = 150
+key = C maj
+
+piano {
+	e-:8 c g c e- c g c e- c g c e- c g c
+	e-:4 c a- c e- c a- c
+	e-:8 < b- > g < b- > e- < b- > g < b- > e- < b- > g < b- > e- < b- > g < b- >
+	e-:4 < b- > f < b- > e- < b- > f < b-:1	
+}
+
+guitar {
+	c:2/e-/g c/e-/g c/e-/g c/e-/g
+	c/e-/a- c/e-/a- c/e-/a- c/e-/a-
+	<b-/>e-/g <b-/>e-/g <b-/>e-/g <b-/>e-/g
+	<b-/>e-/f <b-/>e-/f <b-/>e-/f <b-/>e-/f
+}
+
+string_ensemble_1 {
+	o5 e-:1 d c a-
+	< b- > f e- d
+}
+
+choir_aahs {
+	o6 g:1 g:1 a- a- b- b- b- b-
+}
+
+/*
+ * Turkish March
+ * 	o4 	b:8 a g+ a > c:2 
+	d:8 c < b > c e:2
+	f:8 e d+ e b a g+ a b a g+ a > c:2
+	< a:4 > c < b a g a b a g a b a g f+ e
+ */
