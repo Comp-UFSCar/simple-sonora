@@ -9,11 +9,11 @@ key = c major
 piano {
 	r:4 // 'pause trick' to avoid 'attack time'
 	g:2     e:4 e   f   e   d   c
-	g   g   e:2     d:1
-	e:4 e   g   g   a:2     a:4 a 
-   >c:4 c   <e  e   g:1
+	g:2     e:4 e   d:1
+	e:4 e   g   g   a:2     a:4 a
+   	>c:2   <e:4 e   g:1
 	g:4 g   e:4 e   f   e   d   c
 	g   g   e:2     d:1
-	g:4 g   e   e   a   a   g:2
+	g:2     e:4 e   a   a   g:2   
 	a:4 a   b   b   >c:1
 }
