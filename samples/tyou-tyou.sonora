@@ -1,0 +1,17 @@
+title = Tyou_tyou
+
+tempo = 120
+
+key = c major
+
+piano {
+	r:4
+	g:4 e e:2 f:4 d d:2
+	c:4 d e f g g g:2
+	g:4 e e e f:4 d d:2
+	c:4 e g g e e e:2
+	d:4 d d d d e f:2
+	e:4 e e e e f g:2
+	g:4 e e e f:4 d d:2
+	c:4 e g g e e e:2
+}
