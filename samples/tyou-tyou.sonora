@@ -1,3 +1,5 @@
+//transcription: Matheus Takata
+
 title = Tyou_tyou
 
 tempo = 120
@@ -5,7 +7,7 @@ tempo = 120
 key = c major
 
 piano {
-	r:4
+	r:4 // 'pause trick' to avoid 'attack time'
 	g:4 e e:2 f:4 d d:2
 	c:4 d e f g g g:2
 	g:4 e e e f:4 d d:2
