@@ -1,0 +1,46 @@
+// transcription = Thales Menato
+no-feedback
+title = Bach_BWV565_FUGA
+tempo = 90
+key = F major
+
+// fuga
+church_organ {
+o4	r:16 a:16 g a f a e a |
+o4	d:16 a c+ a d a e a f a <a >a <b@ >a c+ a |
+o4	d:16 a c+ a d a e a f:8 f+ g c@ |
+o4	b:8 a b >c d <f+ g a |
+o4	b:8 a b f+ g:16 >g <g >g d g d g |
+o5	c:16 e- c e- c e- c e- c f c f c f c f	|
+o4	b:16 >d <b >d <b >d <b >d <b >e@ <b >e@ <b >e@ <b >e@ |
+o4	a:16 >c+ <a >c+ <a >c+ <a >c+ <f >d <f >d <f >d <f >d |
+o4	e:16 b e b e b e b d a d a d a d a |
+o4	e:16 g e g e g e g f:8/a e/a d/a g/a |
+o4	f:8/a e/a f/a c+/a d/a c+/a d/a e/a |
+o4	f:8/a e/a f/a c+/a d:4/a f/>d | 
+o4	g:4/>d r <c/>c <e/>c |
+o4	f:4/>c <r <b/>b d/b | 
+o4	e:4/b r <a/>a c+/a |
+o4	d:4/a r:8 f/>d <b/>c+ <b/>c+ <a/>d <a/>d |
+o4	g:4/>e r:8 <a/>e <b/>c+ <b/>c+ <a/>d <a/>d |
+}
+
+church_organ {
+	r:2 | 
+	r:1 |
+o6	r:2 r:16 d:16 c d <b >d <a >d |
+o5	g:16 >d <f+ >d <g >d <a >d <b >d <d >d <e >d <f+ >d |
+o5 	g:16 >d <f+ >d <g >d <a >d <b:8 >d <b >d |
+o6	e-:8 <g >e- <g >c <a >c <a |
+o6	d:8 <f >d <f b g b g |
+o6	c+:8 <e >c+ <e a f a f |
+o5	g:8 c+ g c+ f d f d |
+o5	e:8 <b >e <b >r:16 a g a f a e a |
+o5	d:16 a c+ a d a e a f a <a >a <b@ >a c+ a |
+o5	d:16 a c+ a d a e a f a e a d a c@ a |
+o4	b:16 >a c a d g <b >g e g d g c g <b >g |
+o4	a:16 >g <b >g c f <a >f d f c f <b >f <a >f |
+o4	g:16 >f <a >f <b >e <g >e c+ e <b >e <a >e <g >e |
+o4	f:16 >e <g >e <a >d <f >d <e >e <e >e <f >d <f >d |
+o4	b:16 >c+ <b >c+ <a >d <f >d <e >e <e >e <f >d <f >e |	
+}
